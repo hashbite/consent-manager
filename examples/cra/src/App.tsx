@@ -9,6 +9,8 @@ import {
 import YouTube from 'react-youtube'
 import './App.css'
 
+import { PrivacyManager, usePrivacyManagerDecision } from './privacy-manager'
+
 // Implementation according to react-router docs:
 // https://reactrouter.com/web/api/Hooks/uselocation
 
@@ -67,10 +69,20 @@ function Home() {
 }
 
 function About() {
+  // true / false
+  const canDisplayYoutube = usePrivacyManagerDecision('youtube')
+  // <Youtube /> or <Fallback />
+  // const ShieldedYoutube = usePrivacyManagerShield('youtube', YouTube, FallbackComponent)
   return (
     <div>
       <h2>About</h2>
-      <YouTube id="fooodQw4w9WgXcQ" />
+      <pre>{JSON.stringify(canDisplayYoutube)}</pre>
+      {canDisplayYoutube && <YouTube id="fooodQw4w9WgXcQ" />}
+      {/* <ShieldedYoutube id="fooodQw4w9WgXcQ" /> */}
+      {/* <YouTube /> or <Fallback /> */}
+      {/* <PrivacyShield integrationId="youtube">
+        <YouTube id="fooodQw4w9WgXcQ" />
+      </PrivacyShield> */}
     </div>
   )
 }
@@ -83,10 +95,19 @@ function Dashboard() {
   )
 }
 
+const privacyManagerConfig = {
+  // .. some config values
+  integrations: [
+    { id: 'youtube' }
+  ]
+}
+
 const App: React.FC = () => {
   return (
     <Router>
-      <BasicExample />
+      <PrivacyManager config={privacyManagerConfig}>
+        <BasicExample />
+      </PrivacyManager>
     </Router>
   )
 }
