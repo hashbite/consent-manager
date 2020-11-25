@@ -2,6 +2,7 @@ export type IntegrationName = string
 
 export interface IntegrationConfig {
   id: string
+  wrapperComponent?: any // React.Component<{}>
 }
 
 export interface PrivacyManagerConfig {
@@ -12,7 +13,9 @@ export interface PrivacyManagerDecisions {
   [key: string]: boolean
 }
 
-export function configToDecisions(config: PrivacyManagerConfig): PrivacyManagerDecisions {
+export function configToDecisions(
+  config: PrivacyManagerConfig
+): PrivacyManagerDecisions {
   const decisions: PrivacyManagerDecisions = {}
 
   for (const integration of config.integrations) {

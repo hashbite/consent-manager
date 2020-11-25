@@ -9,7 +9,12 @@ import {
 import YouTube from 'react-youtube'
 import './App.css'
 
-import { PrivacyManager, usePrivacyManagerDecision } from './privacy-manager'
+import {
+  PrivacyManager,
+  PrivacyShield,
+  usePrivacyManagerDecision,
+  usePrivacyManagerShield,
+} from './privacy-manager'
 
 // Implementation according to react-router docs:
 // https://reactrouter.com/web/api/Hooks/uselocation
@@ -68,21 +73,31 @@ function Home() {
   )
 }
 
+const FallbackComponent = () => (
+  <div>
+    <img
+      alt="No consent"
+      src="https://media.giphy.com/media/12HZukMBlutpoQ/giphy.gif"
+    />
+  </div>
+)
+
 function About() {
-  // true / false
   const canDisplayYoutube = usePrivacyManagerDecision('youtube')
-  // <Youtube /> or <Fallback />
-  // const ShieldedYoutube = usePrivacyManagerShield('youtube', YouTube, FallbackComponent)
+  const ShieldedYoutube = usePrivacyManagerShield(
+    'youtube',
+    YouTube,
+    FallbackComponent
+  )
   return (
     <div>
       <h2>About</h2>
       <pre>{JSON.stringify(canDisplayYoutube)}</pre>
       {canDisplayYoutube && <YouTube id="fooodQw4w9WgXcQ" />}
-      {/* <ShieldedYoutube id="fooodQw4w9WgXcQ" /> */}
-      {/* <YouTube /> or <Fallback /> */}
-      {/* <PrivacyShield integrationId="youtube">
+      <ShieldedYoutube id="fooodQw4w9WgXcQ" />
+      <PrivacyShield id="youtube">
         <YouTube id="fooodQw4w9WgXcQ" />
-      </PrivacyShield> */}
+      </PrivacyShield>
     </div>
   )
 }
@@ -98,14 +113,31 @@ function Dashboard() {
 const privacyManagerConfig = {
   // .. some config values
   integrations: [
-    { id: 'youtube' }
-  ]
+    { id: 'youtube' },
+    {
+      id: 'matomo',
+      wrapperComponent: ({ children }: { children: React.ReactNode }) =>
+        children,
+    },
+  ],
 }
+
+const GlobalFallbackComponent = () => (
+  <div>
+    <img
+      alt="No consent"
+      src="https://media.giphy.com/media/iKHNc9zt4khhufgtdi/giphy.gif"
+    />
+  </div>
+)
 
 const App: React.FC = () => {
   return (
     <Router>
-      <PrivacyManager config={privacyManagerConfig}>
+      <PrivacyManager
+        config={privacyManagerConfig}
+        fallbackComponent={GlobalFallbackComponent}
+      >
         <BasicExample />
       </PrivacyManager>
     </Router>
