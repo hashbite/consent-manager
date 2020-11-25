@@ -1,8 +1,11 @@
+import { PageViewEventTrigger } from "."
+
 export type IntegrationName = string
 
 export interface IntegrationConfig {
   id: string
   wrapperComponent?: any // React.Component<{}>
+  pageViewEventHandler?: PageViewEventTrigger
 }
 
 export interface PrivacyManagerConfig {
@@ -19,7 +22,7 @@ export function configToDecisions(
   const decisions: PrivacyManagerDecisions = {}
 
   for (const integration of config.integrations) {
-    decisions[integration.id] = true
+    decisions[integration.id] = false
   }
 
   return decisions

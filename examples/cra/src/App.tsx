@@ -6,12 +6,14 @@ import {
   Link,
   useLocation,
 } from 'react-router-dom'
+import { Location } from 'history'
 import YouTube from 'react-youtube'
 import './App.css'
 
 import {
   PrivacyManager,
   PrivacyShield,
+  usePageViewEventTrigger,
   usePrivacyManagerDecision,
   usePrivacyManagerShield,
 } from './privacy-manager'
@@ -19,18 +21,16 @@ import {
 // Implementation according to react-router docs:
 // https://reactrouter.com/web/api/Hooks/uselocation
 
-function usePageViews() {
+function usePageEvents() {
   let location = useLocation()
+  let triggerEvent = usePageViewEventTrigger('matomo')
   React.useEffect(() => {
-    console.log(
-      'emulated page track event for',
-      location.pathname + location.search
-    )
-  }, [location])
+    triggerEvent(location)
+  }, [location, triggerEvent])
 }
 
 function BasicExample() {
-  usePageViews()
+  usePageEvents()
   return (
     <>
       <ul>
@@ -119,6 +119,12 @@ const privacyManagerConfig = {
       wrapperComponent: ({ children }: { children: React.ReactNode }) => (
         <div style={{ border: '3px solid tomato'}}>{children}</div>
       ),
+      pageViewEventHandler: (location: Location) => {
+        console.log(
+          'emulated matomo page track event for',
+          location.pathname + location.search
+        )
+      }
     },
     {
       id: 'some-other-wrapper',

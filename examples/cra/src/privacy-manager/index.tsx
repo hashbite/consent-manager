@@ -1,4 +1,5 @@
 import { useContext, useMemo } from 'react'
+import { Location } from 'history'
 import {
   configToDecisions,
   IntegrationName,
@@ -24,7 +25,7 @@ export const PrivacyManager: React.FC<PrivacyManagerProps> = ({
   const Wrapper = useWrapperComponents(config, decisions)
 
   return (
-    <PrivacyManagerContext.Provider value={{ decisions, fallbackComponent }}>
+    <PrivacyManagerContext.Provider value={{ decisions, fallbackComponent, config }}>
       <Wrapper>{children}</Wrapper>
     </PrivacyManagerContext.Provider>
   )
@@ -96,4 +97,18 @@ export const PrivacyShield: React.FC<PrivacyShieldProps> = ({
   }
 
   return <DefaultFallbackComponent />
+}
+
+export type PageViewEventTrigger = (location: Location) => void
+
+export function usePageViewEventTrigger(id: IntegrationName): PageViewEventTrigger {
+  const decision = usePrivacyManagerDecision(id)
+  const { config } = useContext(PrivacyManagerContext)
+  const integration = config.integrations.find((i) => i.id === id)
+
+  if (!decision || !integration || typeof integration.pageViewEventHandler !== 'function') {
+    return () => {}
+  }
+
+  return integration.pageViewEventHandler
 }
