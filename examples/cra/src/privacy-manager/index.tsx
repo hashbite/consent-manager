@@ -3,6 +3,7 @@ import {
   configToDecisions,
   IntegrationName,
   PrivacyManagerConfig,
+  PrivacyManagerDecisions,
 } from './config'
 import PrivacyManagerContext from './context'
 
@@ -20,11 +21,29 @@ export const PrivacyManager: React.FC<PrivacyManagerProps> = ({
     return configToDecisions(config)
   }, [config])
 
+  const Wrapper = useWrapperComponents(config, decisions)
+
   return (
     <PrivacyManagerContext.Provider value={{ decisions, fallbackComponent }}>
-      {children}
+      <Wrapper>{children}</Wrapper>
     </PrivacyManagerContext.Provider>
   )
+}
+
+function useWrapperComponents(config: PrivacyManagerConfig, decisions: PrivacyManagerDecisions) {
+  const Wrapper = useMemo(
+    () => ({ children }: { children: any }) => {
+      return config.integrations
+        .filter((i) => Boolean(i.wrapperComponent))
+        .filter((i) => decisions[i.id] === true)
+        .reverse()
+        .reduce((children, { wrapperComponent: WrapperComponent }) => {
+          return <WrapperComponent>{children}</WrapperComponent>
+        }, children)
+    },
+    [config.integrations, decisions]
+  )
+  return Wrapper
 }
 
 export function usePrivacyManagerDecision(id: IntegrationName) {

@@ -116,8 +116,15 @@ const privacyManagerConfig = {
     { id: 'youtube' },
     {
       id: 'matomo',
-      wrapperComponent: ({ children }: { children: React.ReactNode }) =>
-        children,
+      wrapperComponent: ({ children }: { children: React.ReactNode }) => (
+        <div style={{ border: '3px solid tomato'}}>{children}</div>
+      ),
+    },
+    {
+      id: 'some-other-wrapper',
+      wrapperComponent: ({ children }: { children: React.ReactNode }) => (
+        <div style={{ border: '3px solid blue'}}>{children}</div>
+      ),
     },
   ],
 }
