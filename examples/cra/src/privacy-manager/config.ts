@@ -4,7 +4,7 @@ export type IntegrationName = string
 
 export interface IntegrationConfig {
   id: string
-  wrapperComponent?: any // React.Component<{}>
+  wrapperComponent?: React.ComponentType
   pageViewEventHandler?: PageViewEventTrigger
 }
 

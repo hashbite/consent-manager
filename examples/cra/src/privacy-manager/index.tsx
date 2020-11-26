@@ -10,13 +10,13 @@ import PrivacyManagerContext from './context'
 
 export interface PrivacyManagerProps {
   config: PrivacyManagerConfig
-  fallbackComponent?: any
+  fallbackComponent?: React.ComponentType
 }
 
 export const PrivacyManager: React.FC<PrivacyManagerProps> = ({
   children,
   config,
-  fallbackComponent,
+  fallbackComponent = () => null,
 }) => {
   const decisions = useMemo(() => {
     return configToDecisions(config)
@@ -32,15 +32,19 @@ export const PrivacyManager: React.FC<PrivacyManagerProps> = ({
 }
 
 function useWrapperComponents(config: PrivacyManagerConfig, decisions: PrivacyManagerDecisions) {
-  const Wrapper = useMemo(
-    () => ({ children }: { children: any }) => {
-      return config.integrations
-        .filter((i) => Boolean(i.wrapperComponent))
-        .filter((i) => decisions[i.id] === true)
-        .reverse()
-        .reduce((children, { wrapperComponent: WrapperComponent }) => {
-          return <WrapperComponent>{children}</WrapperComponent>
-        }, children)
+  const Wrapper: React.ComponentType = useMemo(
+    () => {
+      return (({ children }) => {
+        return config.integrations
+          .filter((i) => decisions[i.id] === true)
+          .reverse()
+          .reduce((children, { wrapperComponent: WrapperComponent }) => {
+            if (!WrapperComponent) {
+              return children
+            }
+            return <WrapperComponent>{children}</WrapperComponent>
+          }, children)
+      }) as React.FC
     },
     [config.integrations, decisions]
   )
@@ -54,7 +58,7 @@ export function usePrivacyManagerDecision(id: IntegrationName) {
   return decision
 }
 
-export function useFallbackComponent(): any {
+export function useFallbackComponent(): React.ComponentType {
   const { fallbackComponent: FallbackComponent } = useContext(
     PrivacyManagerContext
   )
@@ -66,19 +70,35 @@ export function useFallbackComponent(): any {
   return FallbackComponent
 }
 
-export function usePrivacyManagerShield(
+declare type $ElementProps<T> = T extends React.ComponentType<infer Props>
+  ? Props extends object
+    ? Props
+    : never
+  : never;
+
+export function usePrivacyManagerShield<
+  C extends React.ComponentType,
+  P extends $ElementProps<C>
+>(
   id: IntegrationName,
-  Component: React.ReactNode,
-  FallbackComponent?: React.ReactNode
-): any {
+  Component: C,
+  FallbackComponent?: React.ComponentType<Partial<P>>
+): React.ComponentType<P> {
   const decision = usePrivacyManagerDecision(id)
   const DefaultFallbackComponent = useFallbackComponent()
 
   if (!decision) {
-    return FallbackComponent || DefaultFallbackComponent
+    const Comp = FallbackComponent || DefaultFallbackComponent
+
+    // We ignore any args passed to the Component
+    return (_props: P) => (
+      <Comp />
+    )
   }
 
-  return Component
+  // TODO: this is actually the exact type the inference comes from
+  // why is return type inference not possible without explicit cast?
+  return Component as React.ComponentType<P>
 }
 
 export interface PrivacyShieldProps {

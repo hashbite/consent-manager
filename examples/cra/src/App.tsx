@@ -17,6 +17,7 @@ import {
   usePrivacyManagerDecision,
   usePrivacyManagerShield,
 } from './privacy-manager'
+import { PrivacyManagerConfig } from './privacy-manager/config'
 
 // Implementation according to react-router docs:
 // https://reactrouter.com/web/api/Hooks/uselocation
@@ -110,13 +111,14 @@ function Dashboard() {
   )
 }
 
-const privacyManagerConfig = {
+
+const privacyManagerConfig: PrivacyManagerConfig = {
   // .. some config values
   integrations: [
     { id: 'youtube' },
     {
       id: 'matomo',
-      wrapperComponent: ({ children }: { children: React.ReactNode }) => (
+      wrapperComponent: ({ children }) => (
         <div style={{ border: '3px solid tomato'}}>{children}</div>
       ),
       pageViewEventHandler: (location: Location) => {
@@ -128,7 +130,7 @@ const privacyManagerConfig = {
     },
     {
       id: 'some-other-wrapper',
-      wrapperComponent: ({ children }: { children: React.ReactNode }) => (
+      wrapperComponent: ({ children }) => (
         <div style={{ border: '3px solid blue'}}>{children}</div>
       ),
     },
