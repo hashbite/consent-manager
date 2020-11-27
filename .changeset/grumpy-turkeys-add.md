@@ -1,5 +1,5 @@
 ---
-'@privacy-manager/utils': patch
+'@techboi/utils': patch
 ---
 
 Add new sum method

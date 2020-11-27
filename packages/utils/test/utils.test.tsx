@@ -1,4 +1,4 @@
-describe('@privacy-manager/utils', () => {
+describe('@techboi/utils', () => {
   it('works', () => {
     expect(true).toBe(true);
   });

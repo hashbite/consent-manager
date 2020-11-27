@@ -43,3 +43,50 @@ function App () {
     </div>
   )
 ```
+
+### Integrations Lifecycle states
+
+**Integration State**
+
+This state keeps track of all available integrations provided to `<PrivacyManager />`
+
+**Decisions State**
+
+This state keeps track of all already answered integration keys
+
+1. Initialize all available integrations with `false` (always opt-in)
+2. Load from localStorage with 1) as the default value
+3. hook exposes decision getter that warns in dev if non-configured key is accessed
+4. hook exposes decision getter whether unanswered integrations are available
+
+```json
+{
+  "decisions": {
+    youtube: true,
+    vimeo: false
+  }
+}
+```
+----
+
+Optionally pass in a `store` useState like array, that contains user preselection. Setter will be called with new store state whenever user selection changes.
+
+```json
+{ decisions: { youtube: true, matomo: false } }
+```
+
+Internal state acts on passed in `integrations`, combined with availbale decisions.
+Pending decisions are always `false` (i.e. opt-in only). 
+
+Main interface for retrieving and updating selections is `useEnabledIntegrations()` which returns `[string[], (enabled: string[]) => void]`.
+
+Main interface for rendering integrations is `useIntegrations()` which returns all registered integrations.
+
+**<PrivacyManagerForm />**
+
+Uses integations and decisions to create an internal representation for the initial state of the `<DecisionsForm />` component.
+
+**<DecisionsForm />**
+
+
+

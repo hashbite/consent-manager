@@ -1,4 +1,4 @@
-# @privacy-manager/utils
+# @techboi/utils
 
 ## 0.0.1
 ### Patch Changes

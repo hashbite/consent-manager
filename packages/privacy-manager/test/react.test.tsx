@@ -1,4 +1,4 @@
-describe('@privacy-manager/react', () => {
+describe('@techboi/react', () => {
   it('works', () => {
     expect(true).toBe(true);
   });

@@ -1,7 +1,7 @@
 {
-  "name": "@privacy-manager/react",
+  "name": "@techboi/privacy-manager",
   "version": "0.0.2",
-  "description": "Official React library for @privacy-manager",
+  "description": "Official React library for @techboi",
   "author": "Jared Palmer",
   "repository": {
     "type": "git",
@@ -27,8 +27,14 @@
     "react-dom": "^16.8.0"
   },
   "dependencies": {
-    "@privacy-manager/utils": "^0.0.1",
-    "tslib": "^2.0.0"
+    "@techboi/utils": "^0.0.1",
+    "@types/history": "^4.7.8",
+    "@types/use-persisted-state": "^0.3.0",
+    "final-form": "^4.20.1",
+    "history": "4",
+    "react-final-form": "^6.5.2",
+    "tslib": "^2.0.0",
+    "use-persisted-state": "^0.3.3"
   },
   "publishConfig": {
     "access": "public"

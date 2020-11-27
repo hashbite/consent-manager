@@ -6,8 +6,8 @@
     "baseUrl": ".",
     "typeRoots": ["./node_modules/@types", "./types"],
     "paths": {
-      "@privacy-manager/utils": ["packages/utils/src"],
-      "@privacy-manager/react": ["packages/react/src"],
+      "@techboi/utils": ["packages/utils/src"],
+      "@techboi/react": ["packages/react/src"],
       "$test/*": ["test/*"]
     }
   }
