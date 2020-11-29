@@ -1,6 +1,10 @@
 import React, { useContext } from 'react'
 import { Location } from 'history'
-import { IntegrationName, PrivacyManagerConfig } from './config'
+import {
+  IntegrationName,
+  PrivacyManagerConfig,
+  PrivacyManagerDecisions
+} from './config'
 import PrivacyManagerContext from './context'
 import { useDecisions } from './decisions'
 import { PrivacyManagerStore } from './storage'
@@ -116,7 +120,13 @@ export function usePageViewEventTrigger(
   return integration.pageViewEventHandler
 }
 
-export { PrivacyManagerConfig }
+export { PrivacyManagerConfig, PrivacyManagerDecisions }
 export { usePrivacyFormVisible } from './decisions'
-export { usePrivacyManagerState, PrivacyManagerStorageState } from './storage'
+export { PrivacyManagerStorageState, PrivacyManagerStateHook } from './storage'
 export { PrivacyManagerForm } from './components/PrivacyManagerForm'
+export {
+  DecisionsFormProps,
+  DecisionsFormState
+} from './components/DecisionsForm'
+export { useIntegration, useEnabledIntegrations } from './integrations'
+export { useIntegrations } from './context'
