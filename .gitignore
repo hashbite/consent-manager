@@ -10,3 +10,5 @@ yarn.lock
 
 .yalc
 yalc.lock
+
+e2e/registry/storage/*
