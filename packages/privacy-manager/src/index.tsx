@@ -1,27 +1,29 @@
 import React, { useContext } from 'react'
 import { Location } from 'history'
 import {
+  FallbackComponentProps,
   IntegrationId,
   PrivacyManagerConfig,
-  PrivacyManagerDecisions
+  PrivacyManagerDecisions,
 } from './config'
 import PrivacyManagerContext from './context'
 import { useDecisions } from './decisions'
 import { PrivacyManagerStore } from './storage'
 
 import { IntegrationWrapperComponents } from './components/IntegrationWrapperComponents'
+import { FallbackComponent } from './components/FallbackComponent'
 
 export interface PrivacyManagerProps {
   config: PrivacyManagerConfig
-  fallbackComponent?: React.ComponentType
+  fallbackComponent?: React.ComponentType<FallbackComponentProps>
   store: PrivacyManagerStore
 }
 
 export const PrivacyManager: React.FC<PrivacyManagerProps> = ({
   children,
   config,
-  fallbackComponent = () => null,
-  store
+  fallbackComponent = FallbackComponent,
+  store,
 }) => {
   return (
     <PrivacyManagerContext.Provider
@@ -41,7 +43,9 @@ export function useDecision(id: IntegrationId): boolean {
   return decision
 }
 
-export function useFallbackComponent(): React.ComponentType {
+export function useFallbackComponent(): React.ComponentType<
+  FallbackComponentProps
+> {
   const { fallbackComponent: FallbackComponent } = useContext(
     PrivacyManagerContext
   )
@@ -61,24 +65,28 @@ declare type $ElementProps<T> = T extends React.ComponentType<infer Props>
 
 export function usePrivacyManagerShield<
   C extends React.ComponentType,
-  P extends $ElementProps<C>
+  P extends $ElementProps<C> & { fallbackUrl?: string }
 >(
   id: IntegrationId,
   Component: C,
-  FallbackComponent?: React.ComponentType<Partial<P>>
+  FallbackComponent?: React.ComponentType<FallbackComponentProps>
 ): React.ComponentType<P> {
   const decision = useDecision(id)
   const DefaultFallbackComponent = useFallbackComponent()
 
   if (!decision) {
-    const Comp = FallbackComponent || DefaultFallbackComponent
+    const Comp: React.ComponentType<FallbackComponentProps> =
+      FallbackComponent || DefaultFallbackComponent
 
     // We ignore any args passed to the Component
-    return (_props: P) => <Comp />
+    return ({ fallbackUrl }: P) => (
+      <Comp fallbackUrl={fallbackUrl} integrationId={id} />
+    )
   }
 
   // TODO: this is actually the exact type the inference comes from
   // why is return type inference not possible without explicit cast?
+  // TODO: this currently receives a `fallbackUrl` as well
   return Component as React.ComponentType<P>
 }
 
@@ -87,7 +95,7 @@ export interface PrivacyShieldProps {
 }
 export const PrivacyShield: React.FC<PrivacyShieldProps> = ({
   id,
-  children
+  children,
 }) => {
   const decision = useDecision(id)
   const DefaultFallbackComponent = useFallbackComponent()
@@ -96,7 +104,7 @@ export const PrivacyShield: React.FC<PrivacyShieldProps> = ({
     return <React.Fragment>{children}</React.Fragment>
   }
 
-  return <DefaultFallbackComponent />
+  return <DefaultFallbackComponent integrationId={id} />
 }
 
 export type PageViewEventTrigger = (location: Location) => void
@@ -106,7 +114,7 @@ export function usePageViewEventTrigger(
 ): PageViewEventTrigger {
   const decision = useDecision(id)
   const { config } = useContext(PrivacyManagerContext)
-  const integration = config.integrations.find((i) => i.id === id)
+  const integration = config.integrations.find(i => i.id === id)
 
   if (
     !decision ||
@@ -126,7 +134,7 @@ export { PrivacyManagerStorageState, PrivacyManagerStateHook } from './storage'
 export { PrivacyManagerForm } from './components/PrivacyManagerForm'
 export {
   DecisionsFormProps,
-  DecisionsFormState
+  DecisionsFormState,
 } from './components/DecisionsForm'
 export { useIntegration, useEnabledIntegrations } from './integrations'
 export { useIntegrations } from './context'

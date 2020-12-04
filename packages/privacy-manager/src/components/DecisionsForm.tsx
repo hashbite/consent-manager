@@ -15,36 +15,42 @@ export interface DecisionsFormProps {
 export const DecisionsForm: React.FC<DecisionsFormProps> = ({
   integrations,
   initialValues,
-  onSubmit
+  onSubmit,
 }) => {
   const [set, { toggle, has }] = useSet(new Set(initialValues.enabled))
 
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const integrationId = e.target.value
-    toggle(integrationId)
-  }, [toggle])
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const integrationId = e.target.value
+      toggle(integrationId)
+    },
+    [toggle]
+  )
 
-  const handleSubmit = useCallback((e: React.FormEvent) => {
-    e.preventDefault()
-    const enabled = Array.from(set.values())
-    onSubmit({ enabled })
-  }, [set])
+  const handleSubmit = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault()
+      const enabled = Array.from(set.values())
+      onSubmit({ enabled })
+    },
+    [set, onSubmit]
+  )
 
   return (
     <form onSubmit={handleSubmit}>
-      {integrations.map(({ id }) => (
+      {integrations.map(({ id, title }) => (
         <label key={id}>
           <input
-            name='enabled'
-            type='checkbox'
+            name="enabled"
+            type="checkbox"
             value={id}
             onChange={handleChange}
             checked={has(id)}
           />{' '}
-          {id}
+          {title}
         </label>
       ))}
-      <button type='submit'>Submit</button>
+      <button type="submit">Submit</button>
     </form>
   )
 }

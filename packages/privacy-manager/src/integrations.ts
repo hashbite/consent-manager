@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useMemo, useCallback } from 'react'
 import {
   IntegrationConfig,
   IntegrationId,
-  PrivacyManagerDecisions
+  PrivacyManagerDecisions,
 } from './config'
 import { useIntegrations } from './context'
 import { useDecisions } from './decisions'
@@ -48,5 +48,5 @@ export function useIntegration(
   id: IntegrationId
 ): IntegrationConfig | undefined {
   const integrations = useIntegrations()
-  return integrations.find((i) => i.id === id)
+  return integrations.find(i => i.id === id)
 }

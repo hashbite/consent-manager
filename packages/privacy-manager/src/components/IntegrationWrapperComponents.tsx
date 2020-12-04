@@ -3,7 +3,7 @@ import React, { useMemo } from 'react'
 import {
   IntegrationConfig,
   PrivacyManagerConfig,
-  PrivacyManagerDecisions
+  PrivacyManagerDecisions,
 } from '../config'
 import { useDecisions } from '../decisions'
 
@@ -17,7 +17,7 @@ function useWrapperComponents(
   const Wrapper: React.ComponentType = useMemo(() => {
     return (({ children }) => {
       return config.integrations
-        .filter((i) => decisions[i.id] === true)
+        .filter(i => decisions[i.id] === true)
         .filter((i): i is IntegrationWithWrapperComponent =>
           Boolean(i.wrapperComponent)
         )

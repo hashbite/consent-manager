@@ -4,12 +4,12 @@ import {
   useCallback,
   useEffect,
   useMemo,
-  useState
+  useState,
 } from 'react'
 import {
   IntegrationConfig,
   IntegrationId,
-  PrivacyManagerDecisions
+  PrivacyManagerDecisions,
 } from './config'
 import { useIntegrations, useStore } from './context'
 import { PrivacyManagerStore } from './storage'
@@ -72,12 +72,12 @@ export function useDecisions(): [
   }, [decisions, decisionsState, setDecisions, setStore])
 
   const setAndStoreDecisions: typeof setDecisions = useCallback(
-    (newDecisionState) => {
+    newDecisionState => {
       const nextDecisionState =
         typeof newDecisionState === 'function'
           ? newDecisionState(decisionsState)
           : newDecisionState
-      setStore((store) => ({ ...store, decisions: nextDecisionState }))
+      setStore(store => ({ ...store, decisions: nextDecisionState }))
     },
     [decisionsState, setStore]
   )
