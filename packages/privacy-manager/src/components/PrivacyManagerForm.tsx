@@ -20,7 +20,7 @@ export const PrivacyManagerForm: React.FC<{
   return (
     <DecisionsForm
       integrations={integrations}
-      intitialValues={{ enabled: enabledIntegrations }}
+      initialValues={{ enabled: enabledIntegrations }}
       onSubmit={handleFormSubmit}
     />
   )

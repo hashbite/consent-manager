@@ -8,16 +8,16 @@ export interface DecisionsFormState {
 
 export interface DecisionsFormProps {
   integrations: IntegrationConfig[]
-  intitialValues: DecisionsFormState
+  initialValues: DecisionsFormState
   onSubmit: (value: DecisionsFormState) => void
 }
 
 export const DecisionsForm: React.FC<DecisionsFormProps> = ({
   integrations,
-  intitialValues,
+  initialValues,
   onSubmit
 }) => {
-  const [set, { toggle, has }] = useSet(new Set(intitialValues.enabled))
+  const [set, { toggle, has }] = useSet(new Set(initialValues.enabled))
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const integrationId = e.target.value
