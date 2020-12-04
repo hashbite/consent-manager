@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Location } from 'history'
 import {
-  IntegrationName,
+  IntegrationId,
   PrivacyManagerConfig,
   PrivacyManagerDecisions
 } from './config'
@@ -34,7 +34,7 @@ export const PrivacyManager: React.FC<PrivacyManagerProps> = ({
   )
 }
 
-export function useDecision(id: IntegrationName): boolean {
+export function useDecision(id: IntegrationId): boolean {
   const [decisions] = useDecisions()
   const decision = decisions[id] ?? false
 
@@ -63,7 +63,7 @@ export function usePrivacyManagerShield<
   C extends React.ComponentType,
   P extends $ElementProps<C>
 >(
-  id: IntegrationName,
+  id: IntegrationId,
   Component: C,
   FallbackComponent?: React.ComponentType<Partial<P>>
 ): React.ComponentType<P> {
@@ -83,7 +83,7 @@ export function usePrivacyManagerShield<
 }
 
 export interface PrivacyShieldProps {
-  id: IntegrationName
+  id: IntegrationId
 }
 export const PrivacyShield: React.FC<PrivacyShieldProps> = ({
   id,
@@ -102,7 +102,7 @@ export const PrivacyShield: React.FC<PrivacyShieldProps> = ({
 export type PageViewEventTrigger = (location: Location) => void
 
 export function usePageViewEventTrigger(
-  id: IntegrationName
+  id: IntegrationId
 ): PageViewEventTrigger {
   const decision = useDecision(id)
   const { config } = useContext(PrivacyManagerContext)

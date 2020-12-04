@@ -1,15 +1,15 @@
 import { Dispatch, SetStateAction, useMemo, useCallback } from 'react'
 import {
   IntegrationConfig,
-  IntegrationName,
+  IntegrationId,
   PrivacyManagerDecisions
 } from './config'
 import { useIntegrations } from './context'
 import { useDecisions } from './decisions'
 
 export function useEnabledIntegrations(): [
-  IntegrationName[],
-  Dispatch<SetStateAction<IntegrationName[]>>
+  IntegrationId[],
+  Dispatch<SetStateAction<IntegrationId[]>>
 ] {
   const integrations = useIntegrations()
   const [decisions, setDecisions] = useDecisions()
@@ -23,7 +23,7 @@ export function useEnabledIntegrations(): [
   )
 
   const setEnabled = useCallback(
-    (newState: SetStateAction<IntegrationName[]>) => {
+    (newState: SetStateAction<IntegrationId[]>) => {
       const nextEnabledIntegrations =
         typeof newState === 'function'
           ? newState(enabledIntegrations)
@@ -45,7 +45,7 @@ export function useEnabledIntegrations(): [
 }
 
 export function useIntegration(
-  id: IntegrationName
+  id: IntegrationId
 ): IntegrationConfig | undefined {
   const integrations = useIntegrations()
   return integrations.find((i) => i.id === id)

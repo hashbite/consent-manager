@@ -1,6 +1,6 @@
 import { PageViewEventTrigger } from '.'
 
-export type IntegrationName = string
+export type IntegrationId = string
 
 export interface IntegrationConfig {
   id: string

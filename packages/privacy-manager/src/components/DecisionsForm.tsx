@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react'
 import useSet from 'react-use/esm/useSet'
-import { IntegrationName, IntegrationConfig } from '../config'
+import { IntegrationId, IntegrationConfig } from '../config'
 
 export interface DecisionsFormState {
-  enabled: IntegrationName[]
+  enabled: IntegrationId[]
 }
 
 export interface DecisionsFormProps {

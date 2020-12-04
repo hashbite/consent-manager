@@ -8,15 +8,15 @@ import {
 } from 'react'
 import {
   IntegrationConfig,
-  IntegrationName,
+  IntegrationId,
   PrivacyManagerDecisions
 } from './config'
 import { useIntegrations, useStore } from './context'
 import { PrivacyManagerStore } from './storage'
 
 interface InitializeDecisionsFromStorageResult {
-  decisions: Record<IntegrationName, boolean>
-  pending?: IntegrationName[]
+  decisions: Record<IntegrationId, boolean>
+  pending?: IntegrationId[]
 }
 
 export function initializeDecisionsFromStorage(
@@ -27,8 +27,8 @@ export function initializeDecisionsFromStorage(
 
   const storedDecisions = store?.decisions ?? {}
 
-  const decisions: Record<IntegrationName, boolean> = {}
-  const pending: IntegrationName[] = []
+  const decisions: Record<IntegrationId, boolean> = {}
+  const pending: IntegrationId[] = []
 
   for (const integration of configuredIntegrations) {
     const storedDecision = storedDecisions[integration.id]
@@ -85,7 +85,7 @@ export function useDecisions(): [
   return [decisionsState, setAndStoreDecisions]
 }
 
-export function usePendingDecisions(): IntegrationName[] {
+export function usePendingDecisions(): IntegrationId[] {
   const { pending } = useCombinedIntegrationStoreDecisions()
   return pending ?? []
 }
