@@ -1,11 +1,11 @@
 {
-  "name": "cra",
+  "name": "@techboi/privacy-manager-example-cra",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.1.1",
     "@emotion/styled": "^11.0.0",
-    "@techboi/privacy-manager": "^0.1.0-alpha.0",
+    "@techboi/privacy-manager": "*",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -24,7 +24,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-youtube": "^7.13.0",
-    "tailwindcss": "^2.0.1",
+    "tailwindcss": "1",
     "twin.macro": "1",
     "typescript": "^4.0.3",
     "use-persisted-state": "^0.3.3",

@@ -14,7 +14,8 @@
     "typescript": "^3.9.7"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "examples/*"
   ],
   "scripts": {
     "lerna": "lerna",
@@ -24,7 +25,9 @@
     "build": "lerna run build",
     "prepublish": "lerna run prepublish",
     "start:demo:custom-theme": "yarn run build && yarn --cwd examples/cra-custom-theme && yarn --cwd examples/cra-custom-theme start",
-    "start:demo:core": "yarn run build && yarn --cwd examples/parcel-core && yarn --cwd examples/parcel-core",
+    "start:demo:minimal": "yarn run build && yarn --cwd examples/parcel-minimal && yarn --cwd examples/parcel-minimal",
+    "start:demo:minimal:lerna": "lerna run start --scope '@techboi/privacy-manager-example-parcel-minimal'",
+    "start:demo:cra:lerna": "lerna run start --scope '@techboi/privacy-manager-example-cra'",
     "cypress": "cypress run",
     "cypress:open": "cypress open",
     "changeset": "changeset",
