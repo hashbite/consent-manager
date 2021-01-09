@@ -4,7 +4,7 @@ import { PrivacyManager, PrivacyManagerForm } from '@techboi/privacy-manager'
 import createPersistedState from 'use-persisted-state'
 
 import { CustomFallbackComponent } from '../components/fallback-component'
-import styles from '../css/custom.css'
+import { BottomBarConsentForm } from '../components/bottom-bar-consent-form'
 
 const theme = createMuiTheme({
   palette: {
@@ -38,7 +38,7 @@ function Root({ children }) {
         fallbackComponent={CustomFallbackComponent}
       >
         {children}
-        <PrivacyManagerForm />
+        <PrivacyManagerForm formComponent={BottomBarConsentForm} />
       </PrivacyManager>
     </ThemeProvider>
   )

@@ -1,24 +1,10 @@
 import React, { useCallback, useMemo } from 'react'
 import { Form, Field } from 'react-final-form'
-import Switch from '@material-ui/core/Switch'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
 import clsx from 'clsx'
 
-const SwitchAdapter = ({ input: { onChange, value }, label, ...rest }) => (
-  <FormControlLabel
-    control={
-      <Switch
-        color="primary"
-        checked={!!value}
-        onChange={event => onChange(event.target.checked)}
-        {...rest}
-      />
-    }
-    label={label}
-  />
-)
+import { SwitchAdapter } from './form/switch'
 
-export function ConsentForm({ integrations, initialValues, onSubmit }) {
+export function EmbeddedConsentForm({ integrations, initialValues, onSubmit }) {
   const onSubmitCb = useCallback(
     values => {
       const enabled = []

@@ -1,0 +1,46 @@
+@keyframes slideIn {
+  to {
+    transform: translateY(0%);
+  }
+}
+
+.wrapper {
+  display: block;
+  height: auto;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: auto;
+
+  background: white;
+  box-shadow: 0 -20px 25px -5px rgba(0, 0, 0, 0.1), 0 -10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  transform: translateY(120%);
+  will-change: transform;
+
+  animation-duration: 1.5s;
+  animation-name: slideIn;
+  animation-fill-mode: both;
+  animation-delay: 2s;
+  animation-timing-function: ease;
+}
+
+.noDelay {
+  animation-delay: 0s;
+}
+
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 3rem;
+  padding: 1rem;
+  cursor: pointer;
+}
