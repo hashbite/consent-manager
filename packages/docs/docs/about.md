@@ -6,8 +6,9 @@ slug: /
 
 import YouTube from './youtube.js'
 
-## What is this about?
+Privacy Manager is a React based framework to manage user consent regarding data processing and data sharing with external providers.
 
+## What is this about?
 
 <YouTube id="OFRjZtYs3wY" />
 
