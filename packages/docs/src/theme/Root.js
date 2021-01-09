@@ -1,6 +1,7 @@
 import React from 'react'
-
 import { PrivacyManager, PrivacyManagerForm } from '@techboi/privacy-manager'
+
+import { CustomFallbackComponent } from '../components/fallback-component'
 
 // Default implementation, that you can customize
 function Root({ children }) {
@@ -18,7 +19,11 @@ function Root({ children }) {
     ],
   }
   return (
-    <PrivacyManager config={config} store={storage}>
+    <PrivacyManager
+      config={config}
+      store={storage}
+      fallbackComponent={CustomFallbackComponent}
+    >
       {children}
       <PrivacyManagerForm />
     </PrivacyManager>
