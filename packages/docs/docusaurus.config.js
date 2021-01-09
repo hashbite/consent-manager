@@ -2,12 +2,12 @@ module.exports = {
   title: 'Privacy manager',
   tagline: "Actually it's a consent manager",
   url: 'https://techboi-io.github.io',
-  baseUrl: '/',
+  baseUrl: '/privacy-manager/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'techboi-io', // Usually your GitHub org/user name.
-  projectName: 'privacy-manager', // Usually your repo name.
+  organizationName: 'techboi-io',
+  projectName: 'privacy-manager',
   themeConfig: {
     navbar: {
       title: 'Privacy Manager ',
@@ -45,16 +45,12 @@ module.exports = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'Twitter @axe312ger',
+              href: 'https://twitter.com/axe312ger',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              label: 'Twitter @zcei_ger',
+              href: 'https://twitter.com/zcei_ger',
             },
           ],
         },
@@ -63,12 +59,19 @@ module.exports = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/techboi-io/privacy-manager',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} techboi GmbH. Built with Docusaurus.`,
+    },
+    announcementBar: {
+      id: 'support_us',
+      content:
+        'This project is still in early stage. Feel free to talk to us in our <a target="_blank" rel="noopener noreferrer" href="https://github.com/techboi-io/privacy-manager/issues">GitHub issues</a>',
+      backgroundColor: '#f9703e',
+      textColor: '#fff',
     },
   },
   presets: [
@@ -79,14 +82,8 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
+            'https://github.com/techboi-io/privacy-manager/edit/master/packages/docs',
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   // Please change this to your repo.
-        //   editUrl:
-        //     'https://github.com/facebook/docusaurus/edit/master/website/blog/',
-        // },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },

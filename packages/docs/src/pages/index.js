@@ -8,22 +8,20 @@ import styles from './styles.module.css';
 
 const features = [
   {
-    title: 'Easy to Use',
+    title: 'Respect the user',
     imageUrl: 'img/undraw_docusaurus_mountain.svg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        The user should have full control over the data he shares with external services.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'GDPR compliant',
     imageUrl: 'img/undraw_docusaurus_tree.svg',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Our goal is to provide a toolkit that enables developers to create GDPR compliant websites.
       </>
     ),
   },
@@ -32,8 +30,7 @@ const features = [
     imageUrl: 'img/undraw_docusaurus_react.svg',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Built with TypeScript, full test coverage and support for all styling techniques.
       </>
     ),
   },
