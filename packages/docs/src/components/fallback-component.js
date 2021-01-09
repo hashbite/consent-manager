@@ -3,7 +3,7 @@ import { PrivacyManagerForm, useIntegration } from '@techboi/privacy-manager'
 import clsx from 'clsx'
 
 import styles from './fallback-component.module.css'
-import { ConsentForm } from './consent-form'
+import { EmbeddedConsentForm } from './embedded-consent-form'
 
 export function CustomFallbackComponent({ integrationId }) {
   const integration = useIntegration(integrationId)
@@ -29,7 +29,7 @@ export function CustomFallbackComponent({ integrationId }) {
           </div>
         </div>
         <div className={clsx('card', styles.side, styles.back)}>
-          <PrivacyManagerForm formComponent={ConsentForm} />
+          <PrivacyManagerForm formComponent={EmbeddedConsentForm} />
         </div>
       </div>
     </div>
