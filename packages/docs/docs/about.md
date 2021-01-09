@@ -1,12 +1,12 @@
 ---
 id: about
-title: What is Privacy Manager?
+title: What is Consent Manager?
 slug: /
 ---
 
 import YouTube from './youtube.js'
 
-Privacy Manager is a React based framework to manage user consent regarding data processing and data sharing with external providers.
+Consent Manager is a React based framework to manage user consent regarding data processing and data sharing with external providers.
 
 ## What is this about?
 

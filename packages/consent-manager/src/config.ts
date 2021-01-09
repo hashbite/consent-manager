@@ -12,11 +12,11 @@ export interface IntegrationConfig {
   iconSrc?: string
 }
 
-export interface PrivacyManagerConfig {
+export interface ConsentManagerConfig {
   integrations: IntegrationConfig[]
 }
 
-export interface PrivacyManagerDecisions {
+export interface ConsentManagerDecisions {
   [key: string]: boolean
 }
 

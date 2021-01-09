@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { PrivacyManagerForm, useIntegration } from '@techboi/privacy-manager'
+import { ConsentManagerForm, useIntegration } from '@techboi/consent-manager'
 import clsx from 'clsx'
 
 import styles from './fallback-component.module.css'
@@ -29,7 +29,7 @@ export function CustomFallbackComponent({ integrationId }) {
           </div>
         </div>
         <div className={clsx('card', styles.side, styles.back)}>
-          <PrivacyManagerForm formComponent={EmbeddedConsentForm} />
+          <ConsentManagerForm formComponent={EmbeddedConsentForm} />
         </div>
       </div>
     </div>

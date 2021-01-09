@@ -2,8 +2,8 @@ import React, { useMemo } from 'react'
 
 import {
   IntegrationConfig,
-  PrivacyManagerConfig,
-  PrivacyManagerDecisions,
+  ConsentManagerConfig,
+  ConsentManagerDecisions,
 } from '../config'
 import { useDecisions } from '../decisions'
 
@@ -11,8 +11,8 @@ type IntegrationWithWrapperComponent = IntegrationConfig &
   Required<Pick<IntegrationConfig, 'wrapperComponent'>>
 
 function useWrapperComponents(
-  config: PrivacyManagerConfig,
-  decisions: PrivacyManagerDecisions
+  config: ConsentManagerConfig,
+  decisions: ConsentManagerDecisions
 ): React.ComponentType {
   const Wrapper: React.ComponentType = useMemo(() => {
     return (({ children }) => {
@@ -31,7 +31,7 @@ function useWrapperComponents(
 }
 
 export const IntegrationWrapperComponents: React.FC<{
-  config: PrivacyManagerConfig
+  config: ConsentManagerConfig
 }> = ({ config, children }) => {
   const [decisions] = useDecisions()
 

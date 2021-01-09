@@ -1,6 +1,6 @@
 ---
 id: provider
-title: PrivacyManager (Provider)
+title: ConsentManager (Provider)
 ---
 
 You can write JSX and use React components within your Markdown thanks to [MDX](https://mdxjs.com/).
