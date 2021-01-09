@@ -6,10 +6,10 @@ title: Getting Started
 ## Installation
 
 ```sh
-npm install @techboi/privacy-manager use-persisted-state
+npm install @techboi/consent-manager use-persisted-state
 ```
 ```sh
-yarn add @techboi/privacy-manager use-persisted-state
+yarn add @techboi/consent-manager use-persisted-state
 ```
 
 ## Embedding into your application
@@ -29,7 +29,7 @@ ReactDOM.render(
 
 ### Preparing the context
 
-Wrap your application with the [<PrivacyManager/> provider](provider.md).
+Wrap your application with the [<ConsentManager/> provider](provider.md).
 
 
 ```diff
@@ -37,11 +37,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-+ import { PrivacyManager } from '@techboi/privacy-manager'
++ import { ConsentManager } from '@techboi/consent-manager'
 + import createPersistedState from 'use-persisted-state'
 
 
-+ const useConsentStateStore = createPersistedState('privacy-manager-docs')
++ const useConsentStateStore = createPersistedState('consent-manager-docs')
 
 + const Wrapper = () => {
 +   const storage = useConsentStateStore()
@@ -55,9 +55,9 @@ import App from './App';
 +       },
 +     ],
 +   }
-+   <PrivacyManager config={config} store={storage}>
++   <ConsentManager config={config} store={storage}>
 +     <App />
-+   </PrivacyManager>,
++   </ConsentManager>,
 + }
 
 ReactDOM.render(
@@ -92,7 +92,7 @@ To ensure no data can be sent anywhere, we wrap our component with the PrivacySh
 ```diff
 import React from 'react'
 import ReactYouTube from 'react-youtube'
-+ import { PrivacyShield } from '@techboi/privacy-manager'
++ import { PrivacyShield } from '@techboi/consent-manager'
 
 
 const YouTube = ({ id, ...props }) => {
@@ -117,8 +117,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-- import { PrivacyManager } from '@techboi/privacy-manager'
-+ import { PrivacyManager, PrivacyManagerForm } from '@techboi/privacy-manager'
+- import { ConsentManager } from '@techboi/consent-manager'
++ import { ConsentManager, ConsentManagerForm } from '@techboi/consent-manager'
 import createPersistedState from 'use-persisted-state'
 
 const Wrapper = () => {
@@ -133,10 +133,10 @@ const Wrapper = () => {
       },
     ],
   }
-  <PrivacyManager config={config} store={storage}>
+  <ConsentManager config={config} store={storage}>
     <App />
-+   <PrivacyManagerForm />
-  </PrivacyManager>,
++   <ConsentManagerForm />
+  </ConsentManager>,
 }
 
 ReactDOM.render(

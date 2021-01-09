@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import { Form, Field } from 'react-final-form'
 import clsx from 'clsx'
-import { usePrivacyFormVisible } from '@techboi/privacy-manager'
+import { useConsentFormVisible } from '@techboi/consent-manager'
 
 import { SwitchAdapter } from './form/switch'
 import styles from './bottom-bar-consent-form.module.css'
@@ -11,7 +11,7 @@ export function BottomBarConsentForm({
   initialValues,
   onSubmit,
 }) {
-  const hasPendingDescisions = usePrivacyFormVisible()
+  const hasPendingDescisions = useConsentFormVisible()
 
   const [visible, setVisible] = useState(hasPendingDescisions)
 

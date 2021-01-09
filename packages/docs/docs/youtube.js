@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactYouTube from 'react-youtube'
 
-import { PrivacyShield } from '@techboi/privacy-manager'
+import { PrivacyShield } from '@techboi/consent-manager'
 
 const YouTube = ({ id, ...props }) => {
   return (

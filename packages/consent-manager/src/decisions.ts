@@ -9,10 +9,10 @@ import {
 import {
   IntegrationConfig,
   IntegrationId,
-  PrivacyManagerDecisions,
+  ConsentManagerDecisions,
 } from './config'
 import { useIntegrations, useStore } from './context'
-import { PrivacyManagerStore } from './storage'
+import { ConsentManagerStore } from './storage'
 
 interface InitializeDecisionsFromStorageResult {
   decisions: Record<IntegrationId, boolean>
@@ -21,7 +21,7 @@ interface InitializeDecisionsFromStorageResult {
 
 export function initializeDecisionsFromStorage(
   configuredIntegrations: IntegrationConfig[],
-  storage: PrivacyManagerStore
+  storage: ConsentManagerStore
 ): InitializeDecisionsFromStorageResult {
   const [store] = storage
 
@@ -55,8 +55,8 @@ function useCombinedIntegrationStoreDecisions(): InitializeDecisionsFromStorageR
 }
 
 export function useDecisions(): [
-  PrivacyManagerDecisions,
-  Dispatch<SetStateAction<PrivacyManagerDecisions>>
+  ConsentManagerDecisions,
+  Dispatch<SetStateAction<ConsentManagerDecisions>>
 ] {
   const { decisions } = useCombinedIntegrationStoreDecisions()
   const [decisionsState, setDecisions] = useState(decisions)
@@ -90,7 +90,7 @@ export function usePendingDecisions(): IntegrationId[] {
   return pending ?? []
 }
 
-export function usePrivacyFormVisible(): boolean {
+export function useConsentFormVisible(): boolean {
   const pending = usePendingDecisions()
   return pending.length !== 0
 }

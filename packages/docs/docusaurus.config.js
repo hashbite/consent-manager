@@ -1,18 +1,18 @@
 module.exports = {
-  title: 'Privacy manager',
+  title: 'Consent Manager',
   tagline: "Actually it's a consent manager",
   url: 'https://techboi-io.github.io',
-  baseUrl: '/privacy-manager/',
+  baseUrl: '/consent-manager/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'techboi-io',
-  projectName: 'privacy-manager',
+  projectName: 'consent-manager',
   themeConfig: {
     navbar: {
-      title: 'Privacy Manager ',
+      title: 'Consent Manager ',
       logo: {
-        alt: 'Privacy Manager logo',
+        alt: 'Consent Manager logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -23,7 +23,7 @@ module.exports = {
           position: 'left',
         },
         {
-          href: 'https://github.com/techboi-io/privacy-manager',
+          href: 'https://github.com/techboi-io/consent-manager',
           label: 'GitHub',
           position: 'right',
         },
@@ -59,7 +59,7 @@ module.exports = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/techboi-io/privacy-manager',
+              href: 'https://github.com/techboi-io/consent-manager',
             },
           ],
         },
@@ -69,7 +69,7 @@ module.exports = {
     announcementBar: {
       id: 'support_us',
       content:
-        'This project is still in early stage. Feel free to talk to us in our <a target="_blank" rel="noopener noreferrer" href="https://github.com/techboi-io/privacy-manager/issues">GitHub issues</a>',
+        'This project is still in early stage. Feel free to talk to us in our <a target="_blank" rel="noopener noreferrer" href="https://github.com/techboi-io/consent-manager/issues">GitHub issues</a>',
       backgroundColor: '#f9703e',
       textColor: '#fff',
     },
@@ -82,7 +82,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/techboi-io/privacy-manager/edit/master/packages/docs',
+            'https://github.com/techboi-io/consent-manager/edit/master/packages/docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

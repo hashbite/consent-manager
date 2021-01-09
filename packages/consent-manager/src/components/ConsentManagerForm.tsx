@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { PrivacyManagerDecisions } from '../config'
+import { ConsentManagerDecisions } from '../config'
 import { useConfig } from '../context'
 import { useEnabledIntegrations } from '../integrations'
 import {
@@ -8,8 +8,8 @@ import {
   DecisionsFormState,
 } from './DecisionsForm'
 
-export const PrivacyManagerForm: React.FC<{
-  onSubmit?: (decisions: PrivacyManagerDecisions) => void
+export const ConsentManagerForm: React.FC<{
+  onSubmit?: (decisions: ConsentManagerDecisions) => void
   formComponent?: React.ComponentType<DecisionsFormProps>
 }> = ({ formComponent }) => {
   const [enabledIntegrations, setEnabledIntegrations] = useEnabledIntegrations()

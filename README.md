@@ -12,7 +12,7 @@
 
 ### Step by step
 
-* just drop in a `<PrivacyManager>`
+* just drop in a `<ConsentManager>`
 * empty integrations in config 
 
 -> bottom bar with "are you fine that we are using no info?"
@@ -28,14 +28,11 @@
 ```javascript
 function App () {
   // true / false
-  const canDisplayYoutube = usePrivacyManagerDecision('youtube')
-  // <Youtube /> or <Fallback />
-  const ShieldedYoutube = usePrivacyManagerShield('youtube', YouTube, FallbackComponent)
+  const canDisplayYoutube = useDecision('youtube')
   return (
     <div>
       <h2>About</h2>
       {canDisplayYoutube && <YouTube id="dQw4w9WgXcQ" />}
-      <ShieldedYoutube id="dQw4w9WgXcQ" />
       {/* <YouTube /> or <Fallback /> */}
       <PrivacyShield integrationId="youtube">
         <YouTube id="dQw4w9WgXcQ" />
@@ -48,7 +45,7 @@ function App () {
 
 **Integration State**
 
-This state keeps track of all available integrations provided to `<PrivacyManager />`
+This state keeps track of all available integrations provided to `<ConsentManager />`
 
 **Decisions State**
 
@@ -82,7 +79,7 @@ Main interface for retrieving and updating selections is `useEnabledIntegrations
 
 Main interface for rendering integrations is `useIntegrations()` which returns all registered integrations.
 
-**<PrivacyManagerForm />**
+**<ConsentManagerForm />**
 
 Uses integations and decisions to create an internal representation for the initial state of the `<DecisionsForm />` component.
 

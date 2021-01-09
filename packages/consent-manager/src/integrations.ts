@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useMemo, useCallback } from 'react'
 import {
   IntegrationConfig,
   IntegrationId,
-  PrivacyManagerDecisions,
+  ConsentManagerDecisions,
 } from './config'
 import { useIntegrations } from './context'
 import { useDecisions } from './decisions'
@@ -29,7 +29,7 @@ export function useEnabledIntegrations(): [
           ? newState(enabledIntegrations)
           : newState
 
-      const decisions: PrivacyManagerDecisions = {}
+      const decisions: ConsentManagerDecisions = {}
 
       for (const integration of integrations) {
         const enabled = nextEnabledIntegrations.includes(integration.id)
