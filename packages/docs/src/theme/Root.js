@@ -1,13 +1,24 @@
 import React from 'react'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import { PrivacyManager, PrivacyManagerForm } from '@techboi/privacy-manager'
+import createPersistedState from 'use-persisted-state'
 
 import { CustomFallbackComponent } from '../components/fallback-component'
+import styles from '../css/custom.css'
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#17b897',
+    },
+  },
+})
+
+const useConsentStateStore = createPersistedState('privacy-manager-docs')
 
 // Default implementation, that you can customize
 function Root({ children }) {
-  const storage = React.useState({
-    decisions: {},
-  })
+  const storage = useConsentStateStore()
   const config = {
     integrations: [
       {
@@ -18,15 +29,18 @@ function Root({ children }) {
       },
     ],
   }
+
   return (
-    <PrivacyManager
-      config={config}
-      store={storage}
-      fallbackComponent={CustomFallbackComponent}
-    >
-      {children}
-      <PrivacyManagerForm />
-    </PrivacyManager>
+    <ThemeProvider theme={theme}>
+      <PrivacyManager
+        config={config}
+        store={storage}
+        fallbackComponent={CustomFallbackComponent}
+      >
+        {children}
+        <PrivacyManagerForm />
+      </PrivacyManager>
+    </ThemeProvider>
   )
 }
 

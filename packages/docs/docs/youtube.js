@@ -6,7 +6,7 @@ import { PrivacyShield } from '@techboi/privacy-manager'
 const YouTube = ({ id, ...props }) => {
   return (
     <PrivacyShield id="youtube">
-      <ReactYouTube videoid={id} {...props} />
+      <ReactYouTube className="video" videoId={id} {...props} />
     </PrivacyShield>
   )
 }

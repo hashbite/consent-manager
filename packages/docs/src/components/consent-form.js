@@ -1,5 +1,22 @@
 import React, { useCallback, useMemo } from 'react'
 import { Form, Field } from 'react-final-form'
+import Switch from '@material-ui/core/Switch'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import clsx from 'clsx'
+
+const SwitchAdapter = ({ input: { onChange, value }, label, ...rest }) => (
+  <FormControlLabel
+    control={
+      <Switch
+        color="primary"
+        checked={!!value}
+        onChange={event => onChange(event.target.checked)}
+        {...rest}
+      />
+    }
+    label={label}
+  />
+)
 
 export function ConsentForm({ integrations, initialValues, onSubmit }) {
   const onSubmitCb = useCallback(
@@ -32,15 +49,26 @@ export function ConsentForm({ integrations, initialValues, onSubmit }) {
       initialValues={initial}
       render={({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
-          <h2>Available integrations</h2>
-          {integrations.map(({ id, title }) => (
-            <div key={id}>
-              <label>{title}</label>
-              <Field name={id} type="checkbox" component="input" />
-            </div>
-          ))}
+          <div className={clsx('card__body')}>
+            <h2>Available integrations</h2>
+            {integrations.map(({ id, title }) => (
+              <Field
+                key={id}
+                name={id}
+                label={title}
+                component={SwitchAdapter}
+              />
+            ))}
+          </div>
 
-          <button type="submit">Submit</button>
+          <div className={clsx('card__footer')}>
+            <button
+              type="submit"
+              className="button button--primary button--block"
+            >
+              Save
+            </button>
+          </div>
         </form>
       )}
     />
