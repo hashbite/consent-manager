@@ -6,10 +6,10 @@ title: Getting Started
 ## Installation
 
 ```sh
-npm install @techboi/privacy-manager
+npm install @techboi/privacy-manager use-persisted-state
 ```
 ```sh
-yarn add @techboi/privacy-manager
+yarn add @techboi/privacy-manager use-persisted-state
 ```
 
 ## Embedding into your application
@@ -38,12 +38,13 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 + import { PrivacyManager } from '@techboi/privacy-manager'
++ import createPersistedState from 'use-persisted-state'
 
+
++ const useConsentStateStore = createPersistedState('privacy-manager-docs')
 
 + const Wrapper = () => {
-+   const storage = React.useState({
-+     decisions: {},
-+   })
++   const storage = useConsentStateStore()
 +   const config = {
 +     integrations: [
 +       {
@@ -118,12 +119,10 @@ import App from './App';
 
 - import { PrivacyManager } from '@techboi/privacy-manager'
 + import { PrivacyManager, PrivacyManagerForm } from '@techboi/privacy-manager'
-
+import createPersistedState from 'use-persisted-state'
 
 const Wrapper = () => {
-  const storage = React.useState({
-    decisions: {},
-  })
+  const storage = useConsentStateStore()
   const config = {
     integrations: [
       {
