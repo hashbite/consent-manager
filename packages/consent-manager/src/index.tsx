@@ -63,6 +63,7 @@ export interface PrivacyShieldProps {
 export const PrivacyShield: React.FC<PrivacyShieldProps> = ({
   id,
   children,
+  ...props
 }) => {
   const decision = useDecision(id)
   const DefaultFallbackComponent = useFallbackComponent()
@@ -71,7 +72,7 @@ export const PrivacyShield: React.FC<PrivacyShieldProps> = ({
     return <React.Fragment>{children}</React.Fragment>
   }
 
-  return <DefaultFallbackComponent integrationId={id} />
+  return <DefaultFallbackComponent integrationId={id} {...props} />
 }
 
 export type PageViewEventTrigger = (location: Location) => void
