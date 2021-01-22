@@ -2,7 +2,7 @@
 
 describe('Smoke Test', () => {
   it('renders fallback component', () => {
-    cy.visit('http://localhost:1234')
+    cy.visit('http://localhost:1234/video')
 
     cy.get('[data-testid="consent-manager-privacy-shield"]').contains(
       'Video Inc. is a popular service to share clips of cats.'
