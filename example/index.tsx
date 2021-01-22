@@ -1,12 +1,15 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import {
   ConsentManager,
   ConsentManagerConfig,
   ConsentManagerForm,
-  PrivacyShield,
 } from '@techboi/consent-manager'
+
+import RouteHome from './routes/home'
+import RouteVideo from './routes/video'
 
 const consentManagerConfig: ConsentManagerConfig = {
   integrations: [
@@ -27,37 +30,35 @@ const consentManagerConfig: ConsentManagerConfig = {
   ],
 }
 
-const VideoPlatform: React.FC<{ id: string }> = ({ id }) => {
-  return (
-    <div
-      style={{
-        backgroundColor: 'darkblue',
-        color: 'white',
-        border: '4px solid black',
-        padding: '2em',
-      }}
-    >
-      Video component with id <pre>{id}</pre>
-    </div>
-  )
-}
-
 const App = () => {
   const storage = React.useState({
     decisions: {},
   })
 
   return (
-    <div>
-      <ConsentManager config={consentManagerConfig} store={storage}>
-        <main
-          data-testid="consent-manager-privacy-shield"
-          style={{ margin: '4em auto', maxWidth: '420px' }}
-        >
-          <h1>Your content:</h1>
-          <PrivacyShield id="video-platform">
-            <VideoPlatform id="rick-roll" />
-          </PrivacyShield>
+    <ConsentManager config={consentManagerConfig} store={storage}>
+      <Router>
+        <header>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/video">Video</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <main style={{ margin: '4em auto', maxWidth: '420px' }}>
+          <Switch>
+            <Route path="/video">
+              <RouteVideo />
+            </Route>
+            <Route path="/">
+              <RouteHome />
+            </Route>
+          </Switch>
         </main>
         <aside
           data-testid="consent-manager-form-container"
@@ -65,8 +66,8 @@ const App = () => {
         >
           <ConsentManagerForm />
         </aside>
-      </ConsentManager>
-    </div>
+      </Router>
+    </ConsentManager>
   )
 }
 
