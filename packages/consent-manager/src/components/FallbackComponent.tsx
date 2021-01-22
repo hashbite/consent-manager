@@ -6,6 +6,7 @@ import { useIntegration } from '../integrations'
 export const FallbackComponent: React.FC<FallbackComponentProps> = ({
   integrationId,
   fallbackUrl,
+  ...props
 }) => {
   const integration = useIntegration(integrationId)
 
@@ -22,6 +23,7 @@ export const FallbackComponent: React.FC<FallbackComponentProps> = ({
         padding: '0 2em',
         border: '4px solid #222',
       }}
+      {...props}
     >
       <h1 style={{ display: 'flex-inline' }}>
         {iconSrc && (

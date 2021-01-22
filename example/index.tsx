@@ -24,7 +24,12 @@ const consentManagerConfig: ConsentManagerConfig = {
       description:
         'Adds red borders around your content, demonstrates use of components that do e.g. click tracking',
       wrapperComponent: ({ children }) => (
-        <div style={{ border: '3px solid red' }}>{children}</div>
+        <div
+          style={{ border: '3px solid red' }}
+          data-testid="consent-manager-wrapping-component"
+        >
+          {children}
+        </div>
       ),
     },
   ],
