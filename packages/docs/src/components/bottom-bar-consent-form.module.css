@@ -14,7 +14,8 @@
   top: auto;
 
   background: white;
-  box-shadow: 0 -20px 25px -5px rgba(0, 0, 0, 0.1), 0 -10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 -20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 -10px 10px -5px rgba(0, 0, 0, 0.04);
 
   transform: translateY(120%);
   will-change: transform;
@@ -43,4 +44,22 @@
   width: 3rem;
   padding: 1rem;
   cursor: pointer;
+}
+
+.integration {
+  border-radius: 0.25rem;
+  padding: 0.3rem 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.integrationIcon {
+  width: 2rem;
+  padding-right: 0.5rem;
+}
+.integrationTitle {
+}
+
+.formControl {
+  margin-bottom: 1rem;
 }
