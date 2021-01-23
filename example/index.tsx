@@ -54,10 +54,14 @@ const App = () => {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/" data-testid="example-nav-home">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to="/video">Video</Link>
+                <Link to="/video" data-testid="example-nav-video">
+                  Video
+                </Link>
               </li>
             </ul>
           </nav>

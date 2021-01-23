@@ -21,25 +21,13 @@ describe('Wrapping Component', () => {
   })
 
   it('renders wrapping component after making decision', () => {
-    cy.get('[data-testid="consent-manager-form-container"]')
-      .contains('Red Box Ltd.')
-      .click()
-
-    cy.get('[data-testid="consent-manager-form-container"]')
-      .contains('Submit')
-      .click()
+    cy.toggleIntegration('Red Box Ltd.')
 
     cy.get('[data-testid="consent-manager-wrapping-component"]').should('exist')
   })
 
   it('removes wrapping component after revoking decision', () => {
-    cy.get('[data-testid="consent-manager-form-container"]')
-      .contains('Red Box Ltd.')
-      .click()
-
-    cy.get('[data-testid="consent-manager-form-container"]')
-      .contains('Submit')
-      .click()
+    cy.toggleIntegration('Red Box Ltd.')
 
     cy.get('[data-testid="consent-manager-wrapping-component"]').should(
       'not.exist'
@@ -64,13 +52,7 @@ describe('Privacy Shield', () => {
   })
 
   it('renders video component after making decision', () => {
-    cy.get('[data-testid="consent-manager-form-container"]')
-      .contains('Video Inc.')
-      .click()
-
-    cy.get('[data-testid="consent-manager-form-container"]')
-      .contains('Submit')
-      .click()
+    cy.toggleIntegration('Video Inc.')
 
     cy.get('[data-testid="consent-manager-video-component"]').contains(
       'Video component with id rick-roll'
@@ -78,13 +60,7 @@ describe('Privacy Shield', () => {
   })
 
   it('renders privacy shield after revoking decision', () => {
-    cy.get('[data-testid="consent-manager-form-container"]')
-      .contains('Video Inc.')
-      .click()
-
-    cy.get('[data-testid="consent-manager-form-container"]')
-      .contains('Submit')
-      .click()
+    cy.toggleIntegration('Video Inc.')
 
     cy.get('[data-testid="consent-manager-privacy-shield"]').contains(
       'Video Inc. is a popular service to share clips of cats.'
