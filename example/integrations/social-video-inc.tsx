@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { IntegrationConfig } from '@techboi/consent-manager'
 
-const Icon = () => (
+const Icon: React.FC = () => (
   <svg
     className="w-6 h-6"
     fill="none"
