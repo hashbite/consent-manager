@@ -3,6 +3,8 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import { ConsentManager, ConsentManagerForm } from '@techboi/consent-manager'
 import createPersistedState from 'use-persisted-state'
 
+import YouTube from '../youtube-integration'
+
 import { CustomFallbackComponent } from '../components/fallback-component'
 import { BottomBarConsentForm } from '../components/bottom-bar-consent-form'
 
@@ -20,14 +22,7 @@ const useConsentStateStore = createPersistedState('consent-manager-docs')
 function Root({ children }) {
   const storage = useConsentStateStore()
   const config = {
-    integrations: [
-      {
-        id: 'youtube',
-        title: 'YouTube',
-        description:
-          'Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.',
-      },
-    ],
+    integrations: [YouTube()],
   }
 
   return (

@@ -72,13 +72,25 @@ export function BottomBarConsentForm({
         >
           <div className={clsx(styles.content)}>
             <h2>We respect your privacy!</h2>
-            {integrations.map(({ id, title }) => (
-              <Field
-                key={id}
-                name={id}
-                label={`enable ${title} `}
-                component={SwitchAdapter}
-              />
+            {integrations.map(({ id, Icon, title, contrastColor, color }) => (
+              <div className={clsx(styles.formControl)}>
+                <Field
+                  key={id}
+                  name={id}
+                  label={
+                    <div
+                      className={clsx(styles.integration)}
+                      style={{ color: contrastColor, backgroundColor: color }}
+                    >
+                      <Icon className={clsx(styles.integrationIcon)} />
+                      <span className={clsx(styles.integrationTitle)}>
+                        {title}
+                      </span>
+                    </div>
+                  }
+                  component={SwitchAdapter}
+                />
+              </div>
             ))}
 
             <button
