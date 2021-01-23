@@ -11,28 +11,11 @@ import {
 import RouteHome from './routes/home'
 import RouteVideo from './routes/video'
 
+import { createVideoIncIntegration } from './integrations/social-video-inc'
+import { createRedBoxLtdIntegration } from './integrations/tracker-red-box-ltd'
+
 const consentManagerConfig: ConsentManagerConfig = {
-  integrations: [
-    {
-      id: 'video-platform',
-      title: 'Video Inc.',
-      description: 'Video Inc. is a popular service to share clips of cats.',
-    },
-    {
-      id: 'integration-with-wrapper',
-      title: 'Red Box Ltd.',
-      description:
-        'Adds red borders around your content, demonstrates use of components that do e.g. click tracking',
-      wrapperComponent: ({ children }) => (
-        <div
-          style={{ border: '3px solid red' }}
-          data-testid="consent-manager-wrapping-component"
-        >
-          {children}
-        </div>
-      ),
-    },
-  ],
+  integrations: [createVideoIncIntegration(), createRedBoxLtdIntegration()],
 }
 
 const App = () => {

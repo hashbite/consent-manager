@@ -14,7 +14,7 @@ export const FallbackComponent: React.FC<FallbackComponentProps> = ({
     throw new Error(`No integration found for "${integrationId}"`)
   }
 
-  const { title, privacyPolicyUrl, iconSrc, description } = integration
+  const { title, privacyPolicyUrl, Icon, description } = integration
 
   return (
     <section
@@ -26,14 +26,7 @@ export const FallbackComponent: React.FC<FallbackComponentProps> = ({
       {...props}
     >
       <h1 style={{ display: 'flex-inline' }}>
-        {iconSrc && (
-          <img
-            src={iconSrc}
-            alt={title}
-            aria-hidden="true"
-            style={{ width: '1em', marginRight: '0.3em' }}
-          />
-        )}
+        {Icon && <Icon aria-hidden="true" />}
         {title}
       </h1>
       {description && <p>{description}</p>}

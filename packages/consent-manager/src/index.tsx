@@ -106,3 +106,4 @@ export {
 } from './components/DecisionsForm'
 export { useIntegration, useEnabledIntegrations } from './integrations'
 export { useIntegrations } from './context'
+export { IntegrationConfig } from './config'

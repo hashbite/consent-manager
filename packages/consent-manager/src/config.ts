@@ -6,10 +6,13 @@ export interface IntegrationConfig {
   id: string
   title: string
   description: string
-  wrapperComponent?: React.ComponentType
-  pageViewEventHandler?: PageViewEventTrigger
+  category: 'statistics' | 'social'
+  color?: string
+  contrastColor?: string
   privacyPolicyUrl?: string
-  iconSrc?: string
+  Icon: React.ComponentType
+  pageViewEventHandler?: PageViewEventTrigger
+  wrapperComponent?: React.ComponentType
 }
 
 export interface ConsentManagerConfig {
