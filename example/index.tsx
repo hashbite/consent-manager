@@ -1,6 +1,12 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useLocation,
+} from 'react-router-dom'
 
 import {
   ConsentManager,
@@ -12,10 +18,27 @@ import RouteHome from './routes/home'
 import RouteVideo from './routes/video'
 
 import { createVideoIncIntegration } from './integrations/social-video-inc'
-import { createRedBoxLtdIntegration } from './integrations/tracker-red-box-ltd'
+import {
+  createRedBoxLtdIntegration,
+  useRedBoxLtd,
+} from './integrations/tracker-red-box-ltd'
 
 const consentManagerConfig: ConsentManagerConfig = {
   integrations: [createVideoIncIntegration(), createRedBoxLtdIntegration()],
+}
+
+const PageViewTracker: React.FC = () => {
+  const location = useLocation()
+  const { trackPageView } = useRedBoxLtd()
+
+  React.useEffect(() => {
+    // @todo find proper solution to ensure page view is tracked after tracker api is initialized
+    window.setTimeout(() => {
+      trackPageView(location)
+    }, 0)
+  }, [location, trackPageView])
+
+  return null
 }
 
 const App = () => {
@@ -26,6 +49,7 @@ const App = () => {
   return (
     <ConsentManager config={consentManagerConfig} store={storage}>
       <Router>
+        <PageViewTracker />
         <header>
           <nav>
             <ul>
