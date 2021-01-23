@@ -15,7 +15,10 @@ export default function RouteHome() {
         Switch to the video subroute to see the social media privacy shield in
         action.
       </p>
-      <button onClick={() => trackEvent('click', 'watching', 'you', 'closely')}>
+      <button
+        onClick={() => trackEvent('click', 'watching', 'you', 'closely')}
+        data-testid="example-button"
+      >
         Do not click here -{' '}
         {isEnabled ? 'we will track you' : 'nothing will happen'}
       </button>
