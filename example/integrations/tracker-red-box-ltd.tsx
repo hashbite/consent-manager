@@ -61,7 +61,7 @@ const WrapperComponent: React.FC = ({ children }) => {
 }
 
 export function useRedBoxLtd(): RedBoxLtd {
-  const isEnabled = useDecision('red-box-ltd')
+  const [isEnabled] = useDecision('red-box-ltd')
 
   const redBoxLtdInterface = React.useMemo(() => {
     if (!isEnabled) {

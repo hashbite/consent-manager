@@ -37,7 +37,7 @@ export default function YouTubeIntegration() {
     color,
     contrastColor,
     Icon,
-    privacyPolicy: `https://policies.google.com/privacy?hl=${lang}`,
+    privacyPolicyUrl: `https://policies.google.com/privacy?hl=${lang}`,
     description:
       'Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.',
   }
