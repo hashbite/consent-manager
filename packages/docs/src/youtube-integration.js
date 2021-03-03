@@ -26,7 +26,8 @@ export default function YouTubeIntegration() {
   const { title, slug, hex, path } = YouTube
   const color = `#${hex}`
   const contrastColor = getForegroundColor(color)
-  const lang = window.navigator.language || 'en-US'
+  const lang =
+    typeof window !== 'undefined' ? window.navigator.language : 'en-US'
   const Icon = createIconComponentForSvgPath({ title, path })
 
   return {
