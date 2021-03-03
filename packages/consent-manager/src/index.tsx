@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { Dispatch, SetStateAction, useContext } from 'react'
 import { Location } from 'history'
 import {
   FallbackComponentProps,
@@ -36,11 +36,21 @@ export const ConsentManager: React.FC<ConsentManagerProps> = ({
   )
 }
 
-export function useDecision(id: IntegrationId): boolean {
-  const [decisions] = useDecisions()
+export function useDecision(
+  id: IntegrationId
+): [boolean, Dispatch<SetStateAction<boolean>>] {
+  const [decisions, setAndStoreDecisions] = useDecisions()
   const decision = decisions[id] ?? false
 
-  return decision
+  return [
+    decision,
+    (value: SetStateAction<boolean>) => {
+      const newStateValue =
+        typeof value === 'function' ? value(decision) : value
+
+      setAndStoreDecisions(decisions => ({ ...decisions, [id]: newStateValue }))
+    },
+  ]
 }
 
 export function useFallbackComponent(): React.ComponentType<
@@ -65,7 +75,7 @@ export const PrivacyShield: React.FC<PrivacyShieldProps> = ({
   children,
   ...props
 }) => {
-  const decision = useDecision(id)
+  const [decision] = useDecision(id)
   const DefaultFallbackComponent = useFallbackComponent()
 
   if (decision) {
@@ -80,7 +90,7 @@ export type PageViewEventTrigger = (location: Location) => void
 export function usePageViewEventTrigger(
   id: IntegrationId
 ): PageViewEventTrigger {
-  const decision = useDecision(id)
+  const [decision] = useDecision(id)
   const { config } = useContext(ConsentManagerContext)
   const integration = config.integrations.find(i => i.id === id)
 

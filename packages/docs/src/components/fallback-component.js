@@ -1,37 +1,35 @@
-import React, { useState } from 'react'
-import { ConsentManagerForm, useIntegration } from '@techboi/consent-manager'
+import React, { useCallback } from 'react'
+import { useIntegration, useDecision } from '@techboi/consent-manager'
 import clsx from 'clsx'
 
 import styles from './fallback-component.module.css'
-import { EmbeddedConsentForm } from './embedded-consent-form'
 
 export function CustomFallbackComponent({ integrationId }) {
   const integration = useIntegration(integrationId)
-  const [showForm, setShowForm] = useState(false)
+  const [, setDecision] = useDecision(integrationId)
+  const enableIntegration = useCallback(() => {
+    setDecision(true)
+  }, [setDecision])
 
   return (
     <div className={clsx(styles.container)}>
-      <div className={clsx(styles.wrapper, showForm && styles.flip)}>
-        <div className={clsx('card', styles.side, styles.front)}>
-          <div className={clsx('card__header', styles.header)}>
-            <h3>{integration.title} is disabled to protect your privacy!</h3>
-          </div>
-          <div className={clsx('card__body', styles.description)}>
-            <p>{integration.description}</p>
-          </div>
-          <div className={clsx('card__footer', styles.footer)}>
-            <button
-              className="button button--primary button--block"
-              onClick={() => setShowForm(true)}
-            >
-              Enable {integration.title}
-            </button>
-          </div>
-        </div>
-        <div className={clsx('card', styles.side, styles.back)}>
-          <ConsentManagerForm formComponent={EmbeddedConsentForm} />
-        </div>
-      </div>
+      <h2>Recommended Content!</h2>
+      <p>
+        We'd like to show you some content via {integration.title}. To protect
+        your privacy, we disabled it by default.
+      </p>
+      <p>{integration.description}</p>
+      <p>
+        <a href={integration.privacyPolicyUrl} rel="noreferrer" target="_blank">
+          Learn more about the privacy policy of {integration.title}
+        </a>
+      </p>
+      <button
+        className={clsx(styles.button, 'button button--primary button--block')}
+        onClick={() => enableIntegration()}
+      >
+        Enable {integration.title}
+      </button>
     </div>
   )
 }
