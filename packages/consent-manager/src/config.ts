@@ -1,4 +1,5 @@
 import { PageViewEventTrigger } from '.'
+import { IconComponentProps } from './integration-helpers'
 
 export type IntegrationId = string
 
@@ -10,7 +11,7 @@ export interface IntegrationConfig {
   color?: string
   contrastColor?: string
   privacyPolicyUrl?: string
-  Icon: React.ComponentType
+  Icon: React.ComponentType<IconComponentProps>
   pageViewEventHandler?: PageViewEventTrigger
   wrapperComponent?: React.ComponentType
 }

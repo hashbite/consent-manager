@@ -5,17 +5,17 @@ export function getForegroundColor(bgHex: string): string {
   return hex(bgHex, '#000') >= 7 ? '#000' : '#fff'
 }
 
-interface IconComponentProps {
-  color: string
+export interface IconComponentProps {
+  color?: string
 }
 
-export const createIconComponentFromSimpleIconsSvgPath = (
+export const createIconComponentFromSimpleIconsSvgPath: (
   title: string,
   path: string
-) => ({
+) => React.FC<IconComponentProps> = (title: string, path: string) => ({
   color = 'currentColor',
   ...props
-}: IconComponentProps): React.ReactElement => (
+}: IconComponentProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill={color}
