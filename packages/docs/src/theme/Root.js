@@ -3,7 +3,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import { ConsentManager, ConsentManagerForm } from '@techboi/consent-manager'
 import createPersistedState from 'use-persisted-state'
 
-import YouTube from '../youtube-integration'
+import { YouTubeIntegration } from '@techboi/consent-manager-integration-youtube'
 
 import { CustomFallbackComponent } from '../components/fallback-component'
 import { BottomBarConsentForm } from '../components/bottom-bar-consent-form'
@@ -22,7 +22,7 @@ const useConsentStateStore = createPersistedState('consent-manager-docs')
 function Root({ children }) {
   const storage = useConsentStateStore()
   const config = {
-    integrations: [YouTube()],
+    integrations: [YouTubeIntegration()],
   }
 
   return (

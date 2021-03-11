@@ -3370,6 +3370,11 @@
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-6.2.2.tgz#5c27df09ca39e3c9beb4fae6b95f4d71426df0a9"
   integrity sha512-RxAwYt4rGwK5GyoRwuP0jT6ZHAVTdz2EqgsHmX0PYNjGsko+OeT4WFXXTs/lM3teJUJodM+SNtAL5/pXIJ61IQ==
 
+"@types/simple-icons@^4.14.0":
+  version "4.14.0"
+  resolved "https://registry.yarnpkg.com/@types/simple-icons/-/simple-icons-4.14.0.tgz#8bfddf2f23b3128eb48c26fa29f33938e45719b3"
+  integrity sha512-eMt68v8qGF42I7SODwAV56/xatcFbFtFmwlN9DPEDcVEFCk4EJfPsDiw4e4CPCRtM5BmD0B1ikSTYvtjcWW+Dw==
+
 "@types/sinonjs__fake-timers@^6.0.1":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@types/sinonjs__fake-timers/-/sinonjs__fake-timers-6.0.1.tgz#681df970358c82836b42f989188d133e218c458e"
@@ -3406,6 +3411,11 @@
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
+
+"@types/wcag-contrast@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/wcag-contrast/-/wcag-contrast-3.0.0.tgz#640a4c36a6b62d54f1dd64a74322595df465148d"
+  integrity sha512-RDinJW4P1bg+dWA6C0/looxA0zyi24gIDHrewzFW/xyU2v97D38KRzXdxMbiVpqovrjTa/xsX8abj3/hpASklg==
 
 "@types/webpack-sources@*":
   version "2.1.0"
@@ -14715,6 +14725,11 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
+
+simple-icons@^4.14.0:
+  version "4.14.0"
+  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-4.14.0.tgz#c10c0a27a3cdfab728e1d3bee76fb8e0c06a9e5f"
+  integrity sha512-GouOesq1Yjy/AwO2sw5kTn12/6roi18vyb973uSNL3r8lgqfN6khh/AaJdxIpZXzeje9lwPsngGiZdnkl5bjpw==
 
 simple-icons@^4.7.0:
   version "4.7.0"

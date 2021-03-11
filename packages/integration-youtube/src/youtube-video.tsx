@@ -3,7 +3,11 @@ import ReactYouTube from 'react-youtube'
 
 import { PrivacyShield } from '@techboi/consent-manager'
 
-const YouTube = ({ id, ...props }) => {
+interface YouTubeVideoProps {
+  id: string
+}
+
+const YouTubeVideo: React.FC<YouTubeVideoProps> = ({ id, ...props }) => {
   return (
     <PrivacyShield id="youtube">
       <ReactYouTube className="video" videoId={id} {...props} />
@@ -11,4 +15,4 @@ const YouTube = ({ id, ...props }) => {
   )
 }
 
-export default YouTube
+export default YouTubeVideo

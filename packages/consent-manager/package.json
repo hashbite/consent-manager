@@ -32,6 +32,9 @@
     "react-use": "^15.3.4",
     "tslib": "^2.0.0"
   },
+  "devDependencies": {
+    "@types/wcag-contrast": "^3.0.0"
+  },
   "publishConfig": {
     "access": "public"
   }
