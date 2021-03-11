@@ -1,0 +1,28 @@
+{
+  "name": "@techboi/consent-manager-integration-matomo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/react.esm.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "start": "tsdx watch --tsconfig tsconfig.build.json --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "lint": "tsdx lint",
+    "prepublish": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@techboi/consent-manager": "*",
+    "simple-icons": "^4.14.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.1",
+    "react-dom": "^16.8.0 || ^17.0.1"
+  },
+  "devDependencies": {
+    "@types/simple-icons": "^4.14.0"
+  }
+}

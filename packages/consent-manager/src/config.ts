@@ -6,6 +6,10 @@ export interface IntegrationIconComponentProps {
   color?: string
 }
 
+export interface IntegrationConfigOptions {
+  [key: string]: any
+}
+
 export interface IntegrationConfig {
   id: string
   title: string
@@ -17,6 +21,7 @@ export interface IntegrationConfig {
   Icon: React.ComponentType<IntegrationIconComponentProps>
   pageViewEventHandler?: PageViewEventTrigger
   WrapperComponent?: React.ComponentType
+  config?: IntegrationConfigOptions
 }
 
 export interface ConsentManagerConfig {

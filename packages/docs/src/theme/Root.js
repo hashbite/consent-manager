@@ -4,6 +4,7 @@ import { ConsentManager, ConsentManagerForm } from '@techboi/consent-manager'
 import createPersistedState from 'use-persisted-state'
 
 import { youTubeIntegration } from '@techboi/consent-manager-integration-youtube'
+import { matomoIntegration } from '@techboi/consent-manager-integration-matomo'
 
 import { CustomFallbackComponent } from '../components/fallback-component'
 import { BottomBarConsentForm } from '../components/bottom-bar-consent-form'
@@ -22,7 +23,13 @@ const useConsentStateStore = createPersistedState('consent-manager-docs')
 function Root({ children }) {
   const storage = useConsentStateStore()
   const config = {
-    integrations: [youTubeIntegration()],
+    integrations: [
+      youTubeIntegration(),
+      matomoIntegration({
+        matomoURL: 'https://trackboi.techboi.io/',
+        siteID: 11,
+      }),
+    ],
   }
 
   return (
