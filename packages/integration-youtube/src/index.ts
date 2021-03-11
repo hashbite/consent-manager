@@ -1,0 +1,30 @@
+import {
+  createIconComponentFromSimpleIconsSvgPath,
+  getForegroundColor,
+  IntegrationConfig,
+} from '@techboi/consent-manager'
+
+import YouTube from 'simple-icons/icons/youtube'
+
+export { default as YouTubeVideo } from './youtube-video'
+
+export function YouTubeIntegration(): IntegrationConfig {
+  const { title, slug, hex, path } = YouTube
+  const color = `#${hex}`
+  const contrastColor = getForegroundColor(color)
+  const lang =
+    typeof window !== 'undefined' ? window.navigator.language : 'en-US'
+  const Icon = createIconComponentFromSimpleIconsSvgPath(title, path)
+
+  return {
+    id: slug,
+    title,
+    category: 'social',
+    color,
+    contrastColor,
+    Icon,
+    privacyPolicyUrl: `https://policies.google.com/privacy?hl=${lang}`,
+    description:
+      'Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.',
+  }
+}

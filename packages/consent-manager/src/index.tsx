@@ -117,3 +117,8 @@ export {
 export { useIntegration, useEnabledIntegrations } from './integrations'
 export { useIntegrations } from './context'
 export { IntegrationConfig } from './config'
+
+export {
+  getForegroundColor,
+  createIconComponentFromSimpleIconsSvgPath,
+} from './integration-helpers'
