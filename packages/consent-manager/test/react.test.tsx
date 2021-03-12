@@ -1,5 +1,5 @@
 describe('@techboi/react', () => {
   it('works', () => {
-    expect(true).toBe(true);
-  });
-});
+    expect(true).toBe(true)
+  })
+})
