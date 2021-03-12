@@ -49,13 +49,13 @@ let wasInitialized = false
 const WrapperComponent: React.FC = ({ children }) => {
   const MatomoConfig = useIntegration('matomo')
 
-  if (!MatomoConfig || !MatomoConfig.config) {
+  if (!MatomoConfig || !MatomoConfig.options) {
     throw new Error(
       'It is not possible to initialize Matomo without configuration'
     )
   }
 
-  useMatomoTracker(MatomoConfig.config)
+  useMatomoTracker(MatomoConfig.options)
 
   return <>{children}</>
 }
