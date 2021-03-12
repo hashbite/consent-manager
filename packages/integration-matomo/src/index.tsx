@@ -19,9 +19,11 @@ declare global {
   }
 }
 
+// @todo required options are not yet possible.
+// See: https://github.com/techboi/consent-manager/issues/19
 interface MatomoTrackerConfig extends IntegrationConfigOptions {
-  matomoURL?: string // @todo these should be required, but TS doesn't like it!
-  siteID?: string // @todo these should be required, but TS doesn't like it!
+  matomoURL?: string // @todo this should be requred
+  siteID?: string // @todo this should be requred
   enableLinkTracking?: boolean
   enableHeartBeatTimer?: boolean
 }
