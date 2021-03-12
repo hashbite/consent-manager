@@ -21,7 +21,7 @@ export interface IntegrationConfig {
   Icon: React.ComponentType<IntegrationIconComponentProps>
   pageViewEventHandler?: PageViewEventTrigger
   WrapperComponent?: React.ComponentType
-  config?: IntegrationConfigOptions
+  options?: IntegrationConfigOptions
 }
 
 export interface ConsentManagerConfig {
