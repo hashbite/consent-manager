@@ -120,6 +120,8 @@ export {
   IntegrationConfig,
   IntegrationIconComponentProps,
   IntegrationConfigOptions,
+  Tracker,
+  TrackerEvents,
 } from './config'
 
 export {
