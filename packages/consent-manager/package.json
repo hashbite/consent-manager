@@ -27,10 +27,11 @@
     "react-dom": "^16.8.0 || ^17.0.1"
   },
   "dependencies": {
-    "@techboi/utils": "^0.0.1",
     "@types/history": "^4.7.8",
+    "history": "^5.0.0",
     "react-use": "^15.3.4",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "wcag-contrast": "^3.0.0"
   },
   "devDependencies": {
     "@types/wcag-contrast": "^3.0.0"

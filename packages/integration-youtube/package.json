@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@techboi/consent-manager": "*",
+    "react-youtube": "^7.13.1",
     "simple-icons": "^4.14.0"
   },
   "peerDependencies": {
