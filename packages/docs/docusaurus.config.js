@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   title: 'Consent Manager',
   tagline: "Actually it's a consent manager",
@@ -90,4 +92,5 @@ module.exports = {
       },
     ],
   ],
+  plugins: [path.resolve(__dirname, './src/plugins/consent-manager')],
 }
