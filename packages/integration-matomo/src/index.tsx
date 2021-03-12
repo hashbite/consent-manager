@@ -46,7 +46,7 @@ export const useMatomoTracker = ({
 }: MatomoTrackerConfig): Tracker => {
   const [isEnabled] = useDecision('matomo')
 
-  if (!wasInitialized) {
+  if (!wasInitialized && isEnabled) {
     const _paq = (window._paq = window._paq || [])
 
     _paq.push(['trackPageView'])
@@ -65,16 +65,9 @@ export const useMatomoTracker = ({
     wasInitialized = true
   }
 
-  const tracker = getMatomoTracker()
+  const tracker = React.useMemo(() => getMatomoTracker(), [])
 
-  if (!tracker) {
-    throw new Error('Trying to access tracker before it is initialized')
-  }
-
-  return {
-    isEnabled,
-    ...tracker,
-  }
+  return tracker
 }
 
 const WrapperComponent: React.FC = ({ children }) => {

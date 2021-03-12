@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { useRedBoxLtd } from '../integrations/tracker-red-box-ltd'
+import { useDecision } from '@techboi/consent-manager'
 
 export default function RouteHome() {
-  const { trackEvent, isEnabled } = useRedBoxLtd()
+  const { trackEvent } = useRedBoxLtd()
+  const [isEnabled] = useDecision('red-box-ltd')
 
   return (
     <>

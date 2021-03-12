@@ -1,6 +1,10 @@
 import * as React from 'react'
 
-import { IntegrationConfig, useDecision } from '@techboi/consent-manager'
+import {
+  IntegrationConfig,
+  useDecision,
+  Tracker,
+} from '@techboi/consent-manager'
 
 declare global {
   interface Window {
@@ -8,13 +12,7 @@ declare global {
   }
 }
 
-interface RedBoxLtdWindow {
-  trackEvent: (...args: any[]) => void
-  trackPageView: (...args: any[]) => void
-}
-interface RedBoxLtd extends RedBoxLtdWindow {
-  isEnabled: boolean
-}
+interface RedBoxLtdWindow extends Tracker {}
 
 const createRedBoxTracker = () => {
   console.log('Initializing Red Box Ltd. tracking')
@@ -23,8 +21,9 @@ const createRedBoxTracker = () => {
       console.log('custom event tracked', data)
       alert(['told ya!', ...data].join(' '))
     },
-    trackPageView: location =>
-      console.log(`page view: ${location.pathname}`, location),
+    trackPageView: (location: Location) => {
+      console.log(`page view: ${location.pathname}`, location)
+    },
   }
 }
 
@@ -60,22 +59,26 @@ const WrapperComponent: React.FC = ({ children }) => {
   )
 }
 
-export function useRedBoxLtd(): RedBoxLtd {
+export function useRedBoxLtd(): Tracker {
   const [isEnabled] = useDecision('red-box-ltd')
 
   const redBoxLtdInterface = React.useMemo(() => {
     if (!isEnabled) {
       return {
-        isEnabled: false,
         trackEvent: () => {},
         trackPageView: () => {},
       }
     }
 
     return {
-      isEnabled: true,
-      trackEvent: (...args) => window.rbltd?.trackEvent(...args),
-      trackPageView: (...args) => window.rbltd?.trackPageView(...args),
+      trackEvent: (...args) =>
+        window.rbltd &&
+        window.rbltd.trackEvent &&
+        window.rbltd.trackEvent(...args),
+      trackPageView: (...args) =>
+        window.rbltd &&
+        window.rbltd.trackPageView &&
+        window.rbltd.trackPageView(...args),
     }
   }, [isEnabled])
 

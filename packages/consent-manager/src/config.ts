@@ -38,11 +38,9 @@ export interface FallbackComponentProps {
 }
 
 export interface TrackerEvents {
-  track: (...args: unknown[]) => unknown
+  track?: (...args: unknown[]) => unknown
   trackEvent?: (...args: unknown[]) => unknown
   trackPageView?: (...args: unknown[]) => unknown
 }
 
-export interface Tracker extends TrackerEvents {
-  isEnabled: boolean
-}
+export interface Tracker extends TrackerEvents {}
