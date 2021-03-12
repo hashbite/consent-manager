@@ -16,7 +16,7 @@ export interface IntegrationConfig {
   privacyPolicyUrl?: string
   Icon: React.ComponentType<IntegrationIconComponentProps>
   pageViewEventHandler?: PageViewEventTrigger
-  wrapperComponent?: React.ComponentType
+  WrapperComponent?: React.ComponentType
 }
 
 export interface ConsentManagerConfig {

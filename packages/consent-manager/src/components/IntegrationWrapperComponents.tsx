@@ -8,7 +8,7 @@ import {
 import { useDecisions } from '../decisions'
 
 type IntegrationWithWrapperComponent = IntegrationConfig &
-  Required<Pick<IntegrationConfig, 'wrapperComponent'>>
+  Required<Pick<IntegrationConfig, 'WrapperComponent'>>
 
 function useWrapperComponents(
   config: ConsentManagerConfig,
@@ -19,10 +19,10 @@ function useWrapperComponents(
       return config.integrations
         .filter(i => decisions[i.id] === true)
         .filter((i): i is IntegrationWithWrapperComponent =>
-          Boolean(i.wrapperComponent)
+          Boolean(i.WrapperComponent)
         )
         .reverse()
-        .reduce((children, { wrapperComponent: WrapperComponent }) => {
+        .reduce((children, { WrapperComponent }) => {
           return <WrapperComponent>{children}</WrapperComponent>
         }, children)
     }) as React.FC

@@ -8,7 +8,7 @@ import YouTube from 'simple-icons/icons/youtube'
 
 export { default as YouTubeVideo } from './youtube-video'
 
-export function YouTubeIntegration(): IntegrationConfig {
+export function youTubeIntegration(): IntegrationConfig {
   const { title, slug, hex, path } = YouTube
   const color = `#${hex}`
   const contrastColor = getForegroundColor(color)
