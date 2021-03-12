@@ -36,3 +36,13 @@ export interface FallbackComponentProps {
   integrationId: IntegrationId
   fallbackUrl?: string
 }
+
+export interface TrackerEvents {
+  track: (...args: unknown[]) => unknown
+  trackEvent?: (...args: unknown[]) => unknown
+  trackPageView?: (...args: unknown[]) => unknown
+}
+
+export interface Tracker extends TrackerEvents {
+  isEnabled: boolean
+}

@@ -5,7 +5,10 @@ import {
   IntegrationConfig,
   createIconComponentFromSimpleIconsSvgPath,
   useIntegration,
+  useDecision,
   IntegrationConfigOptions,
+  Tracker,
+  TrackerEvents,
 } from '@techboi/consent-manager'
 
 import Matomo from 'simple-icons/icons/matomo'
@@ -17,34 +20,60 @@ declare global {
 }
 
 interface MatomoTrackerConfig extends IntegrationConfigOptions {
-  matomoURL?: string
-  siteID?: string
+  matomoURL?: string // @todo these should be required, but TS doesn't like it!
+  siteID?: string // @todo these should be required, but TS doesn't like it!
+  enableLinkTracking?: boolean
+  enableHeartBeatTimer?: boolean
 }
 
-const useMatomoTracker = ({ matomoURL, siteID }: MatomoTrackerConfig) => {
-  if (wasInitialized) {
-    return
+let wasInitialized = false
+
+export const getMatomoTracker = (): TrackerEvents => ({
+  trackEvent: (...args: unknown[]) =>
+    window._paq && window._paq.push(['trackEvent', ...args]),
+  trackPageView: (...args: unknown[]) =>
+    window._paq && window._paq.push(['trackPageView', ...args]),
+  track: (...args: unknown[]) => window._paq && window._paq.push([...args]),
+})
+
+export const useMatomoTracker = ({
+  matomoURL,
+  siteID,
+  enableLinkTracking = true,
+  enableHeartBeatTimer = true,
+}: MatomoTrackerConfig): Tracker => {
+  const [isEnabled] = useDecision('matomo')
+
+  if (!wasInitialized) {
+    const _paq = (window._paq = window._paq || [])
+
+    _paq.push(['trackPageView'])
+    enableLinkTracking && _paq.push(['enableLinkTracking'])
+    enableHeartBeatTimer && _paq.push(['enableHeartBeatTimer'])
+    _paq.push(['setTrackerUrl', `${matomoURL}matomo.php`])
+    _paq.push(['setSiteId', siteID])
+
+    const script = document.createElement('script')
+
+    script.src = `${matomoURL}matomo.js`
+    script.async = true
+
+    document.body.appendChild(script)
+
+    wasInitialized = true
   }
 
-  const _paq = (window._paq = window._paq || [])
+  const tracker = getMatomoTracker()
 
-  _paq.push(['trackPageView'])
-  _paq.push(['enableLinkTracking'])
-  _paq.push(['setTrackerUrl', `${matomoURL}matomo.php`])
-  _paq.push(['setSiteId', siteID])
+  if (!tracker) {
+    throw new Error('Trying to access tracker before it is initialized')
+  }
 
-  const script = document.createElement('script')
-
-  script.src = `${matomoURL}matomo.js`
-  script.async = true
-
-  document.body.appendChild(script)
-
-  wasInitialized = true
+  return {
+    isEnabled,
+    ...tracker,
+  }
 }
-
-// ensure that the tracker script will be initialized once in runtime
-let wasInitialized = false
 
 const WrapperComponent: React.FC = ({ children }) => {
   const MatomoConfig = useIntegration('matomo')
