@@ -17,8 +17,8 @@ declare global {
 }
 
 interface MatomoTrackerConfig extends IntegrationConfigOptions {
-  matomoURL: string
-  siteID: string
+  matomoURL?: string
+  siteID?: string
 }
 
 const useMatomoTracker = ({ matomoURL, siteID }: MatomoTrackerConfig) => {
