@@ -91,8 +91,7 @@ export function createRedBoxLtdIntegration(): IntegrationConfig {
       'Adds red borders around your content, demonstrates use of components that do e.g. click tracking',
     color: '#C21515',
     contrastColor: '#fff',
-    // @todo start react components with lower or upper case?
     Icon,
-    wrapperComponent: WrapperComponent,
+    WrapperComponent,
   }
 }
