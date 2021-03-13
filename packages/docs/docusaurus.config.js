@@ -3,12 +3,12 @@ const path = require('path')
 module.exports = {
   title: 'Consent Manager',
   tagline: "Actually it's a consent manager",
-  url: 'https://techboi-io.github.io',
+  url: 'https://techboi.github.io',
   baseUrl: '/consent-manager/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'techboi-io',
+  organizationName: 'techboi',
   projectName: 'consent-manager',
   themeConfig: {
     navbar: {
