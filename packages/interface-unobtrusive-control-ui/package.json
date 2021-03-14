@@ -1,0 +1,31 @@
+{
+  "name": "@techboi/consent-manager-interface-unobtrusive-control-ui",
+  "version": "0.3.0",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/consent-manager-interface-unobtrusive-control-ui.esm.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "start": "tsdx watch --tsconfig tsconfig.build.json --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "lint": "tsdx lint",
+    "prepublish": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@techboi/consent-manager": "^0.3.0",
+    "clsx": "^1.1.1",
+    "react-final-form": "^6.5.2",
+    "react-icons": "^4.2.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.1",
+    "react-dom": "^16.8.0 || ^17.0.1"
+  },
+  "devDependencies": {
+    "rollup-plugin-postcss": "^4.0.0"
+  },
+  "gitHead": "9161cf2e932e007feae2ce21c7be73396ef3c4c6"
+}

@@ -14,7 +14,6 @@
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.71",
     "@docusaurus/preset-classic": "2.0.0-alpha.71",
-    "@material-ui/core": "^4.11.2",
     "@mdx-js/react": "^1.6.21",
     "@techboi/consent-manager": "*",
     "@techboi/consent-manager-integration-matomo": "*",
@@ -24,6 +23,7 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-final-form": "^6.5.2",
+    "react-icons": "^4.2.0",
     "use-persisted-state": "^0.3.3"
   },
   "browserslist": {

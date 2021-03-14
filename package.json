@@ -31,5 +31,9 @@
     "release": "changeset publish",
     "version:canary": "changeset version --snapshot canary",
     "release:canary": "changeset publish --tag canary"
+  },
+  "dependencies": {
+    "postcss": "^8.2.8",
+    "typescript-plugin-css-modules": "^3.2.0"
   }
 }

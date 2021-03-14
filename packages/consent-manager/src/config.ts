@@ -4,6 +4,8 @@ export type IntegrationId = string
 
 export interface IntegrationIconComponentProps {
   color?: string
+  className?: string
+  [key: string]: unknown
 }
 
 export interface IntegrationConfigOptions {
