@@ -1,22 +1,25 @@
 import React from 'react'
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+
 import { ConsentManager, ConsentManagerForm } from '@techboi/consent-manager'
 import createPersistedState from 'use-persisted-state'
 
 import { youTubeIntegration } from '@techboi/consent-manager-integration-youtube'
 import { matomoIntegration } from '@techboi/consent-manager-integration-matomo'
 
+import { UnobtrusiveConsentControlUI } from '@techboi/consent-manager-interface-unobtrusive-control-ui'
+import '@techboi/consent-manager-interface-unobtrusive-control-ui/dist/unobtrusive-control-ui.min.css'
+
 import { CustomFallbackComponent } from '../components/fallback-component'
-import { BottomBarConsentForm } from '../components/bottom-bar-consent-form'
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#17b897',
-    },
-  },
-})
-
+const Button = props => (
+  <button
+    type="submit"
+    className="button button--primary button--block"
+    {...props}
+  >
+    Save
+  </button>
+)
 const useConsentStateStore = createPersistedState('consent-manager-docs')
 
 // Default implementation, that you can customize
@@ -33,16 +36,17 @@ function Root({ children }) {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <ConsentManager
-        config={config}
-        store={storage}
-        fallbackComponent={CustomFallbackComponent}
-      >
-        {children}
-        <ConsentManagerForm formComponent={BottomBarConsentForm} />
-      </ConsentManager>
-    </ThemeProvider>
+    <ConsentManager
+      config={config}
+      store={storage}
+      fallbackComponent={CustomFallbackComponent}
+    >
+      {children}
+      <ConsentManagerForm
+        formComponent={UnobtrusiveConsentControlUI}
+        Button={Button}
+      />
+    </ConsentManager>
   )
 }
 

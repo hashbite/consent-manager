@@ -9,6 +9,7 @@
       "@techboi/utils": ["packages/utils/src"],
       "@techboi/react": ["packages/react/src"],
       "$test/*": ["test/*"]
-    }
+    },
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   }
 }

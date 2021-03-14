@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react'
-import { ConsentManagerDecisions } from '../config'
 import { useConfig } from '../context'
 import { useEnabledIntegrations } from '../integrations'
 import {
@@ -9,9 +8,8 @@ import {
 } from './DecisionsForm'
 
 export const ConsentManagerForm: React.FC<{
-  onSubmit?: (decisions: ConsentManagerDecisions) => void
   formComponent?: React.ComponentType<DecisionsFormProps>
-}> = ({ formComponent }) => {
+}> = ({ formComponent, ...props }) => {
   const [enabledIntegrations, setEnabledIntegrations] = useEnabledIntegrations()
   const { integrations } = useConfig()
   const DecisionsForm = formComponent || DefaultDecisionsForm
@@ -28,6 +26,7 @@ export const ConsentManagerForm: React.FC<{
       integrations={integrations}
       initialValues={{ enabled: enabledIntegrations }}
       onSubmit={handleFormSubmit}
+      {...props}
     />
   )
 }
