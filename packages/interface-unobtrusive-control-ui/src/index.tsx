@@ -1,12 +1,14 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { Form } from 'react-final-form'
 import clsx from 'clsx'
+import Anime from 'react-anime'
+import { FiChevronUp } from 'react-icons/fi'
+
 import {
   DecisionsFormProps,
   IntegrationConfigOptions,
   useConsentFormVisible,
 } from '@techboi/consent-manager'
-import { FiChevronUp } from 'react-icons/fi'
 
 import { Switch as DefaultSwitch, SwitchProps } from './switch'
 import defaultStyles from './index.module.css'
@@ -30,7 +32,7 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
   integrations,
   initialValues,
   onSubmit,
-  slideDuration = 1000,
+  slideDuration = 1500,
   styles = defaultStyles,
   ToggleIcon = FiChevronUp,
   Switch = DefaultSwitch,
@@ -42,14 +44,18 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
     hasPendingDecisions
   )
 
-  const [slideUp, setSlideUp] = useState(false)
+  const introductionFinished = useCallback(() => {
+    setNeedsIntroduction(false)
+  }, [setNeedsIntroduction])
+
+  const [showForm, setShowForm] = useState(false)
 
   const toggleControlForm = useCallback(
     e => {
       e.preventDefault()
-      setSlideUp(v => !v)
+      setShowForm(v => !v)
     },
-    [setSlideUp]
+    [setShowForm]
   )
 
   // @todo calling onSubmit causes rerender
@@ -61,7 +67,7 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
           enabled.push(key)
         }
       }
-      setSlideUp(false)
+      setShowForm(false)
       onSubmit({ enabled })
     },
     [onSubmit]
@@ -88,57 +94,63 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
   }
 
   return (
-    <div
-      className={clsx(
-        styles.wrapper,
-        styles.pane,
-        styles.slide,
-        slideUp && styles.slideUp
-      )}
-      style={{
-        transitionDuration: `${slideDuration}ms`,
-      }}
-      id="consent-control-ui"
-    >
-      <button
-        className={clsx(styles.toggleButton)}
-        title={`Toggle website settings visibility`}
-        onClick={toggleControlForm}
-      >
-        <div className={clsx(styles.pane, styles.toggleButtonContent)}>
-          <ToggleIcon className={clsx(slideUp && styles.inverted)} />
-        </div>
-      </button>
-      <Introduction
-        setSlideUp={setSlideUp}
-        needsIntroduction={needsIntroduction}
-        setNeedsIntroduction={setNeedsIntroduction}
-        slideDuration={slideDuration}
-      />
-      {!needsIntroduction && (
-        <Form
-          onSubmit={onSubmitCb}
-          initialValues={initial}
-          render={({ handleSubmit }) => (
-            <form onSubmit={handleSubmit}>
-              <div className={clsx(styles.content)}>
-                <h2>Website Settings</h2>
-                <p>
-                  Some features are disabled by default to protect your privacy:
-                </p>
-                {integrations.map((integration: IntegrationConfigOptions) => (
-                  <Integration
-                    key={integration.id}
-                    Switch={Switch}
-                    {...integration}
-                  />
-                ))}
-                <Button>Save</Button>
-              </div>
-            </form>
-          )}
+    <div className={clsx(styles.wrapper)} id="consent-control-ui">
+      {needsIntroduction && (
+        <Introduction
+          introductionFinished={introductionFinished}
+          slideDuration={slideDuration}
         />
       )}
+      <Form
+        onSubmit={onSubmitCb}
+        initialValues={initial}
+        render={({ handleSubmit }) => (
+          <>
+            {showForm && (
+              <Anime
+                duration={slideDuration}
+                translateY={['10%', '-100%']}
+                easing="easeInOutQuad"
+              >
+                <form onSubmit={handleSubmit} className={clsx(styles.pane)}>
+                  <div className={clsx(styles.content)}>
+                    <h2>Website Settings</h2>
+                    <p>
+                      Some features are disabled by default to protect your
+                      privacy:
+                    </p>
+                    {integrations.map(
+                      (integration: IntegrationConfigOptions) => (
+                        <Integration
+                          key={integration.id}
+                          Switch={Switch}
+                          {...integration}
+                        />
+                      )
+                    )}
+                    <Button>Save</Button>
+                  </div>
+                </form>
+              </Anime>
+            )}
+            <button
+              className={clsx(styles.toggleButton)}
+              title={`Toggle website settings visibility`}
+              onClick={e => {
+                // Auto save on close
+                if (showForm) {
+                  handleSubmit()
+                }
+                toggleControlForm(e)
+              }}
+            >
+              <div className={clsx(styles.pane, styles.toggleButtonContent)}>
+                <ToggleIcon className={clsx(showForm && styles.inverted)} />
+              </div>
+            </button>
+          </>
+        )}
+      />
     </div>
   )
 }

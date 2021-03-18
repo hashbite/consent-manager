@@ -3808,6 +3808,11 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
+animejs@^3.2.x:
+  version "3.2.1"
+  resolved "http://localhost:4873/animejs/-/animejs-3.2.1.tgz#de9fe2e792f44a777a7fdf6ae160e26604b0cdda"
+  integrity sha512-sWno3ugFryK5nhiDm/2BKeFCpZv7vzerWUcUPyAZLDhMek3+S/p418ldZJbJXo5ZUOpfm2kP2XRO4NJcULMy9A==
+
 ansi-align@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ansi-align/-/ansi-align-2.0.0.tgz#c36aeccba563b89ceb556f3690f0b1d9e3547f7f"
@@ -13560,6 +13565,14 @@ rc@^1.2.8:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-anime@^4.0.3, react-anime@^4.0.4:
+  version "4.0.4"
+  resolved "http://localhost:4873/react-anime/-/react-anime-4.0.4.tgz#60f3d179e730c63a117e012b2799230ea7dc59ea"
+  integrity sha512-keyFmNCVEeKPT13TaHuw7p4OWsHaWI3/u+ivTcxUbmZalKnEQKhxuSTJTlYJLHbMCL2kWoLdLZXz/iaJ+CxGVA==
+  dependencies:
+    animejs "^3.2.x"
+    react-anime "^4.0.3"
 
 react-base16-styling@^0.6.0:
   version "0.6.0"
