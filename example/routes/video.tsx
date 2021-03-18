@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { PrivacyShield } from '@techboi/consent-manager'
+import { PrivacyShield } from '@consent-manager/core'
 
 const VideoPlatform: React.FC<{ id: string }> = ({ id, ...props }) => {
   return (

@@ -2,7 +2,7 @@ import {
   createIconComponentFromSimpleIconsSvgPath,
   getForegroundColor,
   IntegrationConfig,
-} from '@techboi/consent-manager'
+} from '@consent-manager/core'
 
 import YouTube from 'simple-icons/icons/youtube'
 

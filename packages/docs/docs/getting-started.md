@@ -6,10 +6,11 @@ title: Getting Started
 ## Installation
 
 ```sh
-npm install @techboi/consent-manager use-persisted-state
+npm install @consent-manager/core use-persisted-state
 ```
+
 ```sh
-yarn add @techboi/consent-manager use-persisted-state
+yarn add @consent-manager/core use-persisted-state
 ```
 
 ## Embedding into your application
@@ -17,27 +18,23 @@ yarn add @techboi/consent-manager use-persisted-state
 Lets start off with a very basic implementation of a React app.
 
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'))
 ```
 
 ### Preparing the context
 
 Wrap your application with the [<ConsentManager/> provider](provider.md).
 
-
 ```diff
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-+ import { ConsentManager } from '@techboi/consent-manager'
++ import { ConsentManager } from '@consent-manager/core'
 + import createPersistedState from 'use-persisted-state'
 
 
@@ -67,7 +64,6 @@ ReactDOM.render(
 );
 ```
 
-
 ## Wrapping components that need users concent for proper functionallity
 
 Lets take this very simple component as example, it renders a YouTube video.
@@ -92,7 +88,7 @@ To ensure no data can be sent anywhere, we wrap our component with the PrivacySh
 ```diff
 import React from 'react'
 import ReactYouTube from 'react-youtube'
-+ import { PrivacyShield } from '@techboi/consent-manager'
++ import { PrivacyShield } from '@consent-manager/core'
 
 
 const YouTube = ({ id, ...props }) => {
@@ -117,8 +113,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-- import { ConsentManager } from '@techboi/consent-manager'
-+ import { ConsentManager, ConsentManagerForm } from '@techboi/consent-manager'
+- import { ConsentManager } from '@consent-manager/core'
++ import { ConsentManager, ConsentManagerForm } from '@consent-manager/core'
 import createPersistedState from 'use-persisted-state'
 
 const Wrapper = () => {
@@ -144,7 +140,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-
 
 ## Next steps
 

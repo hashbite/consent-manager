@@ -8,7 +8,7 @@ import {
   DecisionsFormProps,
   IntegrationConfigOptions,
   useConsentFormVisible,
-} from '@techboi/consent-manager'
+} from '@consent-manager/core'
 
 import { Switch as DefaultSwitch, SwitchProps } from './switch'
 import defaultStyles from './index.module.css'

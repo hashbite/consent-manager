@@ -1,6 +1,4 @@
-const {
-  getMatomoTracker,
-} = require('@techboi/consent-manager-integration-matomo')
+const { getMatomoTracker } = require('@consent-manager/integration-matomo')
 
 module.exports = (function() {
   return {

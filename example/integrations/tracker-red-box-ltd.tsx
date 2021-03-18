@@ -1,10 +1,6 @@
 import * as React from 'react'
 
-import {
-  IntegrationConfig,
-  useDecision,
-  Tracker,
-} from '@techboi/consent-manager'
+import { IntegrationConfig, useDecision, Tracker } from '@consent-manager/core'
 
 declare global {
   interface Window {

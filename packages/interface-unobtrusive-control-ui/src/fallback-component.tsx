@@ -3,7 +3,7 @@ import {
   useIntegration,
   useDecision,
   FallbackComponentProps,
-} from '@techboi/consent-manager'
+} from '@consent-manager/core'
 import clsx from 'clsx'
 
 import { Styles } from './index'

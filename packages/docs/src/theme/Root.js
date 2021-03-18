@@ -1,16 +1,16 @@
 import React from 'react'
 
-import { ConsentManager, ConsentManagerForm } from '@techboi/consent-manager'
+import { ConsentManager, ConsentManagerForm } from '@consent-manager/core'
 import createPersistedState from 'use-persisted-state'
 
-import { youTubeIntegration } from '@techboi/consent-manager-integration-youtube'
-import { matomoIntegration } from '@techboi/consent-manager-integration-matomo'
+import { youTubeIntegration } from '@consent-manager/integration-youtube'
+import { matomoIntegration } from '@consent-manager/integration-matomo'
 
 import {
   UnobtrusiveConsentControlUI,
   FallbackComponent,
-} from '@techboi/consent-manager-interface-unobtrusive-control-ui'
-import '@techboi/consent-manager-interface-unobtrusive-control-ui/dist/unobtrusive-control-ui.min.css'
+} from '@consent-manager/interface-unobtrusive-control-ui'
+import '@consent-manager/interface-unobtrusive-control-ui/dist/unobtrusive-control-ui.min.css'
 
 const Button = props => (
   <button
