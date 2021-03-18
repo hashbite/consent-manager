@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import clsx from 'clsx'
+import Anime from 'react-anime'
 
 import defaultStyles from './index.module.css'
 
 export interface IntroductionProps {
-  needsIntroduction: boolean
-  setNeedsIntroduction: Function
-  setSlideUp: Function
+  introductionFinished: Function
   styles?: { [key: string]: string }
   slideDuration: number
   noActionDelay?: number
@@ -14,53 +13,45 @@ export interface IntroductionProps {
 }
 
 export const Introduction: React.FC<IntroductionProps> = ({
-  needsIntroduction,
-  setNeedsIntroduction,
-  setSlideUp,
+  introductionFinished,
   styles = defaultStyles,
   slideDuration,
   noActionDelay = 2000,
-  visibleDuration = 4000,
+  visibleDuration = 4000999,
 }) => {
-  // Introduction animation
-  // @todo use leightweight animation lib instead of this window timeout madness
-  useEffect(() => {
-    if (!needsIntroduction) {
-      return
-    }
-
-    // Wait for no user interaction
-    // @todo actually check it
-    window.setTimeout(() => {
-      setSlideUp(true)
-
-      // Keep it visible to the user
-      window.setTimeout(() => {
-        setSlideUp(false)
-
-        // Wait with swapping contentn till slide down is finished
-        window.setTimeout(() => {
-          setNeedsIntroduction(false)
-        }, slideDuration)
-      }, slideDuration + visibleDuration)
-    }, noActionDelay)
-  }, [
-    setSlideUp,
-    needsIntroduction,
-    noActionDelay,
-    visibleDuration,
-    setNeedsIntroduction,
-    slideDuration,
-  ])
-
-  if (!needsIntroduction) {
-    return null
-  }
-
   return (
-    <div className={clsx(styles.introduction)}>
-      Some features got disabled in respect of your privacy.
-      <br /> Click here to learn more!
-    </div>
+    <Anime
+      // @todo actually listen for scroll & mouse move events
+      delay={noActionDelay}
+      translateY={[
+        { value: '10%', delay: 0 },
+        {
+          value: '-100%',
+          duration: slideDuration,
+          delay: 0,
+          easing: 'easeInOutQuad',
+        },
+        { value: '-100%', delay: 0, duration: visibleDuration },
+        {
+          value: '10%',
+          duration: slideDuration,
+          delay: 0,
+          easing: 'easeInOutQuad',
+        },
+      ]}
+      complete={() => {
+        introductionFinished()
+      }}
+    >
+      <div className={clsx(styles.pane)}>
+        <div className={clsx(styles.introduction, styles.content)}>
+          <p>
+            <strong>
+              Some features got disabled in respect of your privacy.
+            </strong>
+          </p>
+        </div>
+      </div>
+    </Anime>
   )
 }
