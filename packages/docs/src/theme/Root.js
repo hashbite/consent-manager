@@ -6,10 +6,11 @@ import createPersistedState from 'use-persisted-state'
 import { youTubeIntegration } from '@techboi/consent-manager-integration-youtube'
 import { matomoIntegration } from '@techboi/consent-manager-integration-matomo'
 
-import { UnobtrusiveConsentControlUI } from '@techboi/consent-manager-interface-unobtrusive-control-ui'
+import {
+  UnobtrusiveConsentControlUI,
+  FallbackComponent,
+} from '@techboi/consent-manager-interface-unobtrusive-control-ui'
 import '@techboi/consent-manager-interface-unobtrusive-control-ui/dist/unobtrusive-control-ui.min.css'
-
-import { CustomFallbackComponent } from '../components/fallback-component'
 
 const Button = props => (
   <button
@@ -39,7 +40,7 @@ function Root({ children }) {
     <ConsentManager
       config={config}
       store={storage}
-      fallbackComponent={CustomFallbackComponent}
+      fallbackComponent={FallbackComponent}
     >
       {children}
       <ConsentManagerForm

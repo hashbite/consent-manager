@@ -122,6 +122,7 @@ export {
   IntegrationConfigOptions,
   Tracker,
   TrackerEvents,
+  FallbackComponentProps,
 } from './config'
 
 export {

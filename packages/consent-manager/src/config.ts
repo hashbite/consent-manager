@@ -37,6 +37,7 @@ export interface ConsentManagerDecisions {
 export interface FallbackComponentProps {
   integrationId: IntegrationId
   fallbackUrl?: string
+  [key: string]: unknown
 }
 
 export interface TrackerEvents {
