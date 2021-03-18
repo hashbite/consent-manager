@@ -1,7 +1,7 @@
 {
   "name": "@consent-manager/core",
   "version": "0.0.0",
-  "description": "Core library for consent-manager",
+  "description": "Get proper consent before tracking and processing data of your visitors via consent-manager. Supports you to get your website GDPR and CCPA compliant.",
   "author": {
     "name": "techboi GmbH",
     "email": "opensource@techboi.io",
@@ -37,6 +37,16 @@
   "files": [
     "README.md",
     "dist"
+  ],
+  "keywords": [
+    "gdpr",
+    "ccpa",
+    "consent",
+    "consent-management",
+    "tracking",
+    "analytics",
+    "statistics",
+    "third-party-integrations"
   ],
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.1",
