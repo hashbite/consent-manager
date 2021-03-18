@@ -42,7 +42,7 @@
     "youtube",
     "third-party-integrations"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@consent-manager/core": "*",
     "react-youtube": "^7.13.1",
