@@ -44,7 +44,7 @@
     "third-party-integrations",
     "user-interface"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@consent-manager/core": "*",
     "clsx": "^1.1.1",
