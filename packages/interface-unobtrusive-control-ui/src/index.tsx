@@ -14,11 +14,24 @@ import { Switch as DefaultSwitch, SwitchProps } from './switch'
 import defaultStyles from './index.module.css'
 import { Introduction } from './introduction'
 import { Integration } from './integration'
+import {
+  ToggleButton as DefaultToggleButton,
+  ToggleButtonProps,
+} from './toggle-button'
+
+export interface Styles {
+  [key: string]: string
+}
+
+export interface ToggleIconProps {
+  [key: string]: string
+}
 
 export interface UnobtrusiveConsentControlUIProps extends DecisionsFormProps {
   slideDuration: number
-  styles: { [key: string]: string }
-  ToggleIcon: React.ComponentType
+  styles: Styles
+  ToggleButton: React.ComponentType<ToggleButtonProps>
+  ToggleIcon: React.ComponentType<ToggleIconProps>
   Switch: React.ComponentType<SwitchProps>
   Button: React.ComponentType
   //@todo make sure we can pass all relevant components + add typings for props
@@ -35,6 +48,7 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
   slideDuration = 1500,
   styles = defaultStyles,
   ToggleIcon = FiChevronUp,
+  ToggleButton = DefaultToggleButton,
   Switch = DefaultSwitch,
   Button = props => <button {...props} />,
 }) => {
@@ -133,21 +147,13 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
                 </form>
               </Anime>
             )}
-            <button
-              className={clsx(styles.toggleButton)}
-              title={`Toggle website settings visibility`}
-              onClick={e => {
-                // Auto save on close
-                if (showForm) {
-                  handleSubmit()
-                }
-                toggleControlForm(e)
-              }}
-            >
-              <div className={clsx(styles.pane, styles.toggleButtonContent)}>
-                <ToggleIcon className={clsx(showForm && styles.inverted)} />
-              </div>
-            </button>
+            <ToggleButton
+              ToggleIcon={ToggleIcon}
+              styles={styles}
+              showForm={showForm}
+              handleSubmit={handleSubmit}
+              toggleControlForm={toggleControlForm}
+            />
           </>
         )}
       />
