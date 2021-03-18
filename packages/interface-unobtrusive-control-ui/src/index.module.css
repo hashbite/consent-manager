@@ -102,12 +102,12 @@ html[data-theme='dark'] {
   display: block;
   position: absolute;
   right: 0;
-  top: 1px;
-  font-size: 18px;
-  padding: 1em 1em 0;
+  top: 0;
+  padding: 1em;
+  transform: translateY(-100%);
+  font-size: 20px;
   text-align: center;
   line-height: 1em;
-  transform: translateY(-100%);
   cursor: pointer;
   background: transparent;
   border: none;
