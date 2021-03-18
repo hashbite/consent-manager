@@ -9,8 +9,8 @@ import { matomoIntegration } from '@consent-manager/integration-matomo'
 import {
   UnobtrusiveConsentControlUI,
   FallbackComponent,
-} from '@consent-manager/interface-unobtrusive-control-ui'
-import '@consent-manager/interface-unobtrusive-control-ui/dist/unobtrusive-control-ui.min.css'
+} from '@consent-manager/interface-default'
+import '@consent-manager/interface-default/dist/default.min.css'
 
 const Button = props => (
   <button

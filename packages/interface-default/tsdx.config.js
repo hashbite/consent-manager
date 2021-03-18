@@ -5,7 +5,7 @@ module.exports = {
     config.plugins.push(
       postcss({
         modules: true,
-        extract: 'unobtrusive-control-ui.min.css',
+        extract: 'default.min.css',
         minimize: true,
       })
     )

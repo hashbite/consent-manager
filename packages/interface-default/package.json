@@ -1,9 +1,9 @@
 {
-  "name": "@consent-manager/interface-unobtrusive-control-ui",
+  "name": "@consent-manager/interface-default",
   "version": "0.0.0",
   "description": "",
   "main": "dist/index.js",
-  "module": "dist/consent-manager-interface-unobtrusive-control-ui.esm.js",
+  "module": "dist/consent-manager-interface-default.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "tsdx watch --tsconfig tsconfig.build.json --verbose --noClean",
