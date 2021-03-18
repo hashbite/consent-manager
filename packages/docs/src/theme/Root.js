@@ -3,7 +3,7 @@ import React from 'react'
 import { ConsentManager, ConsentManagerForm } from '@consent-manager/core'
 import createPersistedState from 'use-persisted-state'
 
-import { youTubeIntegration } from '@consent-manager/integration-youtube'
+import { youtubeIntegration } from '@consent-manager/integration-youtube'
 import { matomoIntegration } from '@consent-manager/integration-matomo'
 
 import {
@@ -28,7 +28,7 @@ function Root({ children }) {
   const storage = useConsentStateStore()
   const config = {
     integrations: [
-      youTubeIntegration(),
+      youtubeIntegration(),
       matomoIntegration({
         matomoURL: 'https://trackboi.techboi.io/',
         siteID: 11,
