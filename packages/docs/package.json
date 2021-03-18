@@ -23,7 +23,6 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-final-form": "^6.5.2",
-    "react-icons": "^4.2.0",
     "use-persisted-state": "^0.3.3"
   },
   "browserslist": {
