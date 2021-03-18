@@ -1,8 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import { Form, Field } from 'react-final-form'
+import { Form } from 'react-final-form'
 import clsx from 'clsx'
 import {
-  useConsentFormVisible,
   DecisionsFormProps,
   IntegrationConfigOptions,
 } from '@techboi/consent-manager'
@@ -10,11 +9,11 @@ import { FiChevronUp } from 'react-icons/fi'
 
 import { Switch as DefaultSwitch, SwitchProps } from './switch'
 import defaultStyles from './index.module.css'
+import { Introduction } from './introduction'
+import { Integration } from './integration'
 
 export interface UnobtrusiveConsentControlUIProps extends DecisionsFormProps {
-  introductionNoActionDelay: number
-  introductionTransitionDuration: number
-  introductionVisibleDuration: number
+  slideDuration: number
   styles: { [key: string]: string }
   ToggleIcon: React.ComponentType
   Switch: React.ComponentType<SwitchProps>
@@ -29,20 +28,13 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
   integrations,
   initialValues,
   onSubmit,
-  introductionNoActionDelay = 2000,
-  introductionTransitionDuration = 1000,
-  introductionVisibleDuration = 4000,
+  slideDuration = 300,
   styles = defaultStyles,
   ToggleIcon = FiChevronUp,
   Switch = DefaultSwitch,
   Button = props => <button {...props} />,
 }) => {
-  const hasPendingDescisions = useConsentFormVisible()
   const [showIntroduction, setShowIntroduction] = useState(false)
-
-  const [needsIntroduction, setNeedsIntroduction] = useState(
-    hasPendingDescisions
-  )
   const [slideUp, setSlideUp] = useState(false)
 
   const toggleControlForm = useCallback(
@@ -84,38 +76,6 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
   const [isMounted, setIsMounted] = useState(false)
   useEffect(() => setIsMounted(true), [setIsMounted])
 
-  // Introduction animation
-  useEffect(() => {
-    if (!isMounted || !needsIntroduction) {
-      return
-    }
-    setShowIntroduction(true)
-    setNeedsIntroduction(false)
-
-    // Wait for no user interaction
-    // @todo actually check it
-    window.setTimeout(() => {
-      setSlideUp(true)
-
-      // Keep it visible to the user
-      window.setTimeout(() => {
-        setSlideUp(false)
-
-        // Wait with swapping contentn till slide down is finished
-        window.setTimeout(() => {
-          setShowIntroduction(false)
-        }, introductionTransitionDuration)
-      }, introductionVisibleDuration)
-    }, introductionNoActionDelay)
-  }, [
-    isMounted,
-    setShowIntroduction,
-    needsIntroduction,
-    introductionNoActionDelay,
-    introductionVisibleDuration,
-    introductionTransitionDuration,
-  ])
-
   // Do not render the interface on SSR.
   if (!isMounted) {
     return null
@@ -130,7 +90,7 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
         slideUp && styles.slideUp
       )}
       style={{
-        transitionDuration: `${introductionTransitionDuration}ms`,
+        transitionDuration: `${slideDuration}ms`,
       }}
       id="consent-control-ui"
     >
@@ -144,10 +104,10 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
         </div>
       </button>
       {showIntroduction ? (
-        <div className={clsx(styles.introduction)}>
-          Some features got disabled in respect of your privacy.
-          <br /> Click here to learn more!
-        </div>
+        <Introduction
+          setShowIntroduction={setShowIntroduction}
+          setSlideUp={setSlideUp}
+        />
       ) : (
         <Form
           onSubmit={onSubmitCb}
@@ -159,45 +119,9 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
                 <p>
                   Some features are disabled by default to protect your privacy:
                 </p>
-                {integrations.map(
-                  ({
-                    id,
-                    Icon,
-                    title,
-                    contrastColor,
-                    color,
-                    description,
-                    privacyPolicyUrl,
-                  }: IntegrationConfigOptions) => (
-                    <div className={clsx(styles.formControl)} key={id}>
-                      <Field name={id} component={Switch}>
-                        <div
-                          className={clsx(styles.integration)}
-                          style={{
-                            color: contrastColor,
-                            backgroundColor: color,
-                          }}
-                        >
-                          <Icon className={clsx(styles.integrationIcon)} />
-                          <span className={clsx(styles.integrationTitle)}>
-                            {title}
-                          </span>
-                        </div>
-                      </Field>
-                      <p className={clsx(styles.integrationDescription)}>
-                        {description}
-                        <br />
-                        <a
-                          href={privacyPolicyUrl}
-                          rel="noreferrer"
-                          target="_blank"
-                        >
-                          Learn more about the privacy policy of {title}
-                        </a>
-                      </p>
-                    </div>
-                  )
-                )}
+                {integrations.map((integration: IntegrationConfigOptions) => (
+                  <Integration {...integration} Switch={Switch} />
+                ))}
                 <Button>Save</Button>
               </div>
             </form>
