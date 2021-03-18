@@ -2,7 +2,7 @@ import React from 'react'
 import { Field } from 'react-final-form'
 import clsx from 'clsx'
 
-import { IntegrationConfigOptions } from '@techboi/consent-manager'
+import { IntegrationConfigOptions } from '@consent-manager/core'
 
 import { Switch as DefaultSwitch, SwitchProps } from './switch'
 import defaultStyles from './index.module.css'

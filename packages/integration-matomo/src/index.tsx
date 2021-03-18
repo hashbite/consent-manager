@@ -9,7 +9,7 @@ import {
   IntegrationConfigOptions,
   Tracker,
   TrackerEvents,
-} from '@techboi/consent-manager'
+} from '@consent-manager/core'
 
 import Matomo from 'simple-icons/icons/matomo'
 

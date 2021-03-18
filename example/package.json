@@ -1,5 +1,5 @@
 {
-  "name": "@techboi/consent-manager-example-parcel-minimal",
+  "name": "@consent-manager/example-parcel-minimal",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -20,7 +20,7 @@
     "typescript": "^3.4.5"
   },
   "alias": {
-    "@techboi/consent-manager": "../packages/consent-manager",
+    "@consent-manager/core": "../packages/consent-manager",
     "react": "../node_modules/react",
     "react-dom": "../node_modules/react-dom/profiling",
     "scheduler/tracing": "../node_modules/scheduler/tracing-profiling"

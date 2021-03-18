@@ -12,7 +12,7 @@ import {
   ConsentManager,
   ConsentManagerConfig,
   ConsentManagerForm,
-} from '@techboi/consent-manager'
+} from '@consent-manager/core'
 
 import RouteHome from './routes/home'
 import RouteVideo from './routes/video'

@@ -1,7 +1,7 @@
 {
-  "name": "@techboi/consent-manager",
+  "name": "@consent-manager/core",
   "version": "0.0.0",
-  "description": "Official React library for @techboi",
+  "description": "Core library for consent-manager",
   "author": "Jared Palmer",
   "repository": {
     "type": "git",

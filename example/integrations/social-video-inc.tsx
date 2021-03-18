@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { IntegrationConfig } from '@techboi/consent-manager'
+import { IntegrationConfig } from '@consent-manager/core'
 
 const Icon: React.FC = () => (
   <svg

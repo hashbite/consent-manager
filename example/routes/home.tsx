@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useRedBoxLtd } from '../integrations/tracker-red-box-ltd'
-import { useDecision } from '@techboi/consent-manager'
+import { useDecision } from '@consent-manager/core'
 
 export default function RouteHome() {
   const { trackEvent } = useRedBoxLtd()
