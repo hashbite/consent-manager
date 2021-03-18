@@ -160,3 +160,5 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
     </div>
   )
 }
+
+export { FallbackComponent } from './fallback-component'

@@ -1,18 +1,34 @@
 import React, { useCallback } from 'react'
-import { useIntegration, useDecision } from '@techboi/consent-manager'
+import {
+  useIntegration,
+  useDecision,
+  FallbackComponentProps,
+} from '@techboi/consent-manager'
 import clsx from 'clsx'
 
-import styles from './fallback-component.module.css'
+import { Styles } from './index'
+import defaultStyles from './index.module.css'
 
-export function CustomFallbackComponent({ integrationId }) {
+interface StyleableFallbackComponentProps extends FallbackComponentProps {
+  styles: Styles
+}
+
+export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({
+  integrationId,
+  styles = defaultStyles,
+}) => {
   const integration = useIntegration(integrationId)
   const [, setDecision] = useDecision(integrationId)
   const enableIntegration = useCallback(() => {
     setDecision(true)
   }, [setDecision])
 
+  if (!integration) {
+    throw new Error(`Integration ${integrationId} could not be found.`)
+  }
+
   return (
-    <div className={clsx(styles.container)}>
+    <div className={clsx(styles.fallbackComponent)}>
       <h2>Recommended Content!</h2>
       <p>
         We'd like to show you some content via {integration.title}. To protect

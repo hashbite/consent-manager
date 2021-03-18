@@ -128,3 +128,12 @@ html[data-theme='dark'] {
 .inverted {
   transform: rotate(-180deg);
 }
+
+/* Fallback component */
+
+.fallbackComponent {
+  width: 100%;
+  border: 3px solid #eee;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}

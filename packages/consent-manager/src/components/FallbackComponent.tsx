@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 
 import { FallbackComponentProps } from '../config'
-import { useIntegration } from '../integrations'
+import { useIntegration } from '../index'
+import { useDecision } from '../index'
 
 export const FallbackComponent: React.FC<FallbackComponentProps> = ({
   integrationId,
@@ -9,24 +10,34 @@ export const FallbackComponent: React.FC<FallbackComponentProps> = ({
   ...props
 }) => {
   const integration = useIntegration(integrationId)
+  const [, setDecision] = useDecision(integrationId)
+  const enableIntegration = useCallback(() => {
+    setDecision(true)
+  }, [setDecision])
 
   if (!integration) {
     throw new Error(`No integration found for "${integrationId}"`)
   }
 
-  const { title, privacyPolicyUrl, Icon, description } = integration
+  const { title, privacyPolicyUrl, Icon, description, color } = integration
 
   return (
     <section
       style={{
         backgroundColor: '#ddd',
-        padding: '0 2em',
+        padding: '1rem 2rem',
         border: '4px solid #222',
       }}
       {...props}
     >
-      <h1 style={{ display: 'flex-inline' }}>
-        {Icon && <Icon aria-hidden="true" />}
+      <h1 style={{ display: 'flex', alignItems: 'center' }}>
+        {Icon && (
+          <Icon
+            aria-hidden="true"
+            color={color}
+            style={{ width: '2rem', marginRight: '1rem' }}
+          />
+        )}
         {title}
       </h1>
       {description && <p>{description}</p>}
@@ -37,6 +48,13 @@ export const FallbackComponent: React.FC<FallbackComponentProps> = ({
           </a>
         </p>
       )}
+
+      <button
+        onClick={() => enableIntegration()}
+        style={{ display: 'block', margin: '0 auto' }}
+      >
+        Enable {integration.title}
+      </button>
       {fallbackUrl && (
         <p>
           Alternative:
