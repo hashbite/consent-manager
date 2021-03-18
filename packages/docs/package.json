@@ -1,6 +1,7 @@
 {
   "name": "docs",
   "version": "0.0.0",
+  "description": "Docs for consent-manager. Built with Docusaurus.",
   "private": true,
   "author": {
     "name": "techboi GmbH",

@@ -1,7 +1,7 @@
 {
   "name": "@consent-manager/integration-youtube",
   "version": "0.0.0",
-  "description": "",
+  "description": "Protect your visitors privacy by integrating youtube.com via consent-manager",
   "author": {
     "name": "techboi GmbH",
     "email": "opensource@techboi.io",
@@ -33,7 +33,15 @@
     "lint": "tsdx lint",
     "prepublish": "npm run build"
   },
-  "keywords": [],
+  "keywords": [
+    "gdpr",
+    "ccpa",
+    "consent",
+    "consent-management",
+    "social-media",
+    "youtube",
+    "third-party-integrations"
+  ],
   "license": "ISC",
   "dependencies": {
     "@consent-manager/core": "*",
