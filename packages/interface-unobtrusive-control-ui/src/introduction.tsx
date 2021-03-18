@@ -1,39 +1,33 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import clsx from 'clsx'
-import { useConsentFormVisible } from '@techboi/consent-manager'
 
 import defaultStyles from './index.module.css'
 
 export interface IntroductionProps {
-  setShowIntroduction: Function
+  needsIntroduction: boolean
+  setNeedsIntroduction: Function
   setSlideUp: Function
   styles?: { [key: string]: string }
+  slideDuration: number
   noActionDelay?: number
-  transitionDuration?: number
   visibleDuration?: number
 }
 
 export const Introduction: React.FC<IntroductionProps> = ({
-  setShowIntroduction,
+  needsIntroduction,
+  setNeedsIntroduction,
   setSlideUp,
   styles = defaultStyles,
+  slideDuration,
   noActionDelay = 2000,
-  transitionDuration = 1000,
   visibleDuration = 4000,
 }) => {
-  const hasPendingDescisions = useConsentFormVisible()
-
-  const [needsIntroduction, setNeedsIntroduction] = useState(
-    hasPendingDescisions
-  )
-
   // Introduction animation
+  // @todo use leightweight animation lib instead of this window timeout madness
   useEffect(() => {
     if (!needsIntroduction) {
       return
     }
-    setShowIntroduction(true)
-    setNeedsIntroduction(false)
 
     // Wait for no user interaction
     // @todo actually check it
@@ -46,18 +40,22 @@ export const Introduction: React.FC<IntroductionProps> = ({
 
         // Wait with swapping contentn till slide down is finished
         window.setTimeout(() => {
-          setShowIntroduction(false)
-        }, transitionDuration)
-      }, visibleDuration)
+          setNeedsIntroduction(false)
+        }, slideDuration)
+      }, slideDuration + visibleDuration)
     }, noActionDelay)
   }, [
     setSlideUp,
-    setShowIntroduction,
     needsIntroduction,
     noActionDelay,
     visibleDuration,
-    transitionDuration,
+    setNeedsIntroduction,
+    slideDuration,
   ])
+
+  if (!needsIntroduction) {
+    return null
+  }
 
   return (
     <div className={clsx(styles.introduction)}>

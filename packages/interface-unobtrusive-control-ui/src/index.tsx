@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import {
   DecisionsFormProps,
   IntegrationConfigOptions,
+  useConsentFormVisible,
 } from '@techboi/consent-manager'
 import { FiChevronUp } from 'react-icons/fi'
 
@@ -18,6 +19,7 @@ export interface UnobtrusiveConsentControlUIProps extends DecisionsFormProps {
   ToggleIcon: React.ComponentType
   Switch: React.ComponentType<SwitchProps>
   Button: React.ComponentType
+  //@todo make sure we can pass all relevant components + add typings for props
 }
 
 interface FormState {
@@ -28,22 +30,26 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
   integrations,
   initialValues,
   onSubmit,
-  slideDuration = 300,
+  slideDuration = 1000,
   styles = defaultStyles,
   ToggleIcon = FiChevronUp,
   Switch = DefaultSwitch,
   Button = props => <button {...props} />,
 }) => {
-  const [showIntroduction, setShowIntroduction] = useState(false)
+  const hasPendingDecisions = useConsentFormVisible()
+
+  const [needsIntroduction, setNeedsIntroduction] = useState(
+    hasPendingDecisions
+  )
+
   const [slideUp, setSlideUp] = useState(false)
 
   const toggleControlForm = useCallback(
     e => {
       e.preventDefault()
-      setShowIntroduction(false)
       setSlideUp(v => !v)
     },
-    [setSlideUp, setShowIntroduction]
+    [setSlideUp]
   )
 
   // @todo calling onSubmit causes rerender
@@ -103,12 +109,13 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
           <ToggleIcon className={clsx(slideUp && styles.inverted)} />
         </div>
       </button>
-      {showIntroduction ? (
-        <Introduction
-          setShowIntroduction={setShowIntroduction}
-          setSlideUp={setSlideUp}
-        />
-      ) : (
+      <Introduction
+        setSlideUp={setSlideUp}
+        needsIntroduction={needsIntroduction}
+        setNeedsIntroduction={setNeedsIntroduction}
+        slideDuration={slideDuration}
+      />
+      {!needsIntroduction && (
         <Form
           onSubmit={onSubmitCb}
           initialValues={initial}
@@ -120,7 +127,11 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
                   Some features are disabled by default to protect your privacy:
                 </p>
                 {integrations.map((integration: IntegrationConfigOptions) => (
-                  <Integration {...integration} Switch={Switch} />
+                  <Integration
+                    key={integration.id}
+                    Switch={Switch}
+                    {...integration}
+                  />
                 ))}
                 <Button>Save</Button>
               </div>
