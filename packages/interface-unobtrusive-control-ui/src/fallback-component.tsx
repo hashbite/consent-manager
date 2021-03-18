@@ -9,12 +9,19 @@ import clsx from 'clsx'
 import { Styles } from './index'
 import defaultStyles from './index.module.css'
 
+interface ButtonProps {
+  onClick: Function
+}
 interface StyleableFallbackComponentProps extends FallbackComponentProps {
   styles: Styles
+  Button: React.ComponentType<ButtonProps>
 }
+
+const DefaultButton: React.FC = props => <button {...props} />
 
 export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({
   integrationId,
+  Button = DefaultButton,
   styles = defaultStyles,
 }) => {
   const integration = useIntegration(integrationId)
@@ -40,12 +47,9 @@ export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({
           Learn more about the privacy policy of {integration.title}
         </a>
       </p>
-      <button
-        className={clsx(styles.button, 'button button--primary button--block')}
-        onClick={() => enableIntegration()}
-      >
+      <Button onClick={() => enableIntegration()}>
         Enable {integration.title}
-      </button>
+      </Button>
     </div>
   )
 }

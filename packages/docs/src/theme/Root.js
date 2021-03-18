@@ -40,12 +40,14 @@ function Root({ children }) {
     <ConsentManager
       config={config}
       store={storage}
-      fallbackComponent={FallbackComponent}
+      fallbackComponent={props => (
+        <FallbackComponent {...props} Button={Button} />
+      )}
     >
       {children}
       <ConsentManagerForm
         formComponent={UnobtrusiveConsentControlUI}
-        Button={Button}
+        SubmitButton={Button}
       />
     </ConsentManager>
   )

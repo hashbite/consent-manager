@@ -27,19 +27,26 @@ export interface ToggleIconProps {
   [key: string]: string
 }
 
+export interface SubmitButtonProps {
+  [key: string]: string
+}
+
 export interface UnobtrusiveConsentControlUIProps extends DecisionsFormProps {
   slideDuration: number
   styles: Styles
   ToggleButton: React.ComponentType<ToggleButtonProps>
   ToggleIcon: React.ComponentType<ToggleIconProps>
   Switch: React.ComponentType<SwitchProps>
-  Button: React.ComponentType
-  //@todo make sure we can pass all relevant components + add typings for props
+  SubmitButton: React.ComponentType<SubmitButtonProps>
 }
 
 interface FormState {
   [key: string]: boolean
 }
+
+const DefaultSubmitButton: React.FC<SubmitButtonProps> = props => (
+  <button {...props} />
+)
 
 export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIProps> = ({
   integrations,
@@ -50,7 +57,7 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
   ToggleIcon = FiChevronUp,
   ToggleButton = DefaultToggleButton,
   Switch = DefaultSwitch,
-  Button = props => <button {...props} />,
+  SubmitButton = DefaultSubmitButton,
 }) => {
   const hasPendingDecisions = useConsentFormVisible()
 
@@ -142,7 +149,7 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
                         />
                       )
                     )}
-                    <Button>Save</Button>
+                    <SubmitButton>Save</SubmitButton>
                   </div>
                 </form>
               </Anime>
