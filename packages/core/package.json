@@ -21,8 +21,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mono/mono.git",
-    "directory": "packages/react"
+    "url": "git+https://github.com/techboi/consent-manager",
+    "directory": "packages/core"
   },
   "scripts": {
     "start": "tsdx watch --tsconfig tsconfig.build.json --verbose --noClean",

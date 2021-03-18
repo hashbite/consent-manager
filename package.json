@@ -18,6 +18,10 @@
       "url": "https://twitter.com/zcei_ger"
     }
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techboi/consent-manager"
+  },
   "scripts": {
     "lerna": "lerna",
     "start": "lerna run start --stream --parallel",

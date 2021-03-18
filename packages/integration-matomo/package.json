@@ -19,6 +19,11 @@
       "url": "https://twitter.com/zcei_ger"
     }
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techboi/consent-manager",
+    "directory": "packages/integration-matomo"
+  },
   "main": "dist/index.js",
   "module": "dist/integration-matomo.esm.js",
   "typings": "dist/index.d.ts",
