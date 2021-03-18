@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "main": "dist/index.js",
-  "module": "dist/consent-manager-interface-default.esm.js",
+  "module": "dist/interface-default.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "tsdx watch --tsconfig tsconfig.build.json --verbose --noClean",
