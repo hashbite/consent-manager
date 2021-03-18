@@ -50,6 +50,7 @@ html[data-theme='dark'] {
 
 .introduction {
   text-align: center;
+  font-weight: bold;
 }
 
 .content {
