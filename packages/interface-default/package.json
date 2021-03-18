@@ -2,6 +2,23 @@
   "name": "@consent-manager/interface-default",
   "version": "0.0.0",
   "description": "",
+  "author": {
+    "name": "techboi GmbH",
+    "email": "opensource@techboi.io",
+    "url": "https://techboi.io/"
+  },
+  "contributors": [
+    {
+      "name": "Benedikt Rötsch",
+      "email": "benedikt@techboi.io",
+      "url": "https://twitter.com/axe312ger"
+    },
+    {
+      "name": "Stephan Schneider",
+      "email": "stephanschndr@gmail.com",
+      "url": "https://twitter.com/zcei_ger"
+    }
+  ],
   "main": "dist/index.js",
   "module": "dist/interface-default.esm.js",
   "typings": "dist/index.d.ts",
@@ -12,7 +29,6 @@
     "prepublish": "npm run build"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "@consent-manager/core": "*",
