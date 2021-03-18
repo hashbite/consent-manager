@@ -1,6 +1,6 @@
 {
   "name": "@techboi/consent-manager-interface-unobtrusive-control-ui",
-  "version": "0.3.0",
+  "version": "0.0.0",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/consent-manager-interface-unobtrusive-control-ui.esm.js",
@@ -26,6 +26,5 @@
   },
   "devDependencies": {
     "rollup-plugin-postcss": "^4.0.0"
-  },
-  "gitHead": "9161cf2e932e007feae2ce21c7be73396ef3c4c6"
+  }
 }
