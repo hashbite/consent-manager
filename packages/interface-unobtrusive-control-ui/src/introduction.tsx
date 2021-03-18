@@ -17,7 +17,7 @@ export const Introduction: React.FC<IntroductionProps> = ({
   styles = defaultStyles,
   slideDuration,
   noActionDelay = 2000,
-  visibleDuration = 4000999,
+  visibleDuration = 4000,
 }) => {
   return (
     <Anime
@@ -45,11 +45,7 @@ export const Introduction: React.FC<IntroductionProps> = ({
     >
       <div className={clsx(styles.pane)}>
         <div className={clsx(styles.introduction, styles.content)}>
-          <p>
-            <strong>
-              Some features got disabled in respect of your privacy.
-            </strong>
-          </p>
+          Some features got disabled in respect of your privacy.
         </div>
       </div>
     </Anime>
