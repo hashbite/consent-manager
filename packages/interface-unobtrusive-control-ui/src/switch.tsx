@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { FieldRenderProps } from 'react-final-form'
 
 import styles from './switch.module.css'
@@ -15,28 +15,21 @@ export const Switch: React.FC<SwitchProps> = ({
   ...rest
 }) => {
   const key = `switch-${input.name}`
-  const checked: boolean = useMemo(() => !!input.value, [input.value])
 
   return (
     <label htmlFor={key} className={styles.label} {...rest}>
       <div className={styles.switchWrapper}>
-        <input
-          id={key}
-          type="checkbox"
-          checked={checked}
-          {...input}
-          className={styles.input}
-        />
+        <input id={key} {...input} className={styles.input} />
         <div
           className={styles.slide}
           style={{
-            backgroundColor: checked ? enabledColor : undefined,
+            backgroundColor: input.checked ? enabledColor : undefined,
           }}
         />
         <div
           className={styles.nodge}
           style={{
-            transform: checked ? 'translateX(100%)' : undefined,
+            transform: input.checked ? 'translateX(100%)' : undefined,
           }}
         />
       </div>
