@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@techboi/consent-manager": "^0.3.0",
+    "@techboi/consent-manager": "*",
     "clsx": "^1.1.1",
     "react-final-form": "^6.5.2",
     "react-icons": "^4.2.0"
