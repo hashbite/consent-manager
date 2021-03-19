@@ -87,10 +87,15 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
 
   // Freeze scroll when form is shown
   useEffect(() => {
-    const target = formContainerRef.current
+    const target: HTMLDivElement | null = formContainerRef.current
 
-    if (target) {
-      showForm ? disableBodyScroll(target) : enableBodyScroll(target)
+    if (target && showForm) {
+      disableBodyScroll(target)
+      target.scrollTo({ top: 0 })
+    }
+
+    if (target && !showForm) {
+      enableBodyScroll(target)
     }
 
     return clearAllBodyScrollLocks
