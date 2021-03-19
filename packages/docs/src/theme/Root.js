@@ -16,9 +16,10 @@ const Button = props => (
   <button
     type="submit"
     className="button button--primary button--block"
+    style={{ marginBottom: '1rem' }}
     {...props}
   >
-    Save
+    {props.children}
   </button>
 )
 const useConsentStateStore = createPersistedState('consent-manager-docs')
