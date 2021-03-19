@@ -161,6 +161,7 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
                     ref={formContainerRef}
                   >
                     <div className={clsx(styles.content)}>
+                      <SubmitButton>Close and save</SubmitButton>
                       <h2>Website Settings</h2>
                       <p>
                         Some features are disabled by default to protect your
@@ -175,7 +176,7 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
                           />
                         )
                       )}
-                      <SubmitButton>Save</SubmitButton>
+                      <SubmitButton>Close and save</SubmitButton>
                     </div>
                   </div>
                 </form>
