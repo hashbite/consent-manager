@@ -4,7 +4,7 @@ import { FieldRenderProps } from 'react-final-form'
 import styles from './switch.module.css'
 
 export interface SwitchProps extends FieldRenderProps<string, any> {
-  enabledColor: string
+  enabledColor?: string
 }
 
 export const Switch: React.FC<SwitchProps> = ({

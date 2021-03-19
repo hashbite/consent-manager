@@ -8,7 +8,7 @@ import { Switch as DefaultSwitch, SwitchProps } from './switch'
 import defaultStyles from './index.module.css'
 
 export interface IntgrationProps extends IntegrationConfigOptions {
-  Switch: React.ComponentType<SwitchProps>
+  Switch?: React.ComponentType<SwitchProps>
 }
 
 export const Integration: React.FC<IntgrationProps> = ({
