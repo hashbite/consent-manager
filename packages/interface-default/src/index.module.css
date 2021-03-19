@@ -42,6 +42,11 @@ html[data-theme='dark'] {
   transform: translateY(100%);
 }
 
+.container {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
 .pane {
   background: var(--consent-control-ui-bg);
   color: var(--consent-control-ui-color);
