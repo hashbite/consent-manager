@@ -34,10 +34,10 @@ export interface SubmitButtonProps {
 export interface UnobtrusiveConsentControlUIProps extends DecisionsFormProps {
   slideDuration: number
   styles: Styles
-  ToggleButton: React.ComponentType<ToggleButtonProps>
-  ToggleIcon: React.ComponentType<ToggleIconProps>
-  Switch: React.ComponentType<SwitchProps>
-  SubmitButton: React.ComponentType<SubmitButtonProps>
+  ToggleButton?: React.ComponentType<ToggleButtonProps>
+  ToggleIcon?: React.ComponentType<ToggleIconProps>
+  Switch?: React.ComponentType<SwitchProps>
+  SubmitButton?: React.ComponentType<SubmitButtonProps>
 }
 
 interface FormState {
