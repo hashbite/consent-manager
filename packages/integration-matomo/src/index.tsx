@@ -22,21 +22,59 @@ declare global {
 // @todo required options are not yet possible.
 // See: https://github.com/techboi/consent-manager/issues/19
 interface MatomoTrackerConfig extends IntegrationConfigOptions {
-  matomoURL?: string // @todo this should be requred
-  siteID?: string // @todo this should be requred
+  matomoURL?: string // @todo this should be required
+  siteID?: string // @todo this should be required
   enableLinkTracking?: boolean
   enableHeartBeatTimer?: boolean
 }
 
 let wasInitialized = false
 
-export const getMatomoTracker = (): TrackerEvents => ({
-  // @todo short hands do not really help, also args -> array spread feels weird
+interface TrackedPageData {
+  url: string
+  title: string
+}
+
+interface TrackPageViewSPA {
+  location: Location
+  prevLocation: Location
+}
+
+const trackPageViewSPA = ({
+  location,
+  prevLocation,
+}: TrackPageViewSPA): TrackedPageData | null => {
+  const paq = window._paq
+  if (!paq) {
+    return null
+  }
+  const url = location && location.pathname + location.search + location.hash
+  const prevUrl =
+    prevLocation &&
+    prevLocation.pathname + prevLocation.search + prevLocation.hash
+  const { title } = document
+
+  prevUrl && paq.push(['setReferrerUrl', prevUrl])
+  paq.push(['setCustomUrl', url])
+  paq.push(['setDocumentTitle', title])
+  paq.push(['trackPageView'])
+  paq.push(['enableLinkTracking'])
+  paq.push(['trackAllContentImpressions'])
+
+  return { url, title }
+}
+
+interface MatomoTrackerEvents extends TrackerEvents {
+  trackPageViewSPA: (arg0: TrackPageViewSPA) => TrackedPageData | null
+}
+
+export const getMatomoTracker = (): MatomoTrackerEvents => ({
   trackEvent: (...args: unknown[]) =>
     window._paq && window._paq.push(['trackEvent', ...args]),
   trackPageView: (...args: unknown[]) =>
     window._paq && window._paq.push(['trackPageView', ...args]),
   track: (...args: unknown[]) => window._paq && window._paq.push([...args]),
+  trackPageViewSPA,
 })
 
 export const useMatomoTracker = ({
