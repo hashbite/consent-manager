@@ -133,7 +133,10 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
                 translateY={['10%', '-100%']}
                 easing="easeInOutQuad"
               >
-                <form onSubmit={handleSubmit} className={clsx(styles.pane)}>
+                <form
+                  onSubmit={handleSubmit}
+                  className={clsx(styles.container, styles.pane)}
+                >
                   <div className={clsx(styles.content)}>
                     <h2>Website Settings</h2>
                     <p>
