@@ -6,7 +6,8 @@
     "baseUrl": ".",
     "typeRoots": ["./node_modules/@types", "./types"],
     "paths": {
-      "$test/*": ["test/*"]
+      "$test/*": ["test/*"],
+      "@consent-manager/*": ["packages/*"]
     },
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   }
