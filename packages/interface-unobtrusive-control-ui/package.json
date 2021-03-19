@@ -26,6 +26,7 @@
     "react-dom": "^16.8.0 || ^17.0.1"
   },
   "devDependencies": {
+    "postcss": "^8.2.8",
     "rollup-plugin-postcss": "^4.0.0"
   }
 }
