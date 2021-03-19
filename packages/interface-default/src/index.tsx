@@ -1,8 +1,13 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Form } from 'react-final-form'
 import clsx from 'clsx'
 import Anime from 'react-anime'
 import { FiChevronUp } from 'react-icons/fi'
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from 'body-scroll-lock'
 
 import {
   DecisionsFormProps,
@@ -70,6 +75,7 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
   }, [setNeedsIntroduction])
 
   const [showForm, setShowForm] = useState(false)
+  const formContainerRef = useRef<HTMLDivElement>(null)
 
   const toggleControlForm = useCallback(
     e => {
@@ -78,6 +84,17 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
     },
     [setShowForm]
   )
+
+  // Freeze scroll when form is shown
+  useEffect(() => {
+    const target = formContainerRef.current
+
+    if (target) {
+      showForm ? disableBodyScroll(target) : enableBodyScroll(target)
+    }
+
+    return clearAllBodyScrollLocks
+  }, [showForm, formContainerRef])
 
   // @todo calling onSubmit causes rerender
   const onSubmitCb = useCallback(
@@ -133,26 +150,28 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
                 translateY={['10%', '-100%']}
                 easing="easeInOutQuad"
               >
-                <form
-                  onSubmit={handleSubmit}
-                  className={clsx(styles.container, styles.pane)}
-                >
-                  <div className={clsx(styles.content)}>
-                    <h2>Website Settings</h2>
-                    <p>
-                      Some features are disabled by default to protect your
-                      privacy:
-                    </p>
-                    {integrations.map(
-                      (integration: IntegrationConfigOptions) => (
-                        <Integration
-                          key={integration.id}
-                          Switch={Switch}
-                          {...integration}
-                        />
-                      )
-                    )}
-                    <SubmitButton>Save</SubmitButton>
+                <form onSubmit={handleSubmit}>
+                  <div
+                    className={clsx(styles.container, styles.pane)}
+                    ref={formContainerRef}
+                  >
+                    <div className={clsx(styles.content)}>
+                      <h2>Website Settings</h2>
+                      <p>
+                        Some features are disabled by default to protect your
+                        privacy:
+                      </p>
+                      {integrations.map(
+                        (integration: IntegrationConfigOptions) => (
+                          <Integration
+                            key={integration.id}
+                            Switch={Switch}
+                            {...integration}
+                          />
+                        )
+                      )}
+                      <SubmitButton>Save</SubmitButton>
+                    </div>
                   </div>
                 </form>
               </Anime>
