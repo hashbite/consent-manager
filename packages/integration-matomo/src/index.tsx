@@ -31,6 +31,7 @@ interface MatomoTrackerConfig extends IntegrationConfigOptions {
 let wasInitialized = false
 
 export const getMatomoTracker = (): TrackerEvents => ({
+  // @todo short hands do not really help, also args -> array spread feels weird
   trackEvent: (...args: unknown[]) =>
     window._paq && window._paq.push(['trackEvent', ...args]),
   trackPageView: (...args: unknown[]) =>
@@ -41,6 +42,7 @@ export const getMatomoTracker = (): TrackerEvents => ({
 export const useMatomoTracker = ({
   matomoURL,
   siteID,
+  // @todo these might need to be in config, but outside of react due to route update hooks
   enableLinkTracking = true,
   enableHeartBeatTimer = true,
 }: MatomoTrackerConfig): Tracker => {
@@ -49,7 +51,6 @@ export const useMatomoTracker = ({
   if (!wasInitialized && isEnabled) {
     const _paq = (window._paq = window._paq || [])
 
-    _paq.push(['trackPageView'])
     enableLinkTracking && _paq.push(['enableLinkTracking'])
     enableHeartBeatTimer && _paq.push(['enableHeartBeatTimer'])
     _paq.push(['setTrackerUrl', `${matomoURL}matomo.php`])
