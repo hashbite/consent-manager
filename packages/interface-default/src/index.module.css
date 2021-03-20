@@ -44,8 +44,13 @@ html[data-theme='dark'] {
 
 .container {
   max-height: 100vh;
-  max-height: -webkit-fill-available;
   overflow-y: auto;
+}
+
+@supports (max-height: -webkit-fill-available) {
+  .container {
+    max-height: -webkit-fill-available;
+  }
 }
 
 .pane {
