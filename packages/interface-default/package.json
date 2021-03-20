@@ -49,9 +49,9 @@
     "@consent-manager/core": "*",
     "body-scroll-lock": "^3.1.5",
     "clsx": "^1.1.1",
-    "react-anime": "^4.0.4",
     "react-final-form": "^6.5.2",
-    "react-icons": "^4.2.0"
+    "react-icons": "^4.2.0",
+    "react-transition-group": "^4.4.1"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.1",
@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "@types/body-scroll-lock": "^2.6.1",
+    "@types/react-transition-group": "^4.4.1",
     "postcss": "^8.2.8",
     "rollup-plugin-postcss": "^4.0.0"
   }

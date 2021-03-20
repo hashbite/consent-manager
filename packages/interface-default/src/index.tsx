@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Form } from 'react-final-form'
 import clsx from 'clsx'
-import Anime from 'react-anime'
+import { CSSTransition } from 'react-transition-group'
 import { FiChevronUp } from 'react-icons/fi'
 import {
   disableBodyScroll,
@@ -17,6 +17,7 @@ import {
 
 import { Switch as DefaultSwitch, SwitchProps } from './switch'
 import defaultStyles from './index.module.css'
+import defaultAnimationStyles from './animation-slide.module.css'
 import { Introduction } from './introduction'
 import { Integration } from './integration'
 import {
@@ -38,7 +39,8 @@ export interface SubmitButtonProps {
 
 export interface UnobtrusiveConsentControlUIProps extends DecisionsFormProps {
   slideDuration: number
-  styles: Styles
+  styles?: Styles
+  animationStyles?: Styles
   ToggleButton?: React.ComponentType<ToggleButtonProps>
   ToggleIcon?: React.ComponentType<ToggleIconProps>
   Switch?: React.ComponentType<SwitchProps>
@@ -63,6 +65,7 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
   ToggleButton = DefaultToggleButton,
   Switch = DefaultSwitch,
   SubmitButton = DefaultSubmitButton,
+  animationStyles = defaultAnimationStyles,
 }) => {
   const hasPendingDecisions = useConsentFormVisible()
 
@@ -144,53 +147,49 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
           slideDuration={slideDuration}
         />
       )}
-      <Form
-        onSubmit={onSubmitCb}
-        initialValues={initial}
-        render={({ handleSubmit }) => (
-          <>
-            {showForm && (
-              <Anime
-                duration={slideDuration}
-                translateY={['10%', '-100%']}
-                easing="easeInOutQuad"
-              >
+      <CSSTransition
+        in={showForm}
+        timeout={slideDuration}
+        classNames={animationStyles}
+        unmountOnExit
+        mountOnEnter
+      >
+        <div
+          className={clsx(styles.container, styles.pane)}
+          style={{ transitionDuration: `${slideDuration}ms` }}
+          ref={formContainerRef}
+        >
+          <div className={clsx(styles.content)}>
+            <Form
+              onSubmit={onSubmitCb}
+              initialValues={initial}
+              render={({ handleSubmit }) => (
                 <form onSubmit={handleSubmit}>
-                  <div
-                    className={clsx(styles.container, styles.pane)}
-                    ref={formContainerRef}
-                  >
-                    <div className={clsx(styles.content)}>
-                      <SubmitButton>Close and save</SubmitButton>
-                      <h2>Website Settings</h2>
-                      <p>
-                        Some features are disabled by default to protect your
-                        privacy:
-                      </p>
-                      {integrations.map(
-                        (integration: IntegrationConfigOptions) => (
-                          <Integration
-                            key={integration.id}
-                            Switch={Switch}
-                            {...integration}
-                          />
-                        )
-                      )}
-                      <SubmitButton>Close and save</SubmitButton>
-                    </div>
-                  </div>
+                  <SubmitButton>Close and save</SubmitButton>
+                  <h2>Website Settings</h2>
+                  <p>
+                    Some features are disabled by default to protect your
+                    privacy:
+                  </p>
+                  {integrations.map((integration: IntegrationConfigOptions) => (
+                    <Integration
+                      key={integration.id}
+                      Switch={Switch}
+                      {...integration}
+                    />
+                  ))}
+                  <SubmitButton>Close and save</SubmitButton>
                 </form>
-              </Anime>
-            )}
-            <ToggleButton
-              ToggleIcon={ToggleIcon}
-              styles={styles}
-              showForm={showForm}
-              handleSubmit={handleSubmit}
-              toggleControlForm={toggleControlForm}
+              )}
             />
-          </>
-        )}
+          </div>
+        </div>
+      </CSSTransition>
+      <ToggleButton
+        ToggleIcon={ToggleIcon}
+        styles={styles}
+        showForm={showForm}
+        toggleControlForm={toggleControlForm}
       />
     </div>
   )
