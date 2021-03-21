@@ -21,6 +21,8 @@ import defaultStyles from './index.module.css'
 import defaultAnimationStyles from './animation-slide.module.css'
 import { Introduction } from './introduction'
 import { Integration } from './integration'
+import { Backdrop } from './backdrop'
+
 import {
   ToggleButton as DefaultToggleButton,
   ToggleButtonProps,
@@ -40,6 +42,7 @@ export interface SubmitButtonProps {
 
 export interface UnobtrusiveConsentControlUIProps extends DecisionsFormProps {
   slideDuration: number
+  renderBackdrop: boolean
   styles?: Styles
   animationStyles?: Styles
   ToggleButton?: React.ComponentType<ToggleButtonProps>
@@ -61,6 +64,7 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
   initialValues,
   onSubmit,
   slideDuration = 1500,
+  renderBackdrop = true,
   styles = defaultStyles,
   ToggleIcon = FiChevronUp,
   ToggleButton = DefaultToggleButton,
@@ -149,6 +153,13 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
         <Introduction
           introductionFinished={introductionFinished}
           slideDuration={slideDuration}
+        />
+      )}
+      {renderBackdrop && (
+        <Backdrop
+          show={showForm}
+          fadeDuration={slideDuration}
+          styles={styles}
         />
       )}
       <CSSTransition
