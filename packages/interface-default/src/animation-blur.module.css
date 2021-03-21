@@ -1,0 +1,23 @@
+.enter {
+  backdrop-filter: blur(0px);
+}
+
+.enterActive {
+  backdrop-filter: blur(4px);
+  transition-property: backdrop-filter;
+  transition-timing-function: ease-in-out;
+}
+
+.enterDone {
+  backdrop-filter: blur(4px);
+}
+
+.exit {
+  backdrop-filter: blur(4px);
+  transition-property: backdrop-filter;
+  transition-timing-function: ease-in-out;
+}
+
+.exitActive {
+  backdrop-filter: blur(0px);
+}
