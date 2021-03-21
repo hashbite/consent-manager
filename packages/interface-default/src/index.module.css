@@ -47,12 +47,6 @@ html[data-theme='dark'] {
   overflow-y: auto;
 }
 
-@supports (max-height: -webkit-fill-available) {
-  .container {
-    max-height: -webkit-fill-available;
-  }
-}
-
 .pane {
   background: var(--consent-control-ui-bg);
   color: var(--consent-control-ui-color);

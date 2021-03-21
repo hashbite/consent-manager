@@ -49,6 +49,7 @@
     "@consent-manager/core": "*",
     "body-scroll-lock": "^3.1.5",
     "clsx": "^1.1.1",
+    "react-div-100vh": "^0.5.6",
     "react-final-form": "^6.5.2",
     "react-icons": "^4.2.0",
     "react-transition-group": "^4.4.1"

@@ -8,6 +8,7 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock'
+import { use100vh } from 'react-div-100vh'
 
 import {
   DecisionsFormProps,
@@ -130,6 +131,9 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
     return initialState
   }, [integrations, initialValues])
 
+  // Get 100vh on mobile browsers as well
+  const viewportHeight = use100vh()
+
   // Check if component was mounted for SSR
   const [isMounted, setIsMounted] = useState(false)
   useEffect(() => setIsMounted(true), [setIsMounted])
@@ -156,7 +160,10 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
       >
         <div
           className={clsx(styles.container, styles.pane)}
-          style={{ transitionDuration: `${slideDuration}ms` }}
+          style={{
+            transitionDuration: `${slideDuration}ms`,
+            maxHeight: `${viewportHeight}px`,
+          }}
           ref={formContainerRef}
         >
           <div className={clsx(styles.content)}>
