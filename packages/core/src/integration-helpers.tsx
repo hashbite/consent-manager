@@ -18,7 +18,9 @@ export const createIconComponentFromSimpleIconsSvgPath: (
     xmlns="http://www.w3.org/2000/svg"
     fill={color}
     viewBox="0 0 24 24"
+    /* Ensure SVG behaves responsive on Safari and some older browsers like IE */
     height="100%"
+    width="100%"
     {...props}
   >
     <title>{title}</title>
