@@ -1,6 +1,3 @@
-// @todo hide toggle button via animation, use only big buttons to save & close
-// @todo blur/darken background when scroll lock is active
-
 import React from 'react'
 import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
