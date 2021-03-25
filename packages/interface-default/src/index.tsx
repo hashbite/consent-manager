@@ -183,7 +183,9 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
               initialValues={initial}
               render={({ handleSubmit }) => (
                 <form onSubmit={handleSubmit}>
-                  <SubmitButton>Close and save</SubmitButton>
+                  <SubmitButton className={clsx(styles.submitButton)}>
+                    Close and save
+                  </SubmitButton>
                   <h2>Website Settings</h2>
                   <p>
                     Some features are disabled by default to protect your
@@ -196,7 +198,9 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
                       {...integration}
                     />
                   ))}
-                  <SubmitButton>Close and save</SubmitButton>
+                  <SubmitButton className={clsx(styles.submitButton)}>
+                    Close and save
+                  </SubmitButton>
                 </form>
               )}
             />

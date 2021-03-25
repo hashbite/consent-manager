@@ -1,4 +1,5 @@
 import React from 'react'
+import clsx from 'clsx'
 
 import { ConsentManager, ConsentManagerForm } from '@consent-manager/core'
 import createPersistedState from 'use-persisted-state'
@@ -15,11 +16,16 @@ import '@consent-manager/interface-default/dist/default.min.css'
 const Button = props => (
   <button
     type="submit"
-    className="button button--primary button--block"
-    style={{ marginBottom: '1rem' }}
     {...props}
+    className={clsx(
+      props.className,
+      'button',
+      'button--primary',
+      'button--block'
+    )}
   />
 )
+
 const useConsentStateStore = createPersistedState('consent-manager-docs')
 
 // Default implementation, that you can customize
