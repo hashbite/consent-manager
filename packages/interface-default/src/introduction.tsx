@@ -61,6 +61,7 @@ export const Introduction: React.FC<IntroductionProps> = ({
       in={show}
       timeout={slideDuration}
       classNames={animationStyles}
+      mountOnEnter
       unmountOnExit
       onEntering={() => {
         window.setTimeout(() => {
@@ -70,7 +71,7 @@ export const Introduction: React.FC<IntroductionProps> = ({
       onExited={() => introductionFinished()}
     >
       <div
-        className={clsx(styles.pane)}
+        className={clsx(styles.pane, styles.slide)}
         style={{ transitionDuration: `${slideDuration}ms` }}
       >
         <div className={clsx(styles.introduction, styles.content)}>

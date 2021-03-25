@@ -170,14 +170,14 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
         mountOnEnter
       >
         <div
-          className={clsx(styles.container, styles.pane)}
+          className={clsx(styles.pane, styles.slide)}
           style={{
             transitionDuration: `${slideDuration}ms`,
             maxHeight: `${viewportHeight}px`,
           }}
           ref={formContainerRef}
         >
-          <div className={clsx(styles.content)}>
+          <div className={clsx(styles.form)}>
             <Form
               onSubmit={onSubmitCb}
               initialValues={initial}
