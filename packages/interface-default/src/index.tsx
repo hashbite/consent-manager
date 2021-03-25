@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Form } from 'react-final-form'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
 import { FiChevronUp } from 'react-icons/fi'
@@ -12,7 +11,6 @@ import { use100vh } from 'react-div-100vh'
 
 import {
   DecisionsFormProps,
-  IntegrationConfigOptions,
   useConsentFormVisible,
 } from '@consent-manager/core'
 
@@ -20,7 +18,7 @@ import { Switch as DefaultSwitch, SwitchProps } from './switch'
 import defaultStyles from './index.module.css'
 import defaultAnimationStyles from './animation-slide.module.css'
 import { Introduction } from './introduction'
-import { Integration } from './integration'
+import { ConsentForm as DefaultForm, ConsentFormProps } from './form'
 import { Backdrop } from './backdrop'
 
 import {
@@ -40,7 +38,7 @@ export interface SubmitButtonProps {
   [key: string]: string
 }
 
-export interface UnobtrusiveConsentControlUIProps extends DecisionsFormProps {
+export interface InterfaceDefaultProps extends DecisionsFormProps {
   slideDuration: number
   renderBackdrop: boolean
   styles?: Styles
@@ -49,17 +47,14 @@ export interface UnobtrusiveConsentControlUIProps extends DecisionsFormProps {
   ToggleIcon?: React.ComponentType<ToggleIconProps>
   Switch?: React.ComponentType<SwitchProps>
   SubmitButton?: React.ComponentType<SubmitButtonProps>
-}
-
-interface FormState {
-  [key: string]: boolean
+  Form?: React.ComponentType<ConsentFormProps>
 }
 
 const DefaultSubmitButton: React.FC<SubmitButtonProps> = props => (
   <button {...props} />
 )
 
-export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIProps> = ({
+export const InterfaceDefault: React.FC<InterfaceDefaultProps> = ({
   integrations,
   initialValues,
   onSubmit,
@@ -70,6 +65,7 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
   ToggleButton = DefaultToggleButton,
   Switch = DefaultSwitch,
   SubmitButton = DefaultSubmitButton,
+  Form = DefaultForm,
   animationStyles = defaultAnimationStyles,
 }) => {
   const hasPendingDecisions = useConsentFormVisible()
@@ -108,32 +104,6 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
 
     return clearAllBodyScrollLocks
   }, [showForm, formContainerRef])
-
-  // @todo calling onSubmit causes rerender
-  const onSubmitCb = useCallback(
-    values => {
-      const enabled = []
-      for (const [key, value] of Object.entries(values)) {
-        if (value) {
-          enabled.push(key)
-        }
-      }
-      setShowForm(false)
-      onSubmit({ enabled })
-    },
-    [onSubmit]
-  )
-
-  const initial = useMemo(() => {
-    const initialState: FormState = {}
-    for (const integration of integrations) {
-      initialState[integration.id] = initialValues.enabled.includes(
-        integration.id
-      )
-    }
-
-    return initialState
-  }, [integrations, initialValues])
 
   // Get 100vh on mobile browsers as well
   const viewportHeight = use100vh()
@@ -179,30 +149,13 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
         >
           <div className={clsx(styles.form)}>
             <Form
-              onSubmit={onSubmitCb}
-              initialValues={initial}
-              render={({ handleSubmit }) => (
-                <form onSubmit={handleSubmit}>
-                  <SubmitButton className={clsx(styles.submitButton)}>
-                    Close and save
-                  </SubmitButton>
-                  <h2>Website Settings</h2>
-                  <p>
-                    Some features are disabled by default to protect your
-                    privacy:
-                  </p>
-                  {integrations.map((integration: IntegrationConfigOptions) => (
-                    <Integration
-                      key={integration.id}
-                      Switch={Switch}
-                      {...integration}
-                    />
-                  ))}
-                  <SubmitButton className={clsx(styles.submitButton)}>
-                    Close and save
-                  </SubmitButton>
-                </form>
-              )}
+              styles={styles}
+              onSubmit={onSubmit}
+              integrations={integrations}
+              initialValues={initialValues}
+              setShowForm={setShowForm}
+              Switch={Switch}
+              SubmitButton={SubmitButton}
             />
           </div>
         </div>
