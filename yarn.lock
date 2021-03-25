@@ -3734,10 +3734,10 @@ acorn@^8.0.4:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.1.0.tgz#52311fd7037ae119cbb134309e901aa46295b3fe"
   integrity sha512-LWCF/Wn0nfHOmJ9rzQApGnxnvgfROzGilS8936rqN/lfcYkY9MYZzdMqN+2NJ4SlTc+m5HiSa+kNfDtI64dwUA==
 
-activity-detector@^3.0.0:
+activity-detector-ssr@^3.0.0:
   version "3.0.0"
-  resolved "https://registry.yarnpkg.com/activity-detector/-/activity-detector-3.0.0.tgz#e46696d137c5946b9b1e22c26f4671c630d7616b"
-  integrity sha512-N1fl3FEAjh8jZcYZQHVOsziWFk3U6xXHIUPATTOChYvlTBJbnW9Y5A2PlVAxJFQKLqZRLS5G/hP5qh9oXQktdw==
+  resolved "https://registry.yarnpkg.com/activity-detector-ssr/-/activity-detector-ssr-3.0.0.tgz#c4fb90461eadab491219bab65828c6a1593d770e"
+  integrity sha512-GbsOeCUxcCx9+BA2SjmOf+vV31a9pK7lmkSEGjeIQlcwCtIooThw6oaM/ADlJvTEGSC5wxjv0L7hNJQbVBfZ3A==
 
 address@1.1.2, address@^1.0.1:
   version "1.1.2"

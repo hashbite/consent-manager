@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
-import createActivityDetector from 'activity-detector'
+import createActivityDetector from 'activity-detector-ssr'
 
 import defaultStyles from './index.module.css'
 import defaultAnimationStyles from './animation-slide.module.css'
