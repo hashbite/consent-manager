@@ -24,6 +24,7 @@
     "url": "git+https://github.com/techboi/consent-manager",
     "directory": "packages/integration-matomo"
   },
+  "homepage": "https://techboi.github.io/consent-manager/",
   "main": "dist/index.js",
   "module": "dist/integration-youtube.esm.js",
   "typings": "dist/index.d.ts",
