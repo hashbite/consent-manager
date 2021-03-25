@@ -80,27 +80,6 @@ export const PrivacyShield: React.FC<PrivacyShieldProps> = ({
   return <DefaultFallbackComponent integrationId={id} {...props} />
 }
 
-export type PageViewEventTrigger = (location: Location) => void
-
-export function usePageViewEventTrigger(
-  id: IntegrationId
-): PageViewEventTrigger {
-  const [decision] = useDecision(id)
-  const { config } = useContext(ConsentManagerContext)
-  const integration = config.integrations.find(i => i.id === id)
-
-  if (
-    !decision ||
-    !integration ||
-    typeof integration.pageViewEventHandler !== 'function'
-  ) {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    return () => {}
-  }
-
-  return integration.pageViewEventHandler
-}
-
 export { ConsentManagerConfig, ConsentManagerDecisions }
 export { useConsentFormVisible } from './decisions'
 export { ConsentManagerStorageState, ConsentManagerStateHook } from './storage'
