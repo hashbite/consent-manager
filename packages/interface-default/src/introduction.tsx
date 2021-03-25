@@ -19,7 +19,7 @@ export const Introduction: React.FC<IntroductionProps> = ({
   introductionFinished,
   styles = defaultStyles,
   animationStyles = defaultAnimationStyles,
-  slideDuration = 1000,
+  slideDuration,
   noActionDelay = 4000,
   visibleDuration = 6000,
 }) => {

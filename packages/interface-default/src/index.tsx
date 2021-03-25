@@ -63,7 +63,7 @@ export const UnobtrusiveConsentControlUI: React.FC<UnobtrusiveConsentControlUIPr
   integrations,
   initialValues,
   onSubmit,
-  slideDuration = 1500,
+  slideDuration = 700,
   renderBackdrop = true,
   styles = defaultStyles,
   ToggleIcon = FiChevronUp,
