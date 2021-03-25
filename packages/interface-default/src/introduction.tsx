@@ -26,7 +26,7 @@ export const Introduction: React.FC<IntroductionProps> = ({
   styles = defaultStyles,
   animationStyles = defaultAnimationStyles,
   slideDuration,
-  noActionDelay = 2000,
+  noActionDelay = 4000,
   visibleDuration = 6000,
 }) => {
   const [show, setShow] = useState(false)
