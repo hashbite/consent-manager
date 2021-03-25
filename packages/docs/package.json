@@ -25,6 +25,7 @@
     "url": "git+https://github.com/techboi/consent-manager",
     "directory": "packages/docs"
   },
+  "homepage": "https://techboi.github.io/consent-manager/",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
