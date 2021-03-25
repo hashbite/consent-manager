@@ -2,7 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
 
-import defaultAnimationStyles from './animation-blur.module.css'
+import defaultAnimationStyles from './animation-fade.module.css'
 import defaultStyles from './index.module.css'
 import { Styles } from './index'
 
