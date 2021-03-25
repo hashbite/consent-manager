@@ -19,7 +19,13 @@ export const Backdrop: React.FC<BackdropProps> = ({
   styles = defaultStyles,
   animationStyles = defaultAnimationStyles,
 }) => (
-  <CSSTransition in={show} timeout={fadeDuration} classNames={animationStyles}>
+  <CSSTransition
+    in={show}
+    timeout={fadeDuration}
+    classNames={animationStyles}
+    mountOnEnter
+    unmountOnExit
+  >
     <div
       id="backdrop"
       className={clsx(styles.backdrop)}
