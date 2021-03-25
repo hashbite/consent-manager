@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react'
+import { createContext, useContext, useMemo } from 'react'
 import {
   FallbackComponentProps,
   IntegrationConfig,
@@ -23,15 +23,16 @@ export default ConsentManagerContext
 
 export function useConfig(): ConsentManagerConfig {
   const { config } = useContext(ConsentManagerContext)
-  return config
+  return useMemo(() => config, [config])
 }
 
 export function useStore(): ConsentManagerStore {
   const { store } = useContext(ConsentManagerContext)
-  return store
+  return useMemo(() => store, [store])
 }
 
 export function useIntegrations(): IntegrationConfig[] {
   const { config } = useContext(ConsentManagerContext)
-  return config.integrations
+  const { integrations } = config
+  return useMemo(() => integrations, [integrations])
 }

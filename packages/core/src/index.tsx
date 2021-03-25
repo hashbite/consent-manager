@@ -1,5 +1,5 @@
-import React, { Dispatch, SetStateAction, useContext } from 'react'
-import { Location } from 'history'
+import React, { Dispatch, SetStateAction, useContext, useMemo } from 'react'
+
 import {
   FallbackComponentProps,
   IntegrationId,
@@ -58,11 +58,8 @@ export function useFallbackComponent(): React.ComponentType<
 > {
   const { FallbackComponent } = useContext(ConsentManagerContext)
 
-  if (!FallbackComponent) {
-    return () => null
-  }
-
-  return FallbackComponent
+  // The rest of your rendering logic
+  return useMemo(() => FallbackComponent || null, [FallbackComponent])
 }
 
 export interface PrivacyShieldProps {
