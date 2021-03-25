@@ -43,26 +43,22 @@ html[data-theme='dark'] {
   transform: translateY(100%);
 }
 
-.container {
-  max-height: 100vh;
-  overflow-y: auto;
-}
-
 .pane {
   background: var(--consent-control-ui-bg);
   color: var(--consent-control-ui-color);
   box-shadow: var(--consent-control-ui-shadow);
 }
 
+.slide {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
 .introduction {
   text-align: center;
   font-weight: bold;
-}
-
-.content {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem;
 }
 
 .backdrop {
@@ -83,6 +79,14 @@ html[data-theme='dark'] {
 }
 
 /** Form */
+
+.form {
+  max-height: 100vh;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow-y: auto;
+  padding: 2rem;
+}
 
 .formControl {
   margin-bottom: 1rem;
