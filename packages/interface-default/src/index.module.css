@@ -149,6 +149,13 @@ html[data-theme='dark'] {
   cursor: pointer;
   background: transparent;
   border: none;
+  opacity: 0.8;
+}
+
+.toggleButton:focus,
+.toggleButton:hover {
+  outline: none;
+  opacity: 1;
 }
 
 @media (min-width: 767px) {
