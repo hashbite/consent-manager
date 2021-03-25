@@ -1,6 +1,6 @@
 {
   "name": "@consent-manager/interface-default",
-  "version": "0.0.0",
+  "version": "0.0.1-next.0",
   "description": "The customizable default interface for consent-manager",
   "author": {
     "name": "techboi GmbH",
@@ -47,7 +47,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@consent-manager/core": "*",
+    "@consent-manager/core": "0.0.1-next.0",
     "activity-detector-ssr": "^3.0.0",
     "body-scroll-lock": "^3.1.5",
     "clsx": "^1.1.1",
