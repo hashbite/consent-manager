@@ -47,6 +47,7 @@
   "license": "MIT",
   "dependencies": {
     "@consent-manager/core": "*",
+    "activity-detector": "^3.0.0",
     "body-scroll-lock": "^3.1.5",
     "clsx": "^1.1.1",
     "react-div-100vh": "^0.5.6",

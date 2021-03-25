@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
+import createActivityDetector from 'activity-detector'
 
 import defaultStyles from './index.module.css'
 import defaultAnimationStyles from './animation-slide.module.css'
@@ -15,21 +16,45 @@ export interface IntroductionProps {
   visibleDuration?: number
 }
 
+interface ActivityDetector {
+  on: Function
+  stop: Function
+}
+
 export const Introduction: React.FC<IntroductionProps> = ({
   introductionFinished,
   styles = defaultStyles,
   animationStyles = defaultAnimationStyles,
   slideDuration,
-  noActionDelay = 4000,
+  noActionDelay = 2000,
   visibleDuration = 6000,
 }) => {
   const [show, setShow] = useState(false)
+  const [isIdle, setIsIdle] = React.useState(false)
+  const [activityDetectorInstance, setActivityDetector] = useState<
+    ActivityDetector
+  >()
 
-  // Wait for noActionDelay till we show the intro
-  // @todo actually check for no user interaction with the page
+  // Listen for user interaction
+  React.useEffect(() => {
+    const activityDetector: ActivityDetector = createActivityDetector({
+      timeToIdle: noActionDelay,
+      inactivityEvents: [],
+    })
+    activityDetector.on('idle', () => setIsIdle(true))
+    activityDetector.on('active', () => setIsIdle(false))
+
+    setActivityDetector(activityDetector)
+    return () => activityDetector.stop()
+  }, [noActionDelay, setActivityDetector])
+
+  // As soon user is idle for the first time, show the intro and stop listening
   useEffect(() => {
-    window.setTimeout(() => setShow(true), noActionDelay)
-  }, [setShow, noActionDelay])
+    if (isIdle && activityDetectorInstance) {
+      setShow(true)
+      activityDetectorInstance.stop()
+    }
+  }, [isIdle, setShow, activityDetectorInstance])
 
   return (
     <CSSTransition
