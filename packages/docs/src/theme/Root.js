@@ -8,7 +8,7 @@ import { youtubeIntegration } from '@consent-manager/integration-youtube'
 import { matomoIntegration } from '@consent-manager/integration-matomo'
 
 import {
-  UnobtrusiveConsentControlUI,
+  InterfaceDefault,
   FallbackComponent,
 } from '@consent-manager/interface-default'
 import '@consent-manager/interface-default/dist/default.min.css'
@@ -51,7 +51,7 @@ function Root({ children }) {
     >
       {children}
       <ConsentManagerForm
-        formComponent={UnobtrusiveConsentControlUI}
+        formComponent={InterfaceDefault}
         SubmitButton={Button}
       />
     </ConsentManager>
