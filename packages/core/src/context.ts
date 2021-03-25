@@ -7,13 +7,13 @@ import {
 import { ConsentManagerStore } from './storage'
 
 interface ConsentManagerContextValue {
-  fallbackComponent: React.ComponentType<FallbackComponentProps>
+  FallbackComponent: React.ComponentType<FallbackComponentProps>
   config: ConsentManagerConfig
   store: ConsentManagerStore
 }
 
 const ConsentManagerContext = createContext<ConsentManagerContextValue>({
-  fallbackComponent: () => null,
+  FallbackComponent: () => null,
   config: { integrations: [] },
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   store: [{ decisions: {} }, () => {}],

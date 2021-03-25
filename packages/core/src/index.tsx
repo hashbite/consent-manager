@@ -11,23 +11,23 @@ import { useDecisions } from './decisions'
 import { ConsentManagerStore } from './storage'
 
 import { IntegrationWrapperComponents } from './components/IntegrationWrapperComponents'
-import { FallbackComponent } from './components/FallbackComponent'
+import { FallbackComponent as DefaultFallbackComponent } from './components/FallbackComponent'
 
 export interface ConsentManagerProps {
   config: ConsentManagerConfig
-  fallbackComponent?: React.ComponentType<FallbackComponentProps>
+  FallbackComponent?: React.ComponentType<FallbackComponentProps>
   store: ConsentManagerStore
 }
 
 export const ConsentManager: React.FC<ConsentManagerProps> = ({
   children,
   config,
-  fallbackComponent = FallbackComponent,
+  FallbackComponent = DefaultFallbackComponent,
   store,
 }) => {
   return (
     <ConsentManagerContext.Provider
-      value={{ fallbackComponent, config, store }}
+      value={{ FallbackComponent, config, store }}
     >
       <IntegrationWrapperComponents config={config}>
         {children}
@@ -56,9 +56,7 @@ export function useDecision(
 export function useFallbackComponent(): React.ComponentType<
   FallbackComponentProps
 > {
-  const { fallbackComponent: FallbackComponent } = useContext(
-    ConsentManagerContext
-  )
+  const { FallbackComponent } = useContext(ConsentManagerContext)
 
   if (!FallbackComponent) {
     return () => null

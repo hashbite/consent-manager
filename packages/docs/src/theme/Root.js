@@ -39,7 +39,7 @@ function Root({ children }) {
     <ConsentManager
       config={config}
       store={storage}
-      fallbackComponent={props => (
+      FallbackComponent={props => (
         <FallbackComponent {...props} Button={Button} />
       )}
     >
