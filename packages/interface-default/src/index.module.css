@@ -152,7 +152,7 @@ html[data-theme='dark'] {
 }
 
 @media (min-width: 767px) {
-  .toggleButton  {
+  .toggleButton {
     font-size: 26px;
   }
 }
