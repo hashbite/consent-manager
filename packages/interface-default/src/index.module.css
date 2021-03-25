@@ -120,6 +120,14 @@ html[data-theme='dark'] {
   opacity: 0.9;
 }
 
+.submitButton {
+  margin-bottom: 1rem;
+}
+
+.submitButton:last-child {
+  margin-bottom: 0;
+}
+
 /** Controls */
 
 .toggleButton {
