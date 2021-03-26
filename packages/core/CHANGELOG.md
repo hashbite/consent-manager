@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 0.0.1-next.3
+
+### Patch Changes
+
+- Set license to MIT
+
 ## 0.0.1-next.2
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @consent-manager/integration-matomo
 
+## 0.0.1-next.3
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.3
+
 ## 0.0.1-next.2
 
 ### Patch Changes
