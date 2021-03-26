@@ -3,6 +3,10 @@ module.exports = {
     'Consent Manager': ['about', 'getting-started'],
     Components: ['provider'],
     Hooks: ['use-something'],
-    Integrations: ['integrations/vimeo'],
+    Integrations: [
+      'integrations/matomo',
+      'integrations/vimeo',
+      'integrations/youtube',
+    ],
   },
 }
