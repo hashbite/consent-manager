@@ -6,9 +6,12 @@
     "docs": "0.0.0",
     "@consent-manager/integration-matomo": "0.0.0",
     "@consent-manager/integration-youtube": "0.0.0",
-    "@consent-manager/interface-default": "0.0.0"
+    "@consent-manager/interface-default": "0.0.0",
+    "@consent-manager/integration-mapbox": "0.0.0",
+    "@consent-manager/integration-vimeo": "0.0.0"
   },
   "changesets": [
+    "strong-dots-decide",
     "tender-weeks-fold"
   ]
 }
