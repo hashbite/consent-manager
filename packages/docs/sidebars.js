@@ -5,6 +5,7 @@ module.exports = {
     Hooks: ['use-something'],
     Integrations: [
       'integrations/matomo',
+      'integrations/mapbox',
       'integrations/vimeo',
       'integrations/youtube',
     ],
