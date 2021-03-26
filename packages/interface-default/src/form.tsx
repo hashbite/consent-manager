@@ -47,7 +47,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
       setShowForm(false)
       onSubmit({ enabled })
     },
-    [onSubmit]
+    [onSubmit, setShowForm]
   )
 
   const initial = useMemo(() => {

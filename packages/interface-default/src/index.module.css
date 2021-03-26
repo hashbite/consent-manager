@@ -81,7 +81,6 @@ html[data-theme='dark'] {
 /** Form */
 
 .form {
-  max-height: 100vh;
   max-width: 960px;
   margin: 0 auto;
   overflow-y: auto;

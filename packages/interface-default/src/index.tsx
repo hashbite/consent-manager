@@ -93,12 +93,16 @@ export const InterfaceDefault: React.FC<InterfaceDefaultProps> = ({
   useEffect(() => {
     const target: HTMLDivElement | null = formContainerRef.current
 
-    if (target && showForm) {
+    if (!target) {
+      return
+    }
+
+    if (showForm) {
       disableBodyScroll(target)
       target.scrollTo({ top: 0 })
     }
 
-    if (target && !showForm) {
+    if (!showForm) {
       enableBodyScroll(target)
     }
 
@@ -143,11 +147,15 @@ export const InterfaceDefault: React.FC<InterfaceDefaultProps> = ({
           className={clsx(styles.pane, styles.slide)}
           style={{
             transitionDuration: `${slideDuration}ms`,
-            maxHeight: `${viewportHeight}px`,
           }}
-          ref={formContainerRef}
         >
-          <div className={clsx(styles.form)}>
+          <div
+            className={clsx(styles.form)}
+            style={{
+              maxHeight: viewportHeight ? `${viewportHeight}px` : 'null',
+            }}
+            ref={formContainerRef}
+          >
             <Form
               styles={styles}
               onSubmit={onSubmit}
