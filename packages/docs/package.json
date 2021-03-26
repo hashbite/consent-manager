@@ -41,6 +41,7 @@
     "@mdx-js/react": "^1.6.21",
     "@consent-manager/core": "*",
     "@consent-manager/integration-matomo": "*",
+    "@consent-manager/integration-vimeo": "*",
     "@consent-manager/integration-youtube": "*",
     "@consent-manager/interface-default": "*",
     "clsx": "^1.1.1",
