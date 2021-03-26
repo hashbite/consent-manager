@@ -31,7 +31,10 @@ export function initializeDecisionsFromStorage(
   const pending: IntegrationId[] = []
 
   for (const integration of configuredIntegrations) {
-    const storedDecision = storedDecisions[integration.id]
+    const userDecision = storedDecisions[integration.id]
+    const enabledByDefault =
+      userDecision === undefined && integration.enabledByDefault
+    const storedDecision = userDecision || enabledByDefault
 
     if (typeof storedDecision === 'undefined') {
       pending.push(integration.id)

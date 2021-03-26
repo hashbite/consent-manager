@@ -24,6 +24,7 @@ export interface IntegrationConfig {
   pageViewEventHandler?: PageViewEventTrigger
   WrapperComponent?: React.ComponentType
   options?: IntegrationConfigOptions
+  enabledByDefault?: boolean
 }
 
 export interface ConsentManagerConfig {
