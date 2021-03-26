@@ -4,9 +4,10 @@ import clsx from 'clsx'
 import { ConsentManager, ConsentManagerForm } from '@consent-manager/core'
 import createPersistedState from 'use-persisted-state'
 
-import { youtubeIntegration } from '@consent-manager/integration-youtube'
-import { vimeoIntegration } from '@consent-manager/integration-vimeo'
+import { mapboxIntegration } from '@consent-manager/integration-mapbox'
 import { matomoPrivacyAwareIntegration } from '@consent-manager/integration-matomo'
+import { vimeoIntegration } from '@consent-manager/integration-vimeo'
+import { youtubeIntegration } from '@consent-manager/integration-youtube'
 
 import {
   InterfaceDefault,
@@ -40,6 +41,7 @@ function Root({ children }) {
       }),
       youtubeIntegration(),
       vimeoIntegration(),
+      mapboxIntegration(),
     ],
   }
 
