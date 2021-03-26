@@ -111,6 +111,10 @@ describe('custom event tracking', () => {
       'Do not click here - nothing will happen'
     )
 
+    // wait one tick to mount wrapper components
+    // @todo consider if we really need to wrap the whole thing on client again!
+    cy.wait(0)
+
     cy.get('@console.log').should('not.be.called')
 
     cy.get('[data-testid=example-button]').click()
