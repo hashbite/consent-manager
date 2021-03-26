@@ -25,11 +25,15 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('toggleIntegration', integrationLabel => {
-  cy.get('[data-testid="consent-manager-form-container"]')
+  // wait one tick to mount wrapper components
+  // @todo consider if we really need to wrap the whole thing on client again!
+  cy.wait(0)
+
+  cy.get('[data-testid="consent-manager-form-container"] label')
     .contains(integrationLabel)
     .click()
 
-  cy.get('[data-testid="consent-manager-form-container"]')
+  cy.get('[data-testid="consent-manager-form-container"] button')
     .contains('Submit')
     .click()
 })
