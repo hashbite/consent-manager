@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 0.0.1-next.2
+
+### Patch Changes
+
+- Rerelease to fix dependency issue
+
 ## 0.0.1-next.1
 
 ### Patch Changes
