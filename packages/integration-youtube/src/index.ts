@@ -6,8 +6,6 @@ import {
 
 import YouTube from 'simple-icons/icons/youtube'
 
-export { default as YouTubeVideo } from './youtube-video'
-
 export function youtubeIntegration(): IntegrationConfig {
   const { title, slug, hex, path } = YouTube
   const color = `#${hex}`

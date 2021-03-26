@@ -46,7 +46,6 @@
   "license": "MIT",
   "dependencies": {
     "@consent-manager/core": "*",
-    "@u-wave/react-vimeo": "^0.9.4",
     "simple-icons": "^4.14.0"
   },
   "peerDependencies": {

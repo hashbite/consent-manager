@@ -36,19 +36,21 @@
     "clear": "docusaurus clear"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.71",
-    "@docusaurus/preset-classic": "2.0.0-alpha.71",
-    "@mdx-js/react": "^1.6.21",
     "@consent-manager/core": "*",
     "@consent-manager/integration-matomo": "*",
     "@consent-manager/integration-vimeo": "*",
     "@consent-manager/integration-youtube": "*",
     "@consent-manager/interface-default": "*",
+    "@docusaurus/core": "2.0.0-alpha.71",
+    "@docusaurus/preset-classic": "2.0.0-alpha.71",
+    "@mdx-js/react": "^1.6.21",
+    "@u-wave/react-vimeo": "^0.9.4",
     "clsx": "^1.1.1",
     "final-form": "^4.20.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-final-form": "^6.5.2",
+    "react-youtube": "^7.13.1",
     "use-persisted-state": "^0.3.3"
   },
   "browserslist": {

@@ -6,8 +6,6 @@ import {
 
 import Vimeo from 'simple-icons/icons/vimeo'
 
-export { default as VimeoVideo } from './vimeo-video'
-
 export function vimeoIntegration(): IntegrationConfig {
   const { title, slug, hex, path } = Vimeo
   const color = `#${hex}`

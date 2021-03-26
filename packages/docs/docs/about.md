@@ -4,13 +4,13 @@ title: What is Consent Manager?
 slug: /
 ---
 
-import { YouTubeVideo } from '@consent-manager/integration-youtube'
+import { YoutubeVideo } from '../src/components/youtube-video'
 
 Consent Manager is a React based framework to manage user consent regarding data processing and data sharing with external providers.
 
 ## What is this about?
 
-<YouTubeVideo id="OFRjZtYs3wY" />
+<YoutubeVideo id="OFRjZtYs3wY" />
 
 We want to make the web less messy. And especially more fair, for website owners and the end users.
 
