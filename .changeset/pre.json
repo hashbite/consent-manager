@@ -11,6 +11,7 @@
     "@consent-manager/integration-vimeo": "0.0.0"
   },
   "changesets": [
+    "kind-trees-tie",
     "strong-dots-decide",
     "tender-weeks-fold",
     "wicked-frogs-do"
