@@ -155,3 +155,15 @@ export function matomoIntegration({
     options: { matomoURL, siteID },
   }
 }
+
+export function matomoPrivacyAwareIntegration({
+  enabledByDefault = true,
+  ...config
+}: MatomoIntegrationArgs): IntegrationConfig {
+  return {
+    ...matomoIntegration(config),
+    enabledByDefault,
+    title: `Fair Statistics`,
+    description: `Our privacy-aware statistics tool will not track you across websites or multiple days. No personal data is collected, while all other data is strongly anonymized. You can opt-out at any time.`,
+  }
+}
