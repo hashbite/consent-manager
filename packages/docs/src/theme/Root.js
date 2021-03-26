@@ -5,7 +5,7 @@ import { ConsentManager, ConsentManagerForm } from '@consent-manager/core'
 import createPersistedState from 'use-persisted-state'
 
 import { youtubeIntegration } from '@consent-manager/integration-youtube'
-import { matomoIntegration } from '@consent-manager/integration-matomo'
+import { matomoPrivacyAwareIntegration } from '@consent-manager/integration-matomo'
 
 import {
   InterfaceDefault,
@@ -34,7 +34,7 @@ function Root({ children }) {
   const config = {
     integrations: [
       youtubeIntegration(),
-      matomoIntegration({
+      matomoPrivacyAwareIntegration({
         matomoURL: 'https://trackboi.techboi.io/',
         siteID: 11,
       }),
