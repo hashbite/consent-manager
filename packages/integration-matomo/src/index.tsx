@@ -37,7 +37,7 @@ interface TrackedPageData {
 
 interface TrackPageViewSPA {
   location: Location
-  prevLocation: Location
+  prevLocation?: Location
 }
 
 const trackPageViewSPA = ({
@@ -74,6 +74,8 @@ export const getMatomoTracker = (): MatomoTrackerEvents => ({
   trackPageView: (...args: unknown[]) =>
     window._paq && window._paq.push(['trackPageView', ...args]),
   track: (...args: unknown[]) => window._paq && window._paq.push([...args]),
+  // @todo consider if we should have only the SPA track function and a regular track call
+  // - because we need to track on initial embedding of the script
   trackPageViewSPA,
 })
 
@@ -102,6 +104,10 @@ export const useMatomoTracker = ({
     document.body.appendChild(script)
 
     wasInitialized = true
+
+    // Track current page
+    const { location } = window
+    trackPageViewSPA({ location })
   }
 
   const tracker = React.useMemo(() => getMatomoTracker(), [])
