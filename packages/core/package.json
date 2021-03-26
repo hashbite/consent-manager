@@ -1,6 +1,6 @@
 {
   "name": "@consent-manager/core",
-  "version": "0.0.1-next.1",
+  "version": "0.0.1-next.2",
   "description": "Get proper consent before tracking and processing data of your visitors via consent-manager. Supports you to get your website GDPR and CCPA compliant.",
   "author": {
     "name": "techboi GmbH",
