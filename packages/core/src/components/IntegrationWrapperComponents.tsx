@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 
 import {
   IntegrationConfig,
@@ -34,7 +34,16 @@ export const IntegrationWrapperComponents: React.FC<{
   config: ConsentManagerConfig
 }> = ({ config, children }) => {
   const [decisions] = useDecisions()
-
   const Wrapper = useWrapperComponents(config, decisions)
+
+  // Check if component was mounted for SSR
+  const [isMounted, setIsMounted] = useState(false)
+  useEffect(() => setIsMounted(true), [setIsMounted])
+
+  // Do not render the interface on SSR.
+  if (!isMounted) {
+    return <>{children}</>
+  }
+
   return <Wrapper>{children}</Wrapper>
 }
