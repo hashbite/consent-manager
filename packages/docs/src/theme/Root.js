@@ -1,5 +1,8 @@
 import React from 'react'
 import clsx from 'clsx'
+import { MDXProvider } from '@mdx-js/react'
+
+import { IntegrationProfile } from '../components/integration-profile'
 
 import { ConsentManager, ConsentManagerForm } from '@consent-manager/core'
 import createPersistedState from 'use-persisted-state'
@@ -46,19 +49,21 @@ function Root({ children }) {
   }
 
   return (
-    <ConsentManager
-      config={config}
-      store={storage}
-      fallbackComponent={props => (
-        <FallbackComponent {...props} Button={Button} />
-      )}
-    >
-      {children}
-      <ConsentManagerForm
-        formComponent={InterfaceDefault}
-        SubmitButton={Button}
-      />
-    </ConsentManager>
+    <MDXProvider components={{ IntegrationProfile }}>
+      <ConsentManager
+        config={config}
+        store={storage}
+        fallbackComponent={props => (
+          <FallbackComponent {...props} Button={Button} />
+        )}
+      >
+        {children}
+        <ConsentManagerForm
+          formComponent={InterfaceDefault}
+          SubmitButton={Button}
+        />
+      </ConsentManager>
+    </MDXProvider>
   )
 }
 

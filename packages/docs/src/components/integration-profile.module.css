@@ -1,0 +1,10 @@
+.table {
+}
+
+.table tr {
+  background-color: transparent !important;
+}
+
+.table tr > td:first-child {
+  background: var(--ifm-table-stripe-background);
+}
