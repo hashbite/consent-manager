@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@consent-manager/core": "*",
+    "@consent-manager/integration-algolia": "*",
     "@consent-manager/integration-mapbox": "*",
     "@consent-manager/integration-matomo": "*",
     "@consent-manager/integration-vimeo": "*",

@@ -8,6 +8,7 @@ import { mapboxIntegration } from '@consent-manager/integration-mapbox'
 import { matomoPrivacyAwareIntegration } from '@consent-manager/integration-matomo'
 import { vimeoIntegration } from '@consent-manager/integration-vimeo'
 import { youtubeIntegration } from '@consent-manager/integration-youtube'
+import { algoliaIntegration } from '@consent-manager/integration-algolia'
 
 import {
   InterfaceDefault,
@@ -42,6 +43,7 @@ function Root({ children }) {
       youtubeIntegration(),
       vimeoIntegration(),
       mapboxIntegration(),
+      algoliaIntegration(),
     ],
   }
 
