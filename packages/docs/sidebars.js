@@ -4,6 +4,7 @@ module.exports = {
     Components: ['provider'],
     Hooks: ['use-something'],
     Integrations: [
+      'integrations/algolia',
       'integrations/matomo',
       'integrations/mapbox',
       'integrations/vimeo',
