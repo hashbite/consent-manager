@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
-import { FiChevronUp } from 'react-icons/fi'
+import { FiChevronUp } from '@react-icons/all-files/fi/FiChevronUp'
+
 import {
   disableBodyScroll,
   enableBodyScroll,
