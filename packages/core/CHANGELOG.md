@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 0.0.1-next.4
+
+### Patch Changes
+
+- Introduce Algolia integration and fix rerendering bugs
+
 ## 0.0.1-next.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @consent-manager/integration-youtube
 
+## 0.0.1-next.3
+
+### Patch Changes
+
+- Introduce Algolia integration and fix rerendering bugs
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.4
+
 ## 0.0.1-next.2
 
 ### Patch Changes
