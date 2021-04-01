@@ -8,36 +8,37 @@ import {
 } from '@consent-manager/core'
 import React from 'react'
 
-import googleAnalytics from 'simple-icons/icons/googleanalytics'
+import googleTagManager from 'simple-icons/icons/googletagmanager'
 
-import ReactGA from 'react-ga'
+import TagManager from 'react-gtm-module'
+
+let wasInitialized = false
 
 declare global {
   interface Window {
-    ReactGA: any
+    GTM: any
   }
 }
-let wasInitialized = false
 
-export const getGoogleAnalytics = () => {
-  return window.ReactGA
+export const getGoogleTagManager = () => {
+  return window.GTM
 }
 
 const WrapperComponent: React.FC = () => {
-  const [isEnabled] = useDecision('google-analytics')
-  const googleAnalyticsConfig = useIntegration('google-analytics')
+  const [isEnabled] = useDecision('google-tag-manager')
+  const googleTagManagerConfig = useIntegration('google-tag-manager')
 
-  if (!googleAnalyticsConfig || !googleAnalyticsConfig.options) {
+  if (!googleTagManagerConfig || !googleTagManagerConfig.options) {
     throw new Error(
       'It is not possible to initialize googleAnalytics without configuration'
     )
   }
 
-  const { trackingId } = googleAnalyticsConfig.options
+  const { gtmId } = googleTagManagerConfig.options
 
   if (!wasInitialized && isEnabled) {
-    ReactGA.initialize(trackingId)
-    window.ReactGA = ReactGA
+    TagManager.initialize({ gtmId })
+    window.GTM = TagManager
     wasInitialized = true
   }
   return null
@@ -45,14 +46,14 @@ const WrapperComponent: React.FC = () => {
 
 // @todo required options are not yet possible.
 // See: https://github.com/techboi/consent-manager/issues/19
-interface googleAnalyticsConfig extends IntegrationConfigOptions {
+interface googleTagManagerConfig extends IntegrationConfigOptions {
   trackingId?: string // @todo this should be required
 }
 
-export function googleAnalyticsIntegration(
-  options: googleAnalyticsConfig
+export function googleTagManagerIntegration(
+  options: googleTagManagerConfig
 ): IntegrationConfig {
-  const { title, hex, path } = googleAnalytics
+  const { title, hex, path } = googleTagManager
   const color = `#${hex}`
   const contrastColor = getForegroundColor(color)
   const Icon = createIconComponentFromSimpleIconsSvgPath(title, path)
@@ -60,14 +61,15 @@ export function googleAnalyticsIntegration(
     typeof window !== 'undefined' ? window.navigator.language : 'en-US'
 
   return {
-    id: 'google-analytics',
+    id: 'google-tag-manager',
     title,
     category: 'statistics',
     color,
     contrastColor,
     Icon,
     privacyPolicyUrl: `https://policies.google.com/privacy?hl=${lang}`,
-    description: 'We use Google Analytics to improve your browsing experience.',
+    description:
+      'We use Google Tag Manager to improve your browsing experience.',
     WrapperComponent,
     options,
   }
