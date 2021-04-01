@@ -1,11 +1,11 @@
 ---
-id: hubspot
-title: Hubspot Integration
-slug: /integrations/hubspot
+id: linkedin
+title: LinkedIn Integration
+slug: /integrations/linkedin
 ---
 
-import { hubspotIntegration } from "@consent-manager/integration-hubspot"
+import { linkedinIntegration } from "@consent-manager/integration-linkedin"
 
-- Source code: https://github.com/techboi/consent-manager/tree/main/packages/integration-hubspot
+- Source code: https://github.com/techboi/consent-manager/tree/main/packages/integration-linkedin
 
-<IntegrationProfile integration={hubspotIntegration({})} />
+<IntegrationProfile integration={linkedinIntegration({})} />

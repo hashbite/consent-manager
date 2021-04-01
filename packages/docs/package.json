@@ -41,6 +41,7 @@
     "@consent-manager/integration-hubspot": "*",
     "@consent-manager/integration-google-analytics": "*",
     "@consent-manager/integration-google-tag-manager": "*",
+    "@consent-manager/integration-linkedin": "*",
     "@consent-manager/integration-mapbox": "*",
     "@consent-manager/integration-matomo": "*",
     "@consent-manager/integration-segment": "*",

@@ -8,6 +8,7 @@ module.exports = {
       'integrations/hubspot',
       'integrations/google-analytics',
       'integrations/google-tag-manager',
+      'integrations/linkedin',
       'integrations/matomo',
       'integrations/mapbox',
       'integrations/segment',
