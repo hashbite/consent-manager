@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 0.0.1-next.7
+
+### Patch Changes
+
+- reduce bundles as core should be peer dependency
+
 ## 0.0.1-next.6
 
 ### Patch Changes
