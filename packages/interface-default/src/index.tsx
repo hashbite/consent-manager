@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
-import { FiChevronUp } from 'react-icons/fi'
+import { FiChevronUp } from '@react-icons/all-files/fi/FiChevronUp'
+
 import {
   disableBodyScroll,
   enableBodyScroll,
@@ -111,6 +112,25 @@ export const InterfaceDefault: React.FC<InterfaceDefaultProps> = ({
 
   // Get 100vh on mobile browsers as well
   const viewportHeight = use100vh()
+
+  const handleEsc = useCallback(
+    e => {
+      if (showForm && e.keyCode === 27) {
+        e.preventDefault()
+        setShowForm(false)
+      }
+    },
+    [showForm]
+  )
+
+  // Allow close on ESC key
+  useEffect(() => {
+    window.addEventListener('keydown', handleEsc)
+
+    return () => {
+      window.removeEventListener('keydown', handleEsc)
+    }
+  }, [handleEsc])
 
   // Check if component was mounted for SSR
   const [isMounted, setIsMounted] = useState(false)

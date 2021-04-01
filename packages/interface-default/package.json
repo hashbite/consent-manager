@@ -48,12 +48,12 @@
   "license": "MIT",
   "dependencies": {
     "@consent-manager/core": "^0.0.1-next.4",
+    "@react-icons/all-files": "^4.1.0",
     "activity-detector-ssr": "^3.0.0",
     "body-scroll-lock": "^3.1.5",
     "clsx": "^1.1.1",
     "react-div-100vh": "^0.5.6",
     "react-final-form": "^6.5.2",
-    "react-icons": "^4.2.0",
     "react-transition-group": "^4.4.1"
   },
   "peerDependencies": {
