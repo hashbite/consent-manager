@@ -40,6 +40,7 @@
     "@consent-manager/integration-algolia": "*",
     "@consent-manager/integration-mapbox": "*",
     "@consent-manager/integration-matomo": "*",
+    "@consent-manager/integration-segment": "*",
     "@consent-manager/integration-vimeo": "*",
     "@consent-manager/integration-youtube": "*",
     "@consent-manager/interface-default": "*",

@@ -7,6 +7,7 @@ module.exports = {
       'integrations/algolia',
       'integrations/matomo',
       'integrations/mapbox',
+      'integrations/segment',
       'integrations/vimeo',
       'integrations/youtube',
     ],
