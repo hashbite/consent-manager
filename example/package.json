@@ -20,7 +20,6 @@
     "typescript": "^3.4.5"
   },
   "alias": {
-    "@consent-manager/core": "../packages/core",
     "react": "../node_modules/react",
     "react-dom": "../node_modules/react-dom/profiling",
     "scheduler/tracing": "../node_modules/scheduler/tracing-profiling"
