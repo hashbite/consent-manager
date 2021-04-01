@@ -1,89 +1,36 @@
-## API
+# Consent Manager
 
-### Config
+> This toolkit helps you to integrate external services into your React project while staying compliant to GDPR and other privacy protection laws.
 
+[![NPM Version Badge](https://badgen.net/npm/v/@consent-manager/core)](https://www.npmjs.com/package/@consent-manager/core)
+[![Github Check Badge](https://badgen.net/github/checks/techboi/consent-manager/main)](https://github.com/techboi/consent-manager/actions)
+[![License Badge](https://badgen.net/npm/license/@consent-manager/core)](https://github.com/techboi/consent-manager/blob/main/LICENSE)
 
-**Required**
+**Our philosophy:**
 
-* `privacyPolicy` - Link to privacy policy, because it's rendered everywhere
-* `integrations` - `Record<IntegrationName, IntegrationConfig>` 
-  * `IntegrationName` - project-wide identifier to associate components that are privacy protected
+- Add as little extra code to your website as needed
+- Create a reliable, extendable and customizable tool to extend your project
+- Provide an UX thats fair to the end-user and effective for the website owner
 
+[Learn more about our ideas](https://techboi.github.io/consent-manager/docs/)
 
-### Step by step
+## Installation [![Tree Shaking Supported Badge](https://badgen.net/bundlephobia/tree-shaking/@consent-manager/core)](https://bundlephobia.com/result?p=@consent-manager/core)
 
-* just drop in a `<ConsentManager>`
-* empty integrations in config 
+|          | [Core](https://github.com/techboi/consent-manager/tree/main/packages/core)                                                                   | [Default Interface](https://github.com/techboi/consent-manager/tree/main/packages/interface-default)                                                                   |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Minified | [![Minified Size Badge](https://badgen.net/bundlephobia/min/@consent-manager/core)](https://bundlephobia.com/result?p=@consent-manager/core) | [![Minified Size Badge](https://badgen.net/bundlephobia/min/@consent-manager/interface-default)](https://bundlephobia.com/result?p=@consent-manager/interface-default) |
+| Gzipped  | [![Gzip Size Badge](https://badgen.net/bundlephobia/minzip/@consent-manager/core)](https://bundlephobia.com/result?p=@consent-manager/core)  | [![Gzip Size Badge](https://badgen.net/bundlephobia/minzip/@consent-manager/interface-default)](https://bundlephobia.com/result?p=@consent-manager/interface-default)  |
 
--> bottom bar with "are you fine that we are using no info?"
+For now, have a look at the [implementation guide in our docs](https://techboi.github.io/consent-manager/docs/getting-started).
 
-> I want to show a YouTube video
-> - Literally everyone
+## Getting started
 
-> Have you asked user for permission to send data to this service?
-> - European governments
+This will be updated asap.
 
-> 💡 Let's not load data until we have permission
+For now, have a look at the [implementation guide in our docs](https://techboi.github.io/consent-manager/docs/getting-started).
 
-```javascript
-function App () {
-  // true / false
-  const canDisplayYoutube = useDecision('youtube')
-  return (
-    <div>
-      <h2>About</h2>
-      {canDisplayYoutube && <YouTube id="dQw4w9WgXcQ" />}
-      {/* <YouTube /> or <Fallback /> */}
-      <PrivacyShield integrationId="youtube">
-        <YouTube id="dQw4w9WgXcQ" />
-      </PrivacyShield>
-    </div>
-  )
-```
+## Supported integrations
 
-### Integrations Lifecycle states
+We support plenty of third-party integrations. If you are missing one, you can build your own with a few lines of code.
 
-**Integration State**
-
-This state keeps track of all available integrations provided to `<ConsentManager />`
-
-**Decisions State**
-
-This state keeps track of all already answered integration keys
-
-1. Initialize all available integrations with `false` (always opt-in)
-2. Load from localStorage with 1) as the default value
-3. hook exposes decision getter that warns in dev if non-configured key is accessed
-4. hook exposes decision getter whether unanswered integrations are available
-
-```json
-{
-  "decisions": {
-    youtube: true,
-    vimeo: false
-  }
-}
-```
-----
-
-Optionally pass in a `store` useState like array, that contains user preselection. Setter will be called with new store state whenever user selection changes.
-
-```json
-{ decisions: { youtube: true, matomo: false } }
-```
-
-Internal state acts on passed in `integrations`, combined with availbale decisions.
-Pending decisions are always `false` (i.e. opt-in only). 
-
-Main interface for retrieving and updating selections is `useEnabledIntegrations()` which returns `[string[], (enabled: string[]) => void]`.
-
-Main interface for rendering integrations is `useIntegrations()` which returns all registered integrations.
-
-**<ConsentManagerForm />**
-
-Uses integations and decisions to create an internal representation for the initial state of the `<DecisionsForm />` component.
-
-**<DecisionsForm />**
-
-
-
+See our [list of integrations in the docs menu](https://techboi.github.io/consent-manager/docs/) and [all packages prefixed with `integration-` in our source code](https://github.com/techboi/consent-manager/tree/main/packages).
