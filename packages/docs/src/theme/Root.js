@@ -14,6 +14,7 @@ import { youtubeIntegration } from '@consent-manager/integration-youtube'
 import { algoliaIntegration } from '@consent-manager/integration-algolia'
 import { segmentIntegration } from '@consent-manager/integration-segment'
 import { googleAnalyticsIntegration } from '@consent-manager/integration-google-analytics'
+import { googleTagManagerIntegration } from '@consent-manager/integration-google-tag-manager'
 
 import {
   InterfaceDefault,
@@ -51,6 +52,7 @@ function Root({ children }) {
       algoliaIntegration(),
       segmentIntegration({ writeKey: 'djRstXTYDzn36y2zIzQOQMAFFv4du1D9' }),
       googleAnalyticsIntegration({ trackingId: 'UA-193594205-2' }),
+      googleTagManagerIntegration({ gtmId: 'GTM-PPHGBCL' }),
     ],
   }
 

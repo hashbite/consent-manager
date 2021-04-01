@@ -6,6 +6,7 @@ module.exports = {
     Integrations: [
       'integrations/algolia',
       'integrations/google-analytics',
+      'integrations/google-tag-manager',
       'integrations/matomo',
       'integrations/mapbox',
       'integrations/segment',
