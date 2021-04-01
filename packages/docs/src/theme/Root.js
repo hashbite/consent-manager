@@ -13,6 +13,7 @@ import { vimeoIntegration } from '@consent-manager/integration-vimeo'
 import { youtubeIntegration } from '@consent-manager/integration-youtube'
 import { algoliaIntegration } from '@consent-manager/integration-algolia'
 import { segmentIntegration } from '@consent-manager/integration-segment'
+import { googleAnalyticsIntegration } from '@consent-manager/integration-google-analytics'
 
 import {
   InterfaceDefault,
@@ -49,6 +50,7 @@ function Root({ children }) {
       mapboxIntegration(),
       algoliaIntegration(),
       segmentIntegration({ writeKey: 'djRstXTYDzn36y2zIzQOQMAFFv4du1D9' }),
+      googleAnalyticsIntegration({ trackingId: 'UA-193594205-2' }),
     ],
   }
 
