@@ -12,6 +12,7 @@
     "@consent-manager/integration-algolia": "0.0.0"
   },
   "changesets": [
+    "chilled-buses-matter",
     "kind-trees-tie",
     "strong-dots-decide",
     "tender-weeks-fold",

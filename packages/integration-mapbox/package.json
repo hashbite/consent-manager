@@ -1,6 +1,6 @@
 {
   "name": "@consent-manager/integration-mapbox",
-  "version": "0.0.1-next.2",
+  "version": "0.0.1-next.3",
   "description": "Protect your visitors privacy by integrating mapbox.com via consent-manager",
   "author": {
     "name": "techboi GmbH",
@@ -45,7 +45,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@consent-manager/core": "^0.0.1-next.4",
+    "@consent-manager/core": "^0.0.1-next.5",
     "simple-icons": "^4.14.0"
   },
   "peerDependencies": {
