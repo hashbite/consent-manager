@@ -12,7 +12,7 @@ module.exports = (function() {
       const ReactGA = getGoogleAnalytics()
       window.setTimeout(() => {
         trackPageView(location.pathname)
-        if (analytics) {
+        if (analytics && analytics.page) {
           analytics.page()
         }
         if (ReactGA && ReactGA.pageview) {

@@ -1,0 +1,58 @@
+{
+  "name": "@consent-manager/integration-hubspot",
+  "version": "0.0.0",
+  "description": "Protect your visitors privacy by integrating hubspot.com via consent-manager",
+  "author": {
+    "name": "techboi GmbH",
+    "email": "opensource@techboi.io",
+    "url": "https://techboi.io/"
+  },
+  "contributors": [
+    {
+      "name": "Benedikt Rötsch",
+      "email": "benedikt@techboi.io",
+      "url": "https://twitter.com/axe312ger"
+    },
+    {
+      "name": "Stephan Schneider",
+      "email": "stephanschndr@gmail.com",
+      "url": "https://twitter.com/zcei_ger"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techboi/consent-manager",
+    "directory": "packages/integration-matomo"
+  },
+  "homepage": "https://techboi.github.io/consent-manager/",
+  "main": "dist/index.js",
+  "module": "dist/integration-hubspot.esm.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "start": "tsdx watch --tsconfig tsconfig.build.json --verbose --noClean",
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "lint": "tsdx lint",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "gdpr",
+    "ccpa",
+    "consent",
+    "consent-management",
+    "statistics",
+    "hubspot",
+    "third-party-integrations"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@consent-manager/core": "*",
+    "simple-icons": "^4.14.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.1",
+    "react-dom": "^16.8.0 || ^17.0.1"
+  },
+  "devDependencies": {
+    "@types/simple-icons": "^4.14.0"
+  }
+}

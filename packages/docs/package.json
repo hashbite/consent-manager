@@ -38,6 +38,7 @@
   "dependencies": {
     "@consent-manager/core": "*",
     "@consent-manager/integration-algolia": "*",
+    "@consent-manager/integration-hubspot": "*",
     "@consent-manager/integration-google-analytics": "*",
     "@consent-manager/integration-google-tag-manager": "*",
     "@consent-manager/integration-mapbox": "*",
