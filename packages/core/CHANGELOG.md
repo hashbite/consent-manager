@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 0.0.1-next.5
+
+### Patch Changes
+
+- Allow close via ESC key and properly tree shake icon to improve bundle size"
+
 ## 0.0.1-next.4
 
 ### Patch Changes

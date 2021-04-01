@@ -1,5 +1,13 @@
 # @consent-manager/integration-matomo
 
+## 0.0.1-next.5
+
+### Patch Changes
+
+- Allow close via ESC key and properly tree shake icon to improve bundle size"
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.5
+
 ## 0.0.1-next.4
 
 ### Patch Changes

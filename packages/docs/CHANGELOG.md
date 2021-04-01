@@ -1,5 +1,19 @@
 # docs
 
+## 0.0.1-next.4
+
+### Patch Changes
+
+- Allow close via ESC key and properly tree shake icon to improve bundle size"
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.5
+  - @consent-manager/integration-algolia@0.0.1-next.1
+  - @consent-manager/integration-mapbox@0.0.1-next.3
+  - @consent-manager/integration-matomo@0.0.1-next.5
+  - @consent-manager/integration-vimeo@0.0.1-next.3
+  - @consent-manager/integration-youtube@0.0.1-next.4
+  - @consent-manager/interface-default@0.0.1-next.4
+
 ## 0.0.1-next.3
 
 ### Patch Changes
