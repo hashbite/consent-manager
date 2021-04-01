@@ -40,10 +40,10 @@ export const IntegrationWrapperComponents: React.FC<{
   const [isMounted, setIsMounted] = useState(false)
   useEffect(() => setIsMounted(true), [setIsMounted])
 
-  // Do not render the interface on SSR.
-  if (!isMounted) {
-    return <>{children}</>
-  }
-
-  return <Wrapper>{children}</Wrapper>
+  return (
+    <>
+      {children}
+      {isMounted && <Wrapper>{null}</Wrapper>}
+    </>
+  )
 }
