@@ -1,5 +1,13 @@
 # @consent-manager/integration-vimeo
 
+## 0.0.1-next.5
+
+### Patch Changes
+
+- reduce bundles as core should be peer dependency
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.7
+
 ## 0.0.1-next.4
 
 ### Patch Changes

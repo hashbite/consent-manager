@@ -1,5 +1,13 @@
 # @consent-manager/integration-algolia
 
+## 0.0.1-next.3
+
+### Patch Changes
+
+- reduce bundles as core should be peer dependency
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.7
+
 ## 0.0.1-next.2
 
 ### Patch Changes
