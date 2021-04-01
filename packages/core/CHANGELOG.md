@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 0.0.1-next.6
+
+### Patch Changes
+
+- Add integrations for Google Analytics, Google Tag Manager, Hubspot, LinkedIn and Segment
+
 ## 0.0.1-next.5
 
 ### Patch Changes
