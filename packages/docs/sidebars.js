@@ -5,6 +5,7 @@ module.exports = {
     Hooks: ['use-something'],
     Integrations: [
       'integrations/algolia',
+      'integrations/hubspot',
       'integrations/google-analytics',
       'integrations/google-tag-manager',
       'integrations/matomo',
