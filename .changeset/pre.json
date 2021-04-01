@@ -8,12 +8,14 @@
     "@consent-manager/integration-youtube": "0.0.0",
     "@consent-manager/interface-default": "0.0.0",
     "@consent-manager/integration-mapbox": "0.0.0",
-    "@consent-manager/integration-vimeo": "0.0.0"
+    "@consent-manager/integration-vimeo": "0.0.0",
+    "@consent-manager/integration-algolia": "0.0.0"
   },
   "changesets": [
     "kind-trees-tie",
     "strong-dots-decide",
     "tender-weeks-fold",
+    "tough-pants-fold",
     "wicked-frogs-do"
   ]
 }
