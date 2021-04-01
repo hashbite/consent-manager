@@ -5,6 +5,7 @@ module.exports = {
     Hooks: ['use-something'],
     Integrations: [
       'integrations/algolia',
+      'integrations/google-analytics',
       'integrations/matomo',
       'integrations/mapbox',
       'integrations/segment',
