@@ -9,11 +9,17 @@
     "@consent-manager/interface-default": "0.0.0",
     "@consent-manager/integration-mapbox": "0.0.0",
     "@consent-manager/integration-vimeo": "0.0.0",
-    "@consent-manager/integration-algolia": "0.0.0"
+    "@consent-manager/integration-algolia": "0.0.0",
+    "@consent-manager/integration-google-analytics": "0.0.0",
+    "@consent-manager/integration-google-tag-manager": "0.0.0",
+    "@consent-manager/integration-hubspot": "0.0.0",
+    "@consent-manager/integration-linkedin": "0.0.0",
+    "@consent-manager/integration-segment": "0.0.0"
   },
   "changesets": [
     "chilled-buses-matter",
     "kind-trees-tie",
+    "nasty-seals-sip",
     "strong-dots-decide",
     "tender-weeks-fold",
     "tough-pants-fold",

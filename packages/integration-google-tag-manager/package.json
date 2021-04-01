@@ -1,6 +1,6 @@
 {
   "name": "@consent-manager/integration-google-tag-manager",
-  "version": "0.0.0",
+  "version": "0.0.1-next.0",
   "description": "Protect your visitors privacy by integrating https://tagmanager.google.com/ via consent-manager",
   "author": {
     "name": "techboi GmbH",
@@ -46,7 +46,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@consent-manager/core": "*",
+    "@consent-manager/core": "^0.0.1-next.6",
     "react-gtm-module": "^2.0.11",
     "simple-icons": "^4.14.0"
   },
