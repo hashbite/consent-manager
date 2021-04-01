@@ -1,7 +1,7 @@
 {
-  "name": "@consent-manager/integration-youtube",
-  "version": "0.0.1-next.4",
-  "description": "Protect your visitors privacy by integrating youtube.com via consent-manager",
+  "name": "@consent-manager/integration-linkedin",
+  "version": "0.0.0",
+  "description": "Protect your visitors privacy by integrating linkedin.com via consent-manager",
   "author": {
     "name": "techboi GmbH",
     "email": "opensource@techboi.io",
@@ -22,11 +22,11 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/techboi/consent-manager",
-    "directory": "packages/integration-youtube"
+    "directory": "packages/integration-linkedin"
   },
   "homepage": "https://techboi.github.io/consent-manager/",
   "main": "dist/index.js",
-  "module": "dist/integration-youtube.esm.js",
+  "module": "dist/integration-linkedin.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "tsdx watch --tsconfig tsconfig.build.json --verbose --noClean",
@@ -39,13 +39,13 @@
     "ccpa",
     "consent",
     "consent-management",
-    "social-media",
-    "youtube",
+    "statistics",
+    "linkedin",
     "third-party-integrations"
   ],
   "license": "MIT",
   "dependencies": {
-    "@consent-manager/core": "^0.0.1-next.5",
+    "@consent-manager/core": "*",
     "simple-icons": "^4.14.0"
   },
   "peerDependencies": {

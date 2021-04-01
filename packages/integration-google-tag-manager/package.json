@@ -1,7 +1,7 @@
 {
-  "name": "@consent-manager/integration-youtube",
-  "version": "0.0.1-next.4",
-  "description": "Protect your visitors privacy by integrating youtube.com via consent-manager",
+  "name": "@consent-manager/integration-google-tag-manager",
+  "version": "0.0.0",
+  "description": "Protect your visitors privacy by integrating https://tagmanager.google.com/ via consent-manager",
   "author": {
     "name": "techboi GmbH",
     "email": "opensource@techboi.io",
@@ -22,11 +22,11 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/techboi/consent-manager",
-    "directory": "packages/integration-youtube"
+    "directory": "packages/integration-google-tag-manager"
   },
   "homepage": "https://techboi.github.io/consent-manager/",
   "main": "dist/index.js",
-  "module": "dist/integration-youtube.esm.js",
+  "module": "dist/integration-google-tag-manager.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "tsdx watch --tsconfig tsconfig.build.json --verbose --noClean",
@@ -39,13 +39,15 @@
     "ccpa",
     "consent",
     "consent-management",
-    "social-media",
-    "youtube",
+    "statistics",
+    "google-tag-manager",
+    "gtm",
     "third-party-integrations"
   ],
   "license": "MIT",
   "dependencies": {
-    "@consent-manager/core": "^0.0.1-next.5",
+    "@consent-manager/core": "*",
+    "react-gtm-module": "^2.0.11",
     "simple-icons": "^4.14.0"
   },
   "peerDependencies": {
@@ -53,6 +55,7 @@
     "react-dom": "^16.8.0 || ^17.0.1"
   },
   "devDependencies": {
+    "@types/react-gtm-module": "^2.0.0",
     "@types/simple-icons": "^4.14.0"
   }
 }

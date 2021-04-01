@@ -22,7 +22,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/techboi/consent-manager",
-    "directory": "packages/integration-matomo"
+    "directory": "packages/integration-vimeo"
   },
   "homepage": "https://techboi.github.io/consent-manager/",
   "main": "dist/index.js",
