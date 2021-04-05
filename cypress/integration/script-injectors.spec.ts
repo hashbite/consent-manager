@@ -24,7 +24,7 @@ describe('Script Injector: script', () => {
       .should('exist')
   })
 
-  it('removes script revoking decision', () => {
+  it('removes script when revoking decision', () => {
     cy.toggleIntegration('Red Box Ltd.')
 
     cy.get(selector).should('not.exist')
@@ -48,9 +48,44 @@ describe('Script Injector: img tag', () => {
     cy.get(selector).should('have.attr', 'width')
   })
 
-  it('removes img revoking decision', () => {
-    cy.toggleIntegration('Red Box Ltd.')
+  it('removes img when revoking decision', () => {
+    cy.toggleIntegration('Innocent Pixel')
 
     cy.get(selector).should('not.exist')
+  })
+})
+
+describe('Script Injector: image and script tags', () => {
+  const selectorImg = 'img[src="/zero-pixel.png"]'
+  const selectorScript = 'script#red-box-ltd'
+
+  before(() => {
+    cy.visit('http://localhost:1234/')
+  })
+  it('does not inject by default', () => {
+    cy.get(selectorImg).should('not.exist')
+    cy.get(selectorScript).should('not.exist')
+  })
+
+  it('injects img and script after making decision', () => {
+    cy.toggleIntegration('Red Box Ltd.')
+    cy.toggleIntegration('Innocent Pixel')
+
+    cy.get(selectorScript).should('exist')
+    cy.get(selectorImg).should('exist')
+  })
+
+  it('removes script when revoking decision', () => {
+    cy.toggleIntegration('Red Box Ltd.')
+
+    cy.get(selectorScript).should('not.exist')
+    cy.get(selectorImg).should('exist')
+  })
+
+  it('removes img when revoking decision', () => {
+    cy.toggleIntegration('Innocent Pixel')
+
+    cy.get(selectorImg).should('not.exist')
+    cy.get(selectorScript).should('not.exist')
   })
 })
