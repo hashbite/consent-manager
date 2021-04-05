@@ -25,7 +25,7 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('toggleIntegration', integrationLabel => {
-  // wait one tick to mount wrapper components
+  // wait one tick to execute script injectors
   // @todo consider if we really need to wrap the whole thing on client again!
   cy.wait(0)
 

@@ -64,7 +64,7 @@ ReactDOM.render(
 );
 ```
 
-## Wrapping components that need users concent for proper functionallity
+## Integrations that need users concent for proper functionallity
 
 Lets take this very simple component as example, it renders a YouTube video.
 

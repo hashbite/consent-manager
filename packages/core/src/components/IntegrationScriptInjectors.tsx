@@ -7,10 +7,10 @@ import {
 } from '../config'
 import { useDecisions } from '../decisions'
 
-type IntegrationWithWrapperComponent = IntegrationConfig &
-  Required<Pick<IntegrationConfig, 'WrapperComponent'>>
+type IntegrationWithScriptInjector = IntegrationConfig &
+  Required<Pick<IntegrationConfig, 'ScriptInjector'>>
 
-function useWrapperComponents(
+function useScriptInjectors(
   config: ConsentManagerConfig,
   decisions: ConsentManagerDecisions
 ): React.ComponentType {
@@ -18,23 +18,23 @@ function useWrapperComponents(
     return (({ children }) => {
       return config.integrations
         .filter(i => decisions[i.id] === true)
-        .filter((i): i is IntegrationWithWrapperComponent =>
-          Boolean(i.WrapperComponent)
+        .filter((i): i is IntegrationWithScriptInjector =>
+          Boolean(i.ScriptInjector)
         )
         .reverse()
-        .reduce((children, { WrapperComponent }) => {
-          return <WrapperComponent>{children}</WrapperComponent>
+        .reduce((children, { ScriptInjector }) => {
+          return <ScriptInjector>{children}</ScriptInjector>
         }, children)
     }) as React.FC
   }, [config.integrations, decisions])
   return Wrapper
 }
 
-export const IntegrationWrapperComponents: React.FC<{
+export const IntegrationScriptInjectors: React.FC<{
   config: ConsentManagerConfig
 }> = ({ config, children }) => {
   const [decisions] = useDecisions()
-  const Wrapper = useWrapperComponents(config, decisions)
+  const Wrapper = useScriptInjectors(config, decisions)
 
   // Check if component was mounted for SSR
   const [isMounted, setIsMounted] = useState(false)

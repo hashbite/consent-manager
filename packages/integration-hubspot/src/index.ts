@@ -12,7 +12,7 @@ import hubspot from 'simple-icons/icons/hubspot'
 
 let wasInitialized = false
 
-const WrapperComponent: React.FC = () => {
+const ScriptInjector: React.FC = () => {
   const [isEnabled] = useDecision('hubspot')
   const hubspotConfig = useIntegration('hubspot')
 
@@ -59,7 +59,7 @@ export function hubspotIntegration(options: hubspotConfig): IntegrationConfig {
     Icon,
     privacyPolicyUrl: `https://legal.hubspot.com/product-privacy-policy`,
     description: 'We use Hubspot to improve your browsing experience.',
-    WrapperComponent,
+    ScriptInjector,
     options,
   }
 }

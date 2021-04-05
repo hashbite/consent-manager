@@ -22,7 +22,7 @@ export const getSegment = () => {
   return window.analytics || []
 }
 
-const WrapperComponent: React.FC = () => {
+const ScriptInjector: React.FC = () => {
   const [isEnabled] = useDecision('segment')
   const segmentConfig = useIntegration('segment')
 
@@ -119,7 +119,7 @@ export function segmentIntegration(options: SegmentConfig): IntegrationConfig {
     Icon,
     privacyPolicyUrl: `https://segment.com/legal/privacy/`,
     description: 'We use Segment to improve your browsing experience.',
-    WrapperComponent,
+    ScriptInjector,
     options,
   }
 }

@@ -24,7 +24,7 @@ export const getGoogleTagManager = () => {
   return window.GTM
 }
 
-const WrapperComponent: React.FC = () => {
+const ScriptInjector: React.FC = () => {
   const [isEnabled] = useDecision('google-tag-manager')
   const googleTagManagerConfig = useIntegration('google-tag-manager')
 
@@ -70,7 +70,7 @@ export function googleTagManagerIntegration(
     privacyPolicyUrl: `https://policies.google.com/privacy?hl=${lang}`,
     description:
       'We use Google Tag Manager to improve your browsing experience.',
-    WrapperComponent,
+    ScriptInjector,
     options,
   }
 }

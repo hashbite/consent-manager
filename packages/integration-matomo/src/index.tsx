@@ -115,7 +115,7 @@ export const useMatomoTracker = ({
   return tracker
 }
 
-const WrapperComponent: React.FC = ({ children }) => {
+const ScriptInjector: React.FC = ({ children }) => {
   const MatomoConfig = useIntegration('matomo')
 
   if (!MatomoConfig || !MatomoConfig.options) {
@@ -151,7 +151,7 @@ export function matomoIntegration({
     privacyPolicyUrl: `https://matomo.org/privacy-policy/`,
     description:
       'Matomo is the leading open-source web analytics platform, used on over 1 million websites in over 190 countries, and translated into over 50 languages. Matomo is the ethical choice for those who value privacy and 100% data ownership.',
-    WrapperComponent,
+    ScriptInjector,
     options: { matomoURL, siteID },
   }
 }

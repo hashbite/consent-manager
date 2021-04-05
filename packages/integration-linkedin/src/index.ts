@@ -18,7 +18,7 @@ declare global {
 
 let wasInitialized = false
 
-const WrapperComponent: React.FC = () => {
+const ScriptInjector: React.FC = () => {
   const [isEnabled] = useDecision('linkedin')
   const linkedinConfig = useIntegration('linkedin')
 
@@ -70,7 +70,7 @@ export function linkedinIntegration(
     Icon,
     privacyPolicyUrl: `https://linkedin.com/legal/privacy-policy`,
     description: 'We use LinkedIn to improve your browsing experience.',
-    WrapperComponent,
+    ScriptInjector,
     options,
   }
 }

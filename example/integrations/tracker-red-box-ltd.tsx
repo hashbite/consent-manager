@@ -1,31 +1,22 @@
 import * as React from 'react'
 
-import { IntegrationConfig, useDecision, Tracker } from '@consent-manager/core'
+import {
+  IntegrationConfig,
+  useDecision,
+  Tracker,
+  useScript,
+  locateTracker,
+} from '@consent-manager/core'
+import { useEffect } from 'react'
 
 declare global {
   interface Window {
-    rbltd?: RedBoxLtdWindow
-  }
-}
-
-interface RedBoxLtdWindow extends Tracker {}
-
-const createRedBoxTracker = () => {
-  console.log('Initializing Red Box Ltd. tracking')
-  window.rbltd = {
-    trackEvent: (...data) => {
-      console.log('custom event tracked', data)
-      alert(['told ya!', ...data].join(' '))
-    },
-    trackPageView: (location: Location) => {
-      console.log(`page view: ${location.pathname}`, location)
-    },
+    rbltd?: RedBoxLtdTracker
   }
 }
 
 const Icon: React.FC = () => (
   <svg
-    className="w-6 h-6"
     fill="currentColor"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
@@ -34,63 +25,55 @@ const Icon: React.FC = () => (
   </svg>
 )
 
-// ensure that the tracker script will be initialized once in runtime
-let wasInitialized = false
+const ScriptInjector: React.FC = () => {
+  useEffect(() => {
+    window.rbltd = window.rbltd || []
 
-const WrapperComponent: React.FC = ({ children }) => {
-  React.useEffect(() => {
-    if (!wasInitialized) {
-      createRedBoxTracker()
-      wasInitialized = true
+    return () => {
+      delete window.rbltd
     }
-  }, [])
+  })
 
-  return (
-    <div
-      style={{ border: '3px solid #C21515' }}
-      data-testid="consent-manager-wrapping-component"
-    >
-      {children}
-    </div>
-  )
+  useScript('/red-box-ltd.js', { id: 'red-box-ltd' })
+
+  return null
 }
 
-export function useRedBoxLtd(): Tracker {
+interface RedBoxLtdTracker extends Array<Array<String>>, Tracker {}
+
+// For usage non-react context when tracking page views (Docusaurus, Gatsby, ...)
+// @todo we need to save-guard this by checking if integration is actually enabled
+export function getRedBoxLtd() {
+  return window.rbltd
+}
+
+export function useRedBoxLtd(): RedBoxLtdTracker | null {
   const [isEnabled] = useDecision('red-box-ltd')
+  const [tracker, setTracker] = React.useState(null)
 
-  const redBoxLtdInterface = React.useMemo(() => {
-    if (!isEnabled) {
-      return {
-        trackEvent: () => {},
-        trackPageView: () => {},
-      }
+  React.useEffect(() => {
+    if (isEnabled && !tracker) {
+      locateTracker('rbltd', setTracker)
     }
+  }, [isEnabled, setTracker, tracker])
 
-    return {
-      trackEvent: (...args) =>
-        window.rbltd &&
-        window.rbltd.trackEvent &&
-        window.rbltd.trackEvent(...args),
-      trackPageView: (...args) =>
-        window.rbltd &&
-        window.rbltd.trackPageView &&
-        window.rbltd.trackPageView(...args),
-    }
-  }, [isEnabled])
+  if (!isEnabled) {
+    return null
+  }
 
-  return redBoxLtdInterface
+  return tracker
 }
 
-export function createRedBoxLtdIntegration(): IntegrationConfig {
+export function redBoxLtdIntegration(): IntegrationConfig {
   return {
     id: 'red-box-ltd',
     title: 'Red Box Ltd.',
     category: 'statistics',
     description:
-      'Adds red borders around your content, demonstrates use of components that do e.g. click tracking',
+      'Example integration that injects scripts to demonstrate click and page tracking',
     color: '#C21515',
     contrastColor: '#fff',
     Icon,
-    WrapperComponent,
+    ScriptInjector,
   }
 }

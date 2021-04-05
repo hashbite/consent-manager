@@ -22,7 +22,7 @@ export interface IntegrationConfig {
   privacyPolicyUrl?: string
   Icon: React.ComponentType<IntegrationIconComponentProps>
   pageViewEventHandler?: PageViewEventTrigger
-  WrapperComponent?: React.ComponentType
+  ScriptInjector?: React.ComponentType
   options?: IntegrationConfigOptions
   enabledByDefault?: boolean
 }
@@ -41,10 +41,6 @@ export interface FallbackComponentProps {
   [key: string]: unknown
 }
 
-export interface TrackerEvents {
-  track?: (...args: unknown[]) => unknown
-  trackEvent?: (...args: unknown[]) => unknown
-  trackPageView?: (...args: unknown[]) => unknown
+export interface Tracker {
+  [key: string]: unknown
 }
-
-export interface Tracker extends TrackerEvents {}

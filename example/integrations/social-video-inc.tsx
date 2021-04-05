@@ -19,7 +19,7 @@ const Icon: React.FC = () => (
   </svg>
 )
 
-export function createVideoIncIntegration(): IntegrationConfig {
+export function videoIncIntegration(): IntegrationConfig {
   return {
     id: 'video-platform',
     title: 'Video Inc.',
