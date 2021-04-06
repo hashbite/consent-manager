@@ -3,8 +3,7 @@ module.exports = {
     'do-not-inject-scripts': {
       meta: {
         docs: {
-          description:
-            'Return the script tags instead of injecting them yourself. That way they can be removed when the user revokes consent.',
+          description: 'Our own useScript() hook should be used.',
         },
         schema: [],
       },
@@ -21,8 +20,11 @@ module.exports = {
             ) {
               context.report({
                 node,
-                message:
-                  'Return the script tags instead of injecting them yourself. That way they can be removed when the user revokes consent.',
+                message: [
+                  'Do not create script tags on your own. You might break the consent detection and revocation.',
+                  "import { useScript } from '@consent-manager/core'",
+                  "useScript('//foo.bar/tracking.js')",
+                ].join('\n'),
               })
             }
           },
