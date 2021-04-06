@@ -8,7 +8,8 @@ import {
   useDecision,
   IntegrationConfigOptions,
   Tracker,
-  TrackerEvents,
+  useScript,
+  locateTracker,
 } from '@consent-manager/core'
 
 import Matomo from 'simple-icons/icons/matomo'
@@ -40,7 +41,7 @@ interface TrackPageViewSPA {
   prevLocation?: Location
 }
 
-const trackPageViewSPA = ({
+export const trackPageViewSPA = ({
   location,
   prevLocation,
 }: TrackPageViewSPA): TrackedPageData | null => {
@@ -64,58 +65,30 @@ const trackPageViewSPA = ({
   return { url, title }
 }
 
-interface MatomoTrackerEvents extends TrackerEvents {
-  trackPageViewSPA: (arg0: TrackPageViewSPA) => TrackedPageData | null
+interface MatomoTracker extends Array<Array<String>>, Tracker {}
+
+export function getMatomo() {
+  return window._paq
 }
 
-export const getMatomoTracker = (): MatomoTrackerEvents => ({
-  trackEvent: (...args: unknown[]) =>
-    window._paq && window._paq.push(['trackEvent', ...args]),
-  trackPageView: (...args: unknown[]) =>
-    window._paq && window._paq.push(['trackPageView', ...args]),
-  track: (...args: unknown[]) => window._paq && window._paq.push([...args]),
-  // @todo consider if we should have only the SPA track function and a regular track call
-  // - because we need to track on initial embedding of the script
-  trackPageViewSPA,
-})
-
-export const useMatomoTracker = ({
-  matomoURL,
-  siteID,
-  // @todo these might need to be in config, but outside of react due to route update hooks
-  enableLinkTracking = true,
-  enableHeartBeatTimer = true,
-}: MatomoTrackerConfig): Tracker => {
+export function useMatomo(): MatomoTracker | null {
   const [isEnabled] = useDecision('matomo')
+  const [tracker, setTracker] = React.useState(null)
 
-  if (!wasInitialized && isEnabled) {
-    const _paq = (window._paq = window._paq || [])
+  React.useEffect(() => {
+    if (isEnabled && !tracker) {
+      locateTracker('_paq', setTracker)
+    }
+  }, [isEnabled, setTracker, tracker])
 
-    enableLinkTracking && _paq.push(['enableLinkTracking'])
-    enableHeartBeatTimer && _paq.push(['enableHeartBeatTimer'])
-    _paq.push(['setTrackerUrl', `${matomoURL}matomo.php`])
-    _paq.push(['setSiteId', siteID])
-
-    const script = document.createElement('script')
-
-    script.src = `${matomoURL}matomo.js`
-    script.async = true
-
-    document.body.appendChild(script)
-
-    wasInitialized = true
-
-    // Track current page
-    const { location } = window
-    trackPageViewSPA({ location })
+  if (!isEnabled) {
+    return null
   }
-
-  const tracker = React.useMemo(() => getMatomoTracker(), [])
 
   return tracker
 }
 
-const ScriptInjector: React.FC = ({ children }) => {
+const ScriptInjector: React.FC = () => {
   const MatomoConfig = useIntegration('matomo')
 
   if (!MatomoConfig || !MatomoConfig.options) {
@@ -124,9 +97,27 @@ const ScriptInjector: React.FC = ({ children }) => {
     )
   }
 
-  useMatomoTracker(MatomoConfig.options)
+  const {
+    matomoURL,
+    siteID,
+    enableLinkTracking = true,
+    enableHeartBeatTimer = true,
+  }: MatomoTrackerConfig = MatomoConfig.options
 
-  return <>{children}</>
+  useScript(`${matomoURL}matomo.js`, { id: 'red-box-ltd' })
+
+  if (!wasInitialized) {
+    const _paq = (window._paq = window._paq || [])
+
+    enableLinkTracking && _paq.push(['enableLinkTracking'])
+    enableHeartBeatTimer && _paq.push(['enableHeartBeatTimer'])
+    _paq.push(['setTrackerUrl', `${matomoURL}matomo.php`])
+    _paq.push(['setSiteId', siteID])
+
+    wasInitialized = true
+  }
+
+  return null
 }
 
 interface MatomoIntegrationArgs extends MatomoTrackerConfig {}

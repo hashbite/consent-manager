@@ -117,7 +117,7 @@ export function useScript(
 
 export function locateTracker(
   name: string,
-  set: (val: any) => {},
+  set: React.Dispatch<React.SetStateAction<any>>,
   iteration = 0
 ): undefined {
   const tracker = window[name]

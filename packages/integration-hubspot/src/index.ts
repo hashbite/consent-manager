@@ -3,17 +3,14 @@ import {
   getForegroundColor,
   IntegrationConfig,
   IntegrationConfigOptions,
-  useDecision,
   useIntegration,
+  useScript,
 } from '@consent-manager/core'
 import React from 'react'
 
 import hubspot from 'simple-icons/icons/hubspot'
 
-let wasInitialized = false
-
 const ScriptInjector: React.FC = () => {
-  const [isEnabled] = useDecision('hubspot')
   const hubspotConfig = useIntegration('hubspot')
 
   if (!hubspotConfig || !hubspotConfig.options) {
@@ -24,17 +21,8 @@ const ScriptInjector: React.FC = () => {
 
   const { hubId } = hubspotConfig.options
 
-  if (!wasInitialized && isEnabled) {
-    const script = document.createElement('script')
-    script.src = `//js.hs-scripts.com/${hubId}.js`
-    script.async = true
-    script.defer = true
-    script.type = 'text/javascript'
-    script.id = 'hs-script-loader'
-    document.body.appendChild(script)
+  useScript(`//js.hs-scripts.com/${hubId}.js`, { id: 'hs-script-loader' })
 
-    wasInitialized = true
-  }
   return null
 }
 
