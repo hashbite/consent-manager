@@ -1,6 +1,6 @@
 {
   "name": "@consent-manager/integration-vimeo",
-  "version": "0.0.1-next.5",
+  "version": "0.0.1-next.6",
   "description": "Protect your visitors privacy by integrating vimeo.com via consent-manager",
   "author": {
     "name": "techboi GmbH",
@@ -48,7 +48,7 @@
     "simple-icons": "^4.14.0"
   },
   "peerDependencies": {
-    "@consent-manager/core": "^0.0.1-next.7",
+    "@consent-manager/core": "^0.0.1-next.8",
     "react": "^16.8.0 || ^17.0.1",
     "react-dom": "^16.8.0 || ^17.0.1"
   },
