@@ -37,7 +37,7 @@ const Icon: React.FC = () => (
 // ensure that the tracker script will be initialized once in runtime
 let wasInitialized = false
 
-const WrapperComponent: React.FC = ({ children }) => {
+const WrapperComponent: React.FC = () => {
   React.useEffect(() => {
     if (!wasInitialized) {
       createRedBoxTracker()
@@ -45,14 +45,8 @@ const WrapperComponent: React.FC = ({ children }) => {
     }
   }, [])
 
-  return (
-    <div
-      style={{ border: '3px solid #C21515' }}
-      data-testid="consent-manager-wrapping-component"
-    >
-      {children}
-    </div>
-  )
+  // @todo replace this with a real js script that gets injected
+  return <script id="red-box-ltd" async defer type="text/javascript" src="#" />
 }
 
 export function useRedBoxLtd(): Tracker {
@@ -81,13 +75,12 @@ export function useRedBoxLtd(): Tracker {
   return redBoxLtdInterface
 }
 
-export function createRedBoxLtdIntegration(): IntegrationConfig {
+export function redBoxLtdIntegration(): IntegrationConfig {
   return {
     id: 'red-box-ltd',
     title: 'Red Box Ltd.',
     category: 'statistics',
-    description:
-      'Adds red borders around your content, demonstrates use of components that do e.g. click tracking',
+    description: 'Demonstrates click and page view tracking',
     color: '#C21515',
     contrastColor: '#fff',
     Icon,
