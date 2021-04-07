@@ -17,26 +17,31 @@ import {
 import RouteHome from './routes/home'
 import RouteVideo from './routes/video'
 
-import { createVideoIncIntegration } from './integrations/social-video-inc'
+import { videoIncIntegration } from './integrations/social-video-inc'
+import { innocentPixelIntegration } from './integrations/tracker-innocent-pixel'
 import {
-  createRedBoxLtdIntegration,
+  redBoxLtdIntegration,
   useRedBoxLtd,
 } from './integrations/tracker-red-box-ltd'
 
 const consentManagerConfig: ConsentManagerConfig = {
-  integrations: [createVideoIncIntegration(), createRedBoxLtdIntegration()],
+  integrations: [
+    videoIncIntegration(),
+    redBoxLtdIntegration(),
+    innocentPixelIntegration(),
+  ],
 }
 
 const PageViewTracker: React.FC = () => {
   const location = useLocation()
-  const { trackPageView } = useRedBoxLtd()
+  const redBoxLtdTracker = useRedBoxLtd()
 
   React.useEffect(() => {
-    // @todo find proper solution to ensure page view is tracked after tracker api is initialized
     window.setTimeout(() => {
-      trackPageView(location)
+      redBoxLtdTracker?.trackPageView &&
+        redBoxLtdTracker.trackPageView(location)
     }, 0)
-  }, [location, trackPageView])
+  }, [location, redBoxLtdTracker])
 
   return null
 }
