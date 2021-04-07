@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import { MDXProvider } from '@mdx-js/react'
 
 import { IntegrationProfile } from '../components/integration-profile'
+import { InitialPageViewTracker } from './InitialPageViewTracker'
 
 import { ConsentManager, ConsentManagerForm } from '@consent-manager/core'
 import createPersistedState from 'use-persisted-state'
@@ -70,6 +71,7 @@ function Root({ children }) {
         )}
       >
         {children}
+        <InitialPageViewTracker />
         <ConsentManagerForm
           formComponent={InterfaceDefault}
           SubmitButton={Button}

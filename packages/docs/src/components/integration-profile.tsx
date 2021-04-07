@@ -25,7 +25,7 @@ export const IntegrationProfile: React.FC<IntegrationProfileProps> = ({
     contrastColor,
     description,
     privacyPolicyUrl,
-    WrapperComponent,
+    ScriptInjector,
     enabledByDefault,
   } = integration
 
@@ -65,8 +65,8 @@ export const IntegrationProfile: React.FC<IntegrationProfileProps> = ({
           </td>
         </tr>
         <tr>
-          <td>WrapperComponent</td>
-          <td>{WrapperComponent ? '✅' : '⛔️'}</td>
+          <td>Injects &lt;script/&gt; tag</td>
+          <td>{ScriptInjector ? '✅' : '⛔️'}</td>
         </tr>
         <tr>
           <td>Enabled by default</td>

@@ -10,7 +10,7 @@ import ConsentManagerContext from './context'
 import { useDecisions } from './decisions'
 import { ConsentManagerStore } from './storage'
 
-import { IntegrationWrapperComponents } from './components/IntegrationWrapperComponents'
+import { IntegrationScriptInjectors } from './components/IntegrationScriptInjectors'
 import { FallbackComponent } from './components/FallbackComponent'
 
 export interface ConsentManagerProps {
@@ -29,9 +29,9 @@ export const ConsentManager: React.FC<ConsentManagerProps> = ({
     <ConsentManagerContext.Provider
       value={{ fallbackComponent, config, store }}
     >
-      <IntegrationWrapperComponents config={config}>
+      <IntegrationScriptInjectors config={config}>
         {children}
-      </IntegrationWrapperComponents>
+      </IntegrationScriptInjectors>
     </ConsentManagerContext.Provider>
   )
 }
@@ -121,11 +121,7 @@ export {
   IntegrationIconComponentProps,
   IntegrationConfigOptions,
   Tracker,
-  TrackerEvents,
   FallbackComponentProps,
 } from './config'
 
-export {
-  getForegroundColor,
-  createIconComponentFromSimpleIconsSvgPath,
-} from './integration-helpers'
+export * from './integration-helpers'

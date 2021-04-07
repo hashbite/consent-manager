@@ -3,7 +3,7 @@ import { useRedBoxLtd } from '../integrations/tracker-red-box-ltd'
 import { useDecision } from '@consent-manager/core'
 
 export default function RouteHome() {
-  const { trackEvent } = useRedBoxLtd()
+  const redBoxLtdTracker = useRedBoxLtd()
   const [isEnabled] = useDecision('red-box-ltd')
 
   return (
@@ -18,7 +18,16 @@ export default function RouteHome() {
         action.
       </p>
       <button
-        onClick={() => trackEvent('click', 'watching', 'you', 'closely')}
+        onClick={() =>
+          redBoxLtdTracker &&
+          redBoxLtdTracker.push([
+            'event',
+            'click',
+            'watching',
+            'you',
+            'closely',
+          ])
+        }
         data-testid="example-button"
       >
         Do not click here -{' '}
