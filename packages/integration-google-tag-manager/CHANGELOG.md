@@ -1,5 +1,13 @@
 # @consent-manager/integration-google-tag-manager
 
+## 0.0.1-next.2
+
+### Patch Changes
+
+- Allow multiple instances of WrapperComponents
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.8
+
 ## 0.0.1-next.1
 
 ### Patch Changes

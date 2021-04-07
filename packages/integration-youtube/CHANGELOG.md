@@ -1,5 +1,13 @@
 # @consent-manager/integration-youtube
 
+## 0.0.1-next.7
+
+### Patch Changes
+
+- Allow multiple instances of WrapperComponents
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.8
+
 ## 0.0.1-next.6
 
 ### Patch Changes
