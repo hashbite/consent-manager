@@ -1,4 +1,4 @@
-describe('Pave View Tracking', () => {
+describe('Page View Tracking', () => {
   beforeEach(() => {
     cy.visit('http://localhost:1234/', {
       onBeforeLoad(win) {
