@@ -17,7 +17,7 @@
     "lint": "lerna run lint -- --fix",
     "build": "lerna run build",
     "cleanup": "lerna exec -- rm -rf ./dist",
-    "prepublish": "yarn run cleanup && lerna run prepublish",
+    "prepublish": "yarn run cleanup && lerna run prepublish --scope='@consent-manager/core' && lerna run prepublish --ignore='@consent-manager/core'",
     "start:app": "yarn run build && yarn --cwd example && yarn --cwd example start",
     "cypress": "cypress run",
     "cypress:open": "cypress open",
