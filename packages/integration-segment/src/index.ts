@@ -5,6 +5,7 @@ import {
   IntegrationConfigOptions,
   useDecision,
   useIntegration,
+  locateTracker,
 } from '@consent-manager/core'
 import React from 'react'
 
@@ -20,6 +21,23 @@ let wasInitialized = false
 
 export const getSegment = () => {
   return window.analytics || []
+}
+
+export function useSegment() {
+  const [isEnabled] = useDecision('segment')
+  const [tracker, setTracker] = React.useState(null)
+
+  React.useEffect(() => {
+    if (isEnabled && !tracker) {
+      locateTracker('analytics', setTracker)
+    }
+  }, [isEnabled, setTracker, tracker])
+
+  if (!isEnabled) {
+    return null
+  }
+
+  return tracker
 }
 
 const ScriptInjector: React.FC = () => {

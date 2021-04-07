@@ -5,6 +5,7 @@ import {
   IntegrationConfigOptions,
   useDecision,
   useIntegration,
+  locateTracker,
 } from '@consent-manager/core'
 import React from 'react'
 
@@ -21,6 +22,23 @@ let wasInitialized = false
 
 export const getGoogleAnalytics = () => {
   return window.ReactGA
+}
+
+export function useGoogleAnalytics() {
+  const [isEnabled] = useDecision('google-analytics')
+  const [tracker, setTracker] = React.useState(null)
+
+  React.useEffect(() => {
+    if (isEnabled && !tracker) {
+      locateTracker('ReactGA', setTracker)
+    }
+  }, [isEnabled, setTracker, tracker])
+
+  if (!isEnabled) {
+    return null
+  }
+
+  return tracker
 }
 
 const ScriptInjector: React.FC = () => {

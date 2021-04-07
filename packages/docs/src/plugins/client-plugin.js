@@ -1,4 +1,7 @@
-const { getMatomoTracker } = require('@consent-manager/integration-matomo')
+const {
+  getMatomo,
+  trackPageViewSPA,
+} = require('@consent-manager/integration-matomo')
 const { getSegment } = require('@consent-manager/integration-segment')
 const {
   getGoogleAnalytics,
@@ -7,13 +10,15 @@ const {
 module.exports = (function() {
   return {
     onRouteUpdate({ location }) {
-      const { trackPageView } = getMatomoTracker()
-      const analytics = getSegment()
+      const matomo = getMatomo()
+      const segment = getSegment()
       const ReactGA = getGoogleAnalytics()
       window.setTimeout(() => {
-        trackPageView(location.pathname)
-        if (analytics && analytics.page) {
-          analytics.page()
+        if (matomo) {
+          trackPageViewSPA({ matomo, location })
+        }
+        if (segment && segment.page) {
+          segment.page()
         }
         if (ReactGA && ReactGA.pageview) {
           ReactGA.pageview(location.pathname + location.search)

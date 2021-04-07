@@ -37,17 +37,18 @@ interface TrackedPageData {
 }
 
 interface TrackPageViewSPA {
+  matomo: unknown[]
   location: Location
   prevLocation?: Location
 }
 
 export const trackPageViewSPA = ({
+  matomo,
   location,
   prevLocation,
 }: TrackPageViewSPA): TrackedPageData | null => {
-  const paq = window._paq
-  if (!paq) {
-    return null
+  if (!matomo || !location) {
+    throw new Error(`matomo object and current location are required`)
   }
   const url = location && location.pathname + location.search + location.hash
   const prevUrl =
@@ -55,12 +56,12 @@ export const trackPageViewSPA = ({
     prevLocation.pathname + prevLocation.search + prevLocation.hash
   const { title } = document
 
-  prevUrl && paq.push(['setReferrerUrl', prevUrl])
-  paq.push(['setCustomUrl', url])
-  paq.push(['setDocumentTitle', title])
-  paq.push(['trackPageView'])
-  paq.push(['enableLinkTracking'])
-  paq.push(['trackAllContentImpressions'])
+  prevUrl && matomo.push(['setReferrerUrl', prevUrl])
+  matomo.push(['setCustomUrl', url])
+  matomo.push(['setDocumentTitle', title])
+  matomo.push(['trackPageView'])
+  matomo.push(['enableLinkTracking'])
+  matomo.push(['trackAllContentImpressions'])
 
   return { url, title }
 }
@@ -147,10 +148,14 @@ export function matomoIntegration({
   }
 }
 
+interface MatomoPrivacyAwareIntegrationArgs extends MatomoIntegrationArgs {
+  enabledByDefault: boolean
+}
+
 export function matomoPrivacyAwareIntegration({
   enabledByDefault = true,
   ...config
-}: MatomoIntegrationArgs): IntegrationConfig {
+}: MatomoPrivacyAwareIntegrationArgs): IntegrationConfig {
   return {
     ...matomoIntegration(config),
     enabledByDefault,
