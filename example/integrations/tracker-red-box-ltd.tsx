@@ -81,7 +81,7 @@ export function useRedBoxLtd(): Tracker {
   return redBoxLtdInterface
 }
 
-export function createRedBoxLtdIntegration(): IntegrationConfig {
+export function redBoxLtdIntegration(): IntegrationConfig {
   return {
     id: 'red-box-ltd',
     title: 'Red Box Ltd.',
