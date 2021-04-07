@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 0.0.1-next.8
+
+### Patch Changes
+
+- Allow multiple instances of WrapperComponents
+
 ## 0.0.1-next.7
 
 ### Patch Changes

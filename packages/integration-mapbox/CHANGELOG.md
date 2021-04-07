@@ -1,5 +1,13 @@
 # @consent-manager/integration-mapbox
 
+## 0.0.1-next.6
+
+### Patch Changes
+
+- Allow multiple instances of WrapperComponents
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.8
+
 ## 0.0.1-next.5
 
 ### Patch Changes
