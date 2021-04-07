@@ -115,7 +115,7 @@ export const useMatomoTracker = ({
   return tracker
 }
 
-const WrapperComponent: React.FC = ({ children }) => {
+const WrapperComponent: React.FC = () => {
   const MatomoConfig = useIntegration('matomo')
 
   if (!MatomoConfig || !MatomoConfig.options) {
@@ -126,7 +126,7 @@ const WrapperComponent: React.FC = ({ children }) => {
 
   useMatomoTracker(MatomoConfig.options)
 
-  return <>{children}</>
+  return null
 }
 
 interface MatomoIntegrationArgs extends MatomoTrackerConfig {}
