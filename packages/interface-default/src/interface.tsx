@@ -145,6 +145,7 @@ export const Interface: React.FC<InterfaceProps> = ({
         <Introduction
           introductionFinished={introductionFinished}
           slideDuration={slideDuration}
+          setShowForm={setShowForm}
         />
       )}
       {renderBackdrop && (
