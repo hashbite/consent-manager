@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
 import createActivityDetector from 'activity-detector-ssr'
-
+import { Trans } from '@lingui/react'
 import defaultStyles from './index.module.css'
 import defaultAnimationStyles from './animation-slide.module.css'
-import { Styles, TransProps } from './index'
+import { Styles } from './index'
 
 export interface IntroductionProps {
   introductionFinished: Function
-  Trans: React.ComponentType<TransProps>
   styles?: Styles
   animationStyles?: Styles
   slideDuration: number
@@ -29,7 +28,6 @@ export const Introduction: React.FC<IntroductionProps> = ({
   slideDuration,
   noActionDelay = 4000,
   visibleDuration = 6000,
-  Trans,
 }) => {
   const [show, setShow] = useState(false)
   const [isIdle, setIsIdle] = React.useState(false)
@@ -77,7 +75,10 @@ export const Introduction: React.FC<IntroductionProps> = ({
         style={{ transitionDuration: `${slideDuration}ms` }}
       >
         <div className={clsx(styles.introduction, styles.content)}>
-          <Trans>Some features got disabled in respect of your privacy.</Trans>
+          <Trans
+            id="consent-manager.introduction"
+            message="Some features got disabled in respect of your privacy."
+          />
         </div>
       </div>
     </CSSTransition>

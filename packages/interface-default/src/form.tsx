@@ -5,16 +5,16 @@ import {
   DecisionsFormProps,
   IntegrationConfigOptions,
 } from '@consent-manager/core'
+import { Trans } from '@lingui/react'
 
 import defaultStyles from './index.module.css'
 import { Switch as DefaultSwitch, SwitchProps } from './switch'
 import { Integration } from './integration'
-import { Styles, SubmitButtonProps, TransProps } from './index'
+import { Styles, SubmitButtonProps } from './index'
 
 export interface ConsentFormProps extends DecisionsFormProps {
   styles: Styles
   setShowForm: Function
-  Trans: React.ComponentType<TransProps>
   Switch?: React.ComponentType<SwitchProps>
   SubmitButton?: React.ComponentType<SubmitButtonProps>
 }
@@ -32,7 +32,6 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
   initialValues,
   onSubmit,
   setShowForm,
-  Trans,
   styles = defaultStyles,
   Switch = DefaultSwitch,
   SubmitButton = DefaultSubmitButton,
@@ -70,27 +69,30 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
       render={({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
           <SubmitButton className={clsx(styles.submitButton)}>
-            <Trans id="consent-manager.form.button">Close and save</Trans>
+            <Trans id="consent-manager.form.button" message="Close and save" />
           </SubmitButton>
           <h2>
-            <Trans id="consent-manager.form.headline">Website Settings</Trans>
+            <Trans
+              id="consent-manager.form.headline"
+              message="Website Settings"
+            />
           </h2>
           <p>
-            <Trans id="consent-manager.form.description">
-              Some features are disabled by default to protect your privacy:
-            </Trans>
+            <Trans
+              id="consent-manager.form.description"
+              message="Some features are disabled by default to protect your privacy:"
+            />
           </p>
           {integrations.map((integration: IntegrationConfigOptions) => (
             <Integration
               styles={styles}
               key={integration.id}
               Switch={Switch}
-              Trans={Trans}
               {...integration}
             />
           ))}
           <SubmitButton className={clsx(styles.submitButton)}>
-            <Trans id="consent-manager.form.button">Close and save</Trans>
+            <Trans id="consent-manager.form.button" message="Close and save" />
           </SubmitButton>
         </form>
       )}
