@@ -1,17 +1,17 @@
 import React from 'react'
 import { Field } from 'react-final-form'
 import clsx from 'clsx'
-
+import { Trans } from '@lingui/react'
 import { IntegrationConfigOptions } from '@consent-manager/core'
 
 import { Switch as DefaultSwitch, SwitchProps } from './switch'
 import defaultStyles from './index.module.css'
 
-export interface IntgrationProps extends IntegrationConfigOptions {
+export interface IntegrationProps extends IntegrationConfigOptions {
   Switch?: React.ComponentType<SwitchProps>
 }
 
-export const Integration: React.FC<IntgrationProps> = ({
+export const Integration: React.FC<IntegrationProps> = ({
   styles = defaultStyles,
   Switch = DefaultSwitch,
   id,
@@ -32,15 +32,29 @@ export const Integration: React.FC<IntgrationProps> = ({
         }}
       >
         <Icon className={clsx(styles.integrationIcon)} />
-        <span className={clsx(styles.integrationTitle)}>{title}</span>
+        <span className={clsx(styles.integrationTitle)}>
+          <Trans
+            id={`consent-manager.integration.${id}.title`}
+            message={title}
+          />
+        </span>
       </div>
     </Field>
     <p className={clsx(styles.integrationDescription)}>
-      {description}
+      <Trans
+        id={`consent-manager.integration.${id}.description`}
+        message={description}
+      />
       <br />
-      <a href={privacyPolicyUrl} rel="noreferrer" target="_blank">
-        Learn more about the privacy policy of {title}
-      </a>
+      <Trans
+        id={`consent-manager.integration.${id}.privacy-policy`}
+        message="<0>Learn more about the privacy policy of <1/>.</0>"
+        components={[
+          // eslint-disable-next-line jsx-a11y/anchor-has-content
+          <a href={privacyPolicyUrl} rel="noreferrer" target="_blank" />,
+          <>{title}</>,
+        ]}
+      />
     </p>
   </div>
 )

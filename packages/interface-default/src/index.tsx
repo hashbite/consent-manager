@@ -1,200 +1,58 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
-import clsx from 'clsx'
-import { CSSTransition } from 'react-transition-group'
-import { FiChevronUp } from '@react-icons/all-files/fi/FiChevronUp'
-
+import React, { useMemo } from 'react'
+import { ConsentManagerForm } from '@consent-manager/core'
 import {
-  disableBodyScroll,
-  enableBodyScroll,
-  clearAllBodyScrollLocks,
-} from 'body-scroll-lock'
-import { use100vh } from 'react-div-100vh'
+  setupI18n,
+  Locale,
+  Locales,
+  AllMessages,
+  AllLocaleData,
+} from '@lingui/core'
+import { I18nProvider } from '@lingui/react'
+import { I18n } from '@lingui/core'
 
-import {
-  DecisionsFormProps,
-  useConsentFormVisible,
-} from '@consent-manager/core'
+import { Interface, InterfaceProps } from './interface'
 
-import { Switch as DefaultSwitch, SwitchProps } from './switch'
-import defaultStyles from './index.module.css'
-import defaultAnimationStyles from './animation-slide.module.css'
-import { Introduction } from './introduction'
-import { ConsentForm as DefaultForm, ConsentFormProps } from './form'
-import { Backdrop } from './backdrop'
-
-import {
-  ToggleButton as DefaultToggleButton,
-  ToggleButtonProps,
-} from './toggle-button'
+export { ToggleButtonProps } from './toggle-button'
+export { InterfaceProps, SubmitButtonProps, ToggleIconProps } from './interface'
 
 export interface Styles {
   [key: string]: string
 }
 
-export interface ToggleIconProps {
-  [key: string]: string
+// Copy of https://github.com/lingui/js-lingui/blob/main/packages/core/src/i18n.ts#L43
+interface setupI18nProps {
+  locale?: Locale
+  locales?: Locales
+  messages?: AllMessages
+  localeData?: AllLocaleData
+  missing?: string | ((message: any, id: any) => string)
 }
 
-export interface SubmitButtonProps {
-  [key: string]: string
+interface ConsentManagerDefaultInterfaceProps extends InterfaceProps {
+  linguiConfig: setupI18nProps
+  i18n: I18n
 }
 
-export interface InterfaceDefaultProps extends DecisionsFormProps {
-  slideDuration: number
-  renderBackdrop: boolean
-  styles?: Styles
-  animationStyles?: Styles
-  ToggleButton?: React.ComponentType<ToggleButtonProps>
-  ToggleIcon?: React.ComponentType<ToggleIconProps>
-  Switch?: React.ComponentType<SwitchProps>
-  SubmitButton?: React.ComponentType<SubmitButtonProps>
-  Form?: React.ComponentType<ConsentFormProps>
-}
-
-const DefaultSubmitButton: React.FC<SubmitButtonProps> = props => (
-  <button {...props} />
-)
-
-export const InterfaceDefault: React.FC<InterfaceDefaultProps> = ({
-  integrations,
-  initialValues,
-  onSubmit,
-  slideDuration = 700,
-  renderBackdrop = true,
-  styles = defaultStyles,
-  ToggleIcon = FiChevronUp,
-  ToggleButton = DefaultToggleButton,
-  Switch = DefaultSwitch,
-  SubmitButton = DefaultSubmitButton,
-  Form = DefaultForm,
-  animationStyles = defaultAnimationStyles,
+export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInterfaceProps> = ({
+  i18n,
+  linguiConfig = {
+    locale: 'en',
+    // By defining messages for the en locale you can override the default copy
+    // messages: { en: { 'consent-manager.form.title': 'Privacy Settings' } },
+  },
+  children,
+  ...props
 }) => {
-  const hasPendingDecisions = useConsentFormVisible()
-
-  const [needsIntroduction, setNeedsIntroduction] = useState(
-    hasPendingDecisions
-  )
-
-  const introductionFinished = useCallback(() => {
-    setNeedsIntroduction(false)
-  }, [setNeedsIntroduction])
-
-  const [showForm, setShowForm] = useState(false)
-  const formContainerRef = useRef<HTMLDivElement>(null)
-
-  const toggleControlForm = useCallback(
-    e => {
-      e.preventDefault()
-      setShowForm(v => !v)
-    },
-    [setShowForm]
-  )
-
-  // Freeze scroll when form is shown
-  useEffect(() => {
-    const target: HTMLDivElement | null = formContainerRef.current
-
-    if (!target) {
-      return
-    }
-
-    if (showForm) {
-      disableBodyScroll(target)
-      target.scrollTo({ top: 0 })
-    }
-
-    if (!showForm) {
-      enableBodyScroll(target)
-    }
-
-    return clearAllBodyScrollLocks
-  }, [showForm, formContainerRef])
-
-  // Get 100vh on mobile browsers as well
-  const viewportHeight = use100vh()
-
-  const handleEsc = useCallback(
-    e => {
-      if (showForm && e.keyCode === 27) {
-        e.preventDefault()
-        setShowForm(false)
-      }
-    },
-    [showForm]
-  )
-
-  // Allow close on ESC key
-  useEffect(() => {
-    window.addEventListener('keydown', handleEsc)
-
-    return () => {
-      window.removeEventListener('keydown', handleEsc)
-    }
-  }, [handleEsc])
-
-  // Check if component was mounted for SSR
-  const [isMounted, setIsMounted] = useState(false)
-  useEffect(() => setIsMounted(true), [setIsMounted])
-
-  // Do not render the interface on SSR.
-  if (!isMounted) {
-    return null
-  }
+  // Use custom i18n instance for multi locale support or use default setup
+  const i18nInstance = useMemo(() => {
+    return i18n || setupI18n(linguiConfig)
+  }, [linguiConfig, i18n])
 
   return (
-    <div className={clsx(styles.wrapper)} id="consent-control-ui">
-      {needsIntroduction && (
-        <Introduction
-          introductionFinished={introductionFinished}
-          slideDuration={slideDuration}
-        />
-      )}
-      {renderBackdrop && (
-        <Backdrop
-          show={showForm}
-          fadeDuration={slideDuration}
-          styles={styles}
-        />
-      )}
-      <CSSTransition
-        in={showForm}
-        timeout={slideDuration}
-        classNames={animationStyles}
-        unmountOnExit
-        mountOnEnter
-      >
-        <div
-          className={clsx(styles.pane, styles.slide)}
-          style={{
-            transitionDuration: `${slideDuration}ms`,
-          }}
-        >
-          <div
-            className={clsx(styles.form)}
-            style={{
-              maxHeight: viewportHeight ? `${viewportHeight}px` : 'null',
-            }}
-            ref={formContainerRef}
-          >
-            <Form
-              styles={styles}
-              onSubmit={onSubmit}
-              integrations={integrations}
-              initialValues={initialValues}
-              setShowForm={setShowForm}
-              Switch={Switch}
-              SubmitButton={SubmitButton}
-            />
-          </div>
-        </div>
-      </CSSTransition>
-      <ToggleButton
-        ToggleIcon={ToggleIcon}
-        styles={styles}
-        showForm={showForm}
-        toggleControlForm={toggleControlForm}
-      />
-    </div>
+    <I18nProvider i18n={i18nInstance}>
+      {children}
+      <ConsentManagerForm formComponent={Interface} {...props} />
+    </I18nProvider>
   )
 }
 

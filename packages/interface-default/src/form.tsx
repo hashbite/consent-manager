@@ -5,6 +5,7 @@ import {
   DecisionsFormProps,
   IntegrationConfigOptions,
 } from '@consent-manager/core'
+import { Trans } from '@lingui/react'
 
 import defaultStyles from './index.module.css'
 import { Switch as DefaultSwitch, SwitchProps } from './switch'
@@ -68,10 +69,20 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
       render={({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
           <SubmitButton className={clsx(styles.submitButton)}>
-            Close and save
+            <Trans id="consent-manager.form.button" message="Close and save" />
           </SubmitButton>
-          <h2>Website Settings</h2>
-          <p>Some features are disabled by default to protect your privacy:</p>
+          <h2>
+            <Trans
+              id="consent-manager.form.headline"
+              message="Website Settings"
+            />
+          </h2>
+          <p>
+            <Trans
+              id="consent-manager.form.description"
+              message="Some features are disabled by default to protect your privacy:"
+            />
+          </p>
           {integrations.map((integration: IntegrationConfigOptions) => (
             <Integration
               styles={styles}
@@ -81,7 +92,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
             />
           ))}
           <SubmitButton className={clsx(styles.submitButton)}>
-            Close and save
+            <Trans id="consent-manager.form.button" message="Close and save" />
           </SubmitButton>
         </form>
       )}

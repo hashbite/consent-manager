@@ -4,7 +4,7 @@ import { MDXProvider } from '@mdx-js/react'
 
 import { IntegrationProfile } from '../components/integration-profile'
 
-import { ConsentManager, ConsentManagerForm } from '@consent-manager/core'
+import { ConsentManager } from '@consent-manager/core'
 import createPersistedState from 'use-persisted-state'
 
 import { mapboxIntegration } from '@consent-manager/integration-mapbox'
@@ -19,7 +19,7 @@ import { hubspotIntegration } from '@consent-manager/integration-hubspot'
 import { linkedinIntegration } from '@consent-manager/integration-linkedin'
 
 import {
-  InterfaceDefault,
+  ConsentManagerDefaultInterface,
   FallbackComponent,
 } from '@consent-manager/interface-default'
 import '@consent-manager/interface-default/dist/default.min.css'
@@ -69,11 +69,9 @@ function Root({ children }) {
           <FallbackComponent {...props} Button={Button} />
         )}
       >
-        {children}
-        <ConsentManagerForm
-          formComponent={InterfaceDefault}
-          SubmitButton={Button}
-        />
+        <ConsentManagerDefaultInterface>
+          {children}
+        </ConsentManagerDefaultInterface>
       </ConsentManager>
     </MDXProvider>
   )
