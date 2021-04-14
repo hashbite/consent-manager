@@ -47,14 +47,11 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@consent-manager/core": "*",
-    "simple-icons": "^4.14.0"
+    "@consent-manager/core": "*"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.1",
     "react-dom": "^16.8.0 || ^17.0.1"
   },
-  "devDependencies": {
-    "@types/simple-icons": "^4.14.0"
-  }
+  "devDependencies": {}
 }
