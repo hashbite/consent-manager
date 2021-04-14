@@ -195,5 +195,3 @@ export const Interface: React.FC<InterfaceProps> = ({
     </div>
   )
 }
-
-export { FallbackComponent } from './fallback-component'
