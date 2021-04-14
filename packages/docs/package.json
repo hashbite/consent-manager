@@ -38,9 +38,9 @@
   "dependencies": {
     "@consent-manager/core": "*",
     "@consent-manager/integration-algolia": "*",
-    "@consent-manager/integration-hubspot": "*",
     "@consent-manager/integration-google-analytics": "*",
     "@consent-manager/integration-google-tag-manager": "*",
+    "@consent-manager/integration-hubspot": "*",
     "@consent-manager/integration-linkedin": "*",
     "@consent-manager/integration-mapbox": "*",
     "@consent-manager/integration-matomo": "*",
@@ -53,10 +53,8 @@
     "@mdx-js/react": "^1.6.21",
     "@u-wave/react-vimeo": "^0.9.4",
     "clsx": "^1.1.1",
-    "final-form": "^4.20.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-final-form": "^6.5.2",
     "react-youtube": "^7.13.1",
     "use-persisted-state": "^0.3.3"
   },

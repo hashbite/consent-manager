@@ -36,7 +36,6 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
   Switch = DefaultSwitch,
   SubmitButton = DefaultSubmitButton,
 }) => {
-  // @todo calling onSubmit causes rerender
   const onSubmitCb = useCallback(
     values => {
       const enabled = []
