@@ -36,7 +36,12 @@ export interface ToggleIconProps {
 }
 
 export interface SubmitButtonProps {
-  [key: string]: string
+  [key: string]: unknown
+}
+
+export interface TransProps {
+  id?: string
+  [key: string]: unknown
 }
 
 export interface InterfaceDefaultProps extends DecisionsFormProps {
@@ -44,6 +49,7 @@ export interface InterfaceDefaultProps extends DecisionsFormProps {
   renderBackdrop: boolean
   styles?: Styles
   animationStyles?: Styles
+  Trans?: React.ComponentType<TransProps>
   ToggleButton?: React.ComponentType<ToggleButtonProps>
   ToggleIcon?: React.ComponentType<ToggleIconProps>
   Switch?: React.ComponentType<SwitchProps>
@@ -55,6 +61,8 @@ const DefaultSubmitButton: React.FC<SubmitButtonProps> = props => (
   <button {...props} />
 )
 
+const DefaultTrans: React.FC<TransProps> = ({ children }) => <>{children}</>
+
 export const InterfaceDefault: React.FC<InterfaceDefaultProps> = ({
   integrations,
   initialValues,
@@ -62,6 +70,7 @@ export const InterfaceDefault: React.FC<InterfaceDefaultProps> = ({
   slideDuration = 700,
   renderBackdrop = true,
   styles = defaultStyles,
+  Trans = DefaultTrans,
   ToggleIcon = FiChevronUp,
   ToggleButton = DefaultToggleButton,
   Switch = DefaultSwitch,
@@ -147,6 +156,7 @@ export const InterfaceDefault: React.FC<InterfaceDefaultProps> = ({
         <Introduction
           introductionFinished={introductionFinished}
           slideDuration={slideDuration}
+          Trans={Trans}
         />
       )}
       {renderBackdrop && (
@@ -184,6 +194,7 @@ export const InterfaceDefault: React.FC<InterfaceDefaultProps> = ({
               setShowForm={setShowForm}
               Switch={Switch}
               SubmitButton={SubmitButton}
+              Trans={Trans}
             />
           </div>
         </div>

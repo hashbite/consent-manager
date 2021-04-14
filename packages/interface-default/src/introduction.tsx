@@ -5,10 +5,11 @@ import createActivityDetector from 'activity-detector-ssr'
 
 import defaultStyles from './index.module.css'
 import defaultAnimationStyles from './animation-slide.module.css'
-import { Styles } from './index'
+import { Styles, TransProps } from './index'
 
 export interface IntroductionProps {
   introductionFinished: Function
+  Trans: React.ComponentType<TransProps>
   styles?: Styles
   animationStyles?: Styles
   slideDuration: number
@@ -28,6 +29,7 @@ export const Introduction: React.FC<IntroductionProps> = ({
   slideDuration,
   noActionDelay = 4000,
   visibleDuration = 6000,
+  Trans,
 }) => {
   const [show, setShow] = useState(false)
   const [isIdle, setIsIdle] = React.useState(false)
@@ -75,7 +77,7 @@ export const Introduction: React.FC<IntroductionProps> = ({
         style={{ transitionDuration: `${slideDuration}ms` }}
       >
         <div className={clsx(styles.introduction, styles.content)}>
-          Some features got disabled in respect of your privacy.
+          <Trans>Some features got disabled in respect of your privacy.</Trans>
         </div>
       </div>
     </CSSTransition>
