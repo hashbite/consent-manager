@@ -15,7 +15,7 @@ export function algoliaIntegration(): IntegrationConfig {
   return {
     id: slug,
     title,
-    category: 'social',
+    category: 'Search',
     color,
     contrastColor,
     Icon,

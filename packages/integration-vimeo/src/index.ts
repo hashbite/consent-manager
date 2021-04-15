@@ -15,7 +15,7 @@ export function vimeoIntegration(): IntegrationConfig {
   return {
     id: slug,
     title,
-    category: 'social',
+    category: 'Videos',
     color,
     contrastColor,
     Icon,

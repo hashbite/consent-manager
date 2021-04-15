@@ -144,7 +144,7 @@ export function matomoIntegration({
   return {
     id: slug,
     title,
-    category: 'statistics',
+    category: 'Statistics',
     color,
     contrastColor,
     Icon,
@@ -163,7 +163,7 @@ export function matomoPrivacyAwareIntegration({
   return {
     ...matomoIntegration(config),
     enabledByDefault,
-    title: `Fair Statistics`,
+    category: `Fair Statistics`,
     description: `Our privacy-aware statistics tool will not track you across websites or multiple days. No personal data is collected, while all other data is strongly anonymized. You can opt-out at any time.`,
   }
 }

@@ -16,7 +16,7 @@ export interface IntegrationConfig {
   id: string
   title: string
   description: string
-  category: 'statistics' | 'social'
+  category: string
   color?: string
   contrastColor?: string
   privacyPolicyUrl?: string
