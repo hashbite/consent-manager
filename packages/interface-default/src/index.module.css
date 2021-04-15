@@ -93,7 +93,7 @@ html[data-theme='dark'] {
   left: 0;
   top: 0;
   width: 100%;
-  will-change: transform, backdrop-filter;
+  will-change: transform;
 }
 
 .backdrop {
@@ -111,29 +111,50 @@ html[data-theme='dark'] {
 /* Form */
 
 .form {
+  position: relative;
   overflow-y: auto;
 }
 
 .formContent {
   max-width: 960px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
+}
+
+@media (min-width: 767px) {
+  .formContent {
+    padding: 2rem;
+  }
+}
+
+.formTitle {
+  font-size: 1.3em;
 }
 
 .formIntro {
-  font-size: 1.2em;
+  font-size: 1em;
   text-align: center;
 }
 
-.formControls {
-  display: flex;
-  justify-content: center;
-  margin: 1rem 0;
-  font-size: 1.3rem;
+@media (min-width: 767px) {
+  .formIntro {
+    font-size: 1.2em;
+  }
 }
 
-.formControls > * + * {
-  margin-left: 2rem;
+.formControls {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(max-content, 140px));
+  justify-content: center;
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+@media (min-width: 767px) {
+  .formControls {
+    font-size: 1.3rem;
+  }
 }
 
 .formIntegrations {
@@ -143,8 +164,13 @@ html[data-theme='dark'] {
 
 .integrationField {
   padding: 1rem 0;
-  display: flex;
   position: relative;
+}
+
+@media (min-width: 767px) {
+  .integrationField {
+    display: flex;
+  }
 }
 
 .integrationField:first-child {
@@ -178,6 +204,20 @@ html[data-theme='dark'] {
   align-items: center;
   cursor: pointer;
 }
+
+.integrationFieldDetails {
+  flex: 1 1 auto;
+  margin-top: 1rem;
+  font-size: 0.9em;
+}
+
+@media (min-width: 767px) {
+  .integrationFieldDetails {
+    margin-left: 1rem;
+    font-size: 1em;
+  }
+}
+
 .integrationFieldTitle {
   margin-bottom: 0.5rem;
   font-size: 1.5em;
@@ -186,10 +226,6 @@ html[data-theme='dark'] {
   display: flex;
   align-items: center;
   font-size: 0.85em;
-}
-.integrationFieldDetails {
-  flex: 1 1 auto;
-  padding-left: 1rem;
 }
 
 .integrationLabel {
@@ -335,9 +371,11 @@ html[data-theme='dark'] {
   padding: 0.5em 0.5em;
   border-radius: 0.25rem;
   font-weight: bold;
+  border: 2px solid var(--consent-manager-ui-primary);
+  color: var(--consent-manager-ui-primary);
 }
 .buttonPrimary {
-  background: var(--consent-manager-ui-intro-primary);
+  background: var(--consent-manager-ui-primary);
   color: var(--consent-manager-ui-intro-bg);
   padding-left: 1em;
   padding-right: 1em;
@@ -365,9 +403,10 @@ html[data-theme='dark'] {
 }
 
 .formButtonClose {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(25%, 25%);
 }
 
 .buttonCloseIcon {
