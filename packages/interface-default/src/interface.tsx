@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
-import { FiChevronUp } from '@react-icons/all-files/fi/FiChevronUp'
+import { IoShieldCheckmark } from '@react-icons/all-files/io5/IoShieldCheckmark'
+import { IoClose } from '@react-icons/all-files/io5/IoClose'
 
 import {
   disableBodyScroll,
@@ -29,7 +30,7 @@ import {
 
 import { Styles } from './index'
 
-export interface ToggleIconProps {
+export interface IconProps {
   [key: string]: unknown
 }
 
@@ -43,7 +44,8 @@ export interface InterfaceProps extends DecisionsFormProps {
   styles?: Styles
   animationStyles?: Styles
   ToggleButton?: React.ComponentType<ToggleButtonProps>
-  ToggleIcon?: React.ComponentType<ToggleIconProps>
+  ToggleIcon?: React.ComponentType<IconProps>
+  CloseIcon?: React.ComponentType<IconProps>
   Switch?: React.ComponentType<SwitchProps>
   SubmitButton?: React.ComponentType<SubmitButtonProps>
   Form?: React.ComponentType<ConsentFormProps>
@@ -60,7 +62,8 @@ export const Interface: React.FC<InterfaceProps> = ({
   slideDuration = 700,
   renderBackdrop = true,
   styles = defaultStyles,
-  ToggleIcon = FiChevronUp,
+  CloseIcon = IoClose,
+  ToggleIcon = IoShieldCheckmark,
   ToggleButton = DefaultToggleButton,
   Switch = DefaultSwitch,
   SubmitButton = DefaultSubmitButton,
@@ -146,6 +149,7 @@ export const Interface: React.FC<InterfaceProps> = ({
           introductionFinished={introductionFinished}
           slideDuration={slideDuration}
           setShowForm={setShowForm}
+          CloseIcon={CloseIcon}
         />
       )}
       {renderBackdrop && (

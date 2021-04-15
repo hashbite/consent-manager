@@ -6,11 +6,12 @@ import { Trans } from '@lingui/react'
 
 import { useDecisions } from '@consent-manager/core'
 
-import { Styles } from './index'
+import { Styles, IconProps } from './index'
 import defaultStyles from './index.module.css'
 import defaultAnimationStyles from './animation-slide.module.css'
 
 export interface IntroductionProps {
+  CloseIcon: React.ComponentType<IconProps>
   introductionFinished: Function
   setShowForm: Function
   styles?: Styles
@@ -25,12 +26,13 @@ interface ActivityDetector {
 }
 
 export const Introduction: React.FC<IntroductionProps> = ({
+  CloseIcon,
   introductionFinished,
   styles = defaultStyles,
   animationStyles = defaultAnimationStyles,
   slideDuration,
   setShowForm,
-  noActionDelay = 100,
+  noActionDelay = 4000,
 }) => {
   const [decisions, setAndStoreDecisions] = useDecisions()
   const [show, setShow] = useState(false)
@@ -99,30 +101,44 @@ export const Introduction: React.FC<IntroductionProps> = ({
       onExited={() => introductionFinished()}
     >
       <section
-        className={clsx(styles.pane, styles.slide)}
+        className={clsx(styles.introduction, styles.slide)}
         style={{ transitionDuration: `${slideDuration}ms` }}
       >
-        <div className={clsx(styles.introduction, styles.content)}>
-          <h1 className={clsx(styles.headline)}>
+        <div className={clsx(styles.introductionShape)} />
+        <div className={clsx(styles.introductionContent)}>
+          <h1 className={clsx(styles.introductionTitle)}>
             <Trans
               id="consent-manager.introduction.title"
-              message="Data protection enabled."
+              message="Data protection enabled"
             />
           </h1>
-          <p className={clsx(styles.description)}>
+          <p className={clsx(styles.introductionDescription)}>
             <Trans
               id="consent-manager.introduction.description"
-              message="Some features were disabled to protect your privacy."
+              message="Some website features are disabled to protect your privacy."
             />
           </p>
-          <div className={clsx(styles.controls)}>
-            <button className={clsx(styles.button)} onClick={onLearnMore}>
+          <div className={clsx(styles.introductionControls)}>
+            <button
+              className={clsx(
+                styles.introductionButtonReset,
+                styles.introductionButton
+              )}
+              onClick={onLearnMore}
+            >
               <Trans
                 id="consent-manager.introduction.learn-more"
                 message="Learn more"
               />
             </button>
-            <button className={clsx(styles.button)} onClick={onEnableAll}>
+            <button
+              className={clsx(
+                styles.introductionButtonReset,
+                styles.introductionButton,
+                styles.introductionButtonPrimary
+              )}
+              onClick={onEnableAll}
+            >
               <Trans
                 id="consent-manager.introduction.enable-all"
                 message="Enable all features"
@@ -134,11 +150,16 @@ export const Introduction: React.FC<IntroductionProps> = ({
             message="close"
             render={({ translation }) => (
               <button
-                className={clsx(styles.close)}
+                className={clsx(
+                  styles.introductionButtonReset,
+                  styles.introductionButtonClose
+                )}
                 onClick={onClose}
                 title={String(translation)}
               >
-                x
+                <CloseIcon
+                  className={clsx(styles.introductionButtonCloseIcon)}
+                />
               </button>
             )}
           />
