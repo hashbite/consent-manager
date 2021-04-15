@@ -61,38 +61,55 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
     return initialState
   }, [integrations, initialValues])
 
+  const controls = (
+    <div className={clsx(styles.formControls)}>
+      <SubmitButton
+        className={clsx(
+          styles.introductionButtonReset,
+          styles.introductionButton,
+          styles.introductionButtonPrimary
+        )}
+      >
+        <Trans id="consent-manager.form.button" message="Close and save" />
+      </SubmitButton>
+    </div>
+  )
+
   return (
     <Form
       onSubmit={onSubmitCb}
       initialValues={initial}
       render={({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
-          <SubmitButton className={clsx(styles.submitButton)}>
-            <Trans id="consent-manager.form.button" message="Close and save" />
-          </SubmitButton>
-          <h2>
-            <Trans
-              id="consent-manager.form.headline"
-              message="Website Settings"
-            />
-          </h2>
-          <p>
-            <Trans
-              id="consent-manager.form.description"
-              message="Some features are disabled by default to protect your privacy:"
-            />
-          </p>
-          {integrations.map((integration: IntegrationConfigOptions) => (
-            <Integration
-              styles={styles}
-              key={integration.id}
-              Switch={Switch}
-              {...integration}
-            />
-          ))}
-          <SubmitButton className={clsx(styles.submitButton)}>
-            <Trans id="consent-manager.form.button" message="Close and save" />
-          </SubmitButton>
+          <div className={clsx(styles.formIntro)}>
+            <div className={clsx(styles.formContent)}>
+              <h1 className={clsx(styles.formTitle)}>
+                <Trans
+                  id="consent-manager.form.headline"
+                  message="Website Features and Cookies"
+                />
+              </h1>
+              <Trans
+                id="consent-manager.form.description"
+                message="<0>Some features are disabled by default Third Party Services are disabled to protect your privacy.</0><1>To fully experience this website enable the following features:</1>"
+                components={[<p />, <p />, <p />, <p />, <p />]}
+              />
+            </div>
+          </div>
+          {controls}
+          <div className={clsx(styles.formIntegrations)}>
+            <div className={clsx(styles.formContent)}>
+              {integrations.map((integration: IntegrationConfigOptions) => (
+                <Integration
+                  styles={styles}
+                  key={integration.id}
+                  Switch={Switch}
+                  {...integration}
+                />
+              ))}
+            </div>
+          </div>
+          {controls}
         </form>
       )}
     />

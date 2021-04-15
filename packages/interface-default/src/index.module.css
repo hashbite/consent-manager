@@ -9,13 +9,15 @@
   --consent-manager-ui-switch-nodge-bg: #fafafa;
   --consent-manager-ui-switch-shadow: 0 1px 3px 2px rgba(24, 24, 27, 0.2),
     0 1px 2px 0 rgba(24, 24, 27, 0.09);
-  --consent-manager-ui-toggle-primary: #16a34a;
+  --consent-manager-ui-primary: #16a34a;
+  --consent-manager-ui-toggle-primary: var(--consent-manager-ui-primary);
   --consent-manager-ui-toggle-bg: #f4f4f5;
-  --consent-manager-ui-intro-primary: #16a34a;
+  --consent-manager-ui-intro-primary: var(--consent-manager-ui-primary);
   --consent-manager-ui-intro-bg: #f4f4f5;
   --consent-manager-ui-intro-color: #18181b;
   --consent-manager-ui-intro-close-bg: #18181b;
   --consent-manager-ui-intro-close-color: #fff;
+  --consent-manager-ui-link-color: var(--consent-manager-ui-primary);
 }
 
 html[data-theme='dark'] {
@@ -24,6 +26,7 @@ html[data-theme='dark'] {
   --consent-manager-ui-inverse-shadow: 0 -1px 3px 2px rgba(250, 250, 250, 0.1),
     0 -1px 2px 0 rgba(250, 250, 250, 0.05);
   --consent-manager-ui-switch-slide-bg: #a1a1aa;
+  --consent-manager-ui-link-color: #22c55e;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,6 +36,7 @@ html[data-theme='dark'] {
     --consent-manager-ui-inverse-shadow: 0 -1px 3px 2px rgba(250, 250, 250, 0.1),
       0 -1px 2px 0 rgba(250, 250, 250, 0.05);
     --consent-manager-ui-switch-slide-bg: #a1a1aa;
+    --consent-manager-ui-link-color: #22c55e;
   }
 }
 
@@ -66,6 +70,20 @@ html[data-theme='dark'] {
   transform: translateY(100%);
 }
 
+.wrapper a {
+  color: var(--consent-manager-ui-link-color);
+  text-decoration: none;
+}
+
+.wrapper a:hover {
+  color: var(--consent-manager-ui-link-color);
+  text-decoration: underline;
+}
+
+.wrapper p:last-child {
+  margin-bottom: 0;
+}
+
 .pane {
   color: var(--consent-manager-ui-color);
 }
@@ -93,38 +111,97 @@ html[data-theme='dark'] {
 /* Form */
 
 .form {
+  overflow-y: auto;
+}
+
+.formContent {
   max-width: 960px;
   margin: 0 auto;
-  overflow-y: auto;
   padding: 2rem;
 }
 
-.formControl {
-  margin-bottom: 1rem;
+.formIntro {
+  font-size: 1.2em;
+  text-align: center;
 }
 
-.formControl + .formControl::before {
+.formControls {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  font-size: 1.3rem;
+}
+
+.formIntegrations {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.integrationField {
+  padding: 1rem 0;
+  display: flex;
+  position: relative;
+}
+
+.integrationField:first-child {
+  padding-top: 0;
+}
+.integrationField:last-child {
+  padding-bottom: 0;
+}
+
+.integrationField + .integrationField::before,
+.formIntegrations::before,
+.formIntegrations::after {
   content: '';
   display: block;
   border-top: 1px solid currentColor;
   opacity: 0.3;
-  margin-bottom: 1rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.formIntegrations::after {
+  top: auto;
+  bottom: 1rem;
 }
 
-.integration {
-  border-radius: 0.25rem;
-  padding: 0.3rem 0.5rem;
+.integrationFieldTrigger {
+  flex: 0 0 38.2%;
+  max-width: 260px;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.integrationFieldTitle {
+  margin-bottom: 0.5rem;
+  font-size: 1.5em;
+}
+.integrationFieldCompany {
+  display: flex;
+  align-items: center;
+  font-size: 0.85em;
+}
+.integrationFieldDetails {
+  flex: 1 1 auto;
+  padding-left: 1rem;
 }
 
-.integrationIcon {
-  width: 2rem;
-  padding-right: 0.5rem;
+.integrationLabel {
+  margin-left: 0.5em;
+  border-radius: 0.25rem;
+  padding: 0.25em 0.5em;
+  display: flex;
+  align-items: center;
 }
-.integrationTitle {
+
+.integrationLabelIcon {
+  width: 1.8em;
+  padding-right: 0.5em;
 }
-.integrationDescription {
+/* .integrationTitle {} */
+.integrationLabelDescription {
   margin-top: 1rem;
   font-size: 0.9em;
   opacity: 0.9;
@@ -133,20 +210,6 @@ html[data-theme='dark'] {
   margin-top: 1rem;
   font-size: 0.9em;
   opacity: 0.9;
-}
-
-.submitButton {
-  margin-bottom: 1rem;
-}
-
-.submitButton:last-child {
-  margin-bottom: 0;
-}
-
-@media (min-width: 767px) {
-  .submitButton:first-child {
-    display: none;
-  }
 }
 
 /* Toggle */
@@ -351,8 +414,8 @@ html[data-theme='dark'] {
 }
 
 .switchContent {
-  margin-left: 0.75rem;
-  color: #52525b;
+  width: 100%;
+  margin-left: 1rem;
 }
 
 .switchInput {

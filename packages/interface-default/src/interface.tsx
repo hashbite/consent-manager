@@ -172,7 +172,7 @@ export const Interface: React.FC<InterfaceProps> = ({
             transitionDuration: `${slideDuration}ms`,
           }}
         >
-          <div
+          <section
             className={clsx(styles.form)}
             style={{
               maxHeight: viewportHeight ? `${viewportHeight}px` : 'null',
@@ -188,7 +188,7 @@ export const Interface: React.FC<InterfaceProps> = ({
               Switch={Switch}
               SubmitButton={SubmitButton}
             />
-          </div>
+          </section>
         </div>
       </CSSTransition>
       <ToggleButton
