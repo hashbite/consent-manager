@@ -187,6 +187,7 @@ export const Interface: React.FC<InterfaceProps> = ({
               setShowForm={setShowForm}
               Switch={Switch}
               SubmitButton={SubmitButton}
+              CloseIcon={CloseIcon}
             />
           </section>
         </div>
