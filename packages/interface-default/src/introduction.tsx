@@ -120,10 +120,7 @@ export const Introduction: React.FC<IntroductionProps> = ({
           </p>
           <div className={clsx(styles.introductionControls)}>
             <button
-              className={clsx(
-                styles.introductionButtonReset,
-                styles.introductionButton
-              )}
+              className={clsx(styles.buttonReset, styles.button)}
               onClick={onLearnMore}
             >
               <Trans
@@ -133,9 +130,9 @@ export const Introduction: React.FC<IntroductionProps> = ({
             </button>
             <button
               className={clsx(
-                styles.introductionButtonReset,
-                styles.introductionButton,
-                styles.introductionButtonPrimary
+                styles.buttonReset,
+                styles.button,
+                styles.buttonPrimary
               )}
               onClick={onEnableAll}
             >
@@ -146,20 +143,19 @@ export const Introduction: React.FC<IntroductionProps> = ({
             </button>
           </div>
           <Trans
-            id="consent-manager.introduction.close"
+            id="consent-manager.close"
             message="close"
             render={({ translation }) => (
               <button
                 className={clsx(
-                  styles.introductionButtonReset,
-                  styles.introductionButtonClose
+                  styles.buttonReset,
+                  styles.buttonClose,
+                  styles.buttonClose
                 )}
                 onClick={onClose}
                 title={String(translation)}
               >
-                <CloseIcon
-                  className={clsx(styles.introductionButtonCloseIcon)}
-                />
+                <CloseIcon className={clsx(styles.buttonCloseIcon)} />
               </button>
             )}
           />

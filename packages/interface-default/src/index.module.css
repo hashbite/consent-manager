@@ -132,6 +132,10 @@ html[data-theme='dark'] {
   font-size: 1.3rem;
 }
 
+.formControls > * + * {
+  margin-left: 2rem;
+}
+
 .formIntegrations {
   position: relative;
   margin-top: 2rem;
@@ -315,36 +319,31 @@ html[data-theme='dark'] {
   justify-content: space-between;
   width: 100%;
 }
-.introductionButtonReset {
+.buttonReset {
   background: transparent;
   border: none;
   cursor: pointer;
   font-size: inherit;
 }
 
-.introductionButtonReset:focus,
-.introductionButtonReset:hover {
+.buttonReset:focus,
+.buttonReset:hover {
   outline: none;
   opacity: 0.9;
 }
-.introductionButton {
+.button {
   padding: 0.5em 0.5em;
   border-radius: 0.25rem;
   font-weight: bold;
 }
-.introductionButtonPrimary {
+.buttonPrimary {
   background: var(--consent-manager-ui-intro-primary);
   color: var(--consent-manager-ui-intro-bg);
   padding-left: 1em;
   padding-right: 1em;
 }
 
-.introductionButtonClose {
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(50%, -50%);
-
+.buttonClose {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -358,14 +357,27 @@ html[data-theme='dark'] {
   color: var(--consent-manager-ui-intro-close-color);
 }
 
-.introductionButtonCloseIcon {
+.buttonClose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.formButtonClose {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.buttonCloseIcon {
   display: block;
   width: 24px;
   height: auto;
 }
 
 @media (min-width: 767px) {
-  .introductionButtonCloseIcon {
+  .buttonCloseIcon {
     width: 30px;
   }
 }
