@@ -11,7 +11,7 @@ export const Switch: React.FC<SwitchProps> = ({
   input,
   meta,
   styles,
-  enabledColor = '#48bb78',
+  enabledColor = 'var(--consent-manager-ui-primary)',
   ...rest
 }) => {
   const key = `switch-${input.name}`
