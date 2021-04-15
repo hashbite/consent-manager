@@ -1,19 +1,20 @@
 /* color scheme aware color definitions */
 :root {
-  --consent-manager-ui-bg: rgba(250, 250, 250, 0.87);
+  --consent-manager-ui-bg: #f4f4f5;
+  --consent-manager-ui-bg-transparent: rgba(250, 250, 250, 0.87);
   --consent-manager-ui-color: #18181b;
   --consent-manager-ui-inverse-shadow: 0 -1px 3px 2px rgba(161, 161, 170, 0.2),
     0 -1px 2px 0 rgba(161, 161, 170, 0.09);
   --consent-manager-ui-drop-shadow: 0 1px 3px rgba(98, 98, 101, 0.36);
   --consent-manager-ui-switch-slide-bg: #e4e4e7;
-  --consent-manager-ui-switch-nodge-bg: #fafafa;
+  --consent-manager-ui-switch-nodge-bg: var(--consent-manager-ui-bg);
   --consent-manager-ui-switch-shadow: 0 1px 3px 2px rgba(24, 24, 27, 0.2),
     0 1px 2px 0 rgba(24, 24, 27, 0.09);
   --consent-manager-ui-primary: #16a34a;
   --consent-manager-ui-toggle-primary: var(--consent-manager-ui-primary);
-  --consent-manager-ui-toggle-bg: #f4f4f5;
+  --consent-manager-ui-toggle-bg: var(--consent-manager-ui-bg);
   --consent-manager-ui-intro-primary: var(--consent-manager-ui-primary);
-  --consent-manager-ui-intro-bg: #f4f4f5;
+  --consent-manager-ui-intro-bg: var(--consent-manager-ui-bg);
   --consent-manager-ui-intro-color: #18181b;
   --consent-manager-ui-intro-close-bg: #18181b;
   --consent-manager-ui-intro-close-color: #fff;
@@ -21,8 +22,9 @@
 }
 
 html[data-theme='dark'] {
-  --consent-manager-ui-bg: rgba(24, 24, 27, 0.87);
-  --consent-manager-ui-color: #fafafa;
+  --consent-manager-ui-bg: #18181b;
+  --consent-manager-ui-bg-transparent: rgba(24, 24, 27, 0.87);
+  --consent-manager-ui-color: var(--consent-manager-ui-bg);
   --consent-manager-ui-inverse-shadow: 0 -1px 3px 2px rgba(250, 250, 250, 0.1),
     0 -1px 2px 0 rgba(250, 250, 250, 0.05);
   --consent-manager-ui-switch-slide-bg: #a1a1aa;
@@ -32,7 +34,8 @@ html[data-theme='dark'] {
 @media (prefers-color-scheme: dark) {
   html:not([data-theme]) {
     --consent-manager-ui-bg: #18181b;
-    --consent-manager-ui-color: #fafafa;
+    --consent-manager-ui-bg-transparent: rgba(24, 24, 27, 0.87);
+    --consent-manager-ui-color: var(--consent-manager-ui-bg);
     --consent-manager-ui-inverse-shadow: 0 -1px 3px 2px rgba(250, 250, 250, 0.1),
       0 -1px 2px 0 rgba(250, 250, 250, 0.05);
     --consent-manager-ui-switch-slide-bg: #a1a1aa;
@@ -104,8 +107,14 @@ html[data-theme='dark'] {
   width: 100vw;
   transform: translateY(-100%);
   background: var(--consent-manager-ui-bg);
-  backdrop-filter: saturate(160%) blur(20px);
   will-change: opacity;
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .backdrop {
+    background: var(--consent-manager-ui-bg-transparent);
+    backdrop-filter: saturate(160%) blur(20px);
+  }
 }
 
 /* Form */
@@ -407,6 +416,12 @@ html[data-theme='dark'] {
   top: 0;
   left: 0;
   transform: translate(25%, 25%);
+}
+
+@media (min-width: 767px) {
+  .formButtonClose {
+    transform: translate(75%, 75%);
+  }
 }
 
 .buttonCloseIcon {
