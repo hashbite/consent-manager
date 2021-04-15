@@ -23,7 +23,7 @@ export const Integration: React.FC<IntegrationProps> = ({
   Icon,
 }) => (
   <div className={clsx(styles.formControl)} key={id}>
-    <Field name={id} component={Switch} type="checkbox">
+    <Field name={id} component={Switch} type="checkbox" styles={styles}>
       <div
         className={clsx(styles.integration)}
         style={{

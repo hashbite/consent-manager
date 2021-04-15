@@ -2,14 +2,14 @@ import React from 'react'
 import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
 
-import { Styles, ToggleIconProps } from './index'
+import { Styles, IconProps } from './index'
 
 import defaultAnimationStyles from './animation-slide-out.module.css'
 
 export interface ToggleButtonProps {
   styles: Styles
   animationStyles?: Styles
-  ToggleIcon: React.ComponentType<ToggleIconProps>
+  ToggleIcon: React.ComponentType<IconProps>
   showForm: boolean
   toggleControlForm: Function
   slideDuration?: number
@@ -36,8 +36,8 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
         transitionDuration: `${slideDuration}ms`,
       }}
     >
-      <div className={clsx(styles.pane, styles.toggleButtonContent)}>
-        <ToggleIcon className={clsx(showForm && styles.inverted)} />
+      <div className={clsx(styles.toggleButtonContent)}>
+        <ToggleIcon className={clsx(styles.toggleButtonIcon)} />
       </div>
     </button>
   </CSSTransition>
