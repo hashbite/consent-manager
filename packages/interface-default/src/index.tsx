@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import {
   ConsentManager,
   ConsentManagerForm,
@@ -39,6 +39,7 @@ interface ConsentManagerDefaultInterfaceProps
     ConsentManagerProps {
   linguiConfig: setupI18nProps
   i18n: I18n
+  activeLocale: string
 }
 
 export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInterfaceProps> = ({
@@ -48,6 +49,7 @@ export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInter
     // By defining messages for the en locale you can override the default copy
     // messages: { en: { 'consent-manager.form.title': 'Privacy Settings' } },
   },
+  activeLocale = 'en',
   children,
   config,
   store,
@@ -59,6 +61,12 @@ export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInter
   }, [linguiConfig, i18n])
 
   const [formVisible, setFormVisible] = useState(false)
+
+  useEffect(() => {
+    if (i18n && i18n.locale !== activeLocale) {
+      i18n.activate(activeLocale)
+    }
+  }, [i18n, activeLocale])
 
   return (
     <I18nProvider i18n={i18nInstance}>
