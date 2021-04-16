@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
 import { IoShieldCheckmark } from '@react-icons/all-files/io5/IoShieldCheckmark'
@@ -22,6 +28,7 @@ import defaultAnimationStyles from './animation-slide.module.css'
 import { Introduction } from './introduction'
 import { ConsentForm as DefaultForm, ConsentFormProps } from './form'
 import { Backdrop } from './backdrop'
+import { ConsentManagerDefaultInterfaceContext } from './context'
 
 import {
   ToggleButton as DefaultToggleButton,
@@ -40,7 +47,6 @@ export interface ButtonProps {
 
 export interface InterfaceProps extends DecisionsFormProps {
   slideDuration?: number
-  renderBackdrop?: boolean
   styles?: Styles
   animationStyles?: Styles
   ToggleButton?: React.ComponentType<ToggleButtonProps>
@@ -60,7 +66,6 @@ export const Interface: React.FC<InterfaceProps> = ({
   initialValues,
   onSubmit,
   slideDuration = 700,
-  renderBackdrop = true,
   styles = defaultStyles,
   CloseIcon = IoClose,
   ToggleIcon = IoShieldCheckmark,
@@ -71,6 +76,9 @@ export const Interface: React.FC<InterfaceProps> = ({
   animationStyles = defaultAnimationStyles,
 }) => {
   const hasPendingDecisions = useConsentFormVisible()
+  const { formVisible, setFormVisible } = useContext(
+    ConsentManagerDefaultInterfaceContext
+  )
 
   const [needsIntroduction, setNeedsIntroduction] = useState(
     hasPendingDecisions
@@ -80,15 +88,14 @@ export const Interface: React.FC<InterfaceProps> = ({
     setNeedsIntroduction(false)
   }, [setNeedsIntroduction])
 
-  const [showForm, setShowForm] = useState(false)
   const formContainerRef = useRef<HTMLDivElement>(null)
 
   const toggleControlForm = useCallback(
     e => {
       e.preventDefault()
-      setShowForm(v => !v)
+      setFormVisible(!formVisible)
     },
-    [setShowForm]
+    [formVisible, setFormVisible]
   )
 
   // Freeze scroll when form is shown
@@ -99,29 +106,29 @@ export const Interface: React.FC<InterfaceProps> = ({
       return
     }
 
-    if (showForm) {
+    if (formVisible) {
       disableBodyScroll(target)
       target.scrollTo({ top: 0 })
     }
 
-    if (!showForm) {
+    if (!formVisible) {
       enableBodyScroll(target)
     }
 
     return clearAllBodyScrollLocks
-  }, [showForm, formContainerRef])
+  }, [formVisible, formContainerRef])
 
   // Get 100vh on mobile browsers as well
   const viewportHeight = use100vh()
 
   const handleEsc = useCallback(
     e => {
-      if (showForm && e.keyCode === 27) {
+      if (formVisible && e.keyCode === 27) {
         e.preventDefault()
-        setShowForm(false)
+        setFormVisible(false)
       }
     },
-    [showForm]
+    [formVisible, setFormVisible]
   )
 
   // Allow close on ESC key
@@ -148,19 +155,12 @@ export const Interface: React.FC<InterfaceProps> = ({
         <Introduction
           introductionFinished={introductionFinished}
           slideDuration={slideDuration}
-          setShowForm={setShowForm}
           CloseIcon={CloseIcon}
         />
       )}
-      {renderBackdrop && (
-        <Backdrop
-          show={showForm}
-          fadeDuration={slideDuration}
-          styles={styles}
-        />
-      )}
+      <Backdrop fadeDuration={slideDuration} styles={styles} />
       <CSSTransition
-        in={showForm}
+        in={formVisible}
         timeout={slideDuration}
         classNames={animationStyles}
         unmountOnExit
@@ -184,7 +184,6 @@ export const Interface: React.FC<InterfaceProps> = ({
               onSubmit={onSubmit}
               integrations={integrations}
               initialValues={initialValues}
-              setShowForm={setShowForm}
               Switch={Switch}
               SubmitButton={SubmitButton}
               CloseIcon={CloseIcon}
@@ -195,7 +194,6 @@ export const Interface: React.FC<InterfaceProps> = ({
       <ToggleButton
         ToggleIcon={ToggleIcon}
         styles={styles}
-        showForm={showForm}
         toggleControlForm={toggleControlForm}
       />
     </div>

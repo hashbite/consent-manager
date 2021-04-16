@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
 import createActivityDetector from 'activity-detector-ssr'
@@ -9,11 +9,11 @@ import { useDecisions } from '@consent-manager/core'
 import { Styles, IconProps } from './index'
 import defaultStyles from './index.module.css'
 import defaultAnimationStyles from './animation-slide.module.css'
+import { ConsentManagerDefaultInterfaceContext } from './context'
 
 export interface IntroductionProps {
   CloseIcon: React.ComponentType<IconProps>
   introductionFinished: Function
-  setShowForm: Function
   styles?: Styles
   animationStyles?: Styles
   slideDuration: number
@@ -31,9 +31,9 @@ export const Introduction: React.FC<IntroductionProps> = ({
   styles = defaultStyles,
   animationStyles = defaultAnimationStyles,
   slideDuration,
-  setShowForm,
   noActionDelay = 4000,
 }) => {
+  const { setFormVisible } = useContext(ConsentManagerDefaultInterfaceContext)
   const [decisions, setAndStoreDecisions] = useDecisions()
   const [show, setShow] = useState(false)
   const [isIdle, setIsIdle] = React.useState(false)
@@ -66,9 +66,9 @@ export const Introduction: React.FC<IntroductionProps> = ({
     e => {
       e.preventDefault()
       setShow(false)
-      setShowForm(true)
+      setFormVisible(true)
     },
-    [setShow, setShowForm]
+    [setShow, setFormVisible]
   )
 
   const onEnableAll = useCallback(

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useContext } from 'react'
 import {
   useIntegration,
   useDecision,
@@ -11,6 +11,7 @@ import { IoShieldCheckmark } from '@react-icons/all-files/io5/IoShieldCheckmark'
 import { ButtonProps, Styles, IconProps } from '.'
 import { IntegrationLabel } from './integration-label'
 import defaultStyles from './index.module.css'
+import { ConsentManagerDefaultInterfaceContext } from './context'
 
 interface StyleableFallbackComponentProps extends FallbackComponentProps {
   styles?: Styles
@@ -26,6 +27,7 @@ export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({
   styles = defaultStyles,
   Icon = IoShieldCheckmark,
 }) => {
+  const { setFormVisible } = useContext(ConsentManagerDefaultInterfaceContext)
   const integration = useIntegration(integrationId)
   const [, setDecision] = useDecision(integrationId)
   const enableIntegration = useCallback(() => {
@@ -65,7 +67,7 @@ export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({
         <div className={clsx(styles.fallbackComponentControls)}>
           <Button
             className={clsx(styles.buttonReset, styles.button)}
-            onClick={() => enableIntegration()}
+            onClick={() => setFormVisible(true)}
           >
             <Trans
               id={`consent-manager.fallback.${integrationId}.learnMore`}

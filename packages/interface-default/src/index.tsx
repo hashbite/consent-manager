@@ -1,5 +1,9 @@
-import React, { useMemo } from 'react'
-import { ConsentManagerForm } from '@consent-manager/core'
+import React, { useState, useMemo } from 'react'
+import {
+  ConsentManager,
+  ConsentManagerForm,
+  ConsentManagerProps,
+} from '@consent-manager/core'
 import {
   setupI18n,
   Locale,
@@ -11,6 +15,8 @@ import { I18nProvider } from '@lingui/react'
 import { I18n } from '@lingui/core'
 
 import { Interface, InterfaceProps } from './interface'
+import { FallbackComponent } from './fallback-component'
+import { ConsentManagerDefaultInterfaceContext } from './context'
 
 export { ToggleButtonProps } from './toggle-button'
 export { InterfaceProps, ButtonProps, IconProps } from './interface'
@@ -28,7 +34,9 @@ interface setupI18nProps {
   missing?: string | ((message: any, id: any) => string)
 }
 
-interface ConsentManagerDefaultInterfaceProps extends InterfaceProps {
+interface ConsentManagerDefaultInterfaceProps
+  extends InterfaceProps,
+    ConsentManagerProps {
   linguiConfig: setupI18nProps
   i18n: I18n
 }
@@ -41,6 +49,8 @@ export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInter
     // messages: { en: { 'consent-manager.form.title': 'Privacy Settings' } },
   },
   children,
+  config,
+  store,
   ...props
 }) => {
   // Use custom i18n instance for multi locale support or use default setup
@@ -48,12 +58,24 @@ export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInter
     return i18n || setupI18n(linguiConfig)
   }, [linguiConfig, i18n])
 
+  const [formVisible, setFormVisible] = useState(false)
+
   return (
     <I18nProvider i18n={i18nInstance}>
-      {children}
-      <ConsentManagerForm formComponent={Interface} {...props} />
+      <ConsentManager
+        config={config}
+        store={store}
+        fallbackComponent={fallbackProps => (
+          <FallbackComponent {...props} {...fallbackProps} />
+        )}
+      >
+        <ConsentManagerDefaultInterfaceContext.Provider
+          value={{ formVisible, setFormVisible }}
+        >
+          {children}
+          <ConsentManagerForm formComponent={Interface} {...props} />
+        </ConsentManagerDefaultInterfaceContext.Provider>
+      </ConsentManager>
     </I18nProvider>
   )
 }
-
-export { FallbackComponent } from './fallback-component'

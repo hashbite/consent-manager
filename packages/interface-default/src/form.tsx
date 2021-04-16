@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react'
+import React, { useCallback, useContext, useMemo } from 'react'
 import { Form } from 'react-final-form'
 import clsx from 'clsx'
 import {
@@ -12,10 +12,10 @@ import { Switch as DefaultSwitch, SwitchProps } from './switch'
 import { Integration } from './integration'
 import { Styles, ButtonProps } from './index'
 import { IconProps } from './interface'
+import { ConsentManagerDefaultInterfaceContext } from './context'
 
 export interface ConsentFormProps extends DecisionsFormProps {
   styles: Styles
-  setShowForm: Function
   CloseIcon: React.ComponentType<IconProps>
   Switch?: React.ComponentType<SwitchProps>
   SubmitButton?: React.ComponentType<ButtonProps>
@@ -34,11 +34,12 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
   initialValues,
   onSubmit,
   CloseIcon,
-  setShowForm,
   styles = defaultStyles,
   Switch = DefaultSwitch,
   SubmitButton = DefaultSubmitButton,
 }) => {
+  const { setFormVisible } = useContext(ConsentManagerDefaultInterfaceContext)
+
   const onSubmitCb = useCallback(
     values => {
       const enabled = []
@@ -47,10 +48,10 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
           enabled.push(key)
         }
       }
-      setShowForm(false)
+      setFormVisible(false)
       onSubmit({ enabled })
     },
-    [onSubmit, setShowForm]
+    [onSubmit, setFormVisible]
   )
 
   const initialState = useMemo(() => {
@@ -64,7 +65,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
     return initialState
   }, [integrations, initialValues])
 
-  const onClose = useCallback(() => setShowForm(false), [setShowForm])
+  const onClose = useCallback(() => setFormVisible(false), [setFormVisible])
 
   return (
     <>
