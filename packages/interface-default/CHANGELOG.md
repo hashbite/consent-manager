@@ -1,5 +1,11 @@
 # @consent-manager/interface-default
 
+## 0.0.1-next.9
+
+### Patch Changes
+
+- Allow setting locale from outside via prop
+
 ## 0.0.1-next.8
 
 ### Patch Changes
