@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 0.0.1-next.9
+
+### Patch Changes
+
+- New design
+
 ## 0.0.1-next.8
 
 ### Patch Changes
