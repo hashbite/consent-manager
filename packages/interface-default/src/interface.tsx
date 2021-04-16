@@ -53,13 +53,11 @@ export interface InterfaceProps extends DecisionsFormProps {
   ToggleIcon?: React.ComponentType<IconProps>
   CloseIcon?: React.ComponentType<IconProps>
   Switch?: React.ComponentType<SwitchProps>
-  SubmitButton?: React.ComponentType<ButtonProps>
+  Button?: React.ComponentType<ButtonProps>
   Form?: React.ComponentType<ConsentFormProps>
 }
 
-const DefaultSubmitButton: React.FC<ButtonProps> = props => (
-  <button {...props} />
-)
+const DefaultButton: React.FC<ButtonProps> = props => <button {...props} />
 
 export const Interface: React.FC<InterfaceProps> = ({
   integrations,
@@ -71,7 +69,7 @@ export const Interface: React.FC<InterfaceProps> = ({
   ToggleIcon = IoShieldCheckmark,
   ToggleButton = DefaultToggleButton,
   Switch = DefaultSwitch,
-  SubmitButton = DefaultSubmitButton,
+  Button = DefaultButton,
   Form = DefaultForm,
   animationStyles = defaultAnimationStyles,
 }) => {
@@ -185,7 +183,7 @@ export const Interface: React.FC<InterfaceProps> = ({
               integrations={integrations}
               initialValues={initialValues}
               Switch={Switch}
-              SubmitButton={SubmitButton}
+              Button={Button}
               CloseIcon={CloseIcon}
             />
           </section>
