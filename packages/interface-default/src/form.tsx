@@ -18,16 +18,14 @@ export interface ConsentFormProps extends DecisionsFormProps {
   styles: Styles
   CloseIcon: React.ComponentType<IconProps>
   Switch?: React.ComponentType<SwitchProps>
-  SubmitButton?: React.ComponentType<ButtonProps>
+  Button?: React.ComponentType<ButtonProps>
 }
 
 interface FormState {
   [key: string]: boolean
 }
 
-const DefaultSubmitButton: React.FC<ButtonProps> = props => (
-  <button {...props} />
-)
+const DefaultButton: React.FC<ButtonProps> = props => <button {...props} />
 
 export const ConsentForm: React.FC<ConsentFormProps> = ({
   integrations,
@@ -36,7 +34,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
   CloseIcon,
   styles = defaultStyles,
   Switch = DefaultSwitch,
-  SubmitButton = DefaultSubmitButton,
+  Button = DefaultButton,
 }) => {
   const { setFormVisible } = useContext(ConsentManagerDefaultInterfaceContext)
 
@@ -75,14 +73,14 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
         render={({ handleSubmit, form }) => {
           const controls = (
             <div className={clsx(styles.formControls)}>
-              <SubmitButton
+              <Button
                 type="button"
                 onClick={form.reset}
                 className={clsx(styles.buttonReset, styles.button)}
               >
                 <Trans id="consent-manager.form.reset" message="Reset" />
-              </SubmitButton>
-              <SubmitButton
+              </Button>
+              <Button
                 type="button"
                 onClick={() =>
                   form.batch(() => {
@@ -97,8 +95,8 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
                   id="consent-manager.form.disable-all"
                   message="Disable all"
                 />
-              </SubmitButton>
-              <SubmitButton
+              </Button>
+              <Button
                 type="button"
                 onClick={() =>
                   form.batch(() => {
@@ -113,8 +111,8 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
                   id="consent-manager.form.enable-all"
                   message="Enable all"
                 />
-              </SubmitButton>
-              <SubmitButton
+              </Button>
+              <Button
                 type="submit"
                 className={clsx(
                   styles.buttonReset,
@@ -126,7 +124,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
                   id="consent-manager.form.save"
                   message="Save and close"
                 />
-              </SubmitButton>
+              </Button>
             </div>
           )
 
