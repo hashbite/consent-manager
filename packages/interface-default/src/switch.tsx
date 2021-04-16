@@ -1,9 +1,10 @@
 import React from 'react'
+import clsx from 'clsx'
 import { FieldRenderProps } from 'react-final-form'
+
 import { Styles } from '.'
 export interface SwitchProps extends FieldRenderProps<string, any> {
   styles: Styles
-  enabledColor?: string
 }
 
 export const Switch: React.FC<SwitchProps> = ({
@@ -11,7 +12,6 @@ export const Switch: React.FC<SwitchProps> = ({
   input,
   meta,
   styles,
-  enabledColor = 'var(--consent-manager-ui-primary)',
   ...rest
 }) => {
   const key = `switch-${input.name}`
@@ -21,16 +21,16 @@ export const Switch: React.FC<SwitchProps> = ({
       <div className={styles.switchWrapper}>
         <input id={key} {...input} className={styles.switchInput} />
         <div
-          className={styles.switchSlide}
-          style={{
-            backgroundColor: input.checked ? enabledColor : undefined,
-          }}
+          className={clsx(
+            styles.switchSlide,
+            input.checked && styles.switchSlideEnabled
+          )}
         />
         <div
-          className={styles.switchNodge}
-          style={{
-            transform: input.checked ? 'translateX(100%)' : undefined,
-          }}
+          className={clsx(
+            styles.switchNodge,
+            input.checked && styles.switchNodgeEnabled
+          )}
         />
       </div>
       <div className={styles.switchContent}>{children} </div>
