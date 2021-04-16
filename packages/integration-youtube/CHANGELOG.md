@@ -1,5 +1,13 @@
 # @consent-manager/integration-youtube
 
+## 0.0.1-next.8
+
+### Patch Changes
+
+- New design
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.9
+
 ## 0.0.1-next.7
 
 ### Patch Changes
