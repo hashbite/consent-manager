@@ -94,7 +94,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
                 className={clsx(styles.buttonReset, styles.button)}
               >
                 <Trans
-                  id="consent-manager.form.disableAll"
+                  id="consent-manager.form.disable-all"
                   message="Disable all"
                 />
               </SubmitButton>
@@ -110,7 +110,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
                 className={clsx(styles.buttonReset, styles.button)}
               >
                 <Trans
-                  id="consent-manager.form.enableAll"
+                  id="consent-manager.form.enable-all"
                   message="Enable all"
                 />
               </SubmitButton>
@@ -124,7 +124,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
               >
                 <Trans
                   id="consent-manager.form.save"
-                  message="Close and save"
+                  message="Save and close"
                 />
               </SubmitButton>
             </div>
