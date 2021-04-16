@@ -5,16 +5,17 @@ import {
   FallbackComponentProps,
 } from '@consent-manager/core'
 import clsx from 'clsx'
+import { Trans } from '@lingui/react'
+import { IoShieldCheckmark } from '@react-icons/all-files/io5/IoShieldCheckmark'
 
-import { Styles } from './index'
+import { ButtonProps, Styles, IconProps } from '.'
+import { IntegrationLabel } from './integration-label'
 import defaultStyles from './index.module.css'
 
-interface ButtonProps {
-  onClick: Function
-}
 interface StyleableFallbackComponentProps extends FallbackComponentProps {
-  styles: Styles
-  Button: React.ComponentType<ButtonProps>
+  styles?: Styles
+  Button?: React.ComponentType<ButtonProps>
+  Icon?: React.ComponentType<IconProps>
 }
 
 const DefaultButton: React.FC = props => <button {...props} />
@@ -23,6 +24,7 @@ export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({
   integrationId,
   Button = DefaultButton,
   styles = defaultStyles,
+  Icon = IoShieldCheckmark,
 }) => {
   const integration = useIntegration(integrationId)
   const [, setDecision] = useDecision(integrationId)
@@ -35,21 +37,56 @@ export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({
   }
 
   return (
-    <div className={clsx(styles.fallbackComponent)}>
-      <h2>Recommended Content!</h2>
-      <p>
-        We'd like to show you some content via {integration.title}. To protect
-        your privacy, we disabled it by default.
-      </p>
-      <p>{integration.description}</p>
-      <p>
-        <a href={integration.privacyPolicyUrl} rel="noreferrer" target="_blank">
-          Learn more about the privacy policy of {integration.title}
-        </a>
-      </p>
-      <Button onClick={() => enableIntegration()}>
-        Enable {integration.title}
-      </Button>
-    </div>
+    <section className={clsx(styles.fallbackComponent)}>
+      <div className={clsx(styles.fallbackComponentContent)}>
+        <h1 className={clsx(styles.fallbackComponentTitle)}>
+          <Icon className={clsx(styles.fallbackComponentIcon)} />
+          <Trans
+            id={`consent-manager.fallback.${integrationId}.title`}
+            message="Recommended external content"
+          />
+        </h1>
+        <Trans
+          id={`consent-manager.fallback.${integrationId}.description`}
+          message={[
+            '<1>This feature contains content by <0/></1>',
+            '<2>To view this third-party content, you first have to accept their specific terms and conditions.</2>',
+            '<3>This includes their cookie policies, which we have no control over.</3>',
+          ].join('')}
+          components={[
+            <IntegrationLabel styles={styles} integration={integration} />,
+            <p />,
+            <p />,
+            <p />,
+            <p />,
+            <p />,
+          ]}
+        />
+        <div className={clsx(styles.fallbackComponentControls)}>
+          <Button
+            className={clsx(styles.buttonReset, styles.button)}
+            onClick={() => enableIntegration()}
+          >
+            <Trans
+              id={`consent-manager.fallback.${integrationId}.learnMore`}
+              message="Learn more"
+            />
+          </Button>
+          <Button
+            className={clsx(
+              styles.buttonReset,
+              styles.button,
+              styles.buttonPrimary
+            )}
+            onClick={() => enableIntegration()}
+          >
+            <Trans
+              id={`consent-manager.fallback.${integrationId}.learnMore`}
+              message={`Enable ${integration.title}`}
+            />
+          </Button>
+        </div>
+      </div>
+    </section>
   )
 }

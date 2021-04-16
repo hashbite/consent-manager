@@ -34,7 +34,7 @@ export interface IconProps {
   [key: string]: unknown
 }
 
-export interface SubmitButtonProps {
+export interface ButtonProps {
   [key: string]: unknown
 }
 
@@ -47,11 +47,11 @@ export interface InterfaceProps extends DecisionsFormProps {
   ToggleIcon?: React.ComponentType<IconProps>
   CloseIcon?: React.ComponentType<IconProps>
   Switch?: React.ComponentType<SwitchProps>
-  SubmitButton?: React.ComponentType<SubmitButtonProps>
+  SubmitButton?: React.ComponentType<ButtonProps>
   Form?: React.ComponentType<ConsentFormProps>
 }
 
-const DefaultSubmitButton: React.FC<SubmitButtonProps> = props => (
+const DefaultSubmitButton: React.FC<ButtonProps> = props => (
   <button {...props} />
 )
 

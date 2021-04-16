@@ -13,7 +13,7 @@ import { I18n } from '@lingui/core'
 import { Interface, InterfaceProps } from './interface'
 
 export { ToggleButtonProps } from './toggle-button'
-export { InterfaceProps, SubmitButtonProps, IconProps } from './interface'
+export { InterfaceProps, ButtonProps, IconProps } from './interface'
 
 export interface Styles {
   [key: string]: string
