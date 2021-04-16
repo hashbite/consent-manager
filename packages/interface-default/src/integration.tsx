@@ -5,35 +5,13 @@ import { Trans } from '@lingui/react'
 import { IntegrationConfigOptions } from '@consent-manager/core'
 
 import { Switch as DefaultSwitch, SwitchProps } from './switch'
+import { IntegrationLabel } from './integration-label'
 import { Styles } from '.'
 
 export interface IntegrationProps extends IntegrationConfigOptions {
   styles: Styles
   Switch?: React.ComponentType<SwitchProps>
 }
-
-interface IntegrationLabelProps {
-  styles: Styles
-  integration: IntegrationConfigOptions
-}
-
-const IntegrationLabel: React.FC<IntegrationLabelProps> = ({
-  styles,
-  integration: { contrastColor, color, id, title, Icon },
-}) => (
-  <div
-    className={clsx(styles.integrationLabel)}
-    style={{
-      color: contrastColor,
-      backgroundColor: color,
-    }}
-  >
-    <Icon className={clsx(styles.integrationLabelIcon)} />
-    <span className={clsx(styles.integrationLabelTitle)}>
-      <Trans id={`consent-manager.integration.${id}.title`} message={title} />
-    </span>
-  </div>
-)
 
 export const Integration: React.FC<IntegrationProps> = ({
   styles,

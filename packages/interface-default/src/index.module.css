@@ -238,11 +238,13 @@ html[data-theme='dark'] {
 }
 
 .integrationLabel {
-  margin-left: 0.5em;
+  margin: 0.25em;
   border-radius: 0.25rem;
-  padding: 0.25em 0.5em;
-  display: flex;
+  padding: 0.2em 0.5em;
+
+  display: inline-flex;
   align-items: center;
+  vertical-align: middle;
 }
 
 .integrationLabelIcon {
@@ -380,7 +382,6 @@ html[data-theme='dark'] {
   padding: 0.5em 0.5em;
   border-radius: 0.25rem;
   font-weight: bold;
-  border: 2px solid var(--consent-manager-ui-primary);
   color: var(--consent-manager-ui-primary);
 }
 .buttonPrimary {
@@ -441,8 +442,67 @@ html[data-theme='dark'] {
 .fallbackComponent {
   width: 100%;
   border: 3px solid #eee;
-  padding: 1rem;
+  padding: 0.75rem;
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em;
+}
+
+.fallbackComponent::before {
+  content: '';
+  width: 1px;
+  margin-left: -1px;
+  height: 0;
+  padding-top: calc(100% / (16 / 9));
+}
+
+@media (min-width: 767px) {
+  .fallbackComponent {
+    font-size: 1em;
+    padding: 1rem;
+  }
+}
+
+.fallbackComponentContent {
+  max-width: 420px;
+}
+
+.fallbackComponentIcon {
+  display: inline-block;
+  width: 1.75em;
+  height: auto;
+  margin-right: 0.5em;
+  color: var(--consent-manager-ui-primary);
+  vertical-align: middle;
+}
+
+.fallbackComponentTitle {
+  font-size: 1.3em;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 767px) {
+  .fallbackComponentTitle {
+    text-align: left;
+  }
+}
+
+.fallbackComponentControls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 767px) {
+  .fallbackComponentControls {
+    gap: 2rem;
+
+    flex-wrap: nowrap;
+  }
 }
 
 /* Switch */

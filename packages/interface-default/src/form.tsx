@@ -10,7 +10,7 @@ import { Trans } from '@lingui/react'
 import defaultStyles from './index.module.css'
 import { Switch as DefaultSwitch, SwitchProps } from './switch'
 import { Integration } from './integration'
-import { Styles, SubmitButtonProps } from './index'
+import { Styles, ButtonProps } from './index'
 import { IconProps } from './interface'
 
 export interface ConsentFormProps extends DecisionsFormProps {
@@ -18,14 +18,14 @@ export interface ConsentFormProps extends DecisionsFormProps {
   setShowForm: Function
   CloseIcon: React.ComponentType<IconProps>
   Switch?: React.ComponentType<SwitchProps>
-  SubmitButton?: React.ComponentType<SubmitButtonProps>
+  SubmitButton?: React.ComponentType<ButtonProps>
 }
 
 interface FormState {
   [key: string]: boolean
 }
 
-const DefaultSubmitButton: React.FC<SubmitButtonProps> = props => (
+const DefaultSubmitButton: React.FC<ButtonProps> = props => (
   <button {...props} />
 )
 
