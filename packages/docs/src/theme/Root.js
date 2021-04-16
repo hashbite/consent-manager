@@ -4,7 +4,6 @@ import { MDXProvider } from '@mdx-js/react'
 
 import { IntegrationProfile } from '../components/integration-profile'
 
-import { ConsentManager, ConsentManagerForm } from '@consent-manager/core'
 import createPersistedState from 'use-persisted-state'
 
 import { mapboxIntegration } from '@consent-manager/integration-mapbox'
@@ -18,24 +17,8 @@ import { googleTagManagerIntegration } from '@consent-manager/integration-google
 import { hubspotIntegration } from '@consent-manager/integration-hubspot'
 import { linkedinIntegration } from '@consent-manager/integration-linkedin'
 
-import {
-  InterfaceDefault,
-  FallbackComponent,
-} from '@consent-manager/interface-default'
+import { ConsentManagerDefaultInterface } from '@consent-manager/interface-default'
 import '@consent-manager/interface-default/dist/default.min.css'
-
-const Button = props => (
-  <button
-    type="submit"
-    {...props}
-    className={clsx(
-      props.className,
-      'button',
-      'button--primary',
-      'button--block'
-    )}
-  />
-)
 
 const useConsentStateStore = createPersistedState('consent-manager-docs')
 
@@ -62,19 +45,9 @@ function Root({ children }) {
 
   return (
     <MDXProvider components={{ IntegrationProfile }}>
-      <ConsentManager
-        config={config}
-        store={storage}
-        fallbackComponent={props => (
-          <FallbackComponent {...props} Button={Button} />
-        )}
-      >
+      <ConsentManagerDefaultInterface config={config} store={storage}>
         {children}
-        <ConsentManagerForm
-          formComponent={InterfaceDefault}
-          SubmitButton={Button}
-        />
-      </ConsentManager>
+      </ConsentManagerDefaultInterface>
     </MDXProvider>
   )
 }

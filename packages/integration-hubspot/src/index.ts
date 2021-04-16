@@ -53,7 +53,7 @@ export function hubspotIntegration(options: hubspotConfig): IntegrationConfig {
   return {
     id: slug,
     title,
-    category: 'statistics',
+    category: 'Statistics',
     color,
     contrastColor,
     Icon,

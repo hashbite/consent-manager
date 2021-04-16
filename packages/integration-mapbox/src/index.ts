@@ -15,7 +15,7 @@ export function mapboxIntegration(): IntegrationConfig {
   return {
     id: slug,
     title,
-    category: 'social',
+    category: 'Maps',
     color,
     contrastColor,
     Icon,

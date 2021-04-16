@@ -17,7 +17,7 @@ export function youtubeIntegration(): IntegrationConfig {
   return {
     id: slug,
     title,
-    category: 'social',
+    category: 'Videos',
     color,
     contrastColor,
     Icon,

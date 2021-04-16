@@ -4,7 +4,9 @@ import ReactYouTube from 'react-youtube'
 import { YoutubeVideoProps } from './youtube-video'
 
 const YoutubeVideo: React.FC<YoutubeVideoProps> = ({ id, ...props }) => (
-  <ReactYouTube className="video" videoId={id} {...props} />
+  <div className="youtubeContainer">
+    <ReactYouTube videoId={id} {...props} />
+  </div>
 )
 
 export default YoutubeVideo

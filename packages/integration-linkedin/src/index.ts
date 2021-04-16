@@ -64,7 +64,7 @@ export function linkedinIntegration(
   return {
     id: slug,
     title,
-    category: 'statistics',
+    category: 'Statistics',
     color,
     contrastColor,
     Icon,

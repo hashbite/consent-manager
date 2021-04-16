@@ -63,7 +63,7 @@ export function googleTagManagerIntegration(
   return {
     id: 'google-tag-manager',
     title,
-    category: 'statistics',
+    category: 'Statistics',
     color,
     contrastColor,
     Icon,

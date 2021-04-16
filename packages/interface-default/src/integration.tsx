@@ -1,20 +1,23 @@
 import React from 'react'
 import { Field } from 'react-final-form'
 import clsx from 'clsx'
-
+import { Trans } from '@lingui/react'
 import { IntegrationConfigOptions } from '@consent-manager/core'
 
 import { Switch as DefaultSwitch, SwitchProps } from './switch'
-import defaultStyles from './index.module.css'
+import { IntegrationLabel } from './integration-label'
+import { Styles } from '.'
 
-export interface IntgrationProps extends IntegrationConfigOptions {
+export interface IntegrationProps extends IntegrationConfigOptions {
+  styles: Styles
   Switch?: React.ComponentType<SwitchProps>
 }
 
-export const Integration: React.FC<IntgrationProps> = ({
-  styles = defaultStyles,
+export const Integration: React.FC<IntegrationProps> = ({
+  styles,
   Switch = DefaultSwitch,
   id,
+  category,
   title,
   description,
   privacyPolicyUrl,
@@ -22,25 +25,60 @@ export const Integration: React.FC<IntgrationProps> = ({
   contrastColor,
   Icon,
 }) => (
-  <div className={clsx(styles.formControl)} key={id}>
-    <Field name={id} component={Switch} type="checkbox">
-      <div
-        className={clsx(styles.integration)}
-        style={{
-          color: contrastColor,
-          backgroundColor: color,
-        }}
-      >
-        <Icon className={clsx(styles.integrationIcon)} />
-        <span className={clsx(styles.integrationTitle)}>{title}</span>
+  <div className={clsx(styles.integrationField)} key={id}>
+    <Field
+      className={clsx(styles.integrationFieldTrigger)}
+      name={id}
+      component={Switch}
+      type="checkbox"
+      styles={styles}
+    >
+      <h2 className={clsx(styles.integrationFieldTitle)}>
+        <Trans
+          id={`consent-manager.integration.${id}.title`}
+          message={category}
+        />
+      </h2>
+      <div className={clsx(styles.integrationFieldCompany)}>
+        <Trans
+          id={`consent-manager.integration.${id}.company`}
+          message={'by <0/>'}
+          components={[
+            <IntegrationLabel
+              styles={styles}
+              integration={{
+                id,
+                category,
+                title,
+                description,
+                privacyPolicyUrl,
+                color,
+                contrastColor,
+                Icon,
+              }}
+            />,
+          ]}
+        />
       </div>
     </Field>
-    <p className={clsx(styles.integrationDescription)}>
-      {description}
-      <br />
-      <a href={privacyPolicyUrl} rel="noreferrer" target="_blank">
-        Learn more about the privacy policy of {title}
-      </a>
-    </p>
+    <div className={clsx(styles.integrationFieldDetails)}>
+      <p className={clsx(styles.integrationDescription)}>
+        <Trans
+          id={`consent-manager.integration.${id}.description`}
+          message={description}
+        />
+      </p>
+      <p>
+        <Trans
+          id={`consent-manager.integration.${id}.privacy-policy`}
+          message="<0>Learn more about the privacy policy of <1/>.</0>"
+          components={[
+            // eslint-disable-next-line jsx-a11y/anchor-has-content
+            <a href={privacyPolicyUrl} rel="noreferrer" target="_blank" />,
+            <>{title}</>,
+          ]}
+        />
+      </p>
+    </div>
   </div>
 )

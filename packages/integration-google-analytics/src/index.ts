@@ -62,7 +62,7 @@ export function googleAnalyticsIntegration(
   return {
     id: 'google-analytics',
     title,
-    category: 'statistics',
+    category: 'Statistics',
     color,
     contrastColor,
     Icon,
