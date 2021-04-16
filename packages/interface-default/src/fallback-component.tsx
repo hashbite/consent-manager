@@ -70,7 +70,7 @@ export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({
             onClick={() => setFormVisible(true)}
           >
             <Trans
-              id={`consent-manager.fallback.${integrationId}.learnMore`}
+              id={`consent-manager.fallback.${integrationId}.learn-more`}
               message="Learn more"
             />
           </Button>
@@ -83,7 +83,7 @@ export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({
             onClick={() => enableIntegration()}
           >
             <Trans
-              id={`consent-manager.fallback.${integrationId}.learnMore`}
+              id={`consent-manager.fallback.${integrationId}.enable`}
               message={`Enable ${integration.title}`}
             />
           </Button>
