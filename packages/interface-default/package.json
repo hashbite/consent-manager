@@ -47,8 +47,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@lingui/core": "^3.8.9",
-    "@lingui/react": "^3.8.9",
     "@react-icons/all-files": "^4.1.0",
     "activity-detector-ssr": "^3.0.0",
     "body-scroll-lock": "^3.1.5",
