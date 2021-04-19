@@ -5,7 +5,7 @@ import {
   DecisionsFormProps,
   IntegrationConfigOptions,
 } from '@consent-manager/core'
-import { Trans } from '@lingui/react'
+import { Trans } from './trans'
 
 import defaultStyles from './index.module.css'
 import { Switch as DefaultSwitch, SwitchProps } from './switch'
@@ -78,7 +78,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
                 onClick={form.reset}
                 className={clsx(styles.buttonReset, styles.button)}
               >
-                <Trans id="consent-manager.form.reset" message="Reset" />
+                <Trans id="consent-manager.form.reset" />
               </Button>
               <Button
                 type="button"
@@ -91,10 +91,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
                 }
                 className={clsx(styles.buttonReset, styles.button)}
               >
-                <Trans
-                  id="consent-manager.form.disable-all"
-                  message="Disable all"
-                />
+                <Trans id="consent-manager.form.disable-all" />
               </Button>
               <Button
                 type="button"
@@ -107,10 +104,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
                 }
                 className={clsx(styles.buttonReset, styles.button)}
               >
-                <Trans
-                  id="consent-manager.form.enable-all"
-                  message="Enable all"
-                />
+                <Trans id="consent-manager.form.enable-all" />
               </Button>
               <Button
                 type="submit"
@@ -120,10 +114,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
                   styles.buttonPrimary
                 )}
               >
-                <Trans
-                  id="consent-manager.form.save"
-                  message="Save and close"
-                />
+                <Trans id="consent-manager.form.save" />
               </Button>
             </div>
           )
@@ -133,16 +124,9 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
               <div className={clsx(styles.formIntro)}>
                 <div className={clsx(styles.formContent)}>
                   <h1 className={clsx(styles.formTitle)}>
-                    <Trans
-                      id="consent-manager.form.headline"
-                      message="Website Features and Cookies"
-                    />
+                    <Trans id="consent-manager.form.headline" />
                   </h1>
-                  <Trans
-                    id="consent-manager.form.description"
-                    message="<0>Some features are disabled by default Third Party Services are disabled to protect your privacy.</0><1>To fully experience this website enable the following features:</1>"
-                    components={[<p />, <p />, <p />, <p />, <p />]}
-                  />
+                  <Trans id="consent-manager.form.description" />
                 </div>
               </div>
               {controls}
@@ -165,8 +149,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
       />
       <Trans
         id="consent-manager.close"
-        message="close"
-        render={({ translation }) => (
+        render={({ message }) => (
           <button
             className={clsx(
               styles.buttonReset,
@@ -174,7 +157,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
               styles.formButtonClose
             )}
             onClick={onClose}
-            title={String(translation)}
+            title={message}
           >
             <CloseIcon className={clsx(styles.buttonCloseIcon)} />
           </button>

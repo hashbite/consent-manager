@@ -1,6 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
-import { Trans } from '@lingui/react'
+import { Trans } from './trans'
 import { IntegrationConfigOptions } from '@consent-manager/core'
 
 import { Styles } from '.'
@@ -14,7 +14,7 @@ export const IntegrationLabel: React.FC<IntegrationLabelProps> = ({
   styles,
   integration: { contrastColor, color, id, title, Icon },
 }) => (
-  <div
+  <span
     className={clsx(styles.integrationLabel)}
     style={{
       color: contrastColor,
@@ -23,7 +23,11 @@ export const IntegrationLabel: React.FC<IntegrationLabelProps> = ({
   >
     <Icon className={clsx(styles.integrationLabelIcon)} />
     <span className={clsx(styles.integrationLabelTitle)}>
-      <Trans id={`consent-manager.integration.${id}.title`} message={title} />
+      <Trans
+        id={`consent-manager.integration.${id}.title`}
+        fallbackId={`consent-manager.integration.default.title`}
+        props={{ title }}
+      />
     </span>
-  </div>
+  </span>
 )
