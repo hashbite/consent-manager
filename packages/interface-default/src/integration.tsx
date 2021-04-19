@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field } from 'react-final-form'
 import clsx from 'clsx'
-import { Trans } from '@lingui/react'
+import { Trans } from './trans'
 import { IntegrationConfigOptions } from '@consent-manager/core'
 
 import { Switch as DefaultSwitch, SwitchProps } from './switch'
@@ -33,31 +33,34 @@ export const Integration: React.FC<IntegrationProps> = ({
       type="checkbox"
       styles={styles}
     >
-      <h2 className={clsx(styles.integrationFieldTitle)}>
+      <h2 className={clsx(styles.integrationFieldCategory)}>
         <Trans
-          id={`consent-manager.integration.${id}.title`}
-          message={category}
+          id={`consent-manager.integration.${id}.category`}
+          fallbackId={`consent-manager.integration.default.category`}
+          props={{ category }}
         />
       </h2>
       <div className={clsx(styles.integrationFieldCompany)}>
         <Trans
           id={`consent-manager.integration.${id}.company`}
-          message={'by <0/>'}
-          components={[
-            <IntegrationLabel
-              styles={styles}
-              integration={{
-                id,
-                category,
-                title,
-                description,
-                privacyPolicyUrl,
-                color,
-                contrastColor,
-                Icon,
-              }}
-            />,
-          ]}
+          fallbackId={`consent-manager.integration.default.company`}
+          props={{
+            IntegrationLabel: () => (
+              <IntegrationLabel
+                styles={styles}
+                integration={{
+                  id,
+                  category,
+                  title,
+                  description,
+                  privacyPolicyUrl,
+                  color,
+                  contrastColor,
+                  Icon,
+                }}
+              />
+            ),
+          }}
         />
       </div>
     </Field>
@@ -65,18 +68,23 @@ export const Integration: React.FC<IntegrationProps> = ({
       <p className={clsx(styles.integrationDescription)}>
         <Trans
           id={`consent-manager.integration.${id}.description`}
-          message={description}
+          fallbackId={`consent-manager.integration.default.description`}
+          props={{ description }}
         />
       </p>
       <p>
         <Trans
           id={`consent-manager.integration.${id}.privacy-policy`}
-          message="<0>Learn more about the privacy policy of <1/>.</0>"
-          components={[
-            // eslint-disable-next-line jsx-a11y/anchor-has-content
-            <a href={privacyPolicyUrl} rel="noreferrer" target="_blank" />,
-            <>{title}</>,
-          ]}
+          fallbackId={`consent-manager.integration.default.privacy-policy`}
+          props={{
+            Link: ({ children }: { children: React.ReactNode }) => (
+              // eslint-disable-next-line jsx-a11y/anchor-has-content
+              <a href={privacyPolicyUrl} rel="noreferrer" target="_blank">
+                {children}
+              </a>
+            ),
+            title,
+          }}
         />
       </p>
     </div>
