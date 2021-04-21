@@ -5,7 +5,7 @@ import {
   ConsentManagerProps,
 } from '@consent-manager/core'
 
-import { Interface, InterfaceProps } from './interface'
+import { Interface } from './interface'
 import { FallbackComponent } from './fallback-component'
 import { ConsentManagerDefaultInterfaceContext } from './context'
 import { Messages, defaultMessages } from './i18n'
@@ -20,9 +20,7 @@ export interface Styles {
 
 // Copy of https://github.com/lingui/js-lingui/blob/main/packages/core/src/i18n.ts#L43
 
-interface ConsentManagerDefaultInterfaceProps
-  extends InterfaceProps,
-    ConsentManagerProps {
+interface ConsentManagerDefaultInterfaceProps extends ConsentManagerProps {
   messages: Messages
 }
 
