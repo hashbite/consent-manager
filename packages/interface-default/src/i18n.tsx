@@ -2,28 +2,28 @@ import React from 'react'
 
 export interface Messages {
   [key: string]: React.ReactNode
-  'consent-manager.integration.default.company': React.ComponentType<{
+  'consent-manager.integration.default.company'?: React.ComponentType<{
     IntegrationLabel: React.ComponentType
   }>
-  'consent-manager.integration.default.category': React.ComponentType<{
+  'consent-manager.integration.default.category'?: React.ComponentType<{
     category: string
   }>
-  'consent-manager.integration.default.title': React.ComponentType<{
+  'consent-manager.integration.default.title'?: React.ComponentType<{
     title: string
   }>
-  'consent-manager.integration.default.description': React.ComponentType<{
+  'consent-manager.integration.default.description'?: React.ComponentType<{
     description: string
   }>
-  'consent-manager.integration.default.privacy-policy': React.ComponentType<{
+  'consent-manager.integration.default.privacy-policy'?: React.ComponentType<{
     Link: React.ComponentType
     title: string
   }>
-  'consent-manager.fallback.default.description': React.ComponentType<{
+  'consent-manager.fallback.default.description'?: React.ComponentType<{
     IntegrationLabel: React.ComponentType
     category: string
     title: string
   }>
-  'consent-manager.fallback.default.enable': React.ComponentType<{
+  'consent-manager.fallback.default.enable'?: React.ComponentType<{
     category: string
     title: string
   }>
