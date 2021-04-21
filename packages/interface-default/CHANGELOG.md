@@ -1,5 +1,11 @@
 # @consent-manager/interface-default
 
+## 0.0.1-next.11
+
+### Patch Changes
+
+- Extend default messages with user messages
+
 ## 0.0.1-next.10
 
 ### Patch Changes
