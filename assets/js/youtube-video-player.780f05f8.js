@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[25],{174:function(e,a,n){"use strict";n.r(a);var t=n(1),c=n(6),i=n(0),o=n.n(i),r=n(195);a.default=function(e){var a=e.id,n=Object(c.a)(e,["id"]);return o.a.createElement("div",{className:"youtubeContainer"},o.a.createElement(r.a,Object(t.a)({videoId:a},n)))}}}]);
