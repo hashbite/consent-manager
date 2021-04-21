@@ -35,6 +35,9 @@ export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInter
 }) => {
   const [formVisible, setFormVisible] = useState(false)
 
+  // Extend user messages by default messages
+  messages = { ...defaultMessages, ...messages }
+
   return (
     <ConsentManager
       config={config}
