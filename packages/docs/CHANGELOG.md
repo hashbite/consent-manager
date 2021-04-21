@@ -1,5 +1,24 @@
 # docs
 
+## 0.0.1-next.9
+
+### Patch Changes
+
+- use translation component instead of lingui.js and fix several styling issues
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.10
+  - @consent-manager/integration-algolia@0.0.1-next.6
+  - @consent-manager/integration-google-analytics@0.0.1-next.4
+  - @consent-manager/integration-google-tag-manager@0.0.1-next.4
+  - @consent-manager/integration-hubspot@0.0.1-next.4
+  - @consent-manager/integration-linkedin@0.0.1-next.4
+  - @consent-manager/integration-mapbox@0.0.1-next.8
+  - @consent-manager/integration-matomo@0.0.1-next.10
+  - @consent-manager/integration-segment@0.0.1-next.4
+  - @consent-manager/integration-vimeo@0.0.1-next.8
+  - @consent-manager/integration-youtube@0.0.1-next.9
+  - @consent-manager/interface-default@0.0.1-next.10
+
 ## 0.0.1-next.8
 
 ### Patch Changes

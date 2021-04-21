@@ -1,5 +1,13 @@
 # @consent-manager/integration-hubspot
 
+## 0.0.1-next.4
+
+### Patch Changes
+
+- use translation component instead of lingui.js and fix several styling issues
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.10
+
 ## 0.0.1-next.3
 
 ### Patch Changes

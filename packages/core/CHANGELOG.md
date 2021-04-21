@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 0.0.1-next.10
+
+### Patch Changes
+
+- use translation component instead of lingui.js and fix several styling issues
+
 ## 0.0.1-next.9
 
 ### Patch Changes
