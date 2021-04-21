@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 0.0.1-next.11
+
+### Patch Changes
+
+- fix typescript related issues
+
 ## 0.0.1-next.10
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @consent-manager/interface-default
 
+## 0.0.1-next.12
+
+### Patch Changes
+
+- fix typescript related issues
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.11
+
 ## 0.0.1-next.11
 
 ### Patch Changes
