@@ -108,7 +108,11 @@ export function usePageViewEventTrigger(
 
 export { ConsentManagerConfig, ConsentManagerDecisions }
 export { useConsentFormVisible, useDecisions } from './decisions'
-export { ConsentManagerStorageState, ConsentManagerStateHook } from './storage'
+export {
+  ConsentManagerStore,
+  ConsentManagerStorageState,
+  ConsentManagerStateHook,
+} from './storage'
 export { ConsentManagerForm } from './components/ConsentManagerForm'
 export {
   DecisionsFormProps,
