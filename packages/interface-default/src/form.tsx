@@ -131,7 +131,12 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
               </div>
               {controls}
               <div className={clsx(styles.formIntegrations)}>
-                <div className={clsx(styles.formContent)}>
+                <div
+                  className={clsx(
+                    styles.formContent,
+                    styles.formIntegrationsList
+                  )}
+                >
                   {integrations.map((integration: IntegrationConfigOptions) => (
                     <Integration
                       styles={styles}
