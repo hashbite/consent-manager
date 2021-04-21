@@ -25,7 +25,7 @@ export const Integration: React.FC<IntegrationProps> = ({
   contrastColor,
   Icon,
 }) => (
-  <div className={clsx(styles.integrationField)} key={id}>
+  <>
     <Field
       className={clsx(styles.integrationFieldTrigger)}
       name={id}
@@ -88,5 +88,5 @@ export const Integration: React.FC<IntegrationProps> = ({
         />
       </p>
     </div>
-  </div>
+  </>
 )
