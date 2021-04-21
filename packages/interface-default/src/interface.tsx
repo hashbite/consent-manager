@@ -73,6 +73,9 @@ export const Interface: React.FC<InterfaceProps> = ({
   Form = DefaultForm,
   animationStyles = defaultAnimationStyles,
 }) => {
+  // Extend user styles
+  styles = { ...defaultStyles, ...styles }
+
   const hasPendingDecisions = useConsentFormVisible()
   const { formVisible, setFormVisible } = useContext(
     ConsentManagerDefaultInterfaceContext
