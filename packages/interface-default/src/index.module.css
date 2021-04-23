@@ -139,18 +139,10 @@ html[data-theme='dark'] {
 
 .formTitle {
   font-size: 1.3em;
-}
-
-.formIntro {
-  font-size: 1em;
   text-align: center;
 }
 
-@media (min-width: 767px) {
-  .formIntro {
-    font-size: 1.2em;
-  }
-}
+/* .formIntro {} */
 
 .formControls {
   display: grid;
@@ -347,6 +339,7 @@ html[data-theme='dark'] {
 /* Introduction */
 
 .introduction {
+  box-sizing: content-box;
   padding: 0 1rem 1rem
     calc(
       var(--consent-manager-ui-toggle-size) +
