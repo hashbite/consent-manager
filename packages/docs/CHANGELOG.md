@@ -1,5 +1,14 @@
 # docs
 
+## 0.0.1-next.10
+
+### Patch Changes
+
+- Improve styling and styleablity
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.12
+  - @consent-manager/interface-default@0.0.1-next.13
+
 ## 0.0.1-next.9
 
 ### Patch Changes
