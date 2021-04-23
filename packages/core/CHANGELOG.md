@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 0.0.1-next.12
+
+### Patch Changes
+
+- Improve styling and styleablity
+
 ## 0.0.1-next.11
 
 ### Patch Changes

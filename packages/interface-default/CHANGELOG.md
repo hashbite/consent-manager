@@ -1,5 +1,13 @@
 # @consent-manager/interface-default
 
+## 0.0.1-next.13
+
+### Patch Changes
+
+- Improve styling and styleablity
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.12
+
 ## 0.0.1-next.12
 
 ### Patch Changes
