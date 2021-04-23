@@ -7,9 +7,15 @@ import {
   DecisionsFormState,
 } from './DecisionsForm'
 
-export const ConsentManagerForm: React.FC<{
+interface ConsentManagerFormProps {
   formComponent?: React.ComponentType<DecisionsFormProps>
-}> = ({ formComponent, ...props }) => {
+  [key: string]: unknown
+}
+
+export const ConsentManagerForm: React.FC<ConsentManagerFormProps> = ({
+  formComponent,
+  ...props
+}) => {
   const [enabledIntegrations, setEnabledIntegrations] = useEnabledIntegrations()
   const { integrations } = useConfig()
   const DecisionsForm = formComponent || DefaultDecisionsForm

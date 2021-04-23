@@ -10,8 +10,7 @@ import { Trans } from './trans'
 import defaultStyles from './index.module.css'
 import { Switch as DefaultSwitch, SwitchProps } from './switch'
 import { Integration } from './integration'
-import { Styles, ButtonProps } from './index'
-import { IconProps } from './interface'
+import { Styles, ButtonProps, IconProps } from './index'
 import { ConsentManagerDefaultInterfaceContext } from './context'
 
 export interface ConsentFormProps extends DecisionsFormProps {

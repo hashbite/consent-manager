@@ -22,40 +22,21 @@ import {
   useConsentFormVisible,
 } from '@consent-manager/core'
 
-import { Switch as DefaultSwitch, SwitchProps } from './switch'
+import { Switch as DefaultSwitch } from './switch'
 import defaultStyles from './index.module.css'
 import defaultAnimationStyles from './animation-slide.module.css'
 import { Introduction } from './introduction'
-import { ConsentForm as DefaultForm, ConsentFormProps } from './form'
+import { ConsentForm as DefaultForm } from './form'
 import { Backdrop } from './backdrop'
 import { ConsentManagerDefaultInterfaceContext } from './context'
 
-import {
-  ToggleButton as DefaultToggleButton,
-  ToggleButtonProps,
-} from './toggle-button'
+import { ToggleButton as DefaultToggleButton } from './toggle-button'
 
-import { Styles } from './index'
+import { ButtonProps, ConsentManagerDefaultInterfaceDesignProps } from './index'
 
-export interface IconProps {
-  [key: string]: unknown
-}
-
-export interface ButtonProps {
-  [key: string]: unknown
-}
-
-export interface InterfaceProps extends DecisionsFormProps {
-  slideDuration?: number
-  styles?: Styles
-  animationStyles?: Styles
-  ToggleButton?: React.ComponentType<ToggleButtonProps>
-  ToggleIcon?: React.ComponentType<IconProps>
-  CloseIcon?: React.ComponentType<IconProps>
-  Switch?: React.ComponentType<SwitchProps>
-  Button?: React.ComponentType<ButtonProps>
-  Form?: React.ComponentType<ConsentFormProps>
-}
+export interface InterfaceProps
+  extends DecisionsFormProps,
+    ConsentManagerDefaultInterfaceDesignProps {}
 
 const DefaultButton: React.FC<ButtonProps> = props => <button {...props} />
 

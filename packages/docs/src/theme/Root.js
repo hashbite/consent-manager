@@ -1,5 +1,4 @@
 import React from 'react'
-import clsx from 'clsx'
 import { MDXProvider } from '@mdx-js/react'
 
 import { IntegrationProfile } from '../components/integration-profile'

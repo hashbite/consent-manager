@@ -9,18 +9,40 @@ import { Interface } from './interface'
 import { FallbackComponent } from './fallback-component'
 import { ConsentManagerDefaultInterfaceContext } from './context'
 import { Messages, defaultMessages } from './i18n'
+import { ToggleButtonProps } from './toggle-button'
+import { SwitchProps } from './switch'
+import { ConsentFormProps } from './form'
 
-export { ToggleButtonProps } from './toggle-button'
-export { InterfaceProps, ButtonProps, IconProps } from './interface'
 export * from './i18n'
+export { ToggleButtonProps, SwitchProps, ConsentFormProps }
 
 export interface Styles {
   [key: string]: string
 }
 
-// Copy of https://github.com/lingui/js-lingui/blob/main/packages/core/src/i18n.ts#L43
+export interface IconProps {
+  [key: string]: unknown
+}
 
-interface ConsentManagerDefaultInterfaceProps extends ConsentManagerProps {
+export interface ButtonProps {
+  [key: string]: unknown
+}
+
+export interface ConsentManagerDefaultInterfaceDesignProps {
+  slideDuration?: number
+  styles?: Styles
+  animationStyles?: Styles
+  ToggleButton?: React.ComponentType<ToggleButtonProps>
+  ToggleIcon?: React.ComponentType<IconProps>
+  CloseIcon?: React.ComponentType<IconProps>
+  Switch?: React.ComponentType<SwitchProps>
+  Button?: React.ComponentType<ButtonProps>
+  Form?: React.ComponentType<ConsentFormProps>
+}
+
+interface ConsentManagerDefaultInterfaceProps
+  extends ConsentManagerProps,
+    ConsentManagerDefaultInterfaceDesignProps {
   messages: Messages
 }
 
@@ -48,7 +70,11 @@ export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInter
         value={{ formVisible, setFormVisible, messages }}
       >
         {children}
-        <ConsentManagerForm formComponent={Interface} {...props} />
+        <ConsentManagerForm
+          formComponent={Interface}
+          id="consent-manager-default-interface"
+          {...props}
+        />
       </ConsentManagerDefaultInterfaceContext.Provider>
     </ConsentManager>
   )
