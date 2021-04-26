@@ -350,29 +350,56 @@ html[data-theme='dark'] {
 /* Introduction */
 
 .introduction {
-  box-sizing: content-box;
-  padding: 0 1rem 1rem
+  padding: 0 1rem
     calc(
       var(--consent-manager-ui-toggle-size) +
         var(--consent-manager-ui-toggle-padding) +
         var(--consent-manager-ui-intro-wedge-length) + 0.5rem
-    );
+    )
+    1rem;
+  min-width: 240px;
+  width: 100vw;
   max-width: 420px;
   filter: drop-shadow(var(--consent-manager-ui-drop-shadow));
 }
+
+@media (min-width: 767px) {
+  .introduction {
+    padding: 0 1rem 1rem
+      calc(
+        var(--consent-manager-ui-toggle-size) +
+          var(--consent-manager-ui-toggle-padding) +
+          var(--consent-manager-ui-intro-wedge-length) + 0.5rem
+      );
+    width: 62.8vw;
+    max-width: 500px;
+  }
+}
 .introductionShape {
   position: absolute;
-  left: calc(
+  bottom: calc(
     var(--consent-manager-ui-toggle-size) +
       var(--consent-manager-ui-toggle-padding) + 0.5rem
   );
-  bottom: calc(var(--consent-manager-ui-toggle-size) / 2);
+  left: calc(var(--consent-manager-ui-toggle-size) / 2);
   width: var(--consent-manager-ui-intro-wedge-length);
   height: var(--consent-manager-ui-intro-wedge-length);
   background-color: var(--consent-manager-ui-intro-bg);
-  transform: translateY(-50%);
+  transform: translateX(50%) translateY(-1px);
 
-  clip-path: polygon(100% 0, 100% 100%, 0 50%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+@media (min-width: 767px) {
+  .introductionShape {
+    left: calc(
+      var(--consent-manager-ui-toggle-size) +
+        var(--consent-manager-ui-toggle-padding) + 0.5rem
+    );
+    bottom: calc(var(--consent-manager-ui-toggle-size) / 2);
+    transform: translateY(-50%);
+
+    clip-path: polygon(100% 0, 100% 100%, 0 50%);
+  }
 }
 .introductionContent {
   position: relative;
