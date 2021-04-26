@@ -29,34 +29,30 @@ import { Introduction } from './introduction'
 import { ConsentForm as DefaultForm } from './form'
 import { Backdrop } from './backdrop'
 import { ConsentManagerDefaultInterfaceContext } from './context'
-
+import { ConsentManagerDefaultInterfaceDesignProps } from './index'
 import { ToggleButton as DefaultToggleButton } from './toggle-button'
-
-import { ButtonProps, ConsentManagerDefaultInterfaceDesignProps } from './index'
+import { useDefaultButton } from './default-button'
 
 export interface InterfaceProps
   extends DecisionsFormProps,
     ConsentManagerDefaultInterfaceDesignProps {}
 
-const DefaultButton: React.FC<ButtonProps> = props => <button {...props} />
-
 export const Interface: React.FC<InterfaceProps> = ({
   integrations,
   initialValues,
   onSubmit,
+  useDefaultButtonForIntroduction = true,
   slideDuration = 700,
   styles = defaultStyles,
   CloseIcon = IoClose,
   ToggleIcon = IoShieldCheckmark,
   ToggleButton = DefaultToggleButton,
   Switch = DefaultSwitch,
-  Button = DefaultButton,
+  Button = props => <button {...props} />,
   Form = DefaultForm,
   animationStyles = defaultAnimationStyles,
 }) => {
-  // Extend user styles
-  styles = { ...defaultStyles, ...styles }
-
+  const DefaultButton = useDefaultButton(styles)
   const hasPendingDecisions = useConsentFormVisible()
   const { formVisible, setFormVisible } = useContext(
     ConsentManagerDefaultInterfaceContext
@@ -138,6 +134,7 @@ export const Interface: React.FC<InterfaceProps> = ({
           introductionFinished={introductionFinished}
           slideDuration={slideDuration}
           CloseIcon={CloseIcon}
+          Button={useDefaultButtonForIntroduction ? DefaultButton : Button}
         />
       )}
       <Backdrop fadeDuration={slideDuration} styles={styles} />
