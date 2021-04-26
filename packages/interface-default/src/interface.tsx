@@ -169,6 +169,7 @@ export const Interface: React.FC<InterfaceProps> = ({
               Switch={Switch}
               Button={Button}
               CloseIcon={CloseIcon}
+              ToggleIcon={ToggleIcon}
             />
           </section>
         </div>
