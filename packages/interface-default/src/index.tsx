@@ -5,6 +5,10 @@ import {
   ConsentManagerProps,
 } from '@consent-manager/core'
 
+import { IoShieldCheckmark } from '@react-icons/all-files/io5/IoShieldCheckmark'
+
+import defaultStyles from './index.module.css'
+import { useDefaultButton } from './default-button'
 import { Interface } from './interface'
 import { FallbackComponent } from './fallback-component'
 import { ConsentManagerDefaultInterfaceContext } from './context'
@@ -26,9 +30,11 @@ export interface IconProps {
 
 export interface ButtonProps {
   [key: string]: unknown
+  className?: string
 }
 
 export interface ConsentManagerDefaultInterfaceDesignProps {
+  useDefaultButtonForIntroduction?: boolean
   slideDuration?: number
   styles?: Styles
   animationStyles?: Styles
@@ -51,9 +57,18 @@ export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInter
   children,
   config,
   store,
-  ...props
+  styles = defaultStyles,
+  ToggleIcon = IoShieldCheckmark,
+  Button,
+  ...rest
 }) => {
   const [formVisible, setFormVisible] = useState(false)
+
+  // Extend user styles
+  styles = { ...defaultStyles, ...styles }
+
+  const DefaultButton = useDefaultButton(styles)
+  const props = { styles, ToggleIcon, Button: Button || DefaultButton, ...rest }
 
   // Extend user messages by default messages
   messages = { ...defaultMessages, ...messages }
@@ -63,7 +78,13 @@ export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInter
       config={config}
       store={store}
       fallbackComponent={fallbackProps => (
-        <FallbackComponent {...props} {...fallbackProps} />
+        <FallbackComponent
+          {...props}
+          {...fallbackProps}
+          Button={Button || DefaultButton}
+          styles={styles}
+          ToggleIcon={ToggleIcon}
+        />
       )}
     >
       <ConsentManagerDefaultInterfaceContext.Provider
