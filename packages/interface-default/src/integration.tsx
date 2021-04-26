@@ -65,28 +65,28 @@ export const Integration: React.FC<IntegrationProps> = ({
       </div>
     </Field>
     <div className={clsx(styles.integrationFieldDetails)}>
-      <p className={clsx(styles.integrationDescription)}>
-        <Trans
-          id={`consent-manager.integration.${id}.description`}
-          fallbackId={`consent-manager.integration.default.description`}
-          props={{ description }}
-        />
-      </p>
-      <p>
-        <Trans
-          id={`consent-manager.integration.${id}.privacy-policy`}
-          fallbackId={`consent-manager.integration.default.privacy-policy`}
-          props={{
-            Link: ({ children }: { children: React.ReactNode }) => (
-              // eslint-disable-next-line jsx-a11y/anchor-has-content
-              <a href={privacyPolicyUrl} rel="noreferrer" target="_blank">
-                {children}
-              </a>
-            ),
-            title,
-          }}
-        />
-      </p>
+      <Trans
+        id={`consent-manager.integration.${id}.description`}
+        fallbackId={`consent-manager.integration.default.description`}
+        props={{
+          description,
+          PrivacyPolicyLink: () => (
+            <Trans
+              id={`consent-manager.integration.${id}.privacy-policy`}
+              fallbackId={`consent-manager.integration.default.privacy-policy`}
+              props={{
+                Link: ({ children }: { children: React.ReactNode }) => (
+                  // eslint-disable-next-line jsx-a11y/anchor-has-content
+                  <a href={privacyPolicyUrl} rel="noreferrer" target="_blank">
+                    {children}
+                  </a>
+                ),
+                title,
+              }}
+            />
+          ),
+        }}
+      />
     </div>
   </>
 )
