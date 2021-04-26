@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 0.0.1-next.13
+
+### Patch Changes
+
+- Improve design based on feedback and fix several issues
+
 ## 0.0.1-next.12
 
 ### Patch Changes
