@@ -1,5 +1,13 @@
 # @consent-manager/integration-segment
 
+## 0.0.1-next.5
+
+### Patch Changes
+
+- Improve design based on feedback and fix several issues
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.13
+
 ## 0.0.1-next.4
 
 ### Patch Changes
