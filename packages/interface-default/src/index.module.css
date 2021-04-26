@@ -416,7 +416,7 @@ html[data-theme='dark'] {
   font-weight: bold;
   color: var(--consent-manager-ui-primary);
 }
-.buttonPrimary {
+.button[data-button-style='primary'] {
   background: var(--consent-manager-ui-primary);
   color: var(--consent-manager-ui-intro-bg);
   padding-left: 1em;
