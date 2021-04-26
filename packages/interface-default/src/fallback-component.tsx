@@ -6,26 +6,22 @@ import {
 } from '@consent-manager/core'
 import clsx from 'clsx'
 import { Trans } from './trans'
-import { IoShieldCheckmark } from '@react-icons/all-files/io5/IoShieldCheckmark'
 
 import { ButtonProps, Styles, IconProps } from '.'
 import { IntegrationLabel } from './integration-label'
-import defaultStyles from './index.module.css'
 import { ConsentManagerDefaultInterfaceContext } from './context'
 
 interface StyleableFallbackComponentProps extends FallbackComponentProps {
-  styles?: Styles
-  Button?: React.ComponentType<ButtonProps>
-  ToggleIcon?: React.ComponentType<IconProps>
+  styles: Styles
+  Button: React.ComponentType<ButtonProps>
+  ToggleIcon: React.ComponentType<IconProps>
 }
-
-const DefaultButton: React.FC = props => <button {...props} />
 
 export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({
   integrationId,
-  Button = DefaultButton,
-  styles = defaultStyles,
-  ToggleIcon = IoShieldCheckmark,
+  Button,
+  styles,
+  ToggleIcon,
 }) => {
   const { setFormVisible } = useContext(ConsentManagerDefaultInterfaceContext)
   const integration = useIntegration(integrationId)
@@ -62,21 +58,14 @@ export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({
           }}
         />
         <div className={clsx(styles.fallbackComponentControls)}>
-          <Button
-            className={clsx(styles.buttonReset, styles.button)}
-            onClick={() => setFormVisible(true)}
-          >
+          <Button onClick={() => setFormVisible(true)}>
             <Trans
               id={`consent-manager.fallback.${integrationId}.learn-more`}
               fallbackId={`consent-manager.fallback.default.learn-more`}
             />
           </Button>
           <Button
-            className={clsx(
-              styles.buttonReset,
-              styles.button,
-              styles.buttonPrimary
-            )}
+            data-button-style="primary"
             onClick={() => enableIntegration()}
           >
             <Trans
