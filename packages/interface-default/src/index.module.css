@@ -60,7 +60,14 @@ html[data-theme='dark'] {
   }
 }
 
-/* Slides and coloring */
+.icon {
+  display: inline-block;
+  width: 1.75em;
+  height: auto;
+  margin-right: 0.5em;
+  color: var(--consent-manager-ui-primary);
+  vertical-align: middle;
+}
 
 .wrapper {
   display: block;
@@ -484,15 +491,6 @@ html[data-theme='dark'] {
 
 .fallbackComponentContent {
   max-width: 420px;
-}
-
-.fallbackComponentIcon {
-  display: inline-block;
-  width: 1.75em;
-  height: auto;
-  margin-right: 0.5em;
-  color: var(--consent-manager-ui-primary);
-  vertical-align: middle;
 }
 
 .fallbackComponentTitle {
