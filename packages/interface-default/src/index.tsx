@@ -49,7 +49,7 @@ export interface ConsentManagerDefaultInterfaceDesignProps {
 interface ConsentManagerDefaultInterfaceProps
   extends ConsentManagerProps,
     ConsentManagerDefaultInterfaceDesignProps {
-  messages: Messages
+  messages?: Messages
 }
 
 export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInterfaceProps> = ({
