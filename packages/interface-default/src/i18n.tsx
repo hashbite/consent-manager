@@ -13,6 +13,7 @@ export interface Messages {
   }>
   'consent-manager.integration.default.description'?: React.ComponentType<{
     description: string
+    PrivacyPolicyLink: React.ComponentType
   }>
   'consent-manager.integration.default.privacy-policy'?: React.ComponentType<{
     Link: React.ComponentType
@@ -97,8 +98,15 @@ export const defaultMessages: Messages = {
     <>{category}</>
   ),
   'consent-manager.integration.default.title': ({ title }) => <>{title}</>,
-  'consent-manager.integration.default.description': ({ description }) => (
-    <>{description}</>
+  'consent-manager.integration.default.description': ({
+    description,
+    PrivacyPolicyLink,
+  }) => (
+    <p>
+      {description}
+      <br />
+      <PrivacyPolicyLink />
+    </p>
   ),
   'consent-manager.integration.default.privacy-policy': ({ Link, title }) => (
     <Link>Privacy Policy by {title}</Link>
