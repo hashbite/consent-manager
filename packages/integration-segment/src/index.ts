@@ -69,7 +69,7 @@ const WrapperComponent: React.FC = () => {
       var key = analytics.methods[e]
       analytics[key] = analytics.factory(key)
     }
-    analytics.load = function(key: String, e: any) {
+    analytics.load = function(key: string, e: any) {
       var t = document.createElement('script')
       t.type = 'text/javascript'
       t.async = !0
