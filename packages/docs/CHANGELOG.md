@@ -1,5 +1,14 @@
 # docs
 
+## 0.0.1-next.11
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.13
+  - @consent-manager/integration-segment@0.0.1-next.5
+  - @consent-manager/interface-default@0.0.1-next.14
+
 ## 0.0.1-next.10
 
 ### Patch Changes
