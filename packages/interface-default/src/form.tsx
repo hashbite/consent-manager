@@ -15,6 +15,7 @@ import { ConsentManagerDefaultInterfaceContext } from './context'
 
 export interface ConsentFormProps extends DecisionsFormProps {
   styles: Styles
+  ToggleIcon: React.ComponentType<IconProps>
   CloseIcon: React.ComponentType<IconProps>
   Switch?: React.ComponentType<SwitchProps>
   Button?: React.ComponentType<ButtonProps>
@@ -31,6 +32,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
   initialValues,
   onSubmit,
   CloseIcon,
+  ToggleIcon,
   styles = defaultStyles,
   Switch = DefaultSwitch,
   Button = DefaultButton,
@@ -123,6 +125,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
               <div className={clsx(styles.formIntro)}>
                 <div className={clsx(styles.formContent)}>
                   <h1 className={clsx(styles.formTitle)}>
+                    <ToggleIcon className={clsx(styles.icon)} />
                     <Trans id="consent-manager.form.headline" />
                   </h1>
                   <Trans id="consent-manager.form.description" />

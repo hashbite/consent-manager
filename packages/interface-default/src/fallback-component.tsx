@@ -16,7 +16,7 @@ import { ConsentManagerDefaultInterfaceContext } from './context'
 interface StyleableFallbackComponentProps extends FallbackComponentProps {
   styles?: Styles
   Button?: React.ComponentType<ButtonProps>
-  Icon?: React.ComponentType<IconProps>
+  ToggleIcon?: React.ComponentType<IconProps>
 }
 
 const DefaultButton: React.FC = props => <button {...props} />
@@ -25,7 +25,7 @@ export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({
   integrationId,
   Button = DefaultButton,
   styles = defaultStyles,
-  Icon = IoShieldCheckmark,
+  ToggleIcon = IoShieldCheckmark,
 }) => {
   const { setFormVisible } = useContext(ConsentManagerDefaultInterfaceContext)
   const integration = useIntegration(integrationId)
@@ -44,7 +44,7 @@ export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({
     <section className={clsx(styles.fallbackComponent)}>
       <div className={clsx(styles.fallbackComponentContent)}>
         <h1 className={clsx(styles.fallbackComponentTitle)}>
-          <Icon className={clsx(styles.fallbackComponentIcon)} />
+          <ToggleIcon className={clsx(styles.icon)} />
           <Trans
             id={`consent-manager.fallback.${integrationId}.title`}
             fallbackId={`consent-manager.fallback.default.title`}
