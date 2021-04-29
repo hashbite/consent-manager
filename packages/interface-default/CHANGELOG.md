@@ -1,5 +1,11 @@
 # @consent-manager/interface-default
 
+## 0.0.1-next.15
+
+### Patch Changes
+
+- Fix dark mode and improve mobile behaviour
+
 ## 0.0.1-next.14
 
 ### Patch Changes
