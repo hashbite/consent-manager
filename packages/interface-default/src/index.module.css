@@ -16,8 +16,8 @@
   --consent-manager-ui-toggle-bg: #f4f4f5;
   --consent-manager-ui-intro-primary: var(--consent-manager-ui-primary);
   --consent-manager-ui-intro-bg: var(--consent-manager-ui-bg);
-  --consent-manager-ui-intro-color: #18181b;
-  --consent-manager-ui-intro-close-bg: #18181b;
+  --consent-manager-ui-intro-color: var(--consent-manager-ui-color);
+  --consent-manager-ui-intro-close-bg: #3f3f46;
   --consent-manager-ui-intro-close-color: #fff;
   --consent-manager-ui-link-color: var(--consent-manager-ui-primary);
   --consent-manager-ui-fallback-stripe-color: rgb(247, 247, 248);
@@ -32,6 +32,8 @@ html[data-theme='dark'] {
   --consent-manager-ui-switch-slide-bg: #a1a1aa;
   --consent-manager-ui-link-color: #22c55e;
   --consent-manager-ui-fallback-stripe-color: rgb(32, 32, 34);
+  --consent-manager-ui-intro-close-bg: #f4f4f5;
+  --consent-manager-ui-intro-close-color: #18181b;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,6 +46,8 @@ html[data-theme='dark'] {
     --consent-manager-ui-switch-slide-bg: #a1a1aa;
     --consent-manager-ui-link-color: #22c55e;
     --consent-manager-ui-fallback-stripe-color: rgb(32, 32, 34);
+    --consent-manager-ui-intro-close-bg: #f4f4f5;
+    --consent-manager-ui-intro-close-color: #18181b;
   }
 }
 
