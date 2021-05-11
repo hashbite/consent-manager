@@ -108,7 +108,9 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
               <div className={clsx(styles.formIntro)}>
                 <div className={clsx(styles.formContent)}>
                   <h1 className={clsx(styles.formTitle)}>
-                    <ToggleIcon className={clsx(styles.icon)} />
+                    <ToggleIcon
+                      className={clsx(styles.icon, styles.formIcon)}
+                    />
                     <Trans id="consent-manager.form.headline" />
                   </h1>
                   <Trans id="consent-manager.form.description" />
@@ -116,12 +118,7 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
               </div>
               {controls}
               <div className={clsx(styles.formIntegrations)}>
-                <div
-                  className={clsx(
-                    styles.formContent,
-                    styles.formIntegrationsList
-                  )}
-                >
+                <div className={clsx(styles.formIntegrationsList)}>
                   {integrations.map((integration: IntegrationConfigOptions) => (
                     <Integration
                       styles={styles}
