@@ -40,7 +40,9 @@ export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({
     <section className={clsx(styles.fallbackComponent)}>
       <div className={clsx(styles.fallbackComponentContent)}>
         <h1 className={clsx(styles.fallbackComponentTitle)}>
-          <ToggleIcon className={clsx(styles.icon)} />
+          <ToggleIcon
+            className={clsx(styles.icon, styles.fallbackComponentIcon)}
+          />
           <Trans
             id={`consent-manager.fallback.${integrationId}.title`}
             fallbackId={`consent-manager.fallback.default.title`}
