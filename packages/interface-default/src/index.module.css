@@ -164,6 +164,18 @@ html[data-theme='dark'] {
   font-size: 1.3em;
 }
 
+.formIcon {
+  display: block;
+  margin: 0 0 0.5rem 0;
+}
+
+@media (min-width: 767px) {
+  .formIcon {
+    display: inline-block;
+    margin: 0 0.5rem 0 0;
+  }
+}
+
 /* .formIntro {} */
 
 .formControls {
@@ -193,11 +205,18 @@ html[data-theme='dark'] {
   position: relative;
 }
 
+.formIntegrationsList {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem 1rem;
+}
+
 @media (min-width: 767px) {
   .formIntegrationsList {
     display: grid;
     grid-template-columns: minmax(220px, max-content) 1fr;
     grid-gap: 2rem;
+    padding: 1rem 2rem 3rem;
   }
 }
 
@@ -551,12 +570,17 @@ html[data-theme='dark'] {
 .fallbackComponentTitle {
   font-size: 1.3em;
   margin-bottom: 1rem;
-  text-align: center;
+}
+
+.fallbackComponentIcon {
+  display: block;
+  margin: 0 0 0.5rem 0;
 }
 
 @media (min-width: 767px) {
-  .fallbackComponentTitle {
-    text-align: left;
+  .fallbackComponentIcon {
+    display: inline-block;
+    margin: 0 0.5rem 0 0;
   }
 }
 
