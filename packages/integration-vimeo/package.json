@@ -3,14 +3,14 @@
   "version": "0.0.1-next.8",
   "description": "Protect your visitors privacy by integrating vimeo.com via consent-manager",
   "author": {
-    "name": "techboi GmbH",
-    "email": "opensource@techboi.io",
-    "url": "https://techboi.io/"
+    "name": "hashbite",
+    "email": "opensource@hashbite.net",
+    "url": "https://hashbite.net/"
   },
   "contributors": [
     {
       "name": "Benedikt Rötsch",
-      "email": "benedikt@techboi.io",
+      "email": "benedikt@hashbite.net",
       "url": "https://twitter.com/axe312ger"
     },
     {
@@ -21,10 +21,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techboi/consent-manager",
+    "url": "git+https://github.com/hashbite/consent-manager",
     "directory": "packages/integration-vimeo"
   },
-  "homepage": "https://techboi.github.io/consent-manager/",
+  "homepage": "https://hashbite.github.io/consent-manager/",
   "main": "dist/index.js",
   "module": "dist/integration-vimeo.esm.js",
   "typings": "dist/index.d.ts",

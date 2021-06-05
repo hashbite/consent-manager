@@ -4,7 +4,7 @@ title: Algolia Integration
 slug: /integrations/algolia
 ---
 
-- Source code: https://github.com/techboi/consent-manager/tree/main/packages/integration-algolia
+- Source code: https://github.com/hashbite/consent-manager/tree/main/packages/integration-algolia
 
 import { algoliaIntegration } from "@consent-manager/integration-algolia"
 

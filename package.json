@@ -2,13 +2,13 @@
   "name": "consent-manager-monorepo",
   "private": true,
   "author": {
-    "name": "techboi GmbH",
-    "email": "opensource@techboi.io",
-    "url": "https://techboi.io/"
+    "name": "hashbite",
+    "email": "opensource@hashbite.net",
+    "url": "https://hashbite.net/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techboi/consent-manager"
+    "url": "git+https://github.com/hashbite/consent-manager"
   },
   "scripts": {
     "lerna": "lerna",

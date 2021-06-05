@@ -93,7 +93,7 @@ const WrapperComponent: React.FC = () => {
 }
 
 // @todo required options are not yet possible.
-// See: https://github.com/techboi/consent-manager/issues/19
+// See: https://github.com/hashbite/consent-manager/issues/19
 interface SegmentConfig extends IntegrationConfigOptions {
   writeKey?: string // @todo this should be required
 }
