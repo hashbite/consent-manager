@@ -1,5 +1,11 @@
 # @consent-manager/interface-default
 
+## 0.0.1-next.16
+
+### Patch Changes
+
+- feat: align all headlines to the left and improve on small screens
+
 ## 0.0.1-next.15
 
 ### Patch Changes

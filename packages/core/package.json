@@ -4,14 +4,14 @@
   "description": "Get proper consent before tracking and processing data of your visitors via consent-manager. Supports you to get your website GDPR and CCPA compliant.",
   "license": "MIT",
   "author": {
-    "name": "techboi GmbH",
-    "email": "opensource@techboi.io",
-    "url": "https://techboi.io/"
+    "name": "hashbite",
+    "email": "opensource@hashbite.net",
+    "url": "https://hashbite.net/"
   },
   "contributors": [
     {
       "name": "Benedikt Rötsch",
-      "email": "benedikt@techboi.io",
+      "email": "benedikt@hashbite.net",
       "url": "https://twitter.com/axe312ger"
     },
     {
@@ -22,10 +22,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techboi/consent-manager",
+    "url": "git+https://github.com/hashbite/consent-manager",
     "directory": "packages/core"
   },
-  "homepage": "https://techboi.github.io/consent-manager/",
+  "homepage": "https://hashbite.github.io/consent-manager/",
   "scripts": {
     "start": "tsdx watch --tsconfig tsconfig.build.json --verbose --noClean",
     "build": "tsdx build --tsconfig tsconfig.build.json",
