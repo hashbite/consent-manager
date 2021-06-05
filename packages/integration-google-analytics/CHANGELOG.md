@@ -1,5 +1,13 @@
 # @consent-manager/integration-google-analytics
 
+## 0.0.1-next.5
+
+### Patch Changes
+
+- Move ownership of this project from techboi GmbH to hashbite
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.14
+
 ## 0.0.1-next.4
 
 ### Patch Changes

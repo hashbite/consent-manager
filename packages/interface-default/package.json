@@ -1,6 +1,6 @@
 {
   "name": "@consent-manager/interface-default",
-  "version": "0.0.1-next.16",
+  "version": "0.0.1-next.17",
   "description": "The customizable default interface for consent-manager",
   "author": {
     "name": "hashbite",
@@ -57,7 +57,7 @@
     "react-transition-group": "^4.4.1"
   },
   "peerDependencies": {
-    "@consent-manager/core": "^0.0.1-next.13",
+    "@consent-manager/core": "^0.0.1-next.14",
     "react": "^16.8.0 || ^17.0.1",
     "react-dom": "^16.8.0 || ^17.0.1"
   },

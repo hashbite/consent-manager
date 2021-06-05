@@ -1,6 +1,6 @@
 {
   "name": "@consent-manager/integration-google-analytics",
-  "version": "0.0.1-next.4",
+  "version": "0.0.1-next.5",
   "description": "Protect your visitors privacy by integrating google-analytics.com via consent-manager",
   "author": {
     "name": "hashbite",
@@ -50,7 +50,7 @@
     "simple-icons": "^4.14.0"
   },
   "peerDependencies": {
-    "@consent-manager/core": "^0.0.1-next.10",
+    "@consent-manager/core": "^0.0.1-next.14",
     "react": "^16.8.0 || ^17.0.1",
     "react-dom": "^16.8.0 || ^17.0.1"
   },
