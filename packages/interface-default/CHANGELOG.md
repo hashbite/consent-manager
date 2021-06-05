@@ -1,5 +1,13 @@
 # @consent-manager/interface-default
 
+## 0.0.1-next.17
+
+### Patch Changes
+
+- Move ownership of this project from techboi GmbH to hashbite
+- Updated dependencies [undefined]
+  - @consent-manager/core@0.0.1-next.14
+
 ## 0.0.1-next.16
 
 ### Patch Changes

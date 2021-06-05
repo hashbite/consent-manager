@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 0.0.1-next.14
+
+### Patch Changes
+
+- Move ownership of this project from techboi GmbH to hashbite
+
 ## 0.0.1-next.13
 
 ### Patch Changes
