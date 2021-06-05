@@ -27,7 +27,7 @@ function Root({ children }) {
   const config = {
     integrations: [
       matomoPrivacyAwareIntegration({
-        matomoURL: 'https://trackboi.techboi.io/',
+        matomoURL: 'https://statistics.hashbite.net/',
         siteID: 11,
       }),
       youtubeIntegration(),
