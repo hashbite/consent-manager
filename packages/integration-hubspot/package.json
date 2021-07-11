@@ -1,6 +1,6 @@
 {
   "name": "@consent-manager/integration-hubspot",
-  "version": "0.0.1-next.5",
+  "version": "0.0.1",
   "description": "Protect your visitors privacy by integrating hubspot.com via consent-manager",
   "author": {
     "name": "hashbite",
@@ -48,7 +48,7 @@
     "simple-icons": "^4.14.0"
   },
   "peerDependencies": {
-    "@consent-manager/core": "^0.0.1-next.14",
+    "@consent-manager/core": "^0.0.1",
     "react": "^16.8.0 || ^17.0.1",
     "react-dom": "^16.8.0 || ^17.0.1"
   },
