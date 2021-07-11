@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react'
-import useSet from 'react-use/esm/useSet'
+import { useSet } from 'react-use'
+
 import { IntegrationId, IntegrationConfig } from '../config'
 
 export interface DecisionsFormState {
