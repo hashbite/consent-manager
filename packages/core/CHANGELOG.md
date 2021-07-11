@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 0.0.1-next.16
+
+### Patch Changes
+
+- fix react-use import
+
 ## 0.0.1-next.15
 
 ### Patch Changes
