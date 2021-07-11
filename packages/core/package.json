@@ -1,6 +1,6 @@
 {
   "name": "@consent-manager/core",
-  "version": "0.0.1-next.15",
+  "version": "0.0.1-next.16",
   "description": "Get proper consent before tracking and processing data of your visitors via consent-manager. Supports you to get your website GDPR and CCPA compliant.",
   "license": "MIT",
   "author": {
