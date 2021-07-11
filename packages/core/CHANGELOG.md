@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 0.0.1-next.15
+
+### Patch Changes
+
+- Upgrade react-use to enable NextJS compatability
+
 ## 0.0.1-next.14
 
 ### Patch Changes
