@@ -1,10 +1,10 @@
-import React from 'react';
-import clsx from 'clsx';
-import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import styles from './styles.module.css';
+import React from 'react'
+import clsx from 'clsx'
+import Layout from '@theme/Layout'
+import Link from '@docusaurus/Link'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+import styles from './styles.module.css'
 
 const features = [
   {
@@ -12,16 +12,18 @@ const features = [
     imageUrl: 'img/undraw_docusaurus_mountain.svg',
     description: (
       <>
-        The user should have full control over the data he shares with external services.
+        The user should have full control over the data he shares with external
+        services.
       </>
     ),
   },
   {
-    title: 'GDPR compliant',
+    title: 'Become respectful of privacy laws (like GDPR and more)',
     imageUrl: 'img/undraw_docusaurus_tree.svg',
     description: (
       <>
-        Our goal is to provide a toolkit that enables developers to create GDPR compliant websites.
+        Our goal is to provide a toolkit that enables developers to create GDPR
+        compliant websites.
       </>
     ),
   },
@@ -30,14 +32,15 @@ const features = [
     imageUrl: 'img/undraw_docusaurus_react.svg',
     description: (
       <>
-        Built with TypeScript, full test coverage and support for all styling techniques.
+        Built with TypeScript, full test coverage and support for all styling
+        techniques.
       </>
     ),
   },
-];
+]
 
-function Feature({imageUrl, title, description}) {
-  const imgUrl = useBaseUrl(imageUrl);
+function Feature({ imageUrl, title, description }) {
+  const imgUrl = useBaseUrl(imageUrl)
   return (
     <div className={clsx('col col--4', styles.feature)}>
       {imgUrl && (
@@ -48,16 +51,17 @@ function Feature({imageUrl, title, description}) {
       <h3>{title}</h3>
       <p>{description}</p>
     </div>
-  );
+  )
 }
 
 function Home() {
-  const context = useDocusaurusContext();
-  const {siteConfig = {}} = context;
+  const context = useDocusaurusContext()
+  const { siteConfig = {} } = context
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="Description will go into a meta tag in <head />"
+    >
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
@@ -66,9 +70,10 @@ function Home() {
             <Link
               className={clsx(
                 'button button--outline button--secondary button--lg',
-                styles.getStarted,
+                styles.getStarted
               )}
-              to={useBaseUrl('docs/')}>
+              to={useBaseUrl('docs/')}
+            >
               Get Started
             </Link>
           </div>
@@ -88,7 +93,7 @@ function Home() {
         )}
       </main>
     </Layout>
-  );
+  )
 }
 
-export default Home;
+export default Home
