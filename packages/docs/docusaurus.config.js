@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   title: 'Consent Manager',
-  tagline: "Actually it's a consent manager",
+  tagline: 'A user-friendly way to get rid of GDPR headache',
   url: 'https://hashbite.github.io/consent-manager/',
   baseUrl: '/consent-manager/',
   onBrokenLinks: 'throw',
