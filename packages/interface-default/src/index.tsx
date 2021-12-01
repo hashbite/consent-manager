@@ -1,21 +1,19 @@
 import React, { useState } from 'react'
-import {
-  ConsentManager,
-  ConsentManagerForm,
-  ConsentManagerProps,
-} from '@consent-manager/core'
+import { ConsentManager, ConsentManagerProps } from '@consent-manager/core'
+import loadable from '@loadable/component'
 
 import { IoShieldCheckmark } from '@react-icons/all-files/io5/IoShieldCheckmark'
 
 import defaultStyles from './index.module.css'
 import { useDefaultButton } from './default-button'
-import { Interface } from './interface'
 import { FallbackComponent } from './fallback-component'
 import { ConsentManagerDefaultInterfaceContext } from './context'
 import { Messages, defaultMessages } from './i18n'
 import { ToggleButtonProps } from './toggle-button'
 import { SwitchProps } from './switch'
 import { ConsentFormProps } from './form'
+
+const InterfaceChunk = loadable(() => import('./interface-chunk'))
 
 export * from './i18n'
 export { ToggleButtonProps, SwitchProps, ConsentFormProps }
@@ -91,11 +89,7 @@ export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInter
         value={{ formVisible, setFormVisible, messages }}
       >
         {children}
-        <ConsentManagerForm
-          formComponent={Interface}
-          id="consent-manager-default-interface"
-          {...props}
-        />
+        <InterfaceChunk {...props} />
       </ConsentManagerDefaultInterfaceContext.Provider>
     </ConsentManager>
   )

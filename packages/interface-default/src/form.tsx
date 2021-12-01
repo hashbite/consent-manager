@@ -23,7 +23,7 @@ interface FormState {
   [key: string]: boolean
 }
 
-export const ConsentForm: React.FC<ConsentFormProps> = ({
+const ConsentForm: React.FC<ConsentFormProps> = ({
   integrations,
   initialValues,
   onSubmit,
@@ -153,3 +153,5 @@ export const ConsentForm: React.FC<ConsentFormProps> = ({
     </>
   )
 }
+
+export default ConsentForm

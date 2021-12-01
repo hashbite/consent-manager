@@ -7,7 +7,7 @@ import {
   DecisionsFormState,
 } from './DecisionsForm'
 
-interface ConsentManagerFormProps {
+export interface ConsentManagerFormProps {
   formComponent?: React.ComponentType<DecisionsFormProps>
   [key: string]: unknown
 }

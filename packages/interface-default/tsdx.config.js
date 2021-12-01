@@ -9,6 +9,8 @@ module.exports = {
         minimize: true,
       })
     )
+    delete config.output.file
+    config.output.dir = './dist'
     return config
   },
 }
