@@ -5,13 +5,14 @@ import {
   useEffect,
   useMemo,
   useState,
+  useContext,
 } from 'react'
 import {
   IntegrationConfig,
   IntegrationId,
   ConsentManagerDecisions,
 } from './config'
-import { useIntegrations, useStore } from './context'
+import ConsentManagerContext, { useIntegrations, useStore } from './context'
 import { ConsentManagerStore } from './storage'
 
 interface InitializeDecisionsFromStorageResult {
@@ -61,6 +62,9 @@ export function useDecisions(): [
   ConsentManagerDecisions,
   Dispatch<SetStateAction<ConsentManagerDecisions>>
 ] {
+  const {
+    config: { onChangeDecision },
+  } = useContext(ConsentManagerContext)
   const { decisions } = useCombinedIntegrationStoreDecisions()
   const [decisionsState, setDecisions] = useState(decisions)
   const [, setStore] = useStore()
@@ -80,9 +84,13 @@ export function useDecisions(): [
         typeof newDecisionState === 'function'
           ? newDecisionState(decisionsState)
           : newDecisionState
+
+      if (onChangeDecision) {
+        onChangeDecision(decisionsState, nextDecisionState)
+      }
       setStore(store => ({ ...store, decisions: nextDecisionState }))
     },
-    [decisionsState, setStore]
+    [decisionsState, onChangeDecision, setStore]
   )
 
   return [decisionsState, setAndStoreDecisions]

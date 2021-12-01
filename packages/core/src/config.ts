@@ -29,6 +29,10 @@ export interface IntegrationConfig {
 
 export interface ConsentManagerConfig {
   integrations: IntegrationConfig[]
+  onChangeDecision?: (
+    lastDecisionsState: Record<IntegrationId, boolean>,
+    nextDecisionState: Record<IntegrationId, boolean>
+  ) => unknown
 }
 
 export interface ConsentManagerDecisions {

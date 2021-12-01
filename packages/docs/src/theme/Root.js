@@ -40,6 +40,15 @@ function Root({ children }) {
       hubspotIntegration({ hubId: 19627404 }),
       linkedinIntegration({ partnerId: 2990578 }),
     ],
+    onChangeDecision: (last, next) => {
+      const changed = {}
+      Object.keys(next).forEach(key => {
+        if (last[key] !== next[key]) {
+          changed[key] = next[key]
+        }
+      })
+      console.log('New user decisions:', changed)
+    },
   }
 
   return (
