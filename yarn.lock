@@ -1209,13 +1209,13 @@
     "@manypkg/get-packages" "^1.1.3"
     semver "^5.4.1"
 
-"@changesets/changelog-github@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@changesets/changelog-github/-/changelog-github-0.4.0.tgz#ec80b18b9a5645191b5323fbddce4e4a012302d4"
-  integrity sha512-4GphTAdHJfECuuQg4l0eFGYyUh26mfyXpAi2FImrQvaN+boqTM+9EAAJe2b8Y3OKRfoET+ihgo+LARhW2xJoiw==
+"@changesets/changelog-github@0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@changesets/changelog-github/-/changelog-github-0.4.2.tgz#359eb4b7485eddc55855f8793811817d5124dfab"
+  integrity sha512-qq8lJcq91ki7UT0fIfIcn5Yy7GJj19TmkLmGZ24/wEfxcD/nHHoTNRoi6nPt+Htf7qEudKxXLzQLi41B7Mt2vg==
   dependencies:
     "@changesets/get-github-info" "^0.5.0"
-    "@changesets/types" "^4.0.0"
+    "@changesets/types" "^4.0.2"
     dotenv "^8.1.0"
 
 "@changesets/cli@2.18.1":
@@ -1362,11 +1362,6 @@
     chalk "^2.1.0"
     fs-extra "^7.0.1"
     p-filter "^2.1.0"
-
-"@changesets/types@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/@changesets/types/-/types-4.0.0.tgz#635f804546b0a96ecc0ca3f26403a6782a3dc938"
-  integrity sha512-whLmPx2wgJRoOtxVZop+DJ71z1gTSkij7osiHgN+pe//FiE6bb4ffvBBb0rACs2cUPfAkWxgSPzqkECgKS1jvQ==
 
 "@changesets/types@^4.0.1", "@changesets/types@^4.0.2":
   version "4.0.2"
