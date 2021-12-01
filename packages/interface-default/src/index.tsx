@@ -13,7 +13,11 @@ import { ToggleButtonProps } from './toggle-button'
 import { SwitchProps } from './switch'
 import { ConsentFormProps } from './form'
 
-const InterfaceChunk = loadable(() => import('./interface-chunk'))
+const InterfaceChunk = loadable(() =>
+  import(
+    /* webpackChunkName: "consent-manager-interface" */ './interface-chunk'
+  )
+)
 
 export * from './i18n'
 export { ToggleButtonProps, SwitchProps, ConsentFormProps }
