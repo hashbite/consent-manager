@@ -63,7 +63,7 @@
     "react-dom": "^16.8.0 || ^17.0.1"
   },
   "devDependencies": {
-    "@types/body-scroll-lock": "2.6.1",
+    "@types/body-scroll-lock": "2.6.2",
     "@types/loadable__component": "5.13.4",
     "@types/react-transition-group": "4.4.1",
     "postcss": "8.2.9",
