@@ -55,7 +55,7 @@
     "react-dom": "^16.8.0 || ^17.0.1"
   },
   "devDependencies": {
-    "@types/react-gtm-module": "^2.0.0",
-    "@types/simple-icons": "^4.14.0"
+    "@types/react-gtm-module": "2.0.0",
+    "@types/simple-icons": "4.14.0"
   }
 }

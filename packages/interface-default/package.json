@@ -62,9 +62,9 @@
     "react-dom": "^16.8.0 || ^17.0.1"
   },
   "devDependencies": {
-    "@types/body-scroll-lock": "^2.6.1",
-    "@types/react-transition-group": "^4.4.1",
-    "postcss": "^8.2.8",
-    "rollup-plugin-postcss": "^4.0.0"
+    "@types/body-scroll-lock": "2.6.1",
+    "@types/react-transition-group": "4.4.1",
+    "postcss": "8.2.9",
+    "rollup-plugin-postcss": "4.0.0"
   }
 }

@@ -50,13 +50,13 @@
     "@consent-manager/interface-default": "^0.0.1",
     "@docusaurus/core": "2.0.0-alpha.71",
     "@docusaurus/preset-classic": "2.0.0-alpha.71",
-    "@mdx-js/react": "^1.6.21",
-    "@u-wave/react-vimeo": "^0.9.4",
-    "clsx": "^1.1.1",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-youtube": "^7.13.1",
-    "use-persisted-state": "^0.3.3"
+    "@mdx-js/react": "1.6.22",
+    "@u-wave/react-vimeo": "0.9.4",
+    "clsx": "1.1.1",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "react-youtube": "7.13.1",
+    "use-persisted-state": "0.3.3"
   },
   "browserslist": {
     "production": [
