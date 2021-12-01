@@ -1,5 +1,13 @@
 # @consent-manager/interface-default
 
+## 1.0.0
+
+### Patch Changes
+
+- Updated dependencies [aa9b554]
+- Updated dependencies [undefined]
+  - @consent-manager/core@1.0.0
+
 ## 0.1.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@consent-manager/integration-algolia",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Protect your visitors privacy by integrating algolia.com via consent-manager",
   "author": {
     "name": "hashbite",
@@ -48,7 +48,7 @@
     "simple-icons": "^4.14.0"
   },
   "peerDependencies": {
-    "@consent-manager/core": "^0.0.1",
+    "@consent-manager/core": "^1.0.0",
     "react": "^16.8.0 || ^17.0.1",
     "react-dom": "^16.8.0 || ^17.0.1"
   },

@@ -1,5 +1,15 @@
 # @consent-manager/core
 
+## 1.0.0
+
+### Major Changes
+
+- Release current version of core as first major
+
+### Minor Changes
+
+- aa9b554: Add new onChangeDecision event
+
 ## 0.0.1
 
 ### Patch Changes

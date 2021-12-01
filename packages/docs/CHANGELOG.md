@@ -1,5 +1,28 @@
 # docs
 
+## 0.1.0
+
+### Minor Changes
+
+- aa9b554: Add new onChangeDecision event
+
+### Patch Changes
+
+- Updated dependencies [aa9b554]
+- Updated dependencies [undefined]
+  - @consent-manager/core@1.0.0
+  - @consent-manager/integration-algolia@1.0.0
+  - @consent-manager/integration-google-analytics@1.0.0
+  - @consent-manager/integration-google-tag-manager@1.0.0
+  - @consent-manager/integration-hubspot@1.0.0
+  - @consent-manager/integration-linkedin@1.0.0
+  - @consent-manager/integration-mapbox@1.0.0
+  - @consent-manager/integration-matomo@1.0.0
+  - @consent-manager/integration-segment@1.0.0
+  - @consent-manager/integration-vimeo@1.0.0
+  - @consent-manager/integration-youtube@1.0.0
+  - @consent-manager/interface-default@1.0.0
+
 ## 0.0.2
 
 ### Patch Changes
