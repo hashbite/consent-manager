@@ -1,4 +1,9 @@
 {
   "extends": ["config:base"],
-  "prHourlyLimit": 0
+  "prHourlyLimit": 0,
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"]
+    }
+  ]
 }
