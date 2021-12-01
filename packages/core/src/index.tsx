@@ -113,7 +113,10 @@ export {
   ConsentManagerStorageState,
   ConsentManagerStateHook,
 } from './storage'
-export { ConsentManagerForm } from './components/ConsentManagerForm'
+export {
+  ConsentManagerForm,
+  ConsentManagerFormProps,
+} from './components/ConsentManagerForm'
 export {
   DecisionsFormProps,
   DecisionsFormState,

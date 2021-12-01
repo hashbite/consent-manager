@@ -32,7 +32,7 @@ import { ConsentManagerDefaultInterfaceDesignProps } from './index'
 import { ToggleButton as DefaultToggleButton } from './toggle-button'
 import { useDefaultButton } from './default-button'
 
-const { ConsentForm: DefaultForm } = loadable(() => import('./form'))
+const DefaultForm = loadable(() => import('./form'))
 
 export interface InterfaceProps
   extends DecisionsFormProps,
