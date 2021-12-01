@@ -56,6 +56,6 @@
   },
   "devDependencies": {
     "@types/react-gtm-module": "2.0.1",
-    "@types/simple-icons": "4.17.0"
+    "@types/simple-icons": "5.8.0"
   }
 }

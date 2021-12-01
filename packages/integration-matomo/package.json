@@ -55,6 +55,6 @@
     "react-dom": "^16.8.0 || ^17.0.1"
   },
   "devDependencies": {
-    "@types/simple-icons": "4.17.0"
+    "@types/simple-icons": "5.8.0"
   }
 }
