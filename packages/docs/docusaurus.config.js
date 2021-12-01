@@ -10,6 +10,8 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'hashbite',
   projectName: 'consent-manager',
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
   themeConfig: {
     navbar: {
       title: 'Consent Manager ',
