@@ -32,7 +32,9 @@ import { ConsentManagerDefaultInterfaceDesignProps } from './index'
 import { ToggleButton as DefaultToggleButton } from './toggle-button'
 import { useDefaultButton } from './default-button'
 
-const DefaultForm = loadable(() => import('./form'))
+const DefaultForm = loadable(() =>
+  import(/* webpackChunkName: "consent-manager-form" */ './form')
+)
 
 export interface InterfaceProps
   extends DecisionsFormProps,

@@ -26,7 +26,7 @@
   },
   "homepage": "https://hashbite.github.io/consent-manager/",
   "main": "dist/index.js",
-  "module": "dist/interface-default.esm.js",
+  "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "tsdx watch --tsconfig tsconfig.build.json --verbose --noClean",
