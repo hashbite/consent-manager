@@ -14,7 +14,7 @@
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
-    "@types/react": "16.14.21",
+    "@types/react": "17.0.37",
     "@types/react-dom": "16.9.14",
     "parcel": "1.12.3",
     "typescript": "3.9.10"
