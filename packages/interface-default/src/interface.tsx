@@ -9,7 +9,7 @@ import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
 import { IoShieldCheckmark } from '@react-icons/all-files/io5/IoShieldCheckmark'
 import { IoClose } from '@react-icons/all-files/io5/IoClose'
-
+import loadable from '@loadable/component'
 import {
   disableBodyScroll,
   enableBodyScroll,
@@ -26,12 +26,13 @@ import { Switch as DefaultSwitch } from './switch'
 import defaultStyles from './index.module.css'
 import defaultAnimationStyles from './animation-slide.module.css'
 import { Introduction } from './introduction'
-import { ConsentForm as DefaultForm } from './form'
 import { Backdrop } from './backdrop'
 import { ConsentManagerDefaultInterfaceContext } from './context'
 import { ConsentManagerDefaultInterfaceDesignProps } from './index'
 import { ToggleButton as DefaultToggleButton } from './toggle-button'
 import { useDefaultButton } from './default-button'
+
+const { ConsentForm: DefaultForm } = loadable(() => import('./form'))
 
 export interface InterfaceProps
   extends DecisionsFormProps,
@@ -158,16 +159,18 @@ export const Interface: React.FC<InterfaceProps> = ({
             }}
             ref={formContainerRef}
           >
-            <Form
-              styles={styles}
-              onSubmit={onSubmit}
-              integrations={integrations}
-              initialValues={initialValues}
-              Switch={Switch}
-              Button={Button}
-              CloseIcon={CloseIcon}
-              ToggleIcon={ToggleIcon}
-            />
+            {formVisible && (
+              <Form
+                styles={styles}
+                onSubmit={onSubmit}
+                integrations={integrations}
+                initialValues={initialValues}
+                Switch={Switch}
+                Button={Button}
+                CloseIcon={CloseIcon}
+                ToggleIcon={ToggleIcon}
+              />
+            )}
           </section>
         </div>
       </CSSTransition>
