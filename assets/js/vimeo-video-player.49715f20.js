@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[776],{7115:function(e,c,s){s.r(c);var a=s(7896),n=s(1461),t=s(2784),u=s(2143),d=["id"];c.default=function(e){var c=e.id,s=(0,n.Z)(e,d);return t.createElement(u.Z,(0,a.Z)({className:"video",video:c},s))}}}]);

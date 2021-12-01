@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[24],{196:function(e,a,n){"use strict";n.r(a);var c=n(1),i=n(0),o=n.n(i),s=n(192);a.default=({id:e,...a})=>o.a.createElement(s.a,Object(c.a)({className:"video",video:e},a))}}]);
