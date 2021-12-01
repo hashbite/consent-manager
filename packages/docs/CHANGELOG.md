@@ -1,5 +1,12 @@
 # docs
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @consent-manager/interface-default@0.1.0
+
 ## 0.0.1
 
 ### Patch Changes

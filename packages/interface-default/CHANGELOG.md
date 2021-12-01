@@ -1,5 +1,11 @@
 # @consent-manager/interface-default
 
+## 0.1.0
+
+### Minor Changes
+
+- improve initial page loading time by moving interface and form in their own chunks
+
 ## 0.0.1
 
 ### Patch Changes
