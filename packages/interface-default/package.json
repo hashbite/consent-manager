@@ -67,6 +67,6 @@
     "@types/loadable__component": "5.13.4",
     "@types/react-transition-group": "4.4.1",
     "postcss": "8.4.4",
-    "rollup-plugin-postcss": "4.0.0"
+    "rollup-plugin-postcss": "4.0.2"
   }
 }
