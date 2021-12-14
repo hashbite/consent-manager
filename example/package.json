@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "react": "^16.8.0",
-    "react-app-polyfill": "^1.0.0",
+    "react-app-polyfill": "^3.0.0",
     "react-dom": "^16.8.0",
     "react-router-dom": "^5.2.0"
   },
