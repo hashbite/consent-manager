@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
-import { ConsentManager, ConsentManagerProps } from '@consent-manager/core'
+import {
+  ConsentManager,
+  ConsentManagerProps,
+  ConsentManagerConfig,
+} from '@consent-manager/core'
 import loadable from '@loadable/component'
 
 import { IoShieldCheckmark } from '@react-icons/all-files/io5/IoShieldCheckmark'
@@ -52,6 +56,8 @@ interface ConsentManagerDefaultInterfaceProps
   extends ConsentManagerProps,
     ConsentManagerDefaultInterfaceDesignProps {
   messages?: Messages
+  children: React.ReactChild
+  config: ConsentManagerConfig
 }
 
 export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInterfaceProps> = ({
