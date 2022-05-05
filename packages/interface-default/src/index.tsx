@@ -56,7 +56,7 @@ interface ConsentManagerDefaultInterfaceProps
   extends ConsentManagerProps,
     ConsentManagerDefaultInterfaceDesignProps {
   messages?: Messages
-  children: React.ReactChild
+  children: React.ReactNode
   config: ConsentManagerConfig
 }
 

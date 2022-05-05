@@ -69,6 +69,7 @@ export function useFallbackComponent(): React.ComponentType<
 
 export interface PrivacyShieldProps {
   id: IntegrationId
+  children: React.ReactNode
 }
 export const PrivacyShield: React.FC<PrivacyShieldProps> = ({
   id,
