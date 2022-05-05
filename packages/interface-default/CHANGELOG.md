@@ -1,5 +1,11 @@
 # @consent-manager/interface-default
 
+## 1.0.1
+
+### Patch Changes
+
+- Properly export default interface types
+
 ## 1.0.0
 
 ### Patch Changes

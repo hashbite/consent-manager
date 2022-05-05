@@ -1,6 +1,6 @@
 {
   "name": "@consent-manager/interface-default",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The customizable default interface for consent-manager",
   "author": {
     "name": "hashbite",
