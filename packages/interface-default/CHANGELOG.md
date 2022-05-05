@@ -1,5 +1,13 @@
 # @consent-manager/interface-default
 
+## 1.0.2
+
+### Patch Changes
+
+- Use ReactNode for children in DefaultInterface and PrivacyShield
+- Updated dependencies
+  - @consent-manager/core@1.0.1
+
 ## 1.0.1
 
 ### Patch Changes

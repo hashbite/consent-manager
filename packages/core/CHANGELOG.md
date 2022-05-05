@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 1.0.1
+
+### Patch Changes
+
+- Use ReactNode for children in DefaultInterface and PrivacyShield
+
 ## 1.0.0
 
 ### Major Changes
