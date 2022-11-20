@@ -30,7 +30,7 @@
     "@changesets/changelog-github": "0.4.4",
     "@changesets/cli": "2.22.0",
     "@types/react": "16.14.25",
-    "@types/react-dom": "16.9.15",
+    "@types/react-dom": "18.0.9",
     "cypress": "9.5.4",
     "lerna": "4.0.0",
     "react": "16.14.0",
