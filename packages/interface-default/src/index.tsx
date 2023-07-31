@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, Suspense } from 'react'
 import {
   ConsentManager,
   ConsentManagerProps,
   ConsentManagerConfig,
 } from '@consent-manager/core'
-import loadable from '@loadable/component'
 
 import { IoShieldCheckmark } from '@react-icons/all-files/io5/IoShieldCheckmark'
 
@@ -17,7 +16,7 @@ import { ToggleButtonProps } from './toggle-button'
 import { SwitchProps } from './switch'
 import { ConsentFormProps } from './form'
 
-const InterfaceChunk = loadable(() =>
+const InterfaceChunk = React.lazy(() =>
   import(
     /* webpackChunkName: "consent-manager-interface" */ './interface-chunk'
   )
@@ -99,7 +98,9 @@ export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInter
         value={{ formVisible, setFormVisible, messages }}
       >
         {children}
-        <InterfaceChunk {...props} />
+        <Suspense>
+          <InterfaceChunk {...props} />
+        </Suspense>
       </ConsentManagerDefaultInterfaceContext.Provider>
     </ConsentManager>
   )
