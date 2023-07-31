@@ -53,8 +53,8 @@
     "@mdx-js/react": "1.6.22",
     "@u-wave/react-vimeo": "0.9.8",
     "clsx": "1.1.1",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-youtube": "7.14.0",
     "use-persisted-state": "0.3.3"
   },
