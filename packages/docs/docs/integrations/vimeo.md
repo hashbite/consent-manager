@@ -1,7 +1,7 @@
 ---
 id: vimeo
 title: Vimeo Integration
-slug: /integrations/vimeo
+slug: "/integrations/vimeo"
 ---
 
 import { VimeoVideo } from '../../src/components/vimeo-video'

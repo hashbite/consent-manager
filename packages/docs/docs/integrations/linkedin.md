@@ -1,7 +1,7 @@
 ---
 id: hubspot
 title: Hubspot Integration
-slug: /integrations/hubspot
+slug: "/integrations/hubspot"
 ---
 
 import { hubspotIntegration } from "@consent-manager/integration-hubspot"

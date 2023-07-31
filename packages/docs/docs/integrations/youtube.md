@@ -1,7 +1,7 @@
 ---
 id: youtube
 title: Youtube Integration
-slug: /integrations/youtube
+slug: "/integrations/youtube"
 ---
 
 import { YoutubeVideo } from '../../src/components/youtube-video'
