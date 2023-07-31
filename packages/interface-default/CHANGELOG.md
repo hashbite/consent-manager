@@ -1,5 +1,11 @@
 # @consent-manager/interface-default
 
+## 2.0.0-next.1
+
+### Patch Changes
+
+- Replace @loadable/component with React.lazy of v18
+
 ## 2.0.0-next.0
 
 ### Major Changes
