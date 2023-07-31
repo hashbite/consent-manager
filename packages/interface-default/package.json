@@ -47,7 +47,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@loadable/component": "^5.15.0",
     "@react-icons/all-files": "^4.1.0",
     "activity-detector-ssr": "^3.0.0",
     "body-scroll-lock": "^3.1.5",
@@ -64,7 +63,6 @@
   },
   "devDependencies": {
     "@types/body-scroll-lock": "3.1.0",
-    "@types/loadable__component": "5.13.4",
     "@types/react-transition-group": "4.4.6",
     "postcss": "8.4.27",
     "rollup-plugin-postcss": "4.0.2"

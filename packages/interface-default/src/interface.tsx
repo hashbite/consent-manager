@@ -1,4 +1,5 @@
 import React, {
+  Suspense,
   useCallback,
   useContext,
   useEffect,
@@ -9,7 +10,7 @@ import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
 import { IoShieldCheckmark } from '@react-icons/all-files/io5/IoShieldCheckmark'
 import { IoClose } from '@react-icons/all-files/io5/IoClose'
-import loadable from '@loadable/component'
+
 import {
   disableBodyScroll,
   enableBodyScroll,
@@ -32,7 +33,7 @@ import { ConsentManagerDefaultInterfaceDesignProps } from './index'
 import { ToggleButton as DefaultToggleButton } from './toggle-button'
 import { useDefaultButton } from './default-button'
 
-const DefaultForm = loadable(() =>
+const DefaultForm = React.lazy(() =>
   import(/* webpackChunkName: "consent-manager-form" */ './form')
 )
 
@@ -162,16 +163,18 @@ export const Interface: React.FC<InterfaceProps> = ({
             ref={formContainerRef}
           >
             {formVisible && (
-              <Form
-                styles={styles}
-                onSubmit={onSubmit}
-                integrations={integrations}
-                initialValues={initialValues}
-                Switch={Switch}
-                Button={Button}
-                CloseIcon={CloseIcon}
-                ToggleIcon={ToggleIcon}
-              />
+              <Suspense>
+                <Form
+                  styles={styles}
+                  onSubmit={onSubmit}
+                  integrations={integrations}
+                  initialValues={initialValues}
+                  Switch={Switch}
+                  Button={Button}
+                  CloseIcon={CloseIcon}
+                  ToggleIcon={ToggleIcon}
+                />
+              </Suspense>
             )}
           </section>
         </div>
