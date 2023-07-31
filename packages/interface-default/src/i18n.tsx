@@ -1,9 +1,9 @@
 import React from 'react'
 
 export interface Messages {
-  [key: string]: React.ReactNode
+  [key: string]: React.ReactNode | React.ComponentType<any>
   'consent-manager.integration.default.company'?: React.ComponentType<{
-    IntegrationLabel: React.ComponentType
+    IntegrationLabel: React.ComponentType<any>
   }>
   'consent-manager.integration.default.category'?: React.ComponentType<{
     category: string
@@ -13,14 +13,14 @@ export interface Messages {
   }>
   'consent-manager.integration.default.description'?: React.ComponentType<{
     description: string
-    PrivacyPolicyLink: React.ComponentType
+    PrivacyPolicyLink: React.ComponentType<any>
   }>
   'consent-manager.integration.default.privacy-policy'?: React.ComponentType<{
-    Link: React.ComponentType
+    Link: React.FC<any>
     title: string
   }>
   'consent-manager.fallback.default.description'?: React.ComponentType<{
-    IntegrationLabel: React.ComponentType
+    IntegrationLabel: React.ComponentType<any>
     category: string
     title: string
   }>

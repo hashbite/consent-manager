@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react'
+import React, { MouseEvent, useCallback, useContext, useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
 import createActivityDetector from 'activity-detector-ssr'
@@ -65,7 +65,7 @@ export const Introduction: React.FC<IntroductionProps> = ({
   }, [isIdle, setShow, activityDetectorInstance])
 
   const onLearnMore = useCallback(
-    e => {
+    (e: Event) => {
       e.preventDefault()
       setShow(false)
       setFormVisible(true)
@@ -74,7 +74,7 @@ export const Introduction: React.FC<IntroductionProps> = ({
   )
 
   const onEnableAll = useCallback(
-    e => {
+    (e: Event) => {
       e.preventDefault()
       setShow(false)
       for (const integrationId of Object.keys(decisions)) {
@@ -86,7 +86,7 @@ export const Introduction: React.FC<IntroductionProps> = ({
   )
 
   const onClose = useCallback(
-    e => {
+    (e: MouseEvent<HTMLButtonElement>) => {
       e.preventDefault()
       setShow(false)
     },

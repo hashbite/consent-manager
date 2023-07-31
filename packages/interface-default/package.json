@@ -55,7 +55,7 @@
     "final-form": "^4.20.2",
     "react-div-100vh": "^0.7.0",
     "react-final-form": "^6.5.2",
-    "react-transition-group": "^4.4.1"
+    "react-transition-group": "^4.4.5"
   },
   "peerDependencies": {
     "@consent-manager/core": "^1.0.1",

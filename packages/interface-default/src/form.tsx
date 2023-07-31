@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useMemo } from 'react'
+import React, { ChangeEvent, useCallback, useContext, useMemo } from 'react'
 import { Form } from 'react-final-form'
 import clsx from 'clsx'
 import {
@@ -36,7 +36,7 @@ const ConsentForm: React.FC<ConsentFormProps> = ({
   const { setFormVisible } = useContext(ConsentManagerDefaultInterfaceContext)
 
   const onSubmitCb = useCallback(
-    values => {
+    (values: ChangeEvent<HTMLFormElement>) => {
       const enabled = []
       for (const [key, value] of Object.entries(values)) {
         if (value) {
@@ -78,7 +78,10 @@ const ConsentForm: React.FC<ConsentFormProps> = ({
                 onClick={() =>
                   form.batch(() => {
                     for (const id of Object.keys(initialState)) {
-                      form.change(id, false)
+                      form.change(
+                        id as keyof ChangeEvent<HTMLFormElement>,
+                        false
+                      )
                     }
                   })
                 }
@@ -90,7 +93,10 @@ const ConsentForm: React.FC<ConsentFormProps> = ({
                 onClick={() =>
                   form.batch(() => {
                     for (const id of Object.keys(initialState)) {
-                      form.change(id, true)
+                      form.change(
+                        id as keyof ChangeEvent<HTMLFormElement>,
+                        true
+                      )
                     }
                   })
                 }

@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { ConsentManagerDefaultInterfaceContext } from './context'
 
 export interface ResultProps {
-  [key: string]: React.ReactNode
+  [key: string]: React.ReactNode | React.ReactElement | React.FC<any>
 }
 
 interface TransProps {
