@@ -1,5 +1,16 @@
 # @consent-manager/interface-default
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- Migrate to React v18, potentially breaking older versions of React
+
+### Patch Changes
+
+- Updated dependencies
+  - @consent-manager/core@2.0.0-next.0
+
 ## 1.0.2
 
 ### Patch Changes

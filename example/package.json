@@ -1,6 +1,6 @@
 {
   "name": "@consent-manager/example-parcel-minimal",
-  "version": "0.0.0",
+  "version": "1.0.0-next.0",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "@consent-manager/core": "^1.0.1",
+    "@consent-manager/core": "^2.0.0-next.0",
     "react": "^18.0.0",
     "react-app-polyfill": "^3.0.0",
     "react-dom": "^18.0.0",

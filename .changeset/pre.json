@@ -1,0 +1,23 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "@consent-manager/example-parcel-minimal": "0.0.0",
+    "@consent-manager/core": "1.0.1",
+    "docs": "0.1.0",
+    "@consent-manager/integration-algolia": "1.0.0",
+    "@consent-manager/integration-google-analytics": "1.0.0",
+    "@consent-manager/integration-google-tag-manager": "1.0.0",
+    "@consent-manager/integration-hubspot": "1.0.0",
+    "@consent-manager/integration-linkedin": "1.0.0",
+    "@consent-manager/integration-mapbox": "1.0.0",
+    "@consent-manager/integration-matomo": "1.0.0",
+    "@consent-manager/integration-segment": "1.0.0",
+    "@consent-manager/integration-vimeo": "1.0.0",
+    "@consent-manager/integration-youtube": "1.0.0",
+    "@consent-manager/interface-default": "1.0.2"
+  },
+  "changesets": [
+    "thick-seas-love"
+  ]
+}
