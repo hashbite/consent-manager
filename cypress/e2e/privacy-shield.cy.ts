@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 describe('Privacy Shield', () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit('http://localhost:1234/video')
   })
   it('renders privacy shield', () => {
@@ -25,6 +25,7 @@ describe('Privacy Shield', () => {
   })
 
   it('renders privacy shield after revoking decision', () => {
+    cy.toggleIntegration('Video Inc.')
     cy.toggleIntegration('Video Inc.')
 
     cy.get('[data-testid="consent-manager-privacy-shield"]').contains(

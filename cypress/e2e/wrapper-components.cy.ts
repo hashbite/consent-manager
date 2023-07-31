@@ -3,7 +3,7 @@
 describe('Wrapper Component: script tag', () => {
   const selector = 'script#red-box-ltd'
 
-  before(() => {
+  beforeEach(() => {
     cy.visit('http://localhost:1234/')
   })
   it('does not inject Wrapper Component by default', () => {
@@ -29,6 +29,7 @@ describe('Wrapper Component: script tag', () => {
 
   it('removes Wrapper Component when revoking decision', () => {
     cy.toggleIntegration('Red Box Ltd.')
+    cy.toggleIntegration('Red Box Ltd.')
 
     cy.get(selector).should('not.exist')
   })
@@ -37,7 +38,7 @@ describe('Wrapper Component: script tag', () => {
 describe('Wrapper Component: img tag', () => {
   const selector = 'img[src="/zero-pixel.png"]'
 
-  before(() => {
+  beforeEach(() => {
     cy.visit('http://localhost:1234/')
   })
   it('does not inject img by default', () => {
@@ -53,6 +54,7 @@ describe('Wrapper Component: img tag', () => {
 
   it('removes img when revoking decision', () => {
     cy.toggleIntegration('Innocent Pixel')
+    cy.toggleIntegration('Innocent Pixel')
 
     cy.get(selector).should('not.exist')
   })
@@ -62,7 +64,7 @@ describe('Wrapper Component: image and script tags', () => {
   const selectorImg = 'img[src="/zero-pixel.png"]'
   const selectorScript = 'script#red-box-ltd'
 
-  before(() => {
+  beforeEach(() => {
     cy.visit('http://localhost:1234/')
   })
   it('does not inject by default', () => {
@@ -80,6 +82,9 @@ describe('Wrapper Component: image and script tags', () => {
 
   it('removes Wrapper Component when revoking decision', () => {
     cy.toggleIntegration('Red Box Ltd.')
+    cy.toggleIntegration('Innocent Pixel')
+
+    cy.toggleIntegration('Red Box Ltd.')
 
     cy.get(selectorScript).should('not.exist')
     cy.get(selectorImg).should('exist')
@@ -87,6 +92,10 @@ describe('Wrapper Component: image and script tags', () => {
 
   it('removes img when revoking decision', () => {
     cy.toggleIntegration('Innocent Pixel')
+    cy.toggleIntegration('Red Box Ltd.')
+
+    cy.toggleIntegration('Innocent Pixel')
+    cy.toggleIntegration('Red Box Ltd.')
 
     cy.get(selectorImg).should('not.exist')
     cy.get(selectorScript).should('not.exist')

@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 describe('Basics', () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit('http://localhost:1234/')
   })
   it('properly renders home page', () => {
