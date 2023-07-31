@@ -1308,13 +1308,13 @@
   dependencies:
     "@changesets/types" "^5.2.1"
 
-"@changesets/changelog-github@0.4.4":
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/@changesets/changelog-github/-/changelog-github-0.4.4.tgz#a3d59b30ccc6bfa3f0b381cda7cd4017c5590a9a"
-  integrity sha512-htSILqCkyYtTB5/LoVKwx7GCJQGxAiBcYbfUKWiz/QoDARuM01owYtMXhV6/iytJZq/Dqqz3PjMZUNB4MphpbQ==
+"@changesets/changelog-github@0.4.8":
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/@changesets/changelog-github/-/changelog-github-0.4.8.tgz#b7f8ae85d0c0ff08028d924c5e59a1cbd3742634"
+  integrity sha512-jR1DHibkMAb5v/8ym77E4AMNWZKB5NPzw5a5Wtqm1JepAuIF+hrKp2u04NKM14oBZhHglkCfrla9uq8ORnK/dw==
   dependencies:
-    "@changesets/get-github-info" "^0.5.0"
-    "@changesets/types" "^5.0.0"
+    "@changesets/get-github-info" "^0.5.2"
+    "@changesets/types" "^5.2.1"
     dotenv "^8.1.0"
 
 "@changesets/cli@2.26.2":
@@ -1387,7 +1387,7 @@
     fs-extra "^7.0.1"
     semver "^7.5.3"
 
-"@changesets/get-github-info@^0.5.0":
+"@changesets/get-github-info@^0.5.2":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@changesets/get-github-info/-/get-github-info-0.5.2.tgz#0cde2cadba57db85c714dc303c077da919a574e5"
   integrity sha512-JppheLu7S114aEs157fOZDjFqUDpm7eHdq5E8SSR0gUBTEK0cNSHsrSR5a66xs0z3RWuo46QvA3vawp8BxDHvg==
@@ -1471,7 +1471,7 @@
   resolved "https://registry.yarnpkg.com/@changesets/types/-/types-4.1.0.tgz#fb8f7ca2324fd54954824e864f9a61a82cb78fe0"
   integrity sha512-LDQvVDv5Kb50ny2s25Fhm3d9QSZimsoUGBsUioj6MC3qbMUCuC8GPIvk/M6IvXx3lYhAs0lwWUQLb+VIEUCECw==
 
-"@changesets/types@^5.0.0", "@changesets/types@^5.2.1":
+"@changesets/types@^5.2.1":
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/@changesets/types/-/types-5.2.1.tgz#a228c48004aa8a93bce4be2d1d31527ef3bf21f6"
   integrity sha512-myLfHbVOqaq9UtUKqR/nZA/OY7xFjQMdfgfqeZIBK4d0hA6pgxArvdv8M+6NUzzBsjWLOtvApv8YHr4qM+Kpfg==
