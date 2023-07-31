@@ -1,7 +1,7 @@
 ---
 id: linkedin
 title: LinkedIn Integration
-slug: /integrations/linkedin
+slug: "/integrations/linkedin"
 ---
 
 import { linkedinIntegration } from "@consent-manager/integration-linkedin"

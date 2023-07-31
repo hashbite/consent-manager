@@ -1,7 +1,7 @@
 ---
 id: mapbox
 title: Mapbox Integration
-slug: /integrations/mapbox
+slug: "/integrations/mapbox"
 ---
 
 - Source code: https://github.com/hashbite/consent-manager/tree/main/packages/integration-mapbox
