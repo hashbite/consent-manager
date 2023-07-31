@@ -51,7 +51,7 @@
     "@react-icons/all-files": "^4.1.0",
     "activity-detector-ssr": "^3.0.0",
     "body-scroll-lock": "^3.1.5",
-    "clsx": "^1.1.1",
+    "clsx": "^2.0.0",
     "final-form": "^4.20.2",
     "react-div-100vh": "^0.7.0",
     "react-final-form": "^6.5.2",
