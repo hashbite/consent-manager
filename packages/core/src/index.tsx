@@ -17,6 +17,7 @@ export interface ConsentManagerProps {
   config: ConsentManagerConfig
   fallbackComponent?: React.ComponentType<FallbackComponentProps>
   store: ConsentManagerStore
+  children: React.ReactNode
 }
 
 export const ConsentManager: React.FC<ConsentManagerProps> = ({

@@ -13,6 +13,18 @@ export interface IntegrationProps extends IntegrationConfigOptions {
   Switch?: React.ComponentType<SwitchProps>
 }
 
+const Link: React.FC<{
+  children: React.ReactNode
+  privacyPolicyUrl: string
+}> = ({ children, privacyPolicyUrl }) => (
+  // eslint-disable-next-line jsx-a11y/anchor-has-content
+  <>
+    <a href={privacyPolicyUrl} rel="noreferrer" target="_blank">
+      {children}
+    </a>
+  </>
+)
+
 export const Integration: React.FC<IntegrationProps> = ({
   styles,
   Switch = DefaultSwitch,
@@ -45,7 +57,7 @@ export const Integration: React.FC<IntegrationProps> = ({
           id={`consent-manager.integration.${id}.company`}
           fallbackId={`consent-manager.integration.default.company`}
           props={{
-            IntegrationLabel: () => (
+            IntegrationLabel: (
               <IntegrationLabel
                 styles={styles}
                 integration={{
@@ -70,17 +82,12 @@ export const Integration: React.FC<IntegrationProps> = ({
         fallbackId={`consent-manager.integration.default.description`}
         props={{
           description,
-          PrivacyPolicyLink: () => (
+          PrivacyPolicyLink: (
             <Trans
               id={`consent-manager.integration.${id}.privacy-policy`}
               fallbackId={`consent-manager.integration.default.privacy-policy`}
               props={{
-                Link: ({ children }: { children: React.ReactNode }) => (
-                  // eslint-disable-next-line jsx-a11y/anchor-has-content
-                  <a href={privacyPolicyUrl} rel="noreferrer" target="_blank">
-                    {children}
-                  </a>
-                ),
+                Link,
                 title,
               }}
             />

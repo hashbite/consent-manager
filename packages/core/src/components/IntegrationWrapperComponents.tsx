@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react'
+import React, { useMemo, useState, useEffect, ReactNode } from 'react'
 
 import { IntegrationConfig, ConsentManagerConfig } from '../config'
 import { useDecisions } from '../decisions'
@@ -8,6 +8,7 @@ type IntegrationWithWrapperComponent = IntegrationConfig &
 
 export const IntegrationWrapperComponents: React.FC<{
   config: ConsentManagerConfig
+  children: ReactNode
 }> = ({ config, children }) => {
   const [decisions] = useDecisions()
   const [isMounted, setIsMounted] = useState(false)

@@ -72,7 +72,7 @@ export const Interface: React.FC<InterfaceProps> = ({
   const formContainerRef = useRef<HTMLDivElement>(null)
 
   const toggleControlForm = useCallback(
-    e => {
+    (e: Event) => {
       e.preventDefault()
       setFormVisible(!formVisible)
     },
@@ -103,7 +103,7 @@ export const Interface: React.FC<InterfaceProps> = ({
   const viewportHeight = use100vh()
 
   const handleEsc = useCallback(
-    e => {
+    (e: KeyboardEvent) => {
       if (formVisible && e.keyCode === 27) {
         e.preventDefault()
         setFormVisible(false)
