@@ -57,7 +57,7 @@ export const Integration: React.FC<IntegrationProps> = ({
           id={`consent-manager.integration.${id}.company`}
           fallbackId={`consent-manager.integration.default.company`}
           props={{
-            IntegrationLabel: (
+            IntegrationLabel: () => (
               <IntegrationLabel
                 styles={styles}
                 integration={{
@@ -82,7 +82,7 @@ export const Integration: React.FC<IntegrationProps> = ({
         fallbackId={`consent-manager.integration.default.description`}
         props={{
           description,
-          PrivacyPolicyLink: (
+          PrivacyPolicyLink: () => (
             <Trans
               id={`consent-manager.integration.${id}.privacy-policy`}
               fallbackId={`consent-manager.integration.default.privacy-policy`}

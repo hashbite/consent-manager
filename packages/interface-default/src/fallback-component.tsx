@@ -52,7 +52,7 @@ export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({
           id={`consent-manager.fallback.${integrationId}.description`}
           fallbackId={`consent-manager.fallback.default.description`}
           props={{
-            IntegrationLabel: (
+            IntegrationLabel: () => (
               <IntegrationLabel styles={styles} integration={integration} />
             ),
             category,
