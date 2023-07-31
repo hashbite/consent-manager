@@ -2,6 +2,7 @@
   "name": "@consent-manager/example-parcel-minimal",
   "version": "0.0.0",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html"
