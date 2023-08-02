@@ -4,10 +4,10 @@ import {
   IntegrationConfig,
 } from '@consent-manager/core'
 
-import YouTube from 'simple-icons/icons/youtube'
+import { siYoutube } from 'simple-icons'
 
 export function youtubeIntegration(): IntegrationConfig {
-  const { title, slug, hex, path } = YouTube
+  const { title, slug, hex, path } = siYoutube
   const color = `#${hex}`
   const contrastColor = getForegroundColor(color)
   const lang =

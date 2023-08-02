@@ -8,7 +8,7 @@ import {
 } from '@consent-manager/core'
 import React from 'react'
 
-import googleAnalytics from 'simple-icons/icons/googleanalytics'
+import {siGoogleanalytics} from 'simple-icons'
 
 import ReactGA from 'react-ga'
 
@@ -52,7 +52,7 @@ interface googleAnalyticsConfig extends IntegrationConfigOptions {
 export function googleAnalyticsIntegration(
   options: googleAnalyticsConfig
 ): IntegrationConfig {
-  const { title, hex, path } = googleAnalytics
+  const { title, hex, path } = siGoogleanalytics
   const color = `#${hex}`
   const contrastColor = getForegroundColor(color)
   const Icon = createIconComponentFromSimpleIconsSvgPath(title, path)

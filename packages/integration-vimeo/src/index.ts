@@ -4,10 +4,10 @@ import {
   IntegrationConfig,
 } from '@consent-manager/core'
 
-import Vimeo from 'simple-icons/icons/vimeo'
+import { siVimeo } from 'simple-icons'
 
 export function vimeoIntegration(): IntegrationConfig {
-  const { title, slug, hex, path } = Vimeo
+  const { title, slug, hex, path } = siVimeo
   const color = `#${hex}`
   const contrastColor = getForegroundColor(color)
   const Icon = createIconComponentFromSimpleIconsSvgPath(title, path)
