@@ -1,6 +1,6 @@
 {
   "name": "@consent-manager/integration-matomo",
-  "version": "2.0.0-next.1",
+  "version": "2.0.0-next.2",
   "description": "Protect your visitors privacy by integrating Matomo via consent-manager",
   "author": {
     "name": "hashbite",

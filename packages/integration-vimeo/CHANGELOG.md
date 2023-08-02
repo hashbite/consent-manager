@@ -1,5 +1,11 @@
 # @consent-manager/integration-vimeo
 
+## 2.0.0-next.2
+
+### Patch Changes
+
+- Republish
+
 ## 2.0.0-next.1
 
 ### Patch Changes

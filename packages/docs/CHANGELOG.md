@@ -1,5 +1,22 @@
 ---
 
+## 1.0.0-next.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @consent-manager/integration-algolia@2.0.0-next.2
+  - @consent-manager/integration-google-analytics@2.0.0-next.2
+  - @consent-manager/integration-google-tag-manager@2.0.0-next.2
+  - @consent-manager/integration-hubspot@2.0.0-next.2
+  - @consent-manager/integration-linkedin@2.0.0-next.2
+  - @consent-manager/integration-mapbox@2.0.0-next.2
+  - @consent-manager/integration-matomo@2.0.0-next.2
+  - @consent-manager/integration-segment@2.0.0-next.2
+  - @consent-manager/integration-vimeo@2.0.0-next.2
+  - @consent-manager/integration-youtube@2.0.0-next.2
+  - @consent-manager/interface-default@2.0.0-next.2
+
 ## 1.0.0-next.1
 
 ### Patch Changes
