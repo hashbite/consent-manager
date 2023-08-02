@@ -1,6 +1,6 @@
 {
   "name": "@consent-manager/integration-hubspot",
-  "version": "2.0.0-next.0",
+  "version": "2.0.0-next.1",
   "description": "Protect your visitors privacy by integrating hubspot.com via consent-manager",
   "author": {
     "name": "hashbite",

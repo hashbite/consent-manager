@@ -1,5 +1,11 @@
 # @consent-manager/integration-mapbox
 
+## 2.0.0-next.1
+
+### Patch Changes
+
+- ab9ae32: Upgrade simple-icons to latest version
+
 ## 2.0.0-next.0
 
 ### Major Changes

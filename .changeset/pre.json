@@ -18,6 +18,7 @@
     "@consent-manager/interface-default": "1.0.2"
   },
   "changesets": [
+    "calm-feet-sparkle",
     "fair-llamas-enjoy",
     "thick-seas-love"
   ]
