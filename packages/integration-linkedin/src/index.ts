@@ -8,7 +8,7 @@ import {
 } from '@consent-manager/core'
 import React from 'react'
 
-import linkedin from 'simple-icons/icons/linkedin'
+import { siLinkedin } from 'simple-icons'
 
 declare global {
   interface Window {
@@ -56,7 +56,7 @@ interface linkedinConfig extends IntegrationConfigOptions {
 export function linkedinIntegration(
   options: linkedinConfig
 ): IntegrationConfig {
-  const { title, slug, hex, path } = linkedin
+  const { title, slug, hex, path } = siLinkedin
   const color = `#${hex}`
   const contrastColor = getForegroundColor(color)
   const Icon = createIconComponentFromSimpleIconsSvgPath(title, path)

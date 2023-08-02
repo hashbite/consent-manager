@@ -4,10 +4,10 @@ import {
   IntegrationConfig,
 } from '@consent-manager/core'
 
-import algolia from 'simple-icons/icons/algolia'
+import { siAlgolia } from 'simple-icons'
 
 export function algoliaIntegration(): IntegrationConfig {
-  const { title, slug, hex, path } = algolia
+  const { title, slug, hex, path } = siAlgolia
   const color = `#${hex}`
   const contrastColor = getForegroundColor(color)
   const Icon = createIconComponentFromSimpleIconsSvgPath(title, path)

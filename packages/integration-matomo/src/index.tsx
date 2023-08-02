@@ -11,7 +11,7 @@ import {
   TrackerEvents,
 } from '@consent-manager/core'
 
-import Matomo from 'simple-icons/icons/matomo'
+import { siMatomo } from 'simple-icons'
 
 declare global {
   interface Window {
@@ -135,7 +135,7 @@ export function matomoIntegration({
   matomoURL,
   siteID,
 }: MatomoIntegrationArgs): IntegrationConfig {
-  const { title, slug, hex, path } = Matomo
+  const { title, slug, hex, path } = siMatomo
   const color = `#${hex}`
   const contrastColor = getForegroundColor(color)
 

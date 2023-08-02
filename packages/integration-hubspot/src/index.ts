@@ -8,7 +8,7 @@ import {
 } from '@consent-manager/core'
 import React from 'react'
 
-import hubspot from 'simple-icons/icons/hubspot'
+import { siHubspot } from 'simple-icons'
 
 let wasInitialized = false
 
@@ -45,7 +45,7 @@ interface hubspotConfig extends IntegrationConfigOptions {
 }
 
 export function hubspotIntegration(options: hubspotConfig): IntegrationConfig {
-  const { title, slug, hex, path } = hubspot
+  const { title, slug, hex, path } = siHubspot
   const color = `#${hex}`
   const contrastColor = getForegroundColor(color)
   const Icon = createIconComponentFromSimpleIconsSvgPath(title, path)

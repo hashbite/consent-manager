@@ -8,7 +8,7 @@ import {
 } from '@consent-manager/core'
 import React from 'react'
 
-import googleTagManager from 'simple-icons/icons/googletagmanager'
+import { siGoogletagmanager } from 'simple-icons'
 
 import TagManager from 'react-gtm-module'
 
@@ -53,7 +53,7 @@ interface googleTagManagerConfig extends IntegrationConfigOptions {
 export function googleTagManagerIntegration(
   options: googleTagManagerConfig
 ): IntegrationConfig {
-  const { title, hex, path } = googleTagManager
+  const { title, hex, path } = siGoogletagmanager
   const color = `#${hex}`
   const contrastColor = getForegroundColor(color)
   const Icon = createIconComponentFromSimpleIconsSvgPath(title, path)

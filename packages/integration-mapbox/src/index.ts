@@ -4,10 +4,10 @@ import {
   IntegrationConfig,
 } from '@consent-manager/core'
 
-import Mapbox from 'simple-icons/icons/mapbox'
+import { siMapbox } from 'simple-icons'
 
 export function mapboxIntegration(): IntegrationConfig {
-  const { title, slug, hex, path } = Mapbox
+  const { title, slug, hex, path } = siMapbox
   const color = `#${hex}`
   const contrastColor = getForegroundColor(color)
   const Icon = createIconComponentFromSimpleIconsSvgPath(title, path)
