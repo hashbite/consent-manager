@@ -14889,9 +14889,9 @@ signal-exit@^3.0.0, signal-exit@^3.0.2, signal-exit@^3.0.3:
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
 
 simple-icons@*, simple-icons@^9.8.0:
-  version "9.8.0"
-  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-9.8.0.tgz#0bc2a503994b16bde8c7f28013fd99eb5b566472"
-  integrity sha512-xVHfr+souquvsKoqYzfgEoQeZSt1i8ka9botwc81wGZ9VNOc2xr96GPz1ziycpX+vHLuZFlgibYcqCzJZeCPfg==
+  version "9.19.1"
+  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-9.19.1.tgz#94ead354dce6a27d51d3ea5e53086c98b9b32dc2"
+  integrity sha512-U6Ixzl3jUbq5H+vImsC9+2dOP1KPP9pA7UgJW9xNOT4b7JRz/9n6qMSSIEbgIk9ofM6VpVuVy0nsAfTuVv1/Tg==
 
 sirv@^1.0.7:
   version "1.0.19"
