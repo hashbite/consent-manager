@@ -10,7 +10,6 @@ export interface SwitchProps extends FieldRenderProps<string, any> {
 export const Switch: React.FC<SwitchProps> = ({
   children,
   input,
-  meta,
   styles,
   ...rest
 }) => {

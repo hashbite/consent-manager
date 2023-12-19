@@ -31,7 +31,7 @@
   "scripts": {
     "start": "tsdx watch --tsconfig tsconfig.build.json --verbose --noClean",
     "build": "tsdx build --tsconfig tsconfig.build.json",
-    "lint": "tsdx lint",
+    "lint": "npx eslint src/**/*.ts src/**/*.tsx",
     "prepublish": "npm run build"
   },
   "keywords": [

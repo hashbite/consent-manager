@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { MouseEvent, useContext } from 'react'
 import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
 
@@ -11,7 +11,7 @@ export interface ToggleButtonProps {
   styles: Styles
   animationStyles?: Styles
   ToggleIcon: React.ComponentType<IconProps>
-  toggleControlForm: Function
+  toggleControlForm: (e: MouseEvent) => void
   slideDuration?: number
 }
 

@@ -19,7 +19,7 @@ import { ConsentManagerDefaultInterfaceContext } from './context'
 
 export interface IntroductionProps {
   CloseIcon: React.ComponentType<IconProps>
-  introductionFinished: Function
+  introductionFinished: () => void
   styles?: Styles
   animationStyles?: Styles
   slideDuration: number
@@ -28,8 +28,8 @@ export interface IntroductionProps {
 }
 
 interface ActivityDetector {
-  on: Function
-  stop: Function
+  on: (e: string, cb: () => unknown) => void
+  stop: () => void
 }
 
 export const Introduction: React.FC<IntroductionProps> = ({

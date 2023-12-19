@@ -33,7 +33,7 @@ const WrapperComponent: React.FC = () => {
   }
 
   if (!wasInitialized && isEnabled) {
-    var analytics = window.analytics || []
+    const analytics = window.analytics || []
     analytics.invoked = !0
     analytics.methods = [
       'trackSubmit',
@@ -59,23 +59,23 @@ const WrapperComponent: React.FC = () => {
     ]
     analytics.factory = function(e: any) {
       return function() {
-        var t = Array.prototype.slice.call(arguments)
+        const t = Array.prototype.slice.call(arguments)
         t.unshift(e)
         analytics.push(t)
         return analytics
       }
     }
-    for (var e = 0; e < analytics.methods.length; e++) {
-      var key = analytics.methods[e]
+    for (let e = 0; e < analytics.methods.length; e++) {
+      const key = analytics.methods[e]
       analytics[key] = analytics.factory(key)
     }
     analytics.load = function(key: string, e: any) {
-      var t = document.createElement('script')
+      const t = document.createElement('script')
       t.type = 'text/javascript'
       t.async = !0
       t.src =
         'https://cdn.segment.com/analytics.js/v1/' + key + '/analytics.min.js'
-      var n = document.getElementsByTagName('script')[0]
+      const n = document.getElementsByTagName('script')[0]
       if (!n.parentNode) {
         throw Error('Unable to inject segment script')
       }
