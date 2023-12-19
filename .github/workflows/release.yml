@@ -33,7 +33,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publishing canary releases to npm registry
-        if: steps.changesets.outputs.published != 'true'
+        if: ${{ steps.changesets.outputs.published != 'true' && hashFiles('.changeset/pre.json') == '' }}
         run: |
           yarn version:canary
           yarn release:canary
