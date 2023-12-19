@@ -57,8 +57,8 @@ const WrapperComponent: React.FC = () => {
       'setAnonymousId',
       'addDestinationMiddleware',
     ]
-    analytics.factory = function(e: any) {
-      return function() {
+    analytics.factory = function (e: any) {
+      return function () {
         const t = Array.prototype.slice.call(arguments)
         t.unshift(e)
         analytics.push(t)
@@ -69,7 +69,7 @@ const WrapperComponent: React.FC = () => {
       const key = analytics.methods[e]
       analytics[key] = analytics.factory(key)
     }
-    analytics.load = function(key: string, e: any) {
+    analytics.load = function (key: string, e: any) {
       const t = document.createElement('script')
       t.type = 'text/javascript'
       t.async = !0
@@ -103,8 +103,7 @@ export function segmentIntegration(options: SegmentConfig): IntegrationConfig {
     title: 'Segment',
     slug: 'segment',
     hex: '52BD94',
-    path:
-      'M22.38 7.74H9.26c-.25 0-.45.2-.45.46v1.52c0 .25.2.46.45.46h13.12c.25 0 .45-.2.45-.46V8.2c0-.25-.2-.46-.45-.46zm-8.68 6.08H.58c-.25 0-.45.2-.45.46v1.52c0 .25.2.46.45.46H13.7c.25 0 .45-.2.45-.46v-1.52c0-.25-.2-.46-.45-.46zM1.81 9.4a.46.46 0 00.55-.3 9.57 9.57 0 0111.19-6.44.45.45 0 00.52-.33l.4-1.48a.46.46 0 00-.35-.56A12 12 0 00.02 8.45a.45.45 0 00.32.56l1.47.4zm19.34 5.2a.46.46 0 00-.55.3 9.57 9.57 0 01-11.18 6.44.45.45 0 00-.53.33l-.4 1.48a.45.45 0 00.35.56 12 12 0 0014.1-8.16.45.45 0 00-.31-.56l-1.48-.4zM18.41 5.07a1.33 1.33 0 100-2.66 1.33 1.33 0 000 2.66zM4.55 21.6a1.33 1.33 0 100-2.67 1.33 1.33 0 000 2.66z',
+    path: 'M22.38 7.74H9.26c-.25 0-.45.2-.45.46v1.52c0 .25.2.46.45.46h13.12c.25 0 .45-.2.45-.46V8.2c0-.25-.2-.46-.45-.46zm-8.68 6.08H.58c-.25 0-.45.2-.45.46v1.52c0 .25.2.46.45.46H13.7c.25 0 .45-.2.45-.46v-1.52c0-.25-.2-.46-.45-.46zM1.81 9.4a.46.46 0 00.55-.3 9.57 9.57 0 0111.19-6.44.45.45 0 00.52-.33l.4-1.48a.46.46 0 00-.35-.56A12 12 0 00.02 8.45a.45.45 0 00.32.56l1.47.4zm19.34 5.2a.46.46 0 00-.55.3 9.57 9.57 0 01-11.18 6.44.45.45 0 00-.53.33l-.4 1.48a.45.45 0 00.35.56 12 12 0 0014.1-8.16.45.45 0 00-.31-.56l-1.48-.4zM18.41 5.07a1.33 1.33 0 100-2.66 1.33 1.33 0 000 2.66zM4.55 21.6a1.33 1.33 0 100-2.67 1.33 1.33 0 000 2.66z',
   }
   const color = `#${hex}`
   const contrastColor = getForegroundColor(color)

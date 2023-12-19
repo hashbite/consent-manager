@@ -20,7 +20,7 @@ export const IntegrationWrapperComponents: React.FC<{
     }
 
     return config.integrations
-      .filter(i => decisions[i.id] === true)
+      .filter((i) => decisions[i.id] === true)
       .filter((i): i is IntegrationWithWrapperComponent =>
         Boolean(i.WrapperComponent)
       )

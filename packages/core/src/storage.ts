@@ -4,7 +4,7 @@ export type ConsentManagerStateHook = (
   initialState: SetStateAction<ConsentManagerStorageState>
 ) => [
   ConsentManagerStorageState,
-  Dispatch<SetStateAction<ConsentManagerStorageState>>
+  Dispatch<SetStateAction<ConsentManagerStorageState>>,
 ]
 
 export interface ConsentManagerStorageState {
@@ -13,5 +13,5 @@ export interface ConsentManagerStorageState {
 
 export type ConsentManagerStore<S = ConsentManagerStorageState> = [
   S,
-  Dispatch<SetStateAction<S>>
+  Dispatch<SetStateAction<S>>,
 ]

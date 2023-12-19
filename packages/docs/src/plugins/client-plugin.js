@@ -4,7 +4,7 @@ const {
   getGoogleAnalytics,
 } = require('@consent-manager/integration-google-analytics')
 
-module.exports = (function() {
+module.exports = (function () {
   return {
     onRouteUpdate({ location }) {
       const { trackPageView } = getMatomoTracker()

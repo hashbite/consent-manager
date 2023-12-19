@@ -10,20 +10,19 @@ export function getForegroundColor(bgHex: string): string {
 export const createIconComponentFromSimpleIconsSvgPath: (
   title: string,
   path: string
-) => React.FC<IntegrationIconComponentProps> = (
-  title: string,
-  path: string
-) => ({ color = 'currentColor', ...props }: IntegrationIconComponentProps) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill={color}
-    viewBox="0 0 24 24"
-    /* Ensure SVG behaves responsive on Safari and some older browsers like IE */
-    height="100%"
-    width="100%"
-    {...props}
-  >
-    <title>{title}</title>
-    <path d={path} />
-  </svg>
-)
+) => React.FC<IntegrationIconComponentProps> =
+  (title: string, path: string) =>
+  ({ color = 'currentColor', ...props }: IntegrationIconComponentProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill={color}
+      viewBox="0 0 24 24"
+      /* Ensure SVG behaves responsive on Safari and some older browsers like IE */
+      height="100%"
+      width="100%"
+      {...props}
+    >
+      <title>{title}</title>
+      <path d={path} />
+    </svg>
+  )

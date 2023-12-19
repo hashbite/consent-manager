@@ -8,7 +8,7 @@ import {
 } from '@consent-manager/core'
 import React from 'react'
 
-import {siGoogleanalytics} from 'simple-icons'
+import { siGoogleanalytics } from 'simple-icons'
 
 import ReactGA from 'react-ga'
 

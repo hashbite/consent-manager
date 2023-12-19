@@ -6,7 +6,9 @@ import {
 
 import { Interface } from './interface'
 
-const ConsentManagerInterfaceChunk: React.FC<ConsentManagerFormProps> = props => {
+const ConsentManagerInterfaceChunk: React.FC<ConsentManagerFormProps> = (
+  props
+) => {
   return (
     <ConsentManagerForm
       formComponent={Interface}

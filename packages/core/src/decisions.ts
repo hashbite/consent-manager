@@ -60,7 +60,7 @@ function useCombinedIntegrationStoreDecisions(): InitializeDecisionsFromStorageR
 
 export function useDecisions(): [
   ConsentManagerDecisions,
-  Dispatch<SetStateAction<ConsentManagerDecisions>>
+  Dispatch<SetStateAction<ConsentManagerDecisions>>,
 ] {
   const {
     config: { onChangeDecision },
@@ -79,7 +79,7 @@ export function useDecisions(): [
   }, [decisions, decisionsState, setDecisions, setStore])
 
   const setAndStoreDecisions: typeof setDecisions = useCallback(
-    newDecisionState => {
+    (newDecisionState) => {
       const nextDecisionState =
         typeof newDecisionState === 'function'
           ? newDecisionState(decisionsState)
@@ -88,7 +88,7 @@ export function useDecisions(): [
       if (onChangeDecision) {
         onChangeDecision(decisionsState, nextDecisionState)
       }
-      setStore(store => ({ ...store, decisions: nextDecisionState }))
+      setStore((store) => ({ ...store, decisions: nextDecisionState }))
     },
     [decisionsState, onChangeDecision, setStore]
   )

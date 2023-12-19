@@ -5,11 +5,11 @@ export interface VimeoVideoProps {
   id: string
 }
 
-const VimeoVideoRenderer = React.lazy(() =>
-  import(/* webpackChunkName: "vimeo-video-player" */ './vimeo-renderer')
+const VimeoVideoRenderer = React.lazy(
+  () => import(/* webpackChunkName: "vimeo-video-player" */ './vimeo-renderer')
 )
 
-export const VimeoVideo: React.FC<VimeoVideoProps> = props => (
+export const VimeoVideo: React.FC<VimeoVideoProps> = (props) => (
   <PrivacyShield id="vimeo">
     <React.Suspense fallback={null}>
       <VimeoVideoRenderer {...props} />

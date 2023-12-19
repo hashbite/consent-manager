@@ -16,10 +16,11 @@ import { ToggleButtonProps } from './toggle-button'
 import { SwitchProps } from './switch'
 import { ConsentFormProps } from './form'
 
-const InterfaceChunk = React.lazy(() =>
-  import(
-    /* webpackChunkName: "consent-manager-interface" */ './interface-chunk'
-  )
+const InterfaceChunk = React.lazy(
+  () =>
+    import(
+      /* webpackChunkName: "consent-manager-interface" */ './interface-chunk'
+    )
 )
 
 export * from './i18n'
@@ -60,7 +61,9 @@ interface ConsentManagerDefaultInterfaceProps
   config: ConsentManagerConfig
 }
 
-export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInterfaceProps> = ({
+export const ConsentManagerDefaultInterface: React.FC<
+  ConsentManagerDefaultInterfaceProps
+> = ({
   messages = defaultMessages,
   children,
   config,
@@ -85,7 +88,7 @@ export const ConsentManagerDefaultInterface: React.FC<ConsentManagerDefaultInter
     <ConsentManager
       config={config}
       store={store}
-      fallbackComponent={fallbackProps => (
+      fallbackComponent={(fallbackProps) => (
         <FallbackComponent
           {...props}
           {...fallbackProps}

@@ -33,8 +33,8 @@ import { ConsentManagerDefaultInterfaceDesignProps } from './index'
 import { ToggleButton as DefaultToggleButton } from './toggle-button'
 import { useDefaultButton } from './default-button'
 
-const DefaultForm = React.lazy(() =>
-  import(/* webpackChunkName: "consent-manager-form" */ './form')
+const DefaultForm = React.lazy(
+  () => import(/* webpackChunkName: "consent-manager-form" */ './form')
 )
 
 export interface InterfaceProps
@@ -53,7 +53,7 @@ export const Interface: React.FC<InterfaceProps> = ({
   ToggleIcon = IoShieldCheckmark,
   ToggleButton = DefaultToggleButton,
   Switch = DefaultSwitch,
-  Button = props => <button {...props} />,
+  Button = (props) => <button {...props} />,
   Form = DefaultForm,
   animationStyles = defaultAnimationStyles,
 }) => {
@@ -63,9 +63,8 @@ export const Interface: React.FC<InterfaceProps> = ({
     ConsentManagerDefaultInterfaceContext
   )
 
-  const [needsIntroduction, setNeedsIntroduction] = useState(
-    hasPendingDecisions
-  )
+  const [needsIntroduction, setNeedsIntroduction] =
+    useState(hasPendingDecisions)
 
   const introductionFinished = useCallback(() => {
     setNeedsIntroduction(false)

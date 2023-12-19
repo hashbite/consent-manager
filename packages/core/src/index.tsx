@@ -49,14 +49,15 @@ export function useDecision(
       const newStateValue =
         typeof value === 'function' ? value(decision) : value
 
-      setAndStoreDecisions(decisions => ({ ...decisions, [id]: newStateValue }))
+      setAndStoreDecisions((decisions) => ({
+        ...decisions,
+        [id]: newStateValue,
+      }))
     },
   ]
 }
 
-export function useFallbackComponent(): React.ComponentType<
-  FallbackComponentProps
-> {
+export function useFallbackComponent(): React.ComponentType<FallbackComponentProps> {
   const { fallbackComponent: FallbackComponent } = useContext(
     ConsentManagerContext
   )
@@ -94,7 +95,7 @@ export function usePageViewEventTrigger(
 ): PageViewEventTrigger {
   const [decision] = useDecision(id)
   const { config } = useContext(ConsentManagerContext)
-  const integration = config.integrations.find(i => i.id === id)
+  const integration = config.integrations.find((i) => i.id === id)
 
   if (
     !decision ||

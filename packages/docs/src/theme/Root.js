@@ -42,7 +42,7 @@ function Root({ children }) {
     ],
     onChangeDecision: (last, next) => {
       const changed = {}
-      Object.keys(next).forEach(key => {
+      Object.keys(next).forEach((key) => {
         if (last[key] !== next[key]) {
           changed[key] = next[key]
         }

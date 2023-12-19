@@ -32,7 +32,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
       <button
         className={clsx(styles.toggleButton)}
         title={`Toggle website settings visibility`}
-        onClick={e => toggleControlForm(e)}
+        onClick={(e) => toggleControlForm(e)}
         style={{
           transitionDuration: `${slideDuration}ms`,
         }}

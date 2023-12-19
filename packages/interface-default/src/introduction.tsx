@@ -45,9 +45,8 @@ export const Introduction: React.FC<IntroductionProps> = ({
   const [decisions, setAndStoreDecisions] = useDecisions()
   const [show, setShow] = useState(false)
   const [isIdle, setIsIdle] = React.useState(false)
-  const [activityDetectorInstance, setActivityDetector] = useState<
-    ActivityDetector
-  >()
+  const [activityDetectorInstance, setActivityDetector] =
+    useState<ActivityDetector>()
 
   // Listen for user interaction
   React.useEffect(() => {

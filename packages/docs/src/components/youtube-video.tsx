@@ -5,11 +5,12 @@ export interface YoutubeVideoProps {
   id: string
 }
 
-const YoutubeVideoRenderer = React.lazy(() =>
-  import(/* webpackChunkName: "youtube-video-player" */ './youtube-renderer')
+const YoutubeVideoRenderer = React.lazy(
+  () =>
+    import(/* webpackChunkName: "youtube-video-player" */ './youtube-renderer')
 )
 
-export const YoutubeVideo: React.FC<YoutubeVideoProps> = props => (
+export const YoutubeVideo: React.FC<YoutubeVideoProps> = (props) => (
   <PrivacyShield id="youtube">
     <React.Suspense fallback={null}>
       <YoutubeVideoRenderer {...props} />

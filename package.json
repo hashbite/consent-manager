@@ -16,6 +16,7 @@
     "test": "lerna run test --",
     "lint": "lerna run lint -- --fix",
     "build": "lerna run build",
+    "format": "prettier --write packages/**/src",
     "cleanup": "lerna exec -- rm -rf ./dist",
     "prepublish": "yarn run cleanup && lerna run prepublish --scope='@consent-manager/core' && lerna run prepublish --ignore='@consent-manager/core'",
     "start:app": "yarn --cwd example && yarn --cwd example start",

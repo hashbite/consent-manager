@@ -9,7 +9,7 @@ import { useDecisions } from './decisions'
 
 export function useEnabledIntegrations(): [
   IntegrationId[],
-  Dispatch<SetStateAction<IntegrationId[]>>
+  Dispatch<SetStateAction<IntegrationId[]>>,
 ] {
   const integrations = useIntegrations()
   const [decisions, setDecisions] = useDecisions()
@@ -48,5 +48,5 @@ export function useIntegration(
   id: IntegrationId
 ): IntegrationConfig | undefined {
   const integrations = useIntegrations()
-  return integrations.find(i => i.id === id)
+  return integrations.find((i) => i.id === id)
 }
