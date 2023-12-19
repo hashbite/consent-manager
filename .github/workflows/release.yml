@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - main
+  workflow_run:
+    workflows: ['Unit Test']
+    types:
+      - completed
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -21,7 +25,7 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Create Release Pull Request or Publish to npm
-        uses: changesets/action@main
+        uses: changesets/action@v1
         with:
           publish: yarn release
         env:
