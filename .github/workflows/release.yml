@@ -1,12 +1,11 @@
 name: Release
 on:
-  push:
-    branches:
-      - main
   workflow_run:
     workflows: ['Unit Test']
     types:
       - completed
+    branches:
+      - main
 jobs:
   release:
     runs-on: ubuntu-latest
