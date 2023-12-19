@@ -64,7 +64,7 @@
   "devDependencies": {
     "@types/body-scroll-lock": "3.1.2",
     "@types/react-transition-group": "4.4.6",
-    "postcss": "8.4.31",
+    "postcss": "8.4.32",
     "rollup-plugin-postcss": "4.0.2"
   }
 }
