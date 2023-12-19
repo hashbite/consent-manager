@@ -1,4 +1,10 @@
-import React, { MouseEvent, useCallback, useContext, useEffect, useState } from 'react'
+import React, {
+  MouseEvent,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 import clsx from 'clsx'
 import { CSSTransition } from 'react-transition-group'
 import createActivityDetector from 'activity-detector-ssr'
@@ -45,6 +51,10 @@ export const Introduction: React.FC<IntroductionProps> = ({
 
   // Listen for user interaction
   React.useEffect(() => {
+    if (noActionDelay === 0) {
+      setIsIdle(true)
+      return
+    }
     const activityDetector: ActivityDetector = createActivityDetector({
       timeToIdle: noActionDelay,
       inactivityEvents: [],

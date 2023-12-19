@@ -46,6 +46,7 @@ export const Interface: React.FC<InterfaceProps> = ({
   initialValues,
   onSubmit,
   useDefaultButtonForIntroduction = true,
+  noActionDelay = 4000,
   slideDuration = 700,
   styles = defaultStyles,
   CloseIcon = IoClose,
@@ -139,6 +140,7 @@ export const Interface: React.FC<InterfaceProps> = ({
           slideDuration={slideDuration}
           CloseIcon={CloseIcon}
           Button={useDefaultButtonForIntroduction ? DefaultButton : Button}
+          noActionDelay={noActionDelay}
         />
       )}
       <Backdrop fadeDuration={slideDuration} styles={styles} />
