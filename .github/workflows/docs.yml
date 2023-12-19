@@ -1,8 +1,6 @@
 name: Docs
 on:
   push:
-    branches:
-      - master
 jobs:
   release:
     runs-on: ubuntu-latest
