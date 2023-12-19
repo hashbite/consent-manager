@@ -1,4 +1,5 @@
 import React, {
+  MouseEvent,
   Suspense,
   useCallback,
   useContext,
@@ -73,7 +74,7 @@ export const Interface: React.FC<InterfaceProps> = ({
   const formContainerRef = useRef<HTMLDivElement>(null)
 
   const toggleControlForm = useCallback(
-    (e: Event) => {
+    (e: MouseEvent) => {
       e.preventDefault()
       setFormVisible(!formVisible)
     },
