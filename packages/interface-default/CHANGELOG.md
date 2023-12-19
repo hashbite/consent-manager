@@ -1,5 +1,13 @@
 # @consent-manager/interface-default
 
+## 2.0.0-next.3
+
+### Patch Changes
+
+- 5609826: You can now configure the delay till the introduction popup is shown
+- Updated dependencies [2e86938]
+  - @consent-manager/core@2.0.0-next.1
+
 ## 2.0.0-next.2
 
 ### Patch Changes
