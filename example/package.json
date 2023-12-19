@@ -15,11 +15,11 @@
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
-    "@types/react": "18.2.18",
-    "@types/react-dom": "18.2.7",
+    "@types/react": "18.2.45",
+    "@types/react-dom": "18.2.18",
     "parcel": "^2.0.0",
     "process": "^0.11.10",
-    "typescript": "3.9.10"
+    "typescript": "^5.3.3"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }

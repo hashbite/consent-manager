@@ -27,7 +27,7 @@ ReactDOM.render(<App />, document.getElementById('root'))
 
 ### Preparing the context
 
-Wrap your application with the [<ConsentManager/> provider](provider.md).
+Wrap your application with the [&lt;ConsentManager/> provider](provider.md).
 
 ```diff
 import React from 'react';
