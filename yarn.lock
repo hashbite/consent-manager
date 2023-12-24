@@ -16313,9 +16313,9 @@ signal-exit@^3.0.0, signal-exit@^3.0.2, signal-exit@^3.0.3:
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
 
 simple-icons@*, simple-icons@^10.0.0:
-  version "10.3.0"
-  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-10.3.0.tgz#b83a543af8b764cf922236adce71ffc82d73622d"
-  integrity sha512-MpqALzcKXPNfVKiNkESkahmXIt0tTVnTOZAhD6q4MmL3XUroaKwy8stPwXZOfK1WoT6jqpjUfc0nopPePZvY7w==
+  version "10.4.0"
+  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-10.4.0.tgz#e9d2f5a241f37556fe3a3835f67a94d50d4491d2"
+  integrity sha512-XBoU1ljCsWjw59IVkaQ1nKc0PiaDAAKNFVx59ueC0tBy4WY/I4Q040sGj6ok2cZRLT8zBzL1HaTubi8MRqmojQ==
 
 sirv@^2.0.3:
   version "2.0.3"
