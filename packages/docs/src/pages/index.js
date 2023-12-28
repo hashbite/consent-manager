@@ -19,7 +19,7 @@ const features = [
   },
   {
     title: 'Compliance with Privacy Laws',
-    imageUrl: 'img/undraw_GDPR.svg', // Suggests legal terms and compliance
+    imageUrl: 'img/undraw_gdpr.svg', // Suggests legal terms and compliance
     description: (
       <>
         Facilitate GDPR compliance and more, with a toolkit crafted for
