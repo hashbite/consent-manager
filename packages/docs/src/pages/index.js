@@ -8,36 +8,68 @@ import styles from './styles.module.css'
 
 const features = [
   {
-    title: 'Respect the user',
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
+    title: 'Empower User Consent',
+    imageUrl: 'img/undraw_control_panel.svg', // Changed to represent control and empowerment
     description: (
       <>
-        The user should have full control over the data he shares with external
-        services.
+        Empower users with full control over their data shared with external
+        services, enhancing trust and transparency.
       </>
     ),
   },
   {
-    title: 'Become respectful of privacy laws (like GDPR and more)',
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
+    title: 'Compliance with Privacy Laws',
+    imageUrl: 'img/undraw_GDPR.svg', // Suggests legal terms and compliance
     description: (
       <>
-        Our goal is to provide a toolkit that enables developers to create GDPR
-        compliant websites.
+        Facilitate GDPR compliance and more, with a toolkit crafted for
+        developers to build privacy-respecting websites with ease.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    imageUrl: 'img/undraw_docusaurus_react.svg',
+    title: 'React-Based, TypeScript-Ready',
+    imageUrl: 'img/undraw_react.svg', // Directly represents React
     description: (
       <>
-        Built with TypeScript, full test coverage and support for all styling
-        techniques.
+        Leverage a React-centric architecture, enriched with TypeScript support,
+        ensuring robust, maintainable, and scalable code.
+      </>
+    ),
+  },
+  {
+    title: 'Rich Integration Ecosystem',
+    imageUrl: 'img/undraw_online_connection.svg', // Reflects extensive connectivity and integration
+    description: (
+      <>
+        Enjoy a rich ecosystem with 10+ ready-to-use plugins for popular
+        services, coupled with the flexibility to create and implement your own
+        custom integrations with minimal effort.
+      </>
+    ),
+  },
+  {
+    title: 'Lightweight & Efficient',
+    imageUrl: 'img/undraw_fast_loading.svg', // Conveys the idea of efficiency and speed
+    description: (
+      <>
+        Designed for efficiency, it adds minimal overhead to your site,
+        prioritizing performance without compromising functionality.
+      </>
+    ),
+  },
+  {
+    title: 'User-Friendly Interface',
+    imageUrl: 'img/undraw_user_flow.svg', // Evokes a smooth, user-friendly experience
+    description: (
+      <>
+        Comes with a user-friendly default interface, ensuring a smooth user
+        experience while maintaining the option for custom interfaces.
       </>
     ),
   },
 ]
+
 
 function Feature({ imageUrl, title, description }) {
   const imgUrl = useBaseUrl(imageUrl)
@@ -60,7 +92,7 @@ function Home() {
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      description={siteConfig.description}
     >
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
@@ -69,7 +101,7 @@ function Home() {
           <div className={styles.buttons}>
             <Link
               className={clsx(
-                'button button--outline button--secondary button--lg',
+                'button button--secondary button--lg',
                 styles.getStarted
               )}
               to={useBaseUrl('docs/')}

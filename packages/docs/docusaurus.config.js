@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   title: 'Consent Manager',
-  tagline: 'A user-friendly way to get rid of GDPR headache',
+  tagline: 'Simplify GDPR Compliance: Seamless and User-Centric',
   url: 'https://hashbite.github.io/',
   baseUrl: '/consent-manager/',
   onBrokenLinks: 'throw',
@@ -48,10 +48,10 @@ module.exports = {
         {
           title: 'Community',
           items: [
-            {
-              label: 'Twitter @axe312ger',
-              href: 'https://twitter.com/axe312ger',
-            },
+            // {
+            //   label: 'Twitter @axe312ger',
+            //   href: 'https://twitter.com/axe312ger',
+            // },
             {
               label: 'Twitter @zcei_ger',
               href: 'https://twitter.com/zcei_ger',
@@ -74,9 +74,73 @@ module.exports = {
       id: 'support_us',
       content:
         'This project is still in early stage. Feel free to talk to us in our <a target="_blank" rel="noopener noreferrer" href="https://github.com/hashbite/consent-manager/issues">GitHub issues</a>',
-      backgroundColor: '#f9703e',
+      backgroundColor: '#e57c00',
       textColor: '#fff',
     },
+    headTags: [
+      // Apple Touch Icon
+      {
+        tagName: 'link',
+        attributes: {
+          rel: 'apple-touch-icon',
+          sizes: '180x180',
+          href: '/apple-touch-icon.png',
+        },
+      },
+      // Favicon 32x32
+      {
+        tagName: 'link',
+        attributes: {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '32x32',
+          href: '/favicon-32x32.png',
+        },
+      },
+      // Favicon 16x16
+      {
+        tagName: 'link',
+        attributes: {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '16x16',
+          href: '/favicon-16x16.png',
+        },
+      },
+      // Manifest
+      {
+        tagName: 'link',
+        attributes: {
+          rel: 'manifest',
+          href: '/site.webmanifest',
+        },
+      },
+      // Safari Pinned Tab Icon
+      {
+        tagName: 'link',
+        attributes: {
+          rel: 'mask-icon',
+          href: '/safari-pinned-tab.svg',
+          color: '#1e90ff',
+        },
+      },
+      // MS Application Tile Color
+      {
+        tagName: 'meta',
+        attributes: {
+          name: 'msapplication-TileColor',
+          content: '#1e90ff',
+        },
+      },
+      // Theme Color
+      {
+        tagName: 'meta',
+        attributes: {
+          name: 'theme-color',
+          content: '#ffffff',
+        },
+      },
+    ],
   },
   presets: [
     [

@@ -6,11 +6,18 @@
     * show how to add addons, based on one example (matomo or google docs?)
     * offer next steps:
   * how to track and render while checking for user consent
+    * we have to reload the page to be SURE that nothing is tracked anymore
   * Style default interface
   * i18n integration of default interface (translate default interface)
-  * Implement your own interface
+  * Implement your own interface (demo/example already existing? show examples?)
   * Create a custom tracking integration 
-
+  * Frameworks: Basic tutorial + link to example
+    * NextJS
+    * Vite
+    * Parcel
+    * ~Create React App~
+    * GatsbyJS
+    
 * integrations
   * make more examples on how to track with certain integrations (for example matomo track events, page view and so on)
   * make sure all config options are listed

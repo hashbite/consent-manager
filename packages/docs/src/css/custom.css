@@ -7,13 +7,26 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #17b897;
-  --ifm-color-primary-dark: #15a688;
-  --ifm-color-primary-darker: #149c80;
-  --ifm-color-primary-darkest: #10816a;
-  --ifm-color-primary-light: #19caa6;
-  --ifm-color-primary-lighter: #1ad4ae;
-  --ifm-color-primary-lightest: #29e4be;
+  --ifm-color-primary: #1e90ff; /* Dodger Blue - Vibrant and Trustworthy */
+  --ifm-color-primary-dark: #1a75d3; /* Slightly Darker Blue */
+  --ifm-color-primary-darker: #1560aa; /* Deeper Blue */
+  --ifm-color-primary-darkest: #10468c; /* Navy Blue */
+  --ifm-color-primary-light: #4ea3ff; /* Lighter, Softer Blue */
+  --ifm-color-primary-lighter: #80b6ff; /* Even Lighter Blue */
+  --ifm-color-primary-lightest: #b0d4ff; /* Very Light Blue */
+  --ifm-color-primary-contrast-background: #ebf2fc; /* Light blue, great for backgrounds against primary */
+  --ifm-color-primary-contrast-foreground: #102445; /* Dark blue, for text on primary contrast background */
+
+  --ifm-color-secondary: #ff8c00; /* Vivid, saturated orange */
+  --ifm-color-secondary-dark: #e57c00; /* Slightly darker, saturated orange */
+  --ifm-color-secondary-darker: #cc6c00; /* Deeper saturated orange */
+  --ifm-color-secondary-darkest: #b35c00; /* Darkest saturated orange for strong contrast */
+  --ifm-color-secondary-light: #ffa233; /* Lighter, bright orange */
+  --ifm-color-secondary-lighter: #ffb966; /* Even lighter, soft orange */
+  --ifm-color-secondary-lightest: #ffd099; /* Palest orange, ideal for subtle backgrounds */
+  --ifm-color-secondary-contrast-background: #fdfdfe; /* Very light gray for secondary contrast background */
+  --ifm-color-secondary-contrast-foreground: #474748; /* Dark gray for secondary contrast foreground */
+
   --ifm-code-font-size: 95%;
 }
 
