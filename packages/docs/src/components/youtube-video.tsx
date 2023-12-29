@@ -11,9 +11,11 @@ const YoutubeVideoRenderer = React.lazy(
 )
 
 export const YoutubeVideo: React.FC<YoutubeVideoProps> = (props) => (
-  <PrivacyShield id="youtube">
-    <React.Suspense fallback={null}>
-      <YoutubeVideoRenderer {...props} />
-    </React.Suspense>
-  </PrivacyShield>
+  <div style={{ margin: '0 auto', maxWidth: '600px' }}>
+    <PrivacyShield id="youtube">
+      <React.Suspense fallback={null}>
+        <YoutubeVideoRenderer {...props} />
+      </React.Suspense>
+    </PrivacyShield>
+  </div>
 )

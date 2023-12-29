@@ -8,68 +8,66 @@ import styles from './styles.module.css'
 
 const features = [
   {
-    title: 'Empower User Consent',
-    imageUrl: 'img/undraw_control_panel.svg', // Changed to represent control and empowerment
+    title: 'User Consent Control',
+    imageUrl: 'img/undraw_control_panel.svg', // Represents control and empowerment
     description: (
       <>
-        Empower users with full control over their data shared with external
-        services, enhancing trust and transparency.
+        Provides complete control over data shared with third-party services,
+        enhancing user trust and ensuring transparency.
       </>
     ),
   },
   {
-    title: 'Compliance with Privacy Laws',
-    imageUrl: 'img/undraw_gdpr.svg', // Suggests legal terms and compliance
+    title: 'GDPR & Privacy Law Compliance',
+    imageUrl: 'img/undraw_gdpr.svg', // Indicates legal compliance
     description: (
       <>
-        Facilitate GDPR compliance and more, with a toolkit crafted for
-        developers to build privacy-respecting websites with ease.
+        A developer's toolkit for building websites that comply with GDPR and
+        other privacy laws, simplifying legal adherence.
       </>
     ),
   },
   {
-    title: 'React-Based, TypeScript-Ready',
-    imageUrl: 'img/undraw_react.svg', // Directly represents React
+    title: 'React & TypeScript Integration',
+    imageUrl: 'img/undraw_react.svg', // Represents React
     description: (
       <>
-        Leverage a React-centric architecture, enriched with TypeScript support,
-        ensuring robust, maintainable, and scalable code.
+        Built on React, supporting TypeScript, to enable robust, maintainable,
+        and scalable solutions in modern web development.
       </>
     ),
   },
   {
-    title: 'Rich Integration Ecosystem',
-    imageUrl: 'img/undraw_online_connection.svg', // Reflects extensive connectivity and integration
+    title: 'Extensive Plugin Library',
+    imageUrl: 'img/undraw_online_connection.svg', // Suggests connectivity and integration
     description: (
       <>
-        Enjoy a rich ecosystem with 10+ ready-to-use plugins for popular
-        services, coupled with the flexibility to create and implement your own
-        custom integrations with minimal effort.
+        Access over 10 ready-made plugins for popular services, with
+        easy-to-implement options for custom integrations.
       </>
     ),
   },
   {
-    title: 'Lightweight & Efficient',
-    imageUrl: 'img/undraw_fast_loading.svg', // Conveys the idea of efficiency and speed
+    title: 'Performance-Optimized Design',
+    imageUrl: 'img/undraw_fast_loading.svg', // Implies efficiency
     description: (
       <>
-        Designed for efficiency, it adds minimal overhead to your site,
-        prioritizing performance without compromising functionality.
+        Optimized for performance, adding minimal load to your site while
+        maintaining full functionality.
       </>
     ),
   },
   {
-    title: 'User-Friendly Interface',
-    imageUrl: 'img/undraw_user_flow.svg', // Evokes a smooth, user-friendly experience
+    title: 'Customizable UI',
+    imageUrl: 'img/undraw_user_flow.svg', // Suggests user interface flexibility
     description: (
       <>
-        Comes with a user-friendly default interface, ensuring a smooth user
-        experience while maintaining the option for custom interfaces.
+        Includes a default interface that's easy to use, with options to
+        customize or completely redesign as needed.
       </>
     ),
   },
 ]
-
 
 function Feature({ imageUrl, title, description }) {
   const imgUrl = useBaseUrl(imageUrl)

@@ -6,9 +6,9 @@ slug: "/"
 
 import { YoutubeVideo } from '../src/components/youtube-video'
 
-# Welcome to Consent Manager
+# What is Consent Manager?
 
-Consent Manager is an intuitive React-based toolkit crafted to seamlessly incorporate external services into web applications while strictly adhering to GDPR and various other data privacy regulations. Our tool streamlines the process of managing user consent for data processing and interactions with third-party services.
+Welcome to Consent Manager – an intuitive, React-based toolkit designed to seamlessly integrate external services into web applications, ensuring compliance with GDPR and various data privacy laws. Our solution simplifies managing user consent, streamlining data processing and interactions with third-party services while prioritizing user privacy and experience.
 
 ## Our Mission
 
@@ -22,6 +22,12 @@ We prioritize user privacy by default. For instance, consider our handling of em
 
 Users see a placeholder first, safeguarding their data. They can enable the YouTube integration with a single click on this placeholder or by clicking the shield icon 🛡️ at the bottom left corner.
 
+### Unobtrusive Consent Experience: No Cookie Banner
+
+Rather than confronting users with a large, page-covering cookie banner upon entry, Consent Manager introduces a more subtle and respectful way to manage settings.
+
+The shield icon 🛡️ at the bottom left ensures ongoing accessibility without obstructing the user experience. A discreet notification is designed to appear only after 4 seconds of user inactivity, with all aspects being fully customizable.
+
 ### Customizable for Your Needs
 
 While the default interface of Consent Manager offers swift integration, it's fully customizable. Adapt its styling or craft your own interface to meet your project's unique requirements and design.
@@ -32,10 +38,10 @@ Consent Manager is more than a tool; it's a commitment to ethical, user-centric 
 
 ## Why React?
 
-React is where we excel. However, we warmly welcome developers from all backgrounds and communities to explore and benefit from our toolkit.
+We specialize in React because it's our strength and passion. But we're excited about community efforts to extend Consent Manager's capabilities to other JavaScript front-end frameworks, making it universally accessible.
 
 ## Quick Start
 
-Dive into our Quick Start guide to make your website GDPR compliant in just a few minutes. Begin your journey towards a more secure and privacy-respecting web presence now!
+Ready to make your website GDPR-compliant? Our Quick Start guide is your first step towards a safer, privacy-focused online presence. In just a few minutes, you can set the foundation for a more secure and respectful user experience. Let's get started!
 
-For now, see: [Getting Started Guide](getting-started.md)
+[Start your journey with Consent Manager](getting-started.md)
