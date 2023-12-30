@@ -1,6 +1,6 @@
 module.exports = {
   someSidebar: {
-    'Consent Manager': ['about', 'getting-started'],
+    'Consent Manager': ['about', 'quick-start-guide'],
     Components: ['provider'],
     Hooks: ['use-something'],
     Integrations: [

@@ -44,4 +44,4 @@ We specialize in React because it's our strength and passion. But we're excited 
 
 Ready to make your website GDPR-compliant? Our Quick Start guide is your first step towards a safer, privacy-focused online presence. In just a few minutes, you can set the foundation for a more secure and respectful user experience. Let's get started!
 
-[Start your journey with Consent Manager](getting-started.md)
+[Start your journey with Consent Manager](./quick-start.md)
