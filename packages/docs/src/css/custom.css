@@ -28,6 +28,8 @@
   --ifm-color-secondary-contrast-foreground: #474748; /* Dark gray for secondary contrast foreground */
 
   --ifm-code-font-size: 95%;
+
+  --doc-sidebar-width: 340px !important;
 }
 
 .docusaurus-highlight-code-line {
