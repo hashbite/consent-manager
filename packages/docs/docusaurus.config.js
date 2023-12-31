@@ -3,8 +3,6 @@ const path = require('path')
 module.exports = {
   title: 'Consent Manager',
   tagline: 'Simplify GDPR Compliance: Seamless and User-Centric',
-  description:
-    'Explore Consent Manager: GDPR-compliant, i18n-supported, plugin-rich and developer-friendly toolkit for fair user consent management in web apps with custom interfaces.',
   url: 'https://hashbite.github.io/',
   baseUrl: '/consent-manager/',
   onBrokenLinks: 'throw',
@@ -14,6 +12,10 @@ module.exports = {
   projectName: 'consent-manager',
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
+  customFields: {
+    description:
+      'Explore Consent Manager: GDPR-compliant, i18n-supported, plugin-rich and developer-friendly toolkit for fair user consent management in web apps with custom interfaces.',
+  },
   themeConfig: {
     navbar: {
       title: 'Consent Manager ',
@@ -79,6 +81,8 @@ module.exports = {
       backgroundColor: '#e57c00',
       textColor: '#fff',
     },
+    image: 'img/social-share.png',
+    metadata: [{ name: 'twitter:card', content: 'summary_large_image' }],
     headTags: [
       // Apple Touch Icon
       {
