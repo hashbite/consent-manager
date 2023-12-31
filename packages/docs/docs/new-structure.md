@@ -21,7 +21,7 @@
 * @todo sub-section that turns all of this into typescript? (or have separate typescript tutorial?)
 * @todo add another guide on how to handle tracking in single page applications (or ones that use routers)
 * @todo we actually need to list the config options (COMPONENETS dir????)
-
+* @todo document helper functions (getForegroundColor, createIconComponentFromSimpleIconsSvgPath)
     
 * integrations
   * make more examples on how to track with certain integrations (for example matomo track events, page view and so on)
