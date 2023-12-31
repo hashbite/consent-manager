@@ -4,7 +4,7 @@
   * DONE - quick start - default interface with one integration
   * DONE - Style default interface
   * DONE - i18n integration of default interface (translate default interface)
-  * Implement your own interface (demo/example already existing? show examples?)
+  * DONE - Implement your own interface (demo/example already existing? show examples?)
   * Create a custom tracking integration 
   * Frameworks: Basic tutorial + link to example
     * NextJS
@@ -17,6 +17,7 @@
 * @todo add another guide on how to handle tracking in single page applications (or ones that use routers)
 * @todo we actually need to list the config options (COMPONENETS dir????)
 * @todo document helper functions (getForegroundColor, createIconComponentFromSimpleIconsSvgPath)
+* @todo double check that we dont have no more "cosntruction" sites
     
 * integrations
   * make more examples on how to track with certain integrations (for example matomo track events, page view and so on)

@@ -4,6 +4,7 @@ module.exports = {
     Guides: [
       'guides/i18n',
       'guides/client-side-routing',
+      'guides/client-side-routing',
       'guides/create-custom-interface',
     ],
     'Core Components': [
