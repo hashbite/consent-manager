@@ -3,6 +3,8 @@ const path = require('path')
 module.exports = {
   title: 'Consent Manager',
   tagline: 'Simplify GDPR Compliance: Seamless and User-Centric',
+  description:
+    'Explore Consent Manager: GDPR-compliant, i18n-supported, plugin-rich and developer-friendly toolkit for fair user consent management in web apps with custom interfaces.',
   url: 'https://hashbite.github.io/',
   baseUrl: '/consent-manager/',
   onBrokenLinks: 'throw',

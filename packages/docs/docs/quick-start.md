@@ -66,7 +66,7 @@ Your application now includes Consent Manager, displaying the shield 🛡️ ico
 
 ## Integrating Matomo for Tracking Page Views and Events
 
-Matomo is a robust, open-source alternative to SAAS tracking solutions, offering full data control and GDPR-friendly implementation.
+[Matomo is a robust, open-source alternative to SAAS tracking solutions](https://matomo.org/google-analytics-alternative/), offering full data control and GDPR-friendly implementation.
 
 ### Installing Matomo Integration
 First, add the [Matomo integration](./integrations/matomo.md) to your project:
@@ -170,5 +170,7 @@ export default YouTube;
 ```
 
 [Explore more about YouTube integration](./integrations/youtube.md).
+
+## Fin
 
 You now have the fundamental knowledge to integrate Consent Manager into your React application. For more detailed guides, please refer to the sidebar on the left.
