@@ -5,7 +5,7 @@
   * DONE - Style default interface
   * DONE - i18n integration of default interface (translate default interface)
   * DONE - Implement your own interface (demo/example already existing? show examples?)
-  * Create a custom tracking integration 
+  * DONE - Create a custom tracking integration 
   * Frameworks: Basic tutorial + link to example
     * NextJS
     * Vite

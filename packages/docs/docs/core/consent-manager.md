@@ -1,4 +1,4 @@
-# ConsentManager
+# <ConsentManager />
 
 `ConsentManager` is the core component that provides context and state management for all consent-related functionality. It should wrap the root of your application.
 

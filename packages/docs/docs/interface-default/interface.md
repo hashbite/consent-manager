@@ -1,4 +1,4 @@
-# ConsentManagerDefaultInterface
+# <ConsentManagerDefaultInterface />
 
 `ConsentManagerDefaultInterface` is a React component that acts as a wrapper for your application, providing a default user interface for managing consent. It supports all properties passed to the [core `ConsentManager` component](../core/consent-manager.md).
 
