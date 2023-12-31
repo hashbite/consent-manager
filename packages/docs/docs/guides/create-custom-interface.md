@@ -1,5 +1,5 @@
 ---
-title: Custom User Interface
+title: Custom User Interfaces
 ---
 
 # Creating a Custom User Interface for Consent Manager

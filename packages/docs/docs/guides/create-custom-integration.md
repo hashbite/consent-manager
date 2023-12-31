@@ -1,5 +1,5 @@
 ---
-title: Custom (Tracking) Integration
+title: Custom Integrations
 ---
 
 # Creating a Custom (Tracking) Integration for Consent Manager
@@ -17,7 +17,8 @@ import {
   IntegrationConfig
 } from '@consent-manager/core';
 
-import { siYourService } from 'simple-icons'; // Replace with your service's icon
+// Replace with your service's icon
+import { siYourService } from 'simple-icons';
 
 export function yourServiceIntegration(options: { apiKey: string }): IntegrationConfig {
   const { title, hex, path } = siYourService;
@@ -56,7 +57,6 @@ import {
   useDecision,
   useIntegration
 } from '@consent-manager/core';
-import {  } from '@consent-manager/core';
 
 let wasInitialized = false;
 
