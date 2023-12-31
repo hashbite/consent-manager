@@ -1,14 +1,9 @@
 * home - introduction about the how and why
 
 * tutorials
-  * quick start - default interface with one integration
-    * highlight features
-    * show how to add addons, based on one example (matomo or google docs?)
-    * offer next steps:
-  * how to track and render while checking for user consent
-    * we have to reload the page to be SURE that nothing is tracked anymore
-  * Style default interface
-  * i18n integration of default interface (translate default interface)
+  * DONE - quick start - default interface with one integration
+  * DONE - Style default interface
+  * DONE - i18n integration of default interface (translate default interface)
   * Implement your own interface (demo/example already existing? show examples?)
   * Create a custom tracking integration 
   * Frameworks: Basic tutorial + link to example
@@ -31,5 +26,7 @@
 
 * other todos
   * maybe its the way we store the tracking in our hooks @stanford & @maneframe why tracking stays active even when user denies (set reference of object ot null is not acutally deleting the object from ram?)
+    * !!! we have to reload the page to be SURE that nothing is tracked anymore
   * actively ask for co contributors in readme and on website
-  * can we do some seo for our docs page?
+  * DONE - can we do some seo for our docs page?
+  * when linking hashbite, also offer payed services on a hourly rate

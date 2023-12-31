@@ -1,4 +1,4 @@
-# Client-Side Routing and Tracking in SPAs
+# Client-Side Routing in SPAs
 
 Single Page Applications (SPAs) update the content without reloading the entire page, which can make traditional page view tracking challenging. To accurately track page views in such applications, you can use the `trackPageViewSPA` method provided by some of our integrations.
 

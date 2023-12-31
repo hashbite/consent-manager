@@ -174,3 +174,8 @@ export default YouTube;
 ## Fin
 
 You now have the fundamental knowledge to integrate Consent Manager into your React application. For more detailed guides, please refer to the sidebar on the left.
+
+### Further guides
+
+* [Styling Consent Manager](./interface-default/styling.md)
+* [i18n Support](./guides/i18n.md)

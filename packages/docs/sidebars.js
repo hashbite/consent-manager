@@ -10,6 +10,7 @@ module.exports = {
     'Core Hooks': ['todo'],
     'Default Interface': [
       'interface-default/interface',
+      'interface-default/styling',
       'interface-default/i18n',
     ],
     Integrations: [
