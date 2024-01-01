@@ -1,7 +1,7 @@
 ---
 title: <PrivacyShield />
 ---
-# `<PrivacyShield />` component
+# `<PrivacyShield />`
 
 `PrivacyShield` is a component that conditionally renders children based on the consent decision for a specific integration. It's typically used to wrap content that should only be displayed if the user has consented to the associated integration.
 

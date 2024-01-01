@@ -1,4 +1,7 @@
-# Styling the Consent Manager
+---
+title: Styling the Default Interface
+---
+# Styling the Consent Manager Default Interface
 
 Customizing the appearance of the default interface of Consent Manager can be achieved in various ways, allowing you to align it with your application's design and branding:
 

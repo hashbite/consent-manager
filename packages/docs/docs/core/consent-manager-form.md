@@ -1,7 +1,7 @@
 ---
 title: <ConsentManagerForm />
 ---
-# `<ConsentManagerForm />` component
+# `<ConsentManagerForm />`
 
 `ConsentManagerForm` is a React component designed to provide a basic, unstyled form enabling users to control their consent choices for different integrations. This component is particularly useful as a reference or starting point for integrating a custom consent form. It facilitates the enabling or disabling of integrations based on user preferences. For a pre-styled version, consider exploring our default interface.
 

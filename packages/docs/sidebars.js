@@ -1,6 +1,6 @@
 module.exports = {
   someSidebar: {
-    'Consent Manager': ['about', 'quick-start-guide'],
+    'Consent Manager': ['about', 'quick-start-guide', 'configuration'],
     Guides: [
       'guides/i18n',
       'guides/client-side-routing',

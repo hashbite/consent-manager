@@ -14,9 +14,9 @@
     * GatsbyJS
     * DocuSaurus
 * @todo sub-section that turns all of this into typescript? (or have separate typescript tutorial?)
-* @todo add another guide on how to handle tracking in single page applications (or ones that use routers)
-* @todo we actually need to list the config options (COMPONENETS dir????)
-* @todo document helper functions (getForegroundColor, createIconComponentFromSimpleIconsSvgPath)
+* DONE -  @todo add another guide on how to handle tracking in single page applications (or ones that use routers)
+* DONE - @todo we actually need to list the config options (COMPONENETS dir????)
+* @todo document helper functions + hooks (getForegroundColor, createIconComponentFromSimpleIconsSvgPath)
 * @todo double check that we dont have no more "cosntruction" sites
     
 * integrations
@@ -31,3 +31,5 @@
   * actively ask for co contributors in readme and on website
   * DONE - can we do some seo for our docs page?
   * when linking hashbite, also offer payed services on a hourly rate
+  * add google ads integration as we have it ready in @stanford
+  * get rid of this file in the repo ;)
