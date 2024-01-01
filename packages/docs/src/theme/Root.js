@@ -15,6 +15,7 @@ import { googleAnalyticsIntegration } from '@consent-manager/integration-google-
 import { googleTagManagerIntegration } from '@consent-manager/integration-google-tag-manager'
 import { hubspotIntegration } from '@consent-manager/integration-hubspot'
 import { linkedinIntegration } from '@consent-manager/integration-linkedin'
+import { demoIntegration } from './demo-integration'
 
 import { ConsentManagerDefaultInterface } from '@consent-manager/interface-default'
 import '@consent-manager/interface-default/dist/default.min.css'
@@ -39,6 +40,7 @@ function Root({ children }) {
       googleTagManagerIntegration({ gtmId: 'GTM-PPHGBCL' }),
       hubspotIntegration({ hubId: 19627404 }),
       linkedinIntegration({ partnerId: 2990578 }),
+      demoIntegration()
     ],
     onChangeDecision: (last, next) => {
       const changed = {}
