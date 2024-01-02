@@ -36,6 +36,7 @@
     "clear": "docusaurus clear"
   },
   "dependencies": {
+    "@types/use-persisted-state": "^0.3.4",
     "@consent-manager/core": "^2.0.0-next.0",
     "@consent-manager/integration-algolia": "^2.0.0-next.2",
     "@consent-manager/integration-google-analytics": "2.0.0-next.2",
