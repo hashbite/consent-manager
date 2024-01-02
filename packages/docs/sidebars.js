@@ -8,13 +8,12 @@ module.exports = {
       'guides/create-custom-integration',
       'guides/create-custom-interface',
     ],
-    'Core Components': [
+    'Core': [
       'core/consent-manager',
       'core/consent-manager-form',
       'core/privacy-shield',
       'core/helpers',
     ],
-    'Core Hooks': ['todo'],
     'Default Interface': [
       'interface-default/interface',
       'interface-default/styling',
