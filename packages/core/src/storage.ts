@@ -12,6 +12,6 @@ export interface ConsentManagerStorageState {
 }
 
 export type ConsentManagerStore<S = ConsentManagerStorageState> = [
-  S,
-  Dispatch<SetStateAction<S>>,
+  S | undefined,
+  Dispatch<SetStateAction<S | undefined>>,
 ]
