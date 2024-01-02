@@ -16,7 +16,8 @@
 * DONE - @todo sub-section that turns all of this into typescript? (or have separate typescript tutorial?)
 * DONE -  @todo add another guide on how to handle tracking in single page applications (or ones that use routers)
 * DONE - @todo we actually need to list the config options (COMPONENETS dir????)
-* @todo document helper functions + hooks (getForegroundColor, createIconComponentFromSimpleIconsSvgPath)
+* @todo document helper functions in core + default interface
+* @todo document hooks in core + default interface
 * @todo double check that we dont have no more "cosntruction" sites
 * check again if we can add typescript related help into some guides or other parts of the docs
     

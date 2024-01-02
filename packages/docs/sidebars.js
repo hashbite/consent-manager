@@ -12,6 +12,7 @@ module.exports = {
       'core/consent-manager',
       'core/consent-manager-form',
       'core/privacy-shield',
+      'core/helpers',
     ],
     'Core Hooks': ['todo'],
     'Default Interface': [
