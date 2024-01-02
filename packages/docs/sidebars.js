@@ -3,6 +3,7 @@ module.exports = {
     'Consent Manager': ['about', 'quick-start-guide', 'configuration'],
     Guides: [
       'guides/i18n',
+      'guides/typescript',
       'guides/client-side-routing',
       'guides/create-custom-integration',
       'guides/create-custom-interface',
