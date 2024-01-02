@@ -8,10 +8,11 @@ module.exports = {
       'guides/create-custom-integration',
       'guides/create-custom-interface',
     ],
-    'Core': [
+    Core: [
       'core/consent-manager',
       'core/consent-manager-form',
       'core/privacy-shield',
+      'core/hooks',
       'core/helpers',
     ],
     'Default Interface': [
