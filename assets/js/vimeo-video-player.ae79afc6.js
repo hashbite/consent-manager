@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[2776],{7115:(e,s,c)=>{c.r(s),c.d(s,{default:()=>t});c(2784);var d=c(2143),a=c(2322);const t=e=>{let{id:s,...c}=e;return(0,a.jsx)(d.Z,{className:"video",video:s,...c})}}}]);
