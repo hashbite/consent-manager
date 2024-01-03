@@ -36,6 +36,15 @@ const config: ConsentManagerConfig = {
   integrations: [
     // Define your integrations here
   ],
+  onChangeDecision: (last, next) => {
+    const changedDecisions = {}
+    for (const key in next) {
+      if (last[key] !== next[key]) {
+        changedDecisions[key] = next[key]
+      }
+    }
+    console.log('New user decisions:', changedDecisions)
+  },
 }
 
 const App: React.FC = () => {

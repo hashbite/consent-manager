@@ -18,7 +18,10 @@ import { linkedinIntegration } from '@consent-manager/integration-linkedin'
 import { demoIntegration } from './demo-integration'
 
 import { ConsentManagerDefaultInterface } from '@consent-manager/interface-default'
-import { ConsentManagerStorageState } from '@consent-manager/core'
+import {
+  ConsentManagerConfig,
+  ConsentManagerStorageState,
+} from '@consent-manager/core'
 import '@consent-manager/interface-default/dist/default.min.css'
 
 const useConsentStateStore = createPersistedState<ConsentManagerStorageState>(
@@ -28,11 +31,11 @@ const useConsentStateStore = createPersistedState<ConsentManagerStorageState>(
 // Default implementation, that you can customize
 function Root({ children }: { children: React.ReactNode }) {
   const storage = useConsentStateStore()
-  const config = {
+  const config: ConsentManagerConfig = {
     integrations: [
       matomoPrivacyAwareIntegration({
         matomoURL: 'https://statistics.hashbite.net/',
-        siteID: "11",
+        siteID: '11',
       }),
       youtubeIntegration(),
       vimeoIntegration(),
@@ -41,12 +44,12 @@ function Root({ children }: { children: React.ReactNode }) {
       segmentIntegration({ writeKey: 'djRstXTYDzn36y2zIzQOQMAFFv4du1D9' }),
       googleAnalyticsIntegration({ trackingId: 'UA-193594205-2' }),
       googleTagManagerIntegration({ gtmId: 'GTM-PPHGBCL' }),
-      hubspotIntegration({ hubId: "19627404" }),
-      linkedinIntegration({ partnerId: "2990578" }),
+      hubspotIntegration({ hubId: '19627404' }),
+      linkedinIntegration({ partnerId: '2990578' }),
       demoIntegration(),
     ],
     onChangeDecision: (last, next) => {
-      const changed = {}
+      const changed: { [key: string]: boolean } = {}
       Object.keys(next).forEach((key) => {
         if (last[key] !== next[key]) {
           changed[key] = next[key]
