@@ -7,9 +7,12 @@ module.exports = {
       'guides/client-side-routing',
       'guides/create-custom-integration',
       'guides/create-custom-interface',
+      'guides/alternative-storage-libraries',
     ],
     Frameworks: [
       'frameworks/create-react-app',
+      'frameworks/gatsby',
+      'frameworks/nextjs',
     ],
     Core: [
       'core/consent-manager',
