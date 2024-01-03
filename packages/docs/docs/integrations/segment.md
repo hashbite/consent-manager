@@ -1,7 +1,7 @@
 ---
 id: segment
 title: Segment Integration
-slug: "/integrations/segment"
+slug: '/integrations/segment'
 ---
 
 - Source code: https://github.com/hashbite/consent-manager/tree/main/packages/integration-segment

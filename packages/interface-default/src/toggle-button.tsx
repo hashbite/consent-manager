@@ -10,7 +10,7 @@ import { ConsentManagerDefaultInterfaceContext } from './context'
 export interface ToggleButtonProps {
   styles: Styles
   animationStyles?: Styles
-  ToggleIcon: React.ComponentType<IconProps>
+  ToggleIcon: React.FC<IconProps>
   toggleControlForm: (e: MouseEvent) => void
   slideDuration?: number
 }

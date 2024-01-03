@@ -43,9 +43,9 @@ Each integration used within the `ConsentManagerConfig` must conform to the foll
 | `color`                | `string`                   | Optional. The primary color associated with the integration.    |
 | `contrastColor`        | `string`                   | Optional. A contrasting color for better visibility.            |
 | `privacyPolicyUrl`     | `string`                   | URL to the privacy policy of the integration.                   |
-| `Icon`                 | `React.ComponentType`      | A React component for the integration's icon.                   |
+| `Icon`                 | `React.FC`                 | A React component for the integration's icon.                   |
 | `pageViewEventHandler` | `PageViewEventTrigger`     | Optional. Handler for tracking page views.                      |
-| `WrapperComponent`     | `React.ComponentType`      | Optional. A wrapper component for the integration.              |
+| `WrapperComponent`     | `React.FC`                 | Optional. A wrapper component for the integration.              |
 | `options`              | `IntegrationConfigOptions` | Optional. Additional configuration options for the integration. |
 | `enabledByDefault`     | `boolean`                  | Optional. Indicates if the integration is enabled by default.   |
 
@@ -65,7 +65,7 @@ const consentManagerConfig = {
       siteID: 'YOUR_SITE_ID',
     }),
     yourCustomIntegration({
-      tracking_key: 'VERY#SECURE#KEY'
+      tracking_key: 'VERY#SECURE#KEY',
     }),
   ],
   onChangeDecision: (lastDecisionsState, nextDecisionState) => {

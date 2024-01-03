@@ -13,10 +13,10 @@ import { ConsentManagerDefaultInterfaceContext } from './context'
 
 export interface ConsentFormProps extends DecisionsFormProps {
   styles: Styles
-  ToggleIcon: React.ComponentType<IconProps>
-  CloseIcon: React.ComponentType<IconProps>
-  Switch: React.ComponentType<SwitchProps>
-  Button: React.ComponentType<ButtonProps>
+  ToggleIcon: React.FC<IconProps>
+  CloseIcon: React.FC<IconProps>
+  Switch: React.FC<SwitchProps>
+  Button: React.FC<ButtonProps>
 }
 
 interface FormState {

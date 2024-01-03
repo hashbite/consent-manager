@@ -15,7 +15,7 @@ import { FallbackComponent } from './components/FallbackComponent'
 
 export interface ConsentManagerProps {
   config: ConsentManagerConfig
-  fallbackComponent?: React.ComponentType<FallbackComponentProps>
+  fallbackComponent?: React.FC<FallbackComponentProps>
   store: ConsentManagerStore
   children: React.ReactNode
 }
@@ -57,7 +57,7 @@ export function useDecision(
   ]
 }
 
-export function useFallbackComponent(): React.ComponentType<FallbackComponentProps> {
+export function useFallbackComponent(): React.FC<FallbackComponentProps> {
   const { fallbackComponent: FallbackComponent } = useContext(
     ConsentManagerContext
   )

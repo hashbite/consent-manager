@@ -20,9 +20,9 @@ export interface IntegrationConfig {
   color?: string
   contrastColor?: string
   privacyPolicyUrl?: string
-  Icon: React.ComponentType<IntegrationIconComponentProps>
+  Icon: React.FC<IntegrationIconComponentProps>
   pageViewEventHandler?: PageViewEventTrigger
-  WrapperComponent?: React.ComponentType
+  WrapperComponent?: React.FC
   options?: IntegrationConfigOptions
   enabledByDefault?: boolean
 }

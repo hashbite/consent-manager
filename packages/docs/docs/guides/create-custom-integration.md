@@ -92,22 +92,22 @@ export function yourServiceIntegration(options: { apiKey: string }): Integration
 Incorporate your custom integration into the Consent Manager configuration of your application. Here's an example:
 
 ```javascript
-import { ConsentManager } from '@consent-manager/core';
-import { yourServiceIntegration } from './your-service-integration';
+import { ConsentManager } from '@consent-manager/core'
+import { yourServiceIntegration } from './your-service-integration'
 
 const App = () => {
   const config = {
     integrations: [
-      yourServiceIntegration({ apiKey: 'your-api-key' }) // Pass custom options here
+      yourServiceIntegration({ apiKey: 'your-api-key' }), // Pass custom options here
     ],
-  };
+  }
 
   return (
     <ConsentManager config={config}>
       {/* Your application components */}
     </ConsentManager>
-  );
-};
+  )
+}
 ```
 
 ## Additional Notes

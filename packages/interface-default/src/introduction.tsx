@@ -18,13 +18,13 @@ import defaultAnimationStyles from './animation-slide.module.css'
 import { ConsentManagerDefaultInterfaceContext } from './context'
 
 export interface IntroductionProps {
-  CloseIcon: React.ComponentType<IconProps>
+  CloseIcon: React.FC<IconProps>
   introductionFinished: () => void
   styles?: Styles
   animationStyles?: Styles
   slideDuration: number
   noActionDelay?: number
-  Button: React.ComponentType<ButtonProps>
+  Button: React.FC<ButtonProps>
 }
 
 interface ActivityDetector {

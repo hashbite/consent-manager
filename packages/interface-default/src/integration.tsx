@@ -10,7 +10,7 @@ import { Styles } from '.'
 
 export interface IntegrationProps extends IntegrationConfigOptions {
   styles: Styles
-  Switch?: React.ComponentType<SwitchProps>
+  Switch?: React.FC<SwitchProps>
 }
 
 const Link: React.FC<{

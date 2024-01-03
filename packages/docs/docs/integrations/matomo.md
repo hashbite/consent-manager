@@ -1,7 +1,7 @@
 ---
 id: matomo
 title: Matomo Integration
-slug: "/integrations/matomo"
+slug: '/integrations/matomo'
 ---
 
 import { matomoIntegration, matomoPrivacyAwareIntegration } from "@consent-manager/integration-matomo"

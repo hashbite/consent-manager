@@ -14,7 +14,7 @@ The actual layout is provided by the [Form Component](./consent-manager-form.md)
 | ------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | `config`            | [`ConsentManagerConfig`](../configuration.md)                                                               | Configuration object for Consent Manager.                         |
 | `store`             | [`ConsentManagerStore`](https://github.com/hashbite/consent-manager/blob/main/packages/core/src/storage.ts) | Storage mechanism for consent decisions.                          |
-| `fallbackComponent` | `React.ComponentType<FallbackComponentProps>`                                                               | Optional. Custom fallback component for unconsented integrations. |
+| `fallbackComponent` | `React.FC<FallbackComponentProps>`                                                                          | Optional. Custom fallback component for unconsented integrations. |
 | `children`          | `React.ReactNode`                                                                                           | The application's components.                                     |
 
 ## Example Usage

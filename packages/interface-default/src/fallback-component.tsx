@@ -13,8 +13,8 @@ import { ConsentManagerDefaultInterfaceContext } from './context'
 
 interface StyleableFallbackComponentProps extends FallbackComponentProps {
   styles: Styles
-  Button: React.ComponentType<ButtonProps>
-  ToggleIcon: React.ComponentType<IconProps>
+  Button: React.FC<ButtonProps>
+  ToggleIcon: React.FC<IconProps>
 }
 
 export const FallbackComponent: React.FC<StyleableFallbackComponentProps> = ({

@@ -1,30 +1,30 @@
 import React from 'react'
 
 export interface Messages {
-  [key: string]: React.ReactNode | React.ComponentType<any>
-  'consent-manager.integration.default.company'?: React.ComponentType<{
-    IntegrationLabel: React.ComponentType<any>
+  [key: string]: React.ReactNode | React.FC<any>
+  'consent-manager.integration.default.company'?: React.FC<{
+    IntegrationLabel: React.FC<any>
   }>
-  'consent-manager.integration.default.category'?: React.ComponentType<{
+  'consent-manager.integration.default.category'?: React.FC<{
     category: string
   }>
-  'consent-manager.integration.default.title'?: React.ComponentType<{
+  'consent-manager.integration.default.title'?: React.FC<{
     title: string
   }>
-  'consent-manager.integration.default.description'?: React.ComponentType<{
+  'consent-manager.integration.default.description'?: React.FC<{
     description: string
-    PrivacyPolicyLink: React.ComponentType<any>
+    PrivacyPolicyLink: React.FC<any>
   }>
-  'consent-manager.integration.default.privacy-policy'?: React.ComponentType<{
+  'consent-manager.integration.default.privacy-policy'?: React.FC<{
     Link: React.FC<any>
     title: string
   }>
-  'consent-manager.fallback.default.description'?: React.ComponentType<{
-    IntegrationLabel: React.ComponentType<any>
+  'consent-manager.fallback.default.description'?: React.FC<{
+    IntegrationLabel: React.FC<any>
     category: string
     title: string
   }>
-  'consent-manager.fallback.default.enable'?: React.ComponentType<{
+  'consent-manager.fallback.default.enable'?: React.FC<{
     category: string
     title: string
   }>

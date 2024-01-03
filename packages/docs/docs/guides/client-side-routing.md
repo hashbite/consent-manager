@@ -7,6 +7,7 @@ Your adjusted guide for client-side routing and tracking in SPAs is well-structu
 ### Enhanced Guide for Client-Side Routing and Tracking in SPAs
 
 #### Implementing Enhanced Routing Event Listener
+
 When using client-side routing in your SPA, it's important to track both the new and previous locations to understand user navigation paths accurately. Here's how you can implement this with the Matomo integration:
 
 ```javascript
@@ -52,6 +53,7 @@ export default App;
 ```
 
 #### Notes:
+
 - The `useState` hook is used to keep track of the previous location.
 - The `useEffect` hook sets up a listener on route changes and updates the tracking information accordingly.
 - This approach provides more detailed analytics on how users navigate through your SPA.

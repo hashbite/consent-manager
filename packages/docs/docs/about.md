@@ -1,7 +1,7 @@
 ---
 id: about
 title: What is Consent Manager?
-slug: "/"
+slug: '/'
 ---
 
 import { YoutubeVideo } from '../src/components/youtube-video'

@@ -7,7 +7,7 @@ import {
 import { ConsentManagerStore } from './storage'
 
 interface ConsentManagerContextValue {
-  fallbackComponent: React.ComponentType<FallbackComponentProps>
+  fallbackComponent: React.FC<FallbackComponentProps>
   config: ConsentManagerConfig
   store: ConsentManagerStore
 }

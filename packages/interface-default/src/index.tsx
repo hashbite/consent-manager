@@ -45,12 +45,12 @@ export interface ConsentManagerDefaultInterfaceDesignProps {
   noActionDelay?: number
   styles?: Styles
   animationStyles?: Styles
-  ToggleButton?: React.ComponentType<ToggleButtonProps>
-  ToggleIcon?: React.ComponentType<IconProps>
-  CloseIcon?: React.ComponentType<IconProps>
-  Switch?: React.ComponentType<SwitchProps>
-  Button?: React.ComponentType<ButtonProps>
-  Form?: React.ComponentType<ConsentFormProps>
+  ToggleButton?: React.FC<ToggleButtonProps>
+  ToggleIcon?: React.FC<IconProps>
+  CloseIcon?: React.FC<IconProps>
+  Switch?: React.FC<SwitchProps>
+  Button?: React.FC<ButtonProps>
+  Form?: React.FC<ConsentFormProps>
 }
 
 interface ConsentManagerDefaultInterfaceProps
