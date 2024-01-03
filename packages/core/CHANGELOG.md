@@ -1,5 +1,12 @@
 # @consent-manager/core
 
+## 2.0.0-next.2
+
+### Patch Changes
+
+- be97084: Replace React.ComponentType with React.FC as things changed with React 18 and TS 5.1
+- 4d7e60f: ensure types of user-persisted-state are compatible to our store type
+
 ## 2.0.0-next.1
 
 ### Patch Changes

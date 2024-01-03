@@ -1,5 +1,14 @@
 # @consent-manager/interface-default
 
+## 2.0.0-next.4
+
+### Patch Changes
+
+- be97084: Replace React.ComponentType with React.FC as things changed with React 18 and TS 5.1
+- Updated dependencies [be97084]
+- Updated dependencies [4d7e60f]
+  - @consent-manager/core@2.0.0-next.2
+
 ## 2.0.0-next.3
 
 ### Patch Changes
