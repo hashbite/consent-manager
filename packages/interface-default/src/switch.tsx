@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { FieldRenderProps } from 'react-final-form'
 
 import { Styles } from '.'
-export interface SwitchProps extends FieldRenderProps<string, any> {
+export interface SwitchProps extends FieldRenderProps<boolean, HTMLElement> {
   styles: Styles
 }
 
@@ -18,7 +18,12 @@ export const Switch: React.FC<SwitchProps> = ({
   return (
     <label htmlFor={key} className={styles.switchLabel} {...rest}>
       <div className={styles.switchWrapper}>
-        <input id={key} {...input} className={styles.switchInput} />
+        <input
+          id={key}
+          {...input}
+          value={undefined}
+          className={styles.switchInput}
+        />
         <div
           className={clsx(
             styles.switchSlide,
