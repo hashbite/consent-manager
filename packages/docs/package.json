@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "1.0.0-next.2",
+  "version": "1.0.0-next.3",
   "description": "Docs for consent-manager. Built with Docusaurus.",
   "private": true,
   "author": {
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@types/use-persisted-state": "^0.3.4",
-    "@consent-manager/core": "^2.0.0-next.0",
+    "@consent-manager/core": "^2.0.0-next.2",
     "@consent-manager/integration-algolia": "^2.0.0-next.2",
     "@consent-manager/integration-google-analytics": "2.0.0-next.2",
     "@consent-manager/integration-google-tag-manager": "2.0.0-next.2",
@@ -48,7 +48,7 @@
     "@consent-manager/integration-segment": "2.0.0-next.2",
     "@consent-manager/integration-vimeo": "^2.0.0-next.2",
     "@consent-manager/integration-youtube": "^2.0.0-next.2",
-    "@consent-manager/interface-default": "^2.0.0-next.2",
+    "@consent-manager/interface-default": "^2.0.0-next.4",
     "@docusaurus/core": "3.0.1",
     "@docusaurus/preset-classic": "3.0.1",
     "@mdx-js/react": "3.0.0",
