@@ -8,6 +8,9 @@ module.exports = {
       'guides/create-custom-integration',
       'guides/create-custom-interface',
     ],
+    Frameworks: [
+      'frameworks/create-react-app',
+    ],
     Core: [
       'core/consent-manager',
       'core/consent-manager-form',
