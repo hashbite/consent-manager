@@ -18,8 +18,8 @@
 - DONE - @todo we actually need to list the config options (COMPONENETS dir????)
 - DONE - @todo document helper functions in core + default interface
 - DONE - @todo document hooks in core + default interface
-- @todo double check that we dont have no more "cosntruction" sites
-- check again if we can add typescript related help into some guides or other parts of the docs
+- DONE - @todo double check that we dont have no more "cosntruction" sites
+- DONE - check again if we can add typescript related help into some guides or other parts of the docs
 - integrations
 
   - make more examples on how to track with certain integrations (for example matomo track events, page view and so on)
