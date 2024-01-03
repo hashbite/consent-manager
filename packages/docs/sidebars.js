@@ -13,6 +13,7 @@ module.exports = {
       'frameworks/create-react-app',
       'frameworks/gatsby',
       'frameworks/nextjs',
+      'frameworks/parcel',
     ],
     Core: [
       'core/consent-manager',
