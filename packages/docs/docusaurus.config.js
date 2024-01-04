@@ -69,6 +69,10 @@ module.exports = {
               label: 'GitHub',
               href: 'https://github.com/hashbite/consent-manager',
             },
+            {
+              label: 'A hashbite project',
+              href: 'https://hashbite.net',
+            },
           ],
         },
       ],

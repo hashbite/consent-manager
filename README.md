@@ -2,7 +2,7 @@
 
 **Effortless Compliance and User Empowerment for Modern Web Applications**
 
-> Consent Manager is a streamlined React toolkit enabling developers to effortlessly integrate external services into web applications, fully aligned with GDPR and other data protection laws. It simplifies user consent management for data processing and third-party interactions.
+> Consent Manager is a React toolkit enabling developers to integrate external services, fully aligned with GDPR and other data protection laws. It simplifies user consent management for data processing and third-party interactions.
 
 [![NPM Version Badge](https://badgen.net/npm/v/@consent-manager/core)](https://www.npmjs.com/package/@consent-manager/core)
 [![Github Check Badge](https://badgen.net/github/checks/hashbite/consent-manager/main)](https://github.com/hashbite/consent-manager/actions)
@@ -20,7 +20,11 @@ Consent Manager is not just a tool; it's a philosophy to make the web a fairer, 
 
 [Learn more about our ideas](https://hashbite.github.io/consent-manager/docs/)
 
-## Installation [![Tree Shaking Supported Badge](https://badgen.net/bundlephobia/tree-shaking/@consent-manager/core)](https://bundlephobia.com/result?p=@consent-manager/core)
+> 🌟 **We're Seeking Co-Contributors!** 🌟
+>
+> Are you passionate about privacy, web development, and open-source collaboration? Join us in shaping Consent Manager's future! We're looking for enthusiastic co-contributors to help us expand and refine this project. Whether it's adding new features, improving documentation, or fixing bugs, your contributions are welcome. Dive into our [GitHub Issues](https://github.com/hashbite/consent-manager/issues) to start contributing or propose new ideas!
+
+## Installation and Getting Started[![Tree Shaking Supported Badge](https://badgen.net/bundlephobia/tree-shaking/@consent-manager/core)](https://bundlephobia.com/result?p=@consent-manager/core)
 
 |          | [Core](https://github.com/hashbite/consent-manager/tree/main/packages/core)                                                                  | [Default Interface](https://github.com/hashbite/consent-manager/tree/main/packages/interface-default)                                                                  |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -28,16 +32,19 @@ Consent Manager is not just a tool; it's a philosophy to make the web a fairer, 
 | Minified | [![Minified Size Badge](https://badgen.net/bundlephobia/min/@consent-manager/core)](https://bundlephobia.com/result?p=@consent-manager/core) | [![Minified Size Badge](https://badgen.net/bundlephobia/min/@consent-manager/interface-default)](https://bundlephobia.com/result?p=@consent-manager/interface-default) |
 | Gzipped  | [![Gzip Size Badge](https://badgen.net/bundlephobia/minzip/@consent-manager/core)](https://bundlephobia.com/result?p=@consent-manager/core)  | [![Gzip Size Badge](https://badgen.net/bundlephobia/minzip/@consent-manager/interface-default)](https://bundlephobia.com/result?p=@consent-manager/interface-default)  |
 
-For now, have a look at the [implementation guide in our docs](https://hashbite.github.io/consent-manager/docs/getting-started).
+Dive into Consent Manager with ease using our guides:
 
-## Getting started
-
-This will be updated asap.
-
-For now, have a look at the [implementation guide in our docs](https://hashbite.github.io/consent-manager/docs/getting-started).
+- **Quick Start:** Begin your journey with our [Quick Start Guide](https://hashbite.github.io/consent-manager/docs/quick-start-guide), a straightforward approach to integrating Consent Manager into your project.
+- **Detailed Documentation:** For a more in-depth understanding and advanced features, explore our [comprehensive documentation](https://hashbite.github.io/consent-manager/docs/).
 
 ## Supported integrations
 
 We support plenty of third-party integrations. If you are missing one, you can build your own with a few lines of code.
 
 See our [list of integrations in the docs menu](https://hashbite.github.io/consent-manager/docs/) and [all packages prefixed with `integration-` in our source code](https://github.com/hashbite/consent-manager/tree/main/packages).
+
+## Sponsorship and Support
+
+This project is proudly sponsored by [hashbite](https://hashbite.net/). As the initiators and primary maintainers, we at hashbite are committed to developing a robust and user-friendly solution for consent management in web applications.
+
+In addition to contributing to the open-source project, we offer paid support for Consent Manager. Whether you need assistance with integration, customization, or any specific adjustments to fit your project, our team is here to help. If you're interested in our professional services, please [contact us](https://hashbite.net/#contact) for more details.
