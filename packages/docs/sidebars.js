@@ -10,10 +10,11 @@ module.exports = {
       'guides/alternative-storage-libraries',
     ],
     Frameworks: [
-      'frameworks/create-react-app',
-      'frameworks/gatsby',
+      'frameworks/vite',
       'frameworks/nextjs',
+      'frameworks/gatsby',
       'frameworks/parcel',
+      'frameworks/create-react-app',
     ],
     Core: [
       'core/consent-manager',

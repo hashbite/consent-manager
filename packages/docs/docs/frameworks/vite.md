@@ -1,14 +1,10 @@
 ---
-title: Parcel
+title: Vite
 ---
 
-# Integrating Consent Manager with Parcel
+# Integrating Consent Manager with Vite
 
-This guide explains how to incorporate Consent Manager into a React application using Parcel.
-
-## Example
-
-For a hands-on example, check out our [example repository](https://github.com/hashbite/consent-manager-examples/tree/main/parcel) which contains a tested implementation.
+This guide explains how to incorporate Consent Manager into a React application using Vite.
 
 ## Installation
 
@@ -53,21 +49,22 @@ This configuration file sets up the core functionality of the Consent Manager, i
 
 ### Step 2: Wrap Your Application
 
-In your Parcel `index.js` file, import and utilize the `ConsentManagerWrapper` to wrap your entire application:
+In your Vite `src/main.js` file, import and utilize the `ConsentManagerWrapper` to wrap your entire application:
 
 ```javascript
 import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+
 import { ConsentManagerWrapper } from './consent-manager'
 
-const RootApp = () => {
-  return (
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
     <ConsentManagerWrapper>
       <App />
     </ConsentManagerWrapper>
-  )
-}
+  </React.StrictMode>,
+)
 
-ReactDOM.render(<RootApp />, document.getElementById('root'))
 ```

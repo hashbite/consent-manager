@@ -4,7 +4,7 @@ title: Create React App
 
 # Integrating Consent Manager with Create React App
 
-This guide will help you to integrate the Consent Manager into a React application created with Create React App. It will walk you through the necessary steps to set up and configure the Consent Manager effectively.
+This guide will help you to integrate the Consent Manager into a React application created with Create React App.
 
 ## Example
 
