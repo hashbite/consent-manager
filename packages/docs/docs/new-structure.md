@@ -1,35 +1,11 @@
-- home - introduction about the how and why
 
-- tutorials
-  - DONE - quick start - default interface with one integration
-  - DONE - Style default interface
-  - DONE - i18n integration of default interface (translate default interface)
-  - DONE - Implement your own interface (demo/example already existing? show examples?)
-  - DONE - Create a custom tracking integration
-  - Frameworks: Basic tutorial + link to example
-    - NextJS
-    - Vite
-    - Parcel
-    - ~Create React App~
-    - GatsbyJS
-    - DocuSaurus
-- DONE - @todo sub-section that turns all of this into typescript? (or have separate typescript tutorial?)
-- DONE - @todo add another guide on how to handle tracking in single page applications (or ones that use routers)
-- DONE - @todo we actually need to list the config options (COMPONENETS dir????)
-- DONE - @todo document helper functions in core + default interface
-- DONE - @todo document hooks in core + default interface
-- DONE - @todo double check that we dont have no more "cosntruction" sites
-- DONE - check again if we can add typescript related help into some guides or other parts of the docs
+
 - integrations
-
-  - make more examples on how to track with certain integrations (for example matomo track events, page view and so on)
+  - DONE - make more examples on how to track with certain integrations (for example matomo track events, page view and so on)
   - make sure all config options are listed
 
 - other todos
-  - maybe its the way we store the tracking in our hooks @stanford & @maneframe why tracking stays active even when user denies (set reference of object ot null is not acutally deleting the object from ram?)
-    - !!! we have to reload the page to be SURE that nothing is tracked anymore
   - actively ask for co contributors in readme and on website
-  - DONE - can we do some seo for our docs page?
   - when linking hashbite, also offer payed services on a hourly rate
   - add google ads integration as we have it ready in @stanford
   - get rid of this file in the repo ;)

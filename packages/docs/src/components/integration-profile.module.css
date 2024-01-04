@@ -8,3 +8,7 @@
 .table tr > td:first-child {
   background: var(--ifm-table-stripe-background);
 }
+
+.table td, .table th {
+  padding: 0.5rem;
+}

@@ -1,11 +1,12 @@
 ---
-id: hubspot
-title: Hubspot Integration
-slug: '/integrations/hubspot'
+id: linkedin
+title: LinkedIn Integration
 ---
 
-import { hubspotIntegration } from "@consent-manager/integration-hubspot"
+import { linkedinIntegration } from "@consent-manager/integration-linkedin"
 
-- Source code: https://github.com/hashbite/consent-manager/tree/main/packages/integration-hubspot
+- Source code: https://github.com/hashbite/consent-manager/tree/main/packages/integration-linkedin
 
-<IntegrationProfile integration={hubspotIntegration({})} />
+The LinkedIn integration with Consent Manager directly injects the LinkedIn tracking script (Insight Tag) into your application once the user consents. The LinkedIn Insight Tag enables tracking of website visitors for analytics and ad targeting purposes. For more information about the LinkedIn Insight Tag, you can refer to [LinkedIn's official page](https://business.linkedin.com/marketing-solutions/insight-tag).
+
+<IntegrationProfile integration={linkedinIntegration({})} />
