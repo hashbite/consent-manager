@@ -20,6 +20,8 @@ Consent Manager is not just a tool; it's a philosophy to make the web a fairer, 
 
 [Learn more about our ideas](https://hashbite.github.io/consent-manager/docs/)
 
+## Contribution
+
 > 🌟 **We're Seeking Co-Contributors!** 🌟
 >
 > Are you passionate about privacy, web development, and open-source collaboration? Join us in shaping Consent Manager's future! We're looking for enthusiastic co-contributors to help us expand and refine this project. Whether it's adding new features, improving documentation, or fixing bugs, your contributions are welcome. Dive into our [GitHub Issues](https://github.com/hashbite/consent-manager/issues) to start contributing or propose new ideas!
