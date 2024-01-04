@@ -11,6 +11,10 @@ The Google Analytics integration leverages the [`react-ga`](https://www.npmjs.co
 
 <IntegrationProfile integration={googleAnalyticsIntegration({})} />
 
+## Configuration Options
+
+* trackingId: Your Google Analytics tracking ID
+
 ## `getGoogleAnalytics` Function
 
 The `getGoogleAnalytics` function retrieves the initialized instance of [`react-ga`](https://www.npmjs.com/package/react-ga). This allows for direct interactions with Google Analytics tracking features within your application.

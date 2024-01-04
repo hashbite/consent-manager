@@ -21,6 +21,11 @@ Ensure your [Matomo instance is privacy-aware](https://matomo.org/cookie-consent
 
 <IntegrationProfile integration={matomoPrivacyAwareIntegration({})} />
 
+## Configuration Options
+
+* matomoURL: The URL of your Matomo installation
+* siteID: ID of the page set up in Matomo
+
 ## Tracking API
 
 The Matomo integration exposes a tracking API with functions to simplify page view and event tracking. The `getMatomoTracker` function provides methods such as `trackPageViewSPA` for single-page applications and `trackEvent` for event tracking.

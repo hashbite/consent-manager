@@ -11,6 +11,10 @@ The HubSpot integration with Consent Manager will directly inject the HubSpot tr
 
 <IntegrationProfile integration={hubspotIntegration({})} />
 
+## Configuration Options
+
+* hubId: Your Hubspot ID
+
 ## Example Usage with `react-router`
 
 This example demonstrates how to use hubspot in conjunction with `react-router` to track page views:

@@ -47,7 +47,7 @@ const WrapperComponent: React.FC = () => {
 // @todo required options are not yet possible.
 // See: https://github.com/hashbite/consent-manager/issues/19
 interface googleTagManagerConfig extends IntegrationConfigOptions {
-  trackingId?: string // @todo this should be required
+  gtmId?: string // @todo this should be required
 }
 
 export function googleTagManagerIntegration(

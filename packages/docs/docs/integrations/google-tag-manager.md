@@ -13,6 +13,10 @@ The Google Tag Manager integration uses the [`react-gtm-module`](https://www.npm
 
 <IntegrationProfile integration={googleTagManagerIntegration({})} />
 
+## Configuration Options
+
+* gtmId: Your Google Tag Manager ID
+
 ## `getGoogleTagManager` Function
 
 The `getGoogleTagManager` function provides access to the initialized instance of [`react-gtm-module`](https://www.npmjs.com/package/react-gtm-module). This allows for the integration and management of Google Tag Manager functionalities within your application.

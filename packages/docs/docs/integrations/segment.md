@@ -13,6 +13,10 @@ The Segment integration in Consent Manager manages user consent for the Segment 
 
 <IntegrationProfile integration={segmentIntegration({})} />
 
+## Configuration Options
+
+* writeKey: Your Segment write key.
+
 ## `getSegment` Function
 
 The `getSegment` function provides access to the initialized Segment instance. This enables you to interact with Segment's tracking functionalities within your application.
