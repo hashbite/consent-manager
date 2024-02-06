@@ -45,7 +45,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "simple-icons": "^10.0.0"
+    "simple-icons": "^11.0.0"
   },
   "peerDependencies": {
     "@consent-manager/core": "^2.0.0-next.0",
