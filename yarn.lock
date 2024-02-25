@@ -16376,9 +16376,9 @@ simple-icons@*:
   integrity sha512-XBoU1ljCsWjw59IVkaQ1nKc0PiaDAAKNFVx59ueC0tBy4WY/I4Q040sGj6ok2cZRLT8zBzL1HaTubi8MRqmojQ==
 
 simple-icons@^11.0.0:
-  version "11.3.0"
-  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-11.3.0.tgz#82de9916fbacdf0fe18cf666c105749145a60472"
-  integrity sha512-dr178hpEoy8ZtPKEQvmFcQbbOfqMHGDQ0Mt8BOqZ8lqIvbQ8X7kHdznIIwDVn4yKRPtP8wXGPpMJ/2/1xjjhVA==
+  version "11.6.0"
+  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-11.6.0.tgz#92895f03a25db228807e08ba2c53bddbda309d62"
+  integrity sha512-DNJtVC9YB6v+zLe3LY4gaVr0uLEvDAbd6YNxyYtuLvJCcZChsitfYWRhnG4PBnkbNQ6BG3dOJT9NEOTWGbv/tw==
 
 sirv@^2.0.3:
   version "2.0.3"
