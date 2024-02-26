@@ -53,13 +53,13 @@ const ConsentForm: React.FC<ConsentFormProps> = ({
   }, [integrations])
 
   const defaultState = useMemo(() => {
-    const initialState: FormState = {}
+    const defaultState: FormState = {}
 
     for (const integration of integrations) {
-      initialState[integration.id] = integration.enabledByDefault || false
+      defaultState[integration.id] = integration.enabledByDefault || false
     }
 
-    return initialState
+    return defaultState
   }, [integrations])
 
   const [formState, setFormState] = useState<FormState>(initialState)
@@ -75,9 +75,10 @@ const ConsentForm: React.FC<ConsentFormProps> = ({
     onSubmit({ enabled })
   }, [onSubmit, setFormVisible, formState])
 
-  const cbReset = useCallback(() => {
-    setFormState(defaultState)
-  }, [setFormState, initialState])
+  const cbReset = useCallback(
+    () => setFormState({ ...defaultState }),
+    [setFormState, defaultState]
+  )
 
   const cbEnableAll = useCallback(() => {
     setFormState((state) => {
