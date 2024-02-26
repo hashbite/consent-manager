@@ -102,7 +102,7 @@ export const ConsentManagerDefaultInterface: React.FC<
         value={{ formVisible, setFormVisible, messages }}
       >
         {children}
-        <Suspense>
+        <Suspense fallback={null}>
           <InterfaceChunk {...props} />
         </Suspense>
       </ConsentManagerDefaultInterfaceContext.Provider>
