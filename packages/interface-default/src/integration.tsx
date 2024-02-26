@@ -1,5 +1,4 @@
 import React from 'react'
-import { Field } from 'react-final-form'
 import clsx from 'clsx'
 import { Trans } from './trans'
 import { IntegrationConfigOptions } from '@consent-manager/core'
@@ -11,18 +10,17 @@ import { Styles } from '.'
 export interface IntegrationProps extends IntegrationConfigOptions {
   styles: Styles
   Switch?: React.FC<SwitchProps>
+  defaultChecked: boolean
+  onChange: React.ChangeEventHandler
 }
 
 const Link: React.FC<{
   children: React.ReactNode
   privacyPolicyUrl: string
 }> = ({ children, privacyPolicyUrl }) => (
-  // eslint-disable-next-line jsx-a11y/anchor-has-content
-  <>
-    <a href={privacyPolicyUrl} rel="noreferrer" target="_blank">
-      {children}
-    </a>
-  </>
+  <a href={privacyPolicyUrl} rel="noreferrer" target="_blank">
+    {children}
+  </a>
 )
 
 export const Integration: React.FC<IntegrationProps> = ({
@@ -36,14 +34,16 @@ export const Integration: React.FC<IntegrationProps> = ({
   color,
   contrastColor,
   Icon,
+  defaultChecked,
+  onChange,
 }) => (
   <>
-    <Field
+    <Switch
       className={clsx(styles.integrationFieldTrigger)}
+      onChange={onChange}
       name={id}
-      component={Switch}
-      type="checkbox"
       styles={styles}
+      defaultChecked={defaultChecked}
     >
       <h2 className={clsx(styles.integrationFieldCategory)}>
         <Trans
@@ -75,7 +75,7 @@ export const Integration: React.FC<IntegrationProps> = ({
           }}
         />
       </div>
-    </Field>
+    </Switch>
     <div className={clsx(styles.integrationFieldDetails)}>
       <Trans
         id={`consent-manager.integration.${id}.description`}
