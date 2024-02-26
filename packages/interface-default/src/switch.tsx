@@ -1,39 +1,52 @@
 import React from 'react'
 import clsx from 'clsx'
-import { FieldRenderProps } from 'react-final-form'
 
 import { Styles } from '.'
-export interface SwitchProps extends FieldRenderProps<boolean, HTMLElement> {
+export interface SwitchProps {
+  children: React.ReactNode
+  className: string
+  defaultChecked: boolean
+  name: string
   styles: Styles
+  onChange: React.ChangeEventHandler
 }
 
 export const Switch: React.FC<SwitchProps> = ({
   children,
-  input,
+  defaultChecked,
+  className,
+  name,
   styles,
+  onChange,
   ...rest
 }) => {
-  const key = `switch-${input.name}`
+  const key = `switch-${name}`
 
   return (
-    <label htmlFor={key} className={styles.switchLabel} {...rest}>
+    <label
+      htmlFor={key}
+      className={clsx(className, styles.switchLabel)}
+      {...rest}
+    >
       <div className={styles.switchWrapper}>
         <input
           id={key}
-          {...input}
-          value={undefined}
+          name={name}
+          type="checkbox"
+          defaultChecked={defaultChecked}
+          onChange={onChange}
           className={styles.switchInput}
         />
         <div
           className={clsx(
             styles.switchSlide,
-            input.checked && styles.switchSlideEnabled
+            defaultChecked && styles.switchSlideEnabled
           )}
         />
         <div
           className={clsx(
             styles.switchNodge,
-            input.checked && styles.switchNodgeEnabled
+            defaultChecked && styles.switchNodgeEnabled
           )}
         />
       </div>
