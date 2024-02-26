@@ -1,5 +1,12 @@
 # @consent-manager/interface-default
 
+## 2.0.0-next.6
+
+### Patch Changes
+
+- 76c2721: Removed react-final-form as we only hande a few checkboxes. This dependency was overkill for our needs.
+- 76c2721: Reset button now resets to form default instead of users last choice.
+
 ## 2.0.0-next.5
 
 ### Patch Changes
