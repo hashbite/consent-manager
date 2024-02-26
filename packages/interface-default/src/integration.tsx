@@ -10,7 +10,7 @@ import { Styles } from '.'
 export interface IntegrationProps extends IntegrationConfigOptions {
   styles: Styles
   Switch?: React.FC<SwitchProps>
-  defaultChecked: boolean
+  checked: boolean
   onChange: React.ChangeEventHandler
 }
 
@@ -34,7 +34,7 @@ export const Integration: React.FC<IntegrationProps> = ({
   color,
   contrastColor,
   Icon,
-  defaultChecked,
+  checked,
   onChange,
 }) => (
   <>
@@ -43,7 +43,7 @@ export const Integration: React.FC<IntegrationProps> = ({
       onChange={onChange}
       name={id}
       styles={styles}
-      defaultChecked={defaultChecked}
+      checked={checked}
     >
       <h2 className={clsx(styles.integrationFieldCategory)}>
         <Trans

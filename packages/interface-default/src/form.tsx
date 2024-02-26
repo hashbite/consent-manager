@@ -145,7 +145,7 @@ const ConsentForm: React.FC<ConsentFormProps> = ({
                 styles={styles}
                 key={integration.id}
                 Switch={Switch}
-                defaultChecked={formState[integration.id]}
+                checked={formState[integration.id]}
                 onChange={cbToggleIntegration}
                 {...integration}
               />

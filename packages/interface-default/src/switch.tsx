@@ -5,7 +5,7 @@ import { Styles } from '.'
 export interface SwitchProps {
   children: React.ReactNode
   className: string
-  defaultChecked: boolean
+  checked: boolean
   name: string
   styles: Styles
   onChange: React.ChangeEventHandler
@@ -13,7 +13,7 @@ export interface SwitchProps {
 
 export const Switch: React.FC<SwitchProps> = ({
   children,
-  defaultChecked,
+  checked,
   className,
   name,
   styles,
@@ -33,20 +33,20 @@ export const Switch: React.FC<SwitchProps> = ({
           id={key}
           name={name}
           type="checkbox"
-          defaultChecked={defaultChecked}
+          defaultChecked={checked}
           onChange={onChange}
           className={styles.switchInput}
         />
         <div
           className={clsx(
             styles.switchSlide,
-            defaultChecked && styles.switchSlideEnabled
+            checked && styles.switchSlideEnabled
           )}
         />
         <div
           className={clsx(
             styles.switchNodge,
-            defaultChecked && styles.switchNodgeEnabled
+            checked && styles.switchNodgeEnabled
           )}
         />
       </div>
