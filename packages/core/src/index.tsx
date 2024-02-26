@@ -1,4 +1,10 @@
-import React, { Dispatch, SetStateAction, useContext } from 'react'
+import React, {
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 import { Location } from 'history'
 import {
   FallbackComponentProps,
@@ -78,10 +84,13 @@ export const PrivacyShield: React.FC<PrivacyShieldProps> = ({
   children,
   ...props
 }) => {
+  const [isSSR, setIsSSR] = useState(true)
   const [decision] = useDecision(id)
   const DefaultFallbackComponent = useFallbackComponent()
 
-  if (decision) {
+  useEffect(() => setIsSSR(false))
+
+  if (!isSSR && decision) {
     return <React.Fragment>{children}</React.Fragment>
   }
 
