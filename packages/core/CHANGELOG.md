@@ -1,5 +1,11 @@
 # @consent-manager/core
 
+## 2.0.0-next.3
+
+### Patch Changes
+
+- f1c5788: Improve hydration behavior of PrivacyShield compontent and fix default interface links to privacy policies"
+
 ## 2.0.0-next.2
 
 ### Patch Changes
