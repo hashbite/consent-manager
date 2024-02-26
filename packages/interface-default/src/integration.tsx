@@ -87,7 +87,9 @@ export const Integration: React.FC<IntegrationProps> = ({
               id={`consent-manager.integration.${id}.privacy-policy`}
               fallbackId={`consent-manager.integration.default.privacy-policy`}
               props={{
-                Link,
+                Link: (props) => (
+                  <Link privacyPolicyUrl={privacyPolicyUrl} {...props} />
+                ),
                 title,
               }}
             />
