@@ -26,6 +26,7 @@ interface MatomoTrackerConfig extends IntegrationConfigOptions {
   siteID?: string // @todo this should be required
   enableLinkTracking?: boolean
   enableHeartBeatTimer?: boolean
+  enableJSErrorTracking?: boolean
 }
 
 let wasInitialized = false
@@ -38,11 +39,17 @@ interface TrackedPageData {
 interface TrackPageViewSPA {
   location: Location
   prevLocation?: Location
+  enableLinkTracking?: boolean
+  enableHeartBeatTimer?: boolean
+  enableJSErrorTracking?: boolean
 }
 
 const trackPageViewSPA = ({
   location,
   prevLocation,
+  enableLinkTracking = true,
+  enableHeartBeatTimer = true,
+  enableJSErrorTracking = true,
 }: TrackPageViewSPA): TrackedPageData | null => {
   const paq = window._paq
   if (!paq) {
@@ -58,7 +65,11 @@ const trackPageViewSPA = ({
   paq.push(['setCustomUrl', url])
   paq.push(['setDocumentTitle', title])
   paq.push(['trackPageView'])
-  paq.push(['enableLinkTracking'])
+
+  enableLinkTracking && paq.push(['enableLinkTracking'])
+  enableHeartBeatTimer && paq.push(['enableHeartBeatTimer'])
+  enableJSErrorTracking && paq.push(['enableJSErrorTracking'])
+
   paq.push(['trackAllContentImpressions'])
 
   return { url, title }
@@ -85,6 +96,7 @@ export const useMatomoTracker = ({
   // @todo these might need to be in config, but outside of react due to route update hooks
   enableLinkTracking = true,
   enableHeartBeatTimer = true,
+  enableJSErrorTracking = true,
 }: MatomoTrackerConfig): Tracker => {
   const [isEnabled] = useDecision('matomo')
 
@@ -93,6 +105,8 @@ export const useMatomoTracker = ({
 
     enableLinkTracking && _paq.push(['enableLinkTracking'])
     enableHeartBeatTimer && _paq.push(['enableHeartBeatTimer'])
+    enableJSErrorTracking && _paq.push(['enableJSErrorTracking'])
+
     _paq.push(['setTrackerUrl', `${matomoURL}matomo.php`])
     _paq.push(['setSiteId', siteID])
 
