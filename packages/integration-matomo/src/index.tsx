@@ -27,6 +27,7 @@ interface MatomoTrackerConfig extends IntegrationConfigOptions {
   enableLinkTracking?: boolean
   enableHeartBeatTimer?: boolean
   enableJSErrorTracking?: boolean
+  push?: string[][]
 }
 
 let wasInitialized = false
@@ -42,6 +43,7 @@ interface TrackPageViewSPA {
   enableLinkTracking?: boolean
   enableHeartBeatTimer?: boolean
   enableJSErrorTracking?: boolean
+  push?: string[][]
 }
 
 const trackPageViewSPA = ({
@@ -50,6 +52,7 @@ const trackPageViewSPA = ({
   enableLinkTracking = true,
   enableHeartBeatTimer = true,
   enableJSErrorTracking = true,
+  push = [],
 }: TrackPageViewSPA): TrackedPageData | null => {
   const paq = window._paq
   if (!paq) {
@@ -71,6 +74,12 @@ const trackPageViewSPA = ({
   enableJSErrorTracking && paq.push(['enableJSErrorTracking'])
 
   paq.push(['trackAllContentImpressions'])
+
+  if (push.length) {
+    for (const pushValue of push) {
+      paq.push(pushValue)
+    }
+  }
 
   return { url, title }
 }
@@ -97,6 +106,7 @@ export const useMatomoTracker = ({
   enableLinkTracking = true,
   enableHeartBeatTimer = true,
   enableJSErrorTracking = true,
+  push = [],
 }: MatomoTrackerConfig): Tracker => {
   const [isEnabled] = useDecision('matomo')
 
@@ -109,6 +119,12 @@ export const useMatomoTracker = ({
 
     _paq.push(['setTrackerUrl', `${matomoURL}matomo.php`])
     _paq.push(['setSiteId', siteID])
+
+    if (push.length) {
+      for (const pushValue of push) {
+        _paq.push(pushValue)
+      }
+    }
 
     const script = document.createElement('script')
 
