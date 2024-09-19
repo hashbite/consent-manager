@@ -22,6 +22,7 @@ export function demoIntegration(): IntegrationConfig {
     contrastColor,
     Icon,
     privacyPolicyUrl: `https://example.com?hl=${lang}`,
-    description: 'Please: Keep me disabled for the privacy shield demo in the docs :)',
+    description:
+      'Please: Keep me disabled for the privacy shield demo in the docs :)',
   }
 }

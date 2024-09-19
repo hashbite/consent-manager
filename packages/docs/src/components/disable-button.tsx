@@ -8,7 +8,7 @@ export function DisableButton({
   children: React.ReactNode
   id: string
 }) {
-  const [, setEnabled]= useDecision(id)
+  const [, setEnabled] = useDecision(id)
 
   return <button onClick={() => setEnabled(false)}>{children}</button>
 }

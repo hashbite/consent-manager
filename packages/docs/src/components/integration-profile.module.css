@@ -9,6 +9,7 @@
   background: var(--ifm-table-stripe-background);
 }
 
-.table td, .table th {
+.table td,
+.table th {
   padding: 0.5rem;
 }
