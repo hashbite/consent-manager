@@ -4900,10 +4900,10 @@
     "@typescript-eslint/types" "6.21.0"
     eslint-visitor-keys "^3.4.1"
 
-"@u-wave/react-vimeo@0.9.10":
-  version "0.9.10"
-  resolved "https://registry.yarnpkg.com/@u-wave/react-vimeo/-/react-vimeo-0.9.10.tgz#155a033a34ad04b155a4b8814fc18f8452081e97"
-  integrity sha512-fNpRZHPTDvz3J/6aFC7C4aB4rD3WjJ7h0f1VO7OC/GtGwXUsKSqDbEG2J8TdT5gQVtLGwupZMGzfbD5f0dZs1w==
+"@u-wave/react-vimeo@0.9.11":
+  version "0.9.11"
+  resolved "https://registry.yarnpkg.com/@u-wave/react-vimeo/-/react-vimeo-0.9.11.tgz#2e253988bf48b03506f6b7c1becbdd12bee712fd"
+  integrity sha512-4WEfkYaJHhgxRusQvrA6CmRVS91ZA1SCX/qWDBRpG2akLEfhv1QvDwV15YX++Dh2QArzf+jdWPygSxKgQxvsmg==
   dependencies:
     "@types/react" "^17.0.0 || ^18.0.0"
     "@types/vimeo__player" "^2.10.0"
