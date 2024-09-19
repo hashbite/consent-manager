@@ -1,5 +1,11 @@
 # @consent-manager/integration-matomo
 
+## 2.0.0-next.3
+
+### Minor Changes
+
+- 3edd595: Enable JS error tracking in Matomo by default. Also adds a feature that lets devs enable any Matomo feature via Consent Manager"
+
 ## 2.0.0-next.2
 
 ### Patch Changes
