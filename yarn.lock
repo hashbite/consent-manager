@@ -4411,7 +4411,7 @@
   dependencies:
     "@types/unist" "*"
 
-"@types/history@^4.7.11", "@types/history@^4.7.8":
+"@types/history@^4.7.11":
   version "4.7.11"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.11.tgz#56588b17ae8f50c53983a524fc3cc47437969d64"
   integrity sha512-qjDJRrmvBMiTx+jyLxvLfJU7UznFuokDv4f3WRuriHKERccVpFU+8XMQUAbDzoiJCsmexxRExQeMwwCdamSKDA==
@@ -4681,13 +4681,6 @@
     "@types/http-errors" "*"
     "@types/mime" "*"
     "@types/node" "*"
-
-"@types/simple-icons@5.21.1":
-  version "5.21.1"
-  resolved "https://registry.yarnpkg.com/@types/simple-icons/-/simple-icons-5.21.1.tgz#d80b05d50312f841b0bf77d7e3b005fb5ed52091"
-  integrity sha512-exnKcr2DxKe0UsGIjvw/hv88OAWkxwPped5iq7YlgC9flaxAJHHvsjmq45Sr7FYjjyrwJI8VFh85xzY6k+L5WQ==
-  dependencies:
-    simple-icons "*"
 
 "@types/sinonjs__fake-timers@8.1.1":
   version "8.1.1"
@@ -16261,7 +16254,7 @@ signal-exit@^3.0.0, signal-exit@^3.0.2, signal-exit@^3.0.3:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.7.tgz#a9a1767f8af84155114eaabd73f99273c8f59ad9"
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
 
-simple-icons@*, simple-icons@^11.0.0:
+simple-icons@^11.0.0:
   version "11.15.0"
   resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-11.15.0.tgz#b12e7b10ea8af935f45a76bfa217fdea2b1a8640"
   integrity sha512-uDAdtIGc56YJiGpdzImENY4E+5qtHEorW11KoXiwDj4u4YSY74G+q/a9idlY8iEqrjghHGkZ/ras0jRT7JpDTQ==
