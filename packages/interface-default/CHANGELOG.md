@@ -1,5 +1,12 @@
 # @consent-manager/interface-default
 
+## 2.0.0-next.7
+
+### Patch Changes
+
+- Bump version
+- cff7b6d: Remove animations and outdated react-transition-group dependency
+
 ## 2.0.0-next.6
 
 ### Patch Changes
