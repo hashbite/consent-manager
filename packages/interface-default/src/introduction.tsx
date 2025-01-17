@@ -6,7 +6,6 @@ import React, {
   useState,
 } from 'react'
 import clsx from 'clsx'
-import { CSSTransition } from 'react-transition-group'
 import createActivityDetector from 'activity-detector-ssr'
 import { Trans } from './trans'
 
@@ -14,7 +13,6 @@ import { useDecisions } from '@consent-manager/core'
 
 import { Styles, IconProps, ButtonProps } from './index'
 import defaultStyles from './index.module.css'
-import defaultAnimationStyles from './animation-slide.module.css'
 import { ConsentManagerDefaultInterfaceContext } from './context'
 
 export interface IntroductionProps {
@@ -22,7 +20,6 @@ export interface IntroductionProps {
   introductionFinished: () => void
   styles?: Styles
   animationStyles?: Styles
-  slideDuration: number
   noActionDelay?: number
   Button: React.FC<ButtonProps>
 }
@@ -36,8 +33,6 @@ export const Introduction: React.FC<IntroductionProps> = ({
   CloseIcon,
   introductionFinished,
   styles = defaultStyles,
-  animationStyles = defaultAnimationStyles,
-  slideDuration,
   Button,
   noActionDelay = 4000,
 }) => {
@@ -98,57 +93,52 @@ export const Introduction: React.FC<IntroductionProps> = ({
     (e: MouseEvent<HTMLButtonElement>) => {
       e.preventDefault()
       setShow(false)
+      introductionFinished()
     },
     [setShow]
   )
 
+  if (!show) {
+    return null
+  }
+
   return (
-    <CSSTransition
-      in={show}
-      timeout={slideDuration}
-      classNames={animationStyles}
-      mountOnEnter
-      unmountOnExit
-      onExited={() => introductionFinished()}
+    <section
+      className={clsx(styles.introduction, styles.slide)}
     >
-      <section
-        className={clsx(styles.introduction, styles.slide)}
-        style={{ transitionDuration: `${slideDuration}ms` }}
-      >
-        <div className={clsx(styles.introductionShape)} />
-        <div className={clsx(styles.introductionContent)}>
-          <h1 className={clsx(styles.introductionTitle)}>
-            <Trans id="consent-manager.introduction.title" />
-          </h1>
-          <p className={clsx(styles.introductionDescription)}>
-            <Trans id="consent-manager.introduction.description" />
-          </p>
-          <div className={clsx(styles.introductionControls)}>
-            <Button onClick={onLearnMore}>
-              <Trans id="consent-manager.introduction.learn-more" />
-            </Button>
-            <Button data-button-style="primary" onClick={onEnableAll}>
-              <Trans id="consent-manager.introduction.enable-all" />
-            </Button>
-          </div>
-          <Trans
-            id="consent-manager.close"
-            render={({ message }) => (
-              <button
-                className={clsx(
-                  styles.buttonReset,
-                  styles.buttonClose,
-                  styles.buttonClose
-                )}
-                onClick={onClose}
-                title={message}
-              >
-                <CloseIcon className={clsx(styles.buttonCloseIcon)} />
-              </button>
-            )}
-          />
+      <div className={clsx(styles.introductionShape)} />
+      <div className={clsx(styles.introductionContent)}>
+        <h1 className={clsx(styles.introductionTitle)}>
+          <Trans id="consent-manager.introduction.title" />
+        </h1>
+        <p className={clsx(styles.introductionDescription)}>
+          <Trans id="consent-manager.introduction.description" />
+        </p>
+        <div className={clsx(styles.introductionControls)}>
+          <Button onClick={onLearnMore}>
+            <Trans id="consent-manager.introduction.learn-more" />
+          </Button>
+          <Button data-button-style="primary" onClick={onEnableAll}>
+            <Trans id="consent-manager.introduction.enable-all" />
+          </Button>
         </div>
-      </section>
-    </CSSTransition>
+        <Trans
+          id="consent-manager.close"
+          render={({ message }) => (
+            <button
+              className={clsx(
+                styles.buttonReset,
+                styles.buttonClose,
+                styles.buttonClose
+              )}
+              onClick={onClose}
+              title={message}
+            >
+              <CloseIcon className={clsx(styles.buttonCloseIcon)} />
+            </button>
+          )}
+        />
+      </div>
+    </section>
   )
 }
