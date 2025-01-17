@@ -47,7 +47,7 @@
   "license": "MIT",
   "dependencies": {
     "react-gtm-module": "^2.0.11",
-    "simple-icons": "^13.0.0"
+    "simple-icons": "^14.0.0"
   },
   "peerDependencies": {
     "@consent-manager/core": "^2.0.0-next.0",
