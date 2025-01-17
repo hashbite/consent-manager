@@ -8,7 +8,6 @@ import React, {
   useState,
 } from 'react'
 import clsx from 'clsx'
-import { CSSTransition } from 'react-transition-group'
 import { IoShieldCheckmark } from '@react-icons/all-files/io5/IoShieldCheckmark'
 import { IoClose } from '@react-icons/all-files/io5/IoClose'
 
@@ -26,7 +25,6 @@ import {
 
 import { Switch as DefaultSwitch } from './switch'
 import defaultStyles from './index.module.css'
-import defaultAnimationStyles from './animation-slide.module.css'
 import { Introduction } from './introduction'
 import { Backdrop } from './backdrop'
 import { ConsentManagerDefaultInterfaceContext } from './context'
@@ -40,7 +38,7 @@ const DefaultForm = React.lazy(
 
 export interface InterfaceProps
   extends DecisionsFormProps,
-    ConsentManagerDefaultInterfaceDesignProps {}
+  ConsentManagerDefaultInterfaceDesignProps { }
 
 export const Interface: React.FC<InterfaceProps> = ({
   integrations,
@@ -48,7 +46,6 @@ export const Interface: React.FC<InterfaceProps> = ({
   onSubmit,
   useDefaultButtonForIntroduction = true,
   noActionDelay = 4000,
-  slideDuration = 700,
   styles = defaultStyles,
   CloseIcon = IoClose,
   ToggleIcon = IoShieldCheckmark,
@@ -56,7 +53,6 @@ export const Interface: React.FC<InterfaceProps> = ({
   Switch = DefaultSwitch,
   Button = (props) => <button {...props} />,
   Form = DefaultForm,
-  animationStyles = defaultAnimationStyles,
 }) => {
   const DefaultButton = useDefaultButton(styles)
   const hasPendingDecisions = useConsentFormVisible()
@@ -133,29 +129,20 @@ export const Interface: React.FC<InterfaceProps> = ({
   }
 
   return (
-    <div className={clsx(styles.wrapper)} id="consent-control-ui">
-      {needsIntroduction && (
-        <Introduction
-          introductionFinished={introductionFinished}
-          slideDuration={slideDuration}
-          CloseIcon={CloseIcon}
-          Button={useDefaultButtonForIntroduction ? DefaultButton : Button}
-          noActionDelay={noActionDelay}
-        />
-      )}
-      <Backdrop fadeDuration={slideDuration} styles={styles} />
-      <CSSTransition
-        in={formVisible}
-        timeout={slideDuration}
-        classNames={animationStyles}
-        unmountOnExit
-        mountOnEnter
-      >
+    <>
+      <div className={clsx(styles.wrapper)} id="consent-control-ui">
+        {needsIntroduction && (
+          <Introduction
+            introductionFinished={introductionFinished}
+            CloseIcon={CloseIcon}
+            Button={useDefaultButtonForIntroduction ? DefaultButton : Button}
+            noActionDelay={noActionDelay}
+          />
+        )}
+        {formVisible && <Backdrop styles={styles} />}
         <div
+          hidden={!formVisible}
           className={clsx(styles.pane, styles.slide)}
-          style={{
-            transitionDuration: `${slideDuration}ms`,
-          }}
         >
           <section
             className={clsx(styles.form)}
@@ -180,12 +167,12 @@ export const Interface: React.FC<InterfaceProps> = ({
             )}
           </section>
         </div>
-      </CSSTransition>
-      <ToggleButton
-        ToggleIcon={ToggleIcon}
-        styles={styles}
-        toggleControlForm={toggleControlForm}
-      />
-    </div>
+        <ToggleButton
+          ToggleIcon={ToggleIcon}
+          styles={styles}
+          toggleControlForm={toggleControlForm}
+        />
+      </div >
+    </>
   )
 }

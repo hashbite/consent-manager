@@ -22,7 +22,6 @@ In addition to all the props supported by `ConsentManager`, `ConsentManagerDefau
 | `Button`                          | [`React.FC<ButtonProps>`](https://github.com/hashbite/consent-manager/blob/main/packages/interface-default/src/index.tsx#L37)                                      | Component for buttons.                                                      |
 | `Form`                            | [`React.FC<ConsentFormProps>` ](https://github.com/hashbite/consent-manager/blob/main/packages/interface-default/src/form.tsx)                                     | Component for the consent form.                                             |
 | `useDefaultButtonForIntroduction` | `boolean`                                                                                                                                                          | Determines if the default button style is used for the introduction screen. |
-| `slideDuration`                   | `number`                                                                                                                                                           | Duration of slide animations in milliseconds.                               |
 | `noActionDelay`                   | `number`                                                                                                                                                           | Delay before any action is taken (e.g., showing the form) in milliseconds.  |
 
 ## Example Usage

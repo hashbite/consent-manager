@@ -86,7 +86,6 @@ html[data-theme='dark'] {
   left: 0;
   top: auto;
   z-index: 9999;
-  transform: translateY(100%);
 }
 
 .wrapper a {
@@ -110,7 +109,7 @@ html[data-theme='dark'] {
 .slide {
   position: absolute;
   left: 0;
-  top: 0;
+  bottom: 0;
   width: 100%;
   will-change: transform;
   transition-property: transform;

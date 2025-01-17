@@ -41,7 +41,6 @@ export interface ButtonProps {
 
 export interface ConsentManagerDefaultInterfaceDesignProps {
   useDefaultButtonForIntroduction?: boolean
-  slideDuration?: number
   noActionDelay?: number
   styles?: Styles
   animationStyles?: Styles
