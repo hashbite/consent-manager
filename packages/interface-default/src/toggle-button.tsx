@@ -20,7 +20,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
   const { formVisible } = useContext(ConsentManagerDefaultInterfaceContext)
   return (
     <button
-      hidden={!formVisible}
+      hidden={formVisible}
       className={clsx(styles.toggleButton)}
       title={`Toggle website settings visibility`}
       onClick={(e) => toggleControlForm(e)}

@@ -128,6 +128,8 @@ export const Interface: React.FC<InterfaceProps> = ({
     return null
   }
 
+  console.log({ needsIntroduction, formVisible })
+
   return (
     <>
       <div className={clsx(styles.wrapper)} id="consent-control-ui">

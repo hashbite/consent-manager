@@ -15,7 +15,7 @@
     "start": "lerna run start --stream --parallel",
     "test": "lerna run test --",
     "lint": "lerna run lint -- --fix",
-    "build": "lerna run build",
+    "build": "lerna run build --concurrency 4",
     "format": "prettier --write packages/**/src",
     "cleanup": "lerna exec -- rm -rf ./dist",
     "prepublish": "yarn run cleanup && lerna run prepublish --scope='@consent-manager/core' && lerna run prepublish --ignore='@consent-manager/core'",
