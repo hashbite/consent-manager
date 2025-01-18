@@ -141,7 +141,6 @@ export const Interface: React.FC<InterfaceProps> = ({
         )}
         {formVisible && <Backdrop styles={styles} />}
         <div
-          hidden={!formVisible}
           className={clsx(styles.pane, styles.slide)}
         >
           <section
