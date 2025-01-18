@@ -23,7 +23,7 @@
     "cypress": "cypress run",
     "cypress:open": "cypress open",
     "changeset": "changeset",
-    "release": "changeset publish",
+    "release": "npm run build && changeset publish",
     "version:canary": "changeset version --snapshot canary",
     "release:canary": "changeset publish --tag canary"
   },
