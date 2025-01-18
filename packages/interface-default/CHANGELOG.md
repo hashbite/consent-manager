@@ -1,5 +1,11 @@
 # @consent-manager/interface-default
 
+## 2.0.0-next.10
+
+### Patch Changes
+
+- Small fixes and some debugging
+
 ## 2.0.0-next.9
 
 ### Patch Changes
