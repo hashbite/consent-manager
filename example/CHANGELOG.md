@@ -1,5 +1,13 @@
 # @consent-manager/example-parcel-minimal
 
+## 1.0.0-next.2
+
+### Patch Changes
+
+- Bump dependencies
+- Updated dependencies
+  - @consent-manager/core@2.0.0-next.4
+
 ## 1.0.0-next.1
 
 ### Patch Changes

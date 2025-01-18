@@ -1,5 +1,13 @@
 # @consent-manager/interface-default
 
+## 2.0.0-next.9
+
+### Patch Changes
+
+- Bump dependencies
+- Updated dependencies
+  - @consent-manager/core@2.0.0-next.4
+
 ## 2.0.0-next.8
 
 ### Patch Changes

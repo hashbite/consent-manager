@@ -1,6 +1,6 @@
 {
   "name": "@consent-manager/integration-vimeo",
-  "version": "2.0.0-next.2",
+  "version": "2.0.0-next.3",
   "description": "Protect your visitors privacy by integrating vimeo.com via consent-manager",
   "author": {
     "name": "hashbite",
@@ -48,7 +48,7 @@
     "simple-icons": "^13.0.0"
   },
   "peerDependencies": {
-    "@consent-manager/core": "^2.0.0-next.0",
+    "@consent-manager/core": "^2.0.0-next.4",
     "react": "^16.8.0 || ^17.0.1 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.1 || ^18.0.0"
   }

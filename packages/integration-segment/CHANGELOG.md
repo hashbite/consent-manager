@@ -1,5 +1,13 @@
 # @consent-manager/integration-segment
 
+## 2.0.0-next.3
+
+### Patch Changes
+
+- Bump dependencies
+- Updated dependencies
+  - @consent-manager/core@2.0.0-next.4
+
 ## 2.0.0-next.2
 
 ### Patch Changes
