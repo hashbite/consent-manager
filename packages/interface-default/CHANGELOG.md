@@ -1,5 +1,11 @@
 # @consent-manager/interface-default
 
+## 2.0.0-next.8
+
+### Patch Changes
+
+- Ensure consent-manager is visible even after giving consent
+
 ## 2.0.0-next.7
 
 ### Patch Changes
