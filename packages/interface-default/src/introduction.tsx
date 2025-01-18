@@ -98,8 +98,6 @@ export const Introduction: React.FC<IntroductionProps> = ({
     [setShow]
   )
 
-  console.log({show, isIdle})
-
   if (!show) {
     return null
   }
