@@ -1,3 +1,5 @@
+> **Deprecated** in favor of https://c15t.com/
+
 # Consent Manager
 
 **Effortless Compliance and User Empowerment for Modern Web Applications**
